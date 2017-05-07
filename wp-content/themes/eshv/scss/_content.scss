@@ -156,6 +156,24 @@
       margin: 30px;
     }
   }
+
+  .footnotes {
+    li {
+      @include size-height(14, 19);
+      margin: 5px 0;
+      padding: 5px;
+    }
+
+    :target {
+      background: $light-grey;
+      color: $black;
+    }
+  }
+
+  .crumbs {
+    @include size-height(22, 25);
+    margin-bottom: 24px;
+  }
 }
 
 .page-wrapper {

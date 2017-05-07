@@ -90,6 +90,18 @@ small {
   line-height: 1rem;
 }
 
+sup {
+  font-size: 13px;
+  font-size: 0.8125rem;
+  line-height: 13px;
+  line-height: 0.8125rem;
+  vertical-align: super;
+}
+
+sup a {
+  text-decoration: underline;
+}
+
 .icon {
   background-image: url("/public/sprites/sprite-bbe031af38.png");
 }
@@ -796,6 +808,28 @@ small {
   line-height: 18px;
   line-height: 1.125rem;
   margin: 10px;
+}
+
+.content .footnotes li {
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 19px;
+  line-height: 1.1875rem;
+  margin: 5px 0;
+  padding: 5px;
+}
+
+.content .footnotes :target {
+  background: #eee;
+  color: #000;
+}
+
+.content .crumbs {
+  font-size: 22px;
+  font-size: 1.375rem;
+  line-height: 25px;
+  line-height: 1.5625rem;
+  margin-bottom: 24px;
 }
 
 .page-wrapper {

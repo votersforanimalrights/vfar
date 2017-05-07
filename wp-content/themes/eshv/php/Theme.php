@@ -8,6 +8,13 @@ class Theme {
     add_action( 'init', [ $this, 'init' ] );
     add_action( 'after_setup_theme', [ $this, 'after_setup_theme' ] );
     add_action( 'widgets_init', [ $this, 'widgets_init' ] );
+    add_filter( 'mce_buttons_2', [ $this, 'mce_buttons' ], 5 );
+  }
+
+  public function mce_buttons( $buttons ) {
+    $buttons[] = 'underline';
+    $buttons[] = 'superscript';
+    return $buttons;
   }
 
   public function init() {
@@ -16,23 +23,23 @@ class Theme {
 
   public function after_setup_theme() {
     add_theme_support( 'post-thumbnails' );
-		add_theme_support( 'title-tag' );
-		register_nav_menu( 'primary', 'Footer Links' );
+    add_theme_support( 'title-tag' );
+    register_nav_menu( 'primary', 'Footer Links' );
   }
 
   public function widgets_init() {
     foreach ( [ 'Footer' ] as $sidebar ) {
-			$id = sanitize_title( $sidebar );
-			register_sidebar( [
-				'id' => $id,
-				'name' => sprintf( '%s Widgets', $sidebar ),
-				'description' => 'Manage widgets',
-				'before_widget' => '',
-				'after_widget' => '',
-				'before_title' => '',
-				'after_title' => ''
-			] );
-		}
+      $id = sanitize_title( $sidebar );
+      register_sidebar( [
+      	'id' => $id,
+      	'name' => sprintf( '%s Widgets', $sidebar ),
+      	'description' => 'Manage widgets',
+      	'before_widget' => '',
+      	'after_widget' => '',
+      	'before_title' => '',
+      	'after_title' => ''
+      ] );
+    }
   }
 
   public static function renderSidebar( $slug, $args = [] ) {

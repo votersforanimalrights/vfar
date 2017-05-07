@@ -36,6 +36,15 @@ small {
   @include size-height;
 }
 
+sup {
+  @include size-height(13, 13);
+  vertical-align: super;
+
+  a {
+    text-decoration: underline;
+  }
+}
+
 @import 'sprite-rules';
 @import 'logos';
 @import 'header';

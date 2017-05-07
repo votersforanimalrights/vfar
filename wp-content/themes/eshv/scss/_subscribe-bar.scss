@@ -1,0 +1,298 @@
+$breakpoint: biggest;
+
+@mixin heading() {
+  @include bold;
+  @include size-height(17, 22);
+  color: $button-text;
+  float: left;
+  margin: 0 10px 0 0;
+  text-transform: uppercase;
+
+  @include respond-to($breakpoint) {
+    @include size-height(17, 45);
+    margin: 0 10px 0 20px;
+  }
+}
+
+@mixin input() {
+  @include size-height(14, 40);
+  $text: $offwhite;
+
+  background: $subscribe-input;
+  border: 0 none;
+  box-sizing: border-box;
+  display: block;
+  height: 40px;
+  padding: 0 15px;
+
+  @include respond-to($breakpoint) {
+    @include size-height(14, 45);
+    color: $text;
+    float: left;
+    height: 45px;
+  }
+
+  &:active,
+  &:focus {
+    color: $offwhite;
+    outline: 0;
+  }
+
+  &::placeholder {
+    color: $text;
+
+    @include respond-to($breakpoint) {
+      color: $text;
+    }
+  }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    box-shadow: 0 0 0 1000px $text inset;
+    color: $white;
+    -webkit-text-fill-color: $white;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+}
+
+@mixin submit() {
+  @include bold;
+  @include size-height(16, 40);
+
+  appearance: none;
+  background: $button;
+  border: 0 none;
+  border-radius: 0;
+  color: $white;
+  display: block;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+
+  &:hover {
+    background: $button-blue-hover;
+  }
+
+  @include respond-to($breakpoint) {
+    @include size-height(16, 45);
+    border-radius: 3px;
+    float: left;
+    height: 45px;
+    margin: 0 0 0 2px;
+    width: 120px;
+  }
+}
+
+.subscribe-bar {
+  @include clearfix;
+
+  background: $dark;
+  padding: 18px;
+
+  .subscribe-content {
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+
+  h3 {
+    @include heading;
+  }
+
+  form {
+    @include clearfix;
+    margin: 0 auto 20px;
+
+    @include respond-to($breakpoint) {
+      width: 770px;
+    }
+  }
+
+  .subscribe-social {
+    @include clearfix;
+
+    margin: 0 auto;
+    text-align: center;
+    width: 250px;
+
+    @include respond-to($breakpoint) {
+      width: 300px;
+    }
+
+    h3 {
+      display: block;
+      float: left;
+      line-height: 36px;
+
+      @include respond-to($breakpoint) {
+        line-height: 45px;
+      }
+    }
+  }
+
+  nav {
+    @include clearfix;
+    display: block;
+    float: left;
+  }
+
+  .fa {
+    float: left;
+    margin: 0 5px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    @include respond-to($breakpoint) {
+      margin: 5px 10px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+// scss-lint:disable IdSelector
+// scss-lint:disable SelectorFormat
+#can-form-area-get-updates-from-empire-state-humane-voters {
+  @include clearfix;
+  @include respond-to($breakpoint) {
+    margin: 0 auto;
+    width: 770px;
+  }
+
+  #action_info,
+  #logo_wrap {
+    display: none;
+  }
+
+  #can_embed_form_inner {
+    #d_sharing,
+    .ajax-loading,
+    h2,
+    h4 {
+      display: none;
+    }
+
+    #action_welcome_message {
+      color: $grey;
+      margin: 0 0 20px;
+      text-align: center;
+
+      a {
+        color: $grey;
+      }
+
+      @include respond-to($breakpoint) {
+        float: left;
+        margin: 0 22px 20px 0;
+      }
+    }
+
+    #form_col1 {
+      @include respond-to($breakpoint) {
+        float: left;
+      }
+
+      input {
+        @include input;
+        float: left;
+        margin: 0 0 2px;
+
+        &:nth-child(even) {
+          float: right;
+        }
+
+        @include respond-to($breakpoint) {
+          margin: 0 1px 0 0;
+
+          &:nth-child(even) {
+            float: left;
+          }
+        }
+      }
+
+      .country_wrap {
+        display: none;
+      }
+    }
+
+    #form_col2 {
+      clear: both;
+
+      @include respond-to($breakpoint) {
+        clear: none;
+        float: left;
+      }
+
+      // scss-lint:disable QualifyingElement
+      input[type="submit"] {
+        @include submit;
+      }
+    }
+
+    #form-first_name {
+      border-radius: 0;
+      width: calc(50% - 1px);
+
+      @include respond-to($breakpoint) {
+        border-bottom-left-radius: 2px;
+        border-top-left-radius: 2px;
+        width: 160px;
+      }
+    }
+
+    #form-last_name {
+      border-radius: 0;
+      width: calc(50% - 1px);
+
+      @include respond-to($breakpoint) {
+        width: 160px;
+      }
+    }
+
+    #form-email {
+      border-radius: 0;
+      width: calc(50% - 1px);
+
+      @include respond-to($breakpoint) {
+        width: 160px;
+      }
+    }
+
+    #form-zip_code {
+      border-radius: 0;
+      width: calc(50% - 1px);
+
+      @include respond-to($breakpoint) {
+        border-bottom-right-radius: 2px;
+        border-top-right-radius: 2px;
+        margin: 0;
+        width: 163px;
+      }
+    }
+
+    #can_thank_you {
+      h1 {
+        @include heading;
+        @include respond-to($breakpoint) {
+          margin: 0 48px 0 0;
+        }
+      }
+
+      h4 {
+        display: none;
+      }
+    }
+
+    .can_thank_you-block {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,2 @@
+<?php
+new ESHV\Theme();

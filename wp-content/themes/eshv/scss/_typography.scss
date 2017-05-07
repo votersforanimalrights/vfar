@@ -1,0 +1,27 @@
+$sans: 'Open Sans', sans-serif;
+$mont: Montserrat, sans-serif;
+
+@mixin light() {
+  font-family: $sans;
+  font-style: normal;
+  font-weight: 300;
+}
+
+@mixin bold() {
+  font-family: $sans;
+  font-style: normal;
+  font-weight: 700;
+}
+
+@mixin semibold() {
+  font-family: $sans;
+  font-style: normal;
+  font-weight: 600;
+}
+
+@mixin size-height($size: 16, $height: 16) {
+  font-size: ($size + px);
+  font-size: (($size / 16) + rem);
+  line-height: ($height + px);
+  line-height: (($height / 16) + rem);
+}

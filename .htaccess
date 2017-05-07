@@ -1,0 +1,20 @@
+AddType video/mp4 f4v f4p m4v mp4
+AddType video/ogg ogv
+AddType video/webm webm
+AddType video/x-flv flv
+
+AddType audio/mp4 m4a f4a f4b
+AddType audio/ogg oga ogg opus
+
+RewriteEngine On
+RewriteBase /
+
+# Need to add a trailing slash to wp-admin requests
+RewriteRule ^wp-admin$ /wp-admin/ [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule . - [L]
+RewriteRule  ^([_0-9a-zA-Z-]+/)?(wp-.*) /wordpress/$2 [L]
+RewriteRule  ^([_0-9a-zA-Z-]+/)?(.*\.php)$ /wordpress/$2 [L]
+RewriteRule . index.php [L]

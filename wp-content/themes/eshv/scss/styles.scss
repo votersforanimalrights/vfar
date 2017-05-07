@@ -1,0 +1,44 @@
+@import 'reset';
+@import 'colors';
+@import 'responsive';
+@import 'typography';
+
+body {
+  background: $dark;
+  font-family: $sans;
+  font-size: 16px;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
+}
+
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+strong {
+  @include bold;
+}
+
+em {
+  font-style: italic;
+}
+
+small {
+  @include size-height;
+}
+
+@import 'sprite-rules';
+@import 'logos';
+@import 'header';
+@import 'main';
+@import 'footer';
+@import 'modal';

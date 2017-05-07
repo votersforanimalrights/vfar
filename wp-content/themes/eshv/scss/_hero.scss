@@ -1,0 +1,142 @@
+$text-width: 96%;
+
+@mixin centered-text($width: $text-width) {
+  margin: 0 0 0 calc((#{$width} / 2) * -1);
+  width: $width;
+}
+
+.hero {
+  background: $white;
+  max-width: 100%;
+  overflow: hidden;
+  padding: 0 0 2px;
+  position: relative;
+
+  @include respond-to(desktop) {
+    margin: 0 auto;
+    max-width: 2400px;
+  }
+
+  .wp-post-image {
+    display: block;
+    height: auto;
+    margin: 0 auto;
+    max-width: 100%;
+    min-height: 198px;
+    width: 100%;
+
+    .home & {
+      min-height: 330px;
+    }
+
+    @media only screen and (min-width: 320px) and (max-width: 792px) {
+      margin: 0 0 0 calc(-1 * (792px - 100%));
+      max-width: 792px;
+      width: 792px;
+    }
+  }
+
+  p {
+    @include centered-text();
+    @include light;
+    @include size-height(48, 50);
+
+    $bottom: 80px;
+
+    //border: 1px solid $white;
+    bottom: 50%;
+    color: $white;
+    display: table-cell;
+    height: auto;
+    left: 50%;
+    margin-bottom: -25px;
+    position: absolute;
+    text-align: center;
+    vertical-align: bottom;
+
+    @include nonphone() {
+      @include size-height(64, 68);
+    }
+
+    .home & {
+      @include size-height(22, 24);
+      bottom: 18%;
+      height: 44%;
+      margin-bottom: 0;
+      opacity: 0;
+      transition-duration: 2.5s;
+      transition-property: opacity, bottom;
+
+      @include respond-to(biggerphone) {
+        @include size-height(25, 26);
+        height: 48%;
+        width: 97%;
+      }
+
+      @include respond-to(bigphone) {
+        @include centered-text(93%);
+        @include size-height(25, 27);
+        height: 49%;
+      }
+
+      @include respond-to(plusphone) {
+        @include centered-text(95%);
+        @include size-height(28, 29);
+        height: 53%;
+      }
+
+      @include respond-to(tablet) {
+        @include centered-text(630px);
+        @include size-height(30, 32);
+        height: 40%;
+      }
+
+      @include respond-to(tabletpro) {
+        @include centered-text(830px);
+        @include size-height(40, 42);
+        height: 40%;
+      }
+
+      @include respond-to(desktop) {
+        @include centered-text(900px);
+        @include size-height(46, 50);
+        bottom: 18%;
+        height: 214px;
+      }
+
+      &.loaded {
+        bottom: 10%;
+        opacity: 1;
+
+        @include respond-to(desktop) {
+          bottom: $bottom;
+        }
+      }
+    }
+  }
+
+  .down-arrow {
+    bottom: 5%;
+    display: block;
+    left: 50%;
+    margin: 0 0 0 -12px;
+    opacity: 0;
+    position: absolute;
+    transition-duration: 2s;
+
+    img {
+      display: block;
+      height: 8px;
+      width: 12px;
+
+      @include respond-to(desktop) {
+        height: 16px;
+        width: 24px;
+      }
+    }
+
+    &.loaded {
+      opacity: 1;
+    }
+  }
+}

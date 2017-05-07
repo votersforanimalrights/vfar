@@ -1,0 +1,215 @@
+.masthead {
+  background: $white;
+  box-sizing: border-box;
+  padding: 8px 0 2px;
+  position: relative;
+
+  @include bigscreens() {
+    padding: 20px;
+  }
+
+  h1 {
+    margin: 12px 0 10px 10px;
+    width: 160px;
+
+    @include bigscreens() {
+      margin: 0;
+      width: 250px;
+    }
+  }
+
+  .logo {
+    display: none;
+
+    @include bigscreens() {
+      display: block;
+    }
+
+    img {
+      display: block;
+      height: 80px;
+      width: auto;
+    }
+  }
+
+  .logo-small {
+    display: block;
+
+    @include bigscreens() {
+      display: none;
+    }
+
+    img {
+      display: block;
+      height: auto;
+      width: 160px;
+    }
+  }
+}
+
+.hamburger {
+  @include bold;
+  @include size-height(45, 45);
+  background: none;
+  border: 0;
+  color: $blue;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  position: absolute;
+  right: 15px;
+  top: 18px;
+  z-index: 9989;
+
+  @include bigscreens() {
+    display: none;
+  }
+}
+
+.header-nav {
+  display: none;
+  position: absolute;
+  right: 15px;
+  top: 16px;
+  z-index: 9989;
+
+  a {
+    @include bold;
+    @include size-height(13, 20);
+
+    color: $blue;
+    display: block;
+    text-align: right;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &:hover {
+      color: $button;
+    }
+  }
+
+  @include bigscreens() {
+    display: block;
+    right: 180px;
+    text-align: left;
+    top: 80px;
+
+    a {
+      @include size-height(18, 18);
+      display: inline-block;
+      margin: 0 0 0 35px;
+    }
+  }
+
+  @include respond-to(tablet) {
+    right: 165px;
+    top: 82px;
+
+    a {
+      @include size-height(16, 16);
+      margin: 0 0 0 15px;
+    }
+  }
+}
+
+.mobile-nav {
+  background: $dark;
+  display: none;
+  font-size: 12px;
+  font-weight: bold;
+  left: 0;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 116px;
+  width: 100%;
+  z-index: 1000000;
+
+  .navOpen & {
+    display: block;
+
+    @include bigscreens() {
+      display: none;
+    }
+  }
+
+  ul {
+    list-style-image: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    border-bottom: 1px solid $detail;
+    display: block;
+
+    &:focus,
+    &:hover {
+      background: $black;
+    }
+
+    a {
+      @include size-height(16, 16);
+
+      color: $offwhite;
+      display: block;
+      margin: 0;
+      padding: 15px 0;
+      text-decoration: none;
+      text-transform: uppercase;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  @include bigscreens() {
+    display: none;
+  }
+}
+
+.header-actions {
+  @include clearfix;
+  @include semibold;
+  clear: both;
+
+  @include bigscreens() {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 126px;
+  }
+
+  a {
+    @include size-height(15, 32);
+
+    background: $button;
+    color: $button-text;
+    display: block;
+    float: left;
+    height: 32px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: calc(50% - .5px);
+
+    &:last-child {
+      float: right;
+    }
+
+    @include bigscreens() {
+      @include size-height(15, 38);
+      border-radius: 2px;
+      float: none;
+      height: 38px;
+      margin: 0 0 3px;
+      width: 100%;
+    }
+
+    &:hover {
+      background: $button-hover;
+    }
+  }
+}

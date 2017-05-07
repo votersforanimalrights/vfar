@@ -1,0 +1,18 @@
+.fa {
+  background: $grey;
+  border-radius: 18px;
+  color: $dark;
+  display: block;
+  font-size: 24px;
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+  text-decoration: none;
+  transition: 600ms;
+  transition-property: background;
+  width: 36px;
+
+  &:hover {
+    background: $white;
+  }
+}

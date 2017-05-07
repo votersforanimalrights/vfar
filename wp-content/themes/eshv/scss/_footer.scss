@@ -1,0 +1,171 @@
+.footer {
+  @include size-height(13, 22);
+
+  color: $grey;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+
+  .columns {
+    @include clearfix;
+    margin: 0 auto 24px;
+
+    @include nonphone() {
+      padding: 20px 0;
+      width: 654px;
+    }
+  }
+
+  .column {
+    box-sizing: border-box;
+    text-align: left;
+
+    h3 {
+      @include bold;
+      @include size-height(11, 13);
+
+      color: $offwhite;
+      letter-spacing: 1px;
+      margin: 0 0 20px;
+      text-transform: uppercase;
+    }
+  }
+
+  .nav-column {
+    font-family: $mont;
+    margin: 10px 0;
+    padding: 10px 0;
+
+    @include nonphone() {
+      margin: 0;
+    }
+
+    a {
+      @include size-height(13, 32);
+
+      color: $light-grey;
+      display: inline-block;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+  }
+
+  .left-column {
+    padding: 20px 0 10px;
+    text-align: center;
+
+    @include nonphone() {
+      float: left;
+      padding: 20px 25px 10px 0;
+      width: 50%;
+    }
+
+    nav {
+      margin: 0 0 20px;
+    }
+
+    a {
+      color: $dark;
+      display: inline-block;
+      margin: 0 10px;
+
+      &:hover {
+        color: $dark;
+      }
+    }
+
+    form {
+      @include clearfix;
+      margin: 0 auto;
+      width: 232px;
+    }
+  }
+
+  .right-column {
+    text-align: center;
+
+    @include nonphone() {
+      float: right;
+      width: 50%;
+    }
+  }
+
+  address {
+    display: inline;
+    font-style: normal;
+  }
+
+  a {
+    color: $grey;
+    transition: 250ms;
+
+    &:hover {
+      color: $white;
+    }
+  }
+
+  .credits {
+    color: $dark-grey;
+    display: block;
+    text-decoration: none;
+
+    a {
+      color: $dark-grey;
+
+      &:hover {
+        color: $grey;
+      }
+    }
+  }
+}
+
+.eshv-email {
+  @include size-height(13, 17);
+
+  appearance: none;
+  background: $detail;
+  border: 0 none;
+  border-bottom-left-radius: 3px;
+  border-top-left-radius: 3px;
+  box-sizing: border-box;
+  color: $input;
+  float: left;
+  height: 45px;
+  margin: 0;
+  padding: 5px 15px;
+  width: 185px;
+
+  &::placeholder {
+    color: $input;
+  }
+
+  &:focus,
+  &:active {
+    outline: none;
+  }
+}
+
+.eshv-submit {
+  background: $submit;
+  border: 0 none;
+  border-bottom-right-radius: 3px;
+  border-top-right-radius: 3px;
+  float: left;
+  height: 45px;
+  line-height: 45px;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 45px;
+
+  span {
+    // 24x17
+    $offset-left: ((45 - 24) / 2) + px;
+    $offset-top: ((45 - 17) / 2) + px;
+
+    display: block;
+    left: $offset-left;
+    position: absolute;
+    top: $offset-top;
+  }
+}

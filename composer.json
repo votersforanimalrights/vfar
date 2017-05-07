@@ -1,0 +1,24 @@
+{
+    "name": "eshv/eshv",
+    "description": "Empire State Humane Voters",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Scott Taylor",
+            "email": "scott.c.taylor@mac.com"
+        }
+    ],
+    "require": {},
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    },
+    "autoload": {
+      "psr-4": {
+        "ESHV\\": "wp-content/themes/eshv/php/"
+      },
+      "files": [
+        "wp-content/themes/eshv/php/functions.php"
+      ]
+    }
+}

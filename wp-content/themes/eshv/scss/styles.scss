@@ -37,6 +37,7 @@ small {
 }
 
 sup {
+  @include semibold;
   @include size-height(13, 13);
   vertical-align: super;
 

@@ -2,13 +2,21 @@
     "name": "eshv/eshv",
     "description": "Empire State Humane Voters",
     "type": "project",
+    "repositories":[
+        {
+            "type":"composer",
+            "url":"https://wpackagist.org"
+        }
+    ],
     "authors": [
         {
             "name": "Scott Taylor",
             "email": "scott.c.taylor@mac.com"
         }
     ],
-    "require": {},
+    "require": {
+        "wpackagist-plugin/wordpress-seo": "^4.7"
+    },
     "config": {
         "optimize-autoloader": true,
         "sort-packages": true

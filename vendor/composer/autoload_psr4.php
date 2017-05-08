@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'ESHV\\' => array($baseDir . '/wp-content/themes/eshv/php'),
+    'Composer\\Installers\\' => array($vendorDir . '/composer/installers/src/Composer/Installers'),
 );

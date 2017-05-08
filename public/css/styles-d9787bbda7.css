@@ -810,6 +810,19 @@ sup a {
   margin: 10px;
 }
 
+.content .list {
+  list-style-type: disc;
+  margin: 0 20px 24px 24px;
+}
+
+.content .list li {
+  margin: 0 0 16px;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 22px;
+  line-height: 1.375rem;
+}
+
 .content .footnotes li {
   font-size: 14px;
   font-size: 0.875rem;
@@ -1650,6 +1663,12 @@ html.can_embed-html body {
   }
   .content .donate-disclaimer {
     margin: 30px;
+  }
+  .content .list li {
+    font-size: 20px;
+    font-size: 1.25rem;
+    line-height: 25px;
+    line-height: 1.5625rem;
   }
   .page-content-wrapper {
     margin: 0 20% 0 10%;

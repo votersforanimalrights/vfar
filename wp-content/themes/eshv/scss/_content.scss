@@ -157,6 +157,20 @@
     }
   }
 
+  .list {
+    list-style-type: disc;
+    margin: 0 20px 24px 24px;
+
+    li {
+      margin: 0 0 16px;
+      @include size-height(16, 22);
+
+      @include nonphone() {
+        @include size-height(20, 25);
+      }
+    }
+  }
+
   .footnotes {
     li {
       @include size-height(14, 19);

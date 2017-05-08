@@ -1,6 +1,13 @@
 <?php
 $className = '';
-$show = ! ( is_page() && in_array( get_post()->post_name, array( 'may2circus', 'launch', 'donate', 'launch-party-waiting-list' ) ) );
+$suppress = array(
+  'may2circus',
+  'launch',
+  'donate',
+  'launch-party-waiting-list',
+  'volunteer',
+);
+$show = ! ( is_page() && in_array( get_post()->post_name, $suppress ) );
 if ( $show && ( ! isset( $_COOKIE['splash'] ) || isset( $_GET['splash'] ) ) ) {
   $className = ' auto-modal';
 }

@@ -24,7 +24,8 @@ class Theme {
   public function after_setup_theme() {
     add_theme_support( 'post-thumbnails' );
     add_theme_support( 'title-tag' );
-    register_nav_menu( 'primary', 'Footer Links' );
+    register_nav_menu( 'header', 'Header Links' );
+    register_nav_menu( 'footer', 'Footer Links' );
   }
 
   public function widgets_init() {

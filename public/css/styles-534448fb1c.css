@@ -778,11 +778,11 @@ sup a {
   line-height: 1.5rem;
 }
 
-.content .acknowledgments li {
+.content .acknowledgements li {
   margin: 0 0 16px;
 }
 
-.content .acknowledgments li strong {
+.content .acknowledgements li strong {
   font-size: 16px;
   font-size: 1rem;
   line-height: 20px;
@@ -1672,7 +1672,7 @@ html.can_embed-html body {
     line-height: 27px;
     line-height: 1.6875rem;
   }
-  .content .acknowledgments li strong {
+  .content .acknowledgements li strong {
     font-size: 18px;
     font-size: 1.125rem;
     line-height: 22px;

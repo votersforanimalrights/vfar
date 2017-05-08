@@ -48,8 +48,7 @@
 }
 
 .hamburger {
-  @include bold;
-  @include size-height(45, 45);
+  @include size-height(35, 35);
   background: none;
   border: 0;
   color: $blue;
@@ -58,7 +57,7 @@
   padding: 0;
   position: absolute;
   right: 15px;
-  top: 18px;
+  top: 28px;
   z-index: 9989;
 
   @include bigscreens() {

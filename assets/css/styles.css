@@ -220,13 +220,10 @@ sup a {
 }
 
 .hamburger {
-  font-family: "Open Sans", sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 45px;
-  font-size: 2.8125rem;
-  line-height: 45px;
-  line-height: 2.8125rem;
+  font-size: 35px;
+  font-size: 2.1875rem;
+  line-height: 35px;
+  line-height: 2.1875rem;
   background: none;
   border: 0;
   color: #2852a1;
@@ -235,7 +232,7 @@ sup a {
   padding: 0;
   position: absolute;
   right: 15px;
-  top: 18px;
+  top: 28px;
   z-index: 9989;
 }
 

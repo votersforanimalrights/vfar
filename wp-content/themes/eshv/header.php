@@ -97,19 +97,30 @@ get_template_part( 'templates/modal' );
       />
     </a>
   </h1>
+  <?php $links = ESHV\Theme::getNavMenuItems( 'header-links' ); ?>
   <nav class="header-nav">
-    <a href="<?php echo home_url( '/about-us/' ) ?>">About Us</a>
-    <a href="<?php echo home_url( '/issues/' ) ?>">Issues</a>
-    <a href="<?php echo home_url( '/action/' ) ?>">Action</a>
-    <a href="<?php echo home_url( '/launch/' ) ?>">Launch Party</a>
+    <?php
+    foreach ( $links as $link ) {
+      printf(
+        '<a href="%s">%s</a>',
+        $link->url,
+        $link->title
+      );
+    }
+    ?>
   </nav>
   <button class="hamburger" id="hamburger">&#9776;</button>
   <nav class="mobile-nav">
     <ul>
-      <li><a href="<?php echo home_url( '/about-us/' ) ?>">About Us</a></li>
-      <li><a href="<?php echo home_url( '/issues/' ) ?>">Issues</a></li>
-      <li><a href="<?php echo home_url( '/action/' ) ?>">Action</a></li>
-      <li><a href="<?php echo home_url( '/launch/' ) ?>">Launch Party</a></li>
+      <?php
+      foreach ( $links as $link ) {
+        printf(
+          '<li><a href="%s">%s</a></li>',
+          $link->url,
+          $link->title
+        );
+      }
+      ?>
     </ul>
   </nav>
   <nav class="header-actions">

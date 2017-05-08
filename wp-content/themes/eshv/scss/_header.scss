@@ -90,14 +90,14 @@
 
   @include bigscreens() {
     display: block;
-    right: 180px;
+    right: 165px;
     text-align: left;
     top: 80px;
 
     a {
       @include size-height(18, 18);
       display: inline-block;
-      margin: 0 0 0 35px;
+      margin: 0 0 0 26px;
     }
   }
 

@@ -1410,7 +1410,7 @@ html.can_embed-html body {
   }
   .header-nav {
     display: block;
-    right: 180px;
+    right: 165px;
     text-align: left;
     top: 80px;
   }
@@ -1420,7 +1420,7 @@ html.can_embed-html body {
     line-height: 18px;
     line-height: 1.125rem;
     display: inline-block;
-    margin: 0 0 0 35px;
+    margin: 0 0 0 26px;
   }
   .navOpen .mobile-nav {
     display: none;

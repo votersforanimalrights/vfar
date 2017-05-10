@@ -47,17 +47,64 @@
 }
 
 .hamburger {
-  @include size-height(35, 35);
-  background: none;
+  background-clip: content-box;
+  background-color: $black;
   border: 0;
-  color: $dark;
-  cursor: pointer;
-  outline: none;
-  padding: 0;
+  box-shadow: none;
+  color: $white;
+  display: inline-block;
+  font-weight: 600;
+  height: 40px;
+  line-height: initial;
+  margin-left: -7px;
+  margin-top: -20px;
+  overflow: hidden;
+  padding: 19px 8px;
   position: absolute;
   right: 15px;
-  top: 20px;
+  text-align: center;
+  text-indent: -9999px;
+  text-shadow: none;
+  text-transform: uppercase;
+  top: 40px;
+  transition: background .3s, color .3s;
+  width: 40px;
   z-index: 9989;
+
+  .navOpen & {
+    background-color: transparent;
+  }
+
+  &::before {
+    margin-top: -8px;
+
+    .navOpen & {
+      margin-top: 0;
+      transform: rotate(45deg) translateZ(0);
+    }
+  }
+
+  &::after {
+    margin-top: 6px;
+
+    .navOpen & {
+      margin-top: 0;
+      transform: rotate(-45deg) translateZ(0);
+    }
+  }
+
+  &::before,
+  &::after {
+    background-color: $black;
+    box-sizing: inherit;
+    content: '';
+    height: 2px;
+    left: 8px;
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transition: .3s;
+  }
 
   @include bigscreens() {
     display: none;

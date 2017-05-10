@@ -1,3 +1,4 @@
+const b = document.body;
 const burger = document.getElementById('hamburger');
 const hero = document.querySelector('.hero');
 const modal = document.querySelector('.modal');
@@ -5,17 +6,25 @@ const triggerModal = document.getElementById('join-the-pack');
 const inlineTriggerModal = document.querySelectorAll('.trigger-modal');
 
 const navOpenClass = 'navOpen';
-burger.onclick = (e) => {
-  e.preventDefault();
 
-  if (document.body.classList.contains(navOpenClass)) {
-    document.body.classList.remove(navOpenClass);
+const toggleMenu = (e) => {
+  e.stopPropagation();
+
+  if (b.classList.contains(navOpenClass)) {
+    b.classList.remove(navOpenClass);
   } else {
-    document.body.classList.add(navOpenClass);
+    b.classList.add(navOpenClass);
   }
 };
 
-if (hero && document.body.classList.contains('home')) {
+b.onclick = (e) => {
+  if (b.classList.contains(navOpenClass)) {
+    toggleMenu(e);
+  }
+};
+burger.onclick = toggleMenu;
+
+if (hero && b.classList.contains('home')) {
   const p = hero.querySelector('p');
   if (p) {
     setTimeout(() => p.classList.add('loaded'), 500);
@@ -61,7 +70,7 @@ window.onload = () => {
   setTimeout(() => {
     const welcomeMessage = document.getElementById('action_welcome_message');
     if (welcomeMessage) {
-      document.body.classList.add('action-logged-in');
+      b.classList.add('action-logged-in');
     }
   }, 0);
 };

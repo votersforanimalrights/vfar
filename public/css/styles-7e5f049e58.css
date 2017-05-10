@@ -219,20 +219,71 @@ sup a {
 }
 
 .hamburger {
-  font-size: 35px;
-  font-size: 2.1875rem;
-  line-height: 35px;
-  line-height: 2.1875rem;
-  background: none;
+  -webkit-background-clip: content-box;
+  background-clip: content-box;
+  background-color: #000;
   border: 0;
-  color: #3c3d41;
-  cursor: pointer;
-  outline: none;
-  padding: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: #fff;
+  display: inline-block;
+  font-weight: 600;
+  height: 40px;
+  line-height: initial;
+  margin-left: -7px;
+  margin-top: -20px;
+  overflow: hidden;
+  padding: 19px 8px;
   position: absolute;
   right: 15px;
-  top: 20px;
+  text-align: center;
+  text-indent: -9999px;
+  text-shadow: none;
+  text-transform: uppercase;
+  top: 40px;
+  -webkit-transition: background .3s, color .3s;
+  transition: background .3s, color .3s;
+  width: 40px;
   z-index: 9989;
+}
+
+.navOpen .hamburger {
+  background-color: transparent;
+}
+
+.hamburger::before {
+  margin-top: -8px;
+}
+
+.navOpen .hamburger::before {
+  margin-top: 0;
+  -webkit-transform: rotate(45deg) translateZ(0);
+  transform: rotate(45deg) translateZ(0);
+}
+
+.hamburger::after {
+  margin-top: 6px;
+}
+
+.navOpen .hamburger::after {
+  margin-top: 0;
+  -webkit-transform: rotate(-45deg) translateZ(0);
+  transform: rotate(-45deg) translateZ(0);
+}
+
+.hamburger::before, .hamburger::after {
+  background-color: #000;
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+  content: '';
+  height: 2px;
+  left: 8px;
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  -webkit-transition: .3s;
+  transition: .3s;
 }
 
 .header-nav {

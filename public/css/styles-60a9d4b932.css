@@ -841,7 +841,7 @@ body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters
 }
 
 .content.page-content {
-  padding: 32px 0 50px;
+  padding: 16px 0 30px;
 }
 
 .content.page-content a {
@@ -1708,6 +1708,10 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
     max-width: 792px;
     width: 792px;
   }
+  .page-about-us .hero .wp-post-image {
+    margin: 0 0 0 -webkit-calc(-1 * ((792px - 100%) / 2));
+    margin: 0 0 0 calc(-1 * ((792px - 100%) / 2));
+  }
 }
 
 @media only screen and (min-width: 768px) {
@@ -1763,6 +1767,9 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
     font-size: 1.125rem;
     line-height: 22px;
     line-height: 1.375rem;
+  }
+  .content.page-content {
+    padding: 24px 0 50px;
   }
   .content.page-content p {
     margin-bottom: 24px;

@@ -78,6 +78,20 @@ $breakpoint: biggest;
     background: $button-blue-hover;
   }
 
+  @include respond-to(tablet) {
+    body.action-logged-in & {
+      margin: 0 auto;
+      width: 300px;
+    }
+  }
+
+  @include respond-to(tabletpro) {
+    body.action-logged-in & {
+      margin: 0 auto;
+      width: 300px;
+    }
+  }
+
   @include respond-to($breakpoint) {
     @include size-height(16, 45);
     border-radius: 3px;
@@ -293,6 +307,24 @@ $breakpoint: biggest;
 
     .can_thank_you-block {
       display: none;
+    }
+  }
+
+  body.action-logged-in & {
+    @include respond-to(desktop) {
+      width: 515px;
+    }
+
+    #can_embed_form_inner {
+      #action_welcome_message {
+        div {
+          display: inline;
+
+          @include nonphone() {
+            line-height: 45px;
+          }
+        }
+      }
     }
   }
 }

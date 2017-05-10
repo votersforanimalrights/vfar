@@ -67,11 +67,17 @@ $image: '/wp-content/themes/eshv/splash-dog.jpg';
 }
 
 #modal-dynamic-section {
-  bottom: 5%;
+  bottom: 15%;
   margin: 0 1.5%;
   position: absolute;
   text-align: center;
   width: 97%;
+
+  body.action-logged-in & {
+    @include nonphone() {
+      bottom: 5%;
+    }
+  }
 
   .modal:not(.simple-modal) & {
     @include respond-to(tablet) {
@@ -117,20 +123,36 @@ $image: '/wp-content/themes/eshv/splash-dog.jpg';
   .simple-modal & {
     bottom: 12%;
 
+    body.action-logged-in & {
+      bottom: 20%;
+    }
+
     @include respond-to(biggerphone) {
       bottom: 15%;
     }
 
     @include respond-to(bigphone) {
       bottom: 15%;
+
+      body.action-logged-in & {
+        bottom: 25%;
+      }
     }
 
     @include respond-to(plusphone) {
       bottom: 15%;
+
+      body.action-logged-in & {
+        bottom: 25%;
+      }
     }
 
     @include nonphone() {
       bottom: 25%;
+
+      body.action-logged-in & {
+        bottom: 34%;
+      }
     }
 
     .eshv-join-header {
@@ -178,14 +200,26 @@ $image: '/wp-content/themes/eshv/splash-dog.jpg';
 
       @include respond-to(tablet) {
         padding: 35px 0 0;
+
+        body.action-logged-in & {
+          padding: 55px 0 0;
+        }
       }
 
       @include respond-to(tabletpro) {
         padding: 40px 0 20px;
+
+        body.action-logged-in & {
+          padding: 80px 0 0;
+        }
       }
 
       @include respond-to(desktop) {
         padding: 40px 0 0;
+
+        body.action-logged-in & {
+          padding: 80px 0 0;
+        }
       }
     }
 
@@ -285,6 +319,21 @@ $image: '/wp-content/themes/eshv/splash-dog.jpg';
 }
 
 #modal-form-id {
+  body.action-logged-in & {
+    #can_embed_form_inner {
+      #action_welcome_message {
+        div {
+          @include size-height(13, 20);
+          display: inline;
+
+          small {
+            @include size-height(13, 20);
+          }
+        }
+      }
+    }
+  }
+
   #form-first_name,
   #form-last_name,
   #action_info,

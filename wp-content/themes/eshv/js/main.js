@@ -56,3 +56,12 @@ if (modal) {
     });
   }
 }
+
+window.onload = () => {
+  setTimeout(() => {
+    const welcomeMessage = document.getElementById('action_welcome_message');
+    if (welcomeMessage) {
+      document.body.classList.add('action-logged-in');
+    }
+  }, 0);
+};

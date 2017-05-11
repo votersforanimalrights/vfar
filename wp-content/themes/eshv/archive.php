@@ -4,7 +4,7 @@
   <section class="content centered-content page-content">
     <div class="page-content-wrapper archive-wrapper">
       <header>
-        <h1>Releases</h1>
+        <h1>Media</h1>
       </header>
       <?php if ( have_posts() ): while ( have_posts() ): the_post(); ?>
         <article>

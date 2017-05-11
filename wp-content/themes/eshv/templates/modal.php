@@ -7,7 +7,7 @@ $suppress = array(
   'launch-party-waiting-list',
   'volunteer',
 );
-$show = ! ( is_page() && in_array( get_post()->post_name, $suppress ) );
+$show = ! ( is_category() || is_single() || (is_page() && in_array( get_post()->post_name, $suppress )) );
 if ( $show && ( ! isset( $_COOKIE['splash'] ) || isset( $_GET['splash'] ) ) ) {
   $className = ' auto-modal';
 }

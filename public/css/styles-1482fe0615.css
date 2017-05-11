@@ -191,6 +191,7 @@ sup a {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   position: relative;
+  padding: 0 0 2px;
 }
 
 .masthead h1 {

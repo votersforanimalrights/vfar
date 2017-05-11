@@ -140,9 +140,9 @@
     top: 80px;
 
     a {
-      @include size-height(18, 18);
+      @include size-height(16, 16);
       display: inline-block;
-      margin: 0 0 0 26px;
+      margin: 0 0 0 20px;
     }
   }
 

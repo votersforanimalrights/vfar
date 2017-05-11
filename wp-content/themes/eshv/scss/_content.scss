@@ -85,6 +85,11 @@
       @include size-height(24, 34);
       margin: 20px 20% 20px 10%;
     }
+
+    .single & {
+      @include size-height(24, 30);
+      color: $black;
+    }
   }
 
   p {
@@ -148,6 +153,10 @@
     h1 {
       margin: 0 0 16px;
       padding: 0;
+
+      .single & {
+        margin: 24px 0;
+      }
     }
 
     h2 {

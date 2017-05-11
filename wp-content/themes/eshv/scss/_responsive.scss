@@ -50,5 +50,5 @@ $break-biggest: 1200px;
 }
 
 @mixin bigscreens() {
-  @media only screen and (min-width: $break-tabletpro) { @content; }
+  @media only screen and (min-width: $break-desktop) { @content; }
 }

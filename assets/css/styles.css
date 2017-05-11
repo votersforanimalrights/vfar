@@ -804,6 +804,14 @@ body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters
   text-transform: uppercase;
 }
 
+.single .content h1 {
+  font-size: 24px;
+  font-size: 1.5rem;
+  line-height: 30px;
+  line-height: 1.875rem;
+  color: #000;
+}
+
 .content p {
   font-size: 18px;
   font-size: 1.125rem;
@@ -856,6 +864,10 @@ body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters
 .content.page-content h1 {
   margin: 0 0 16px;
   padding: 0;
+}
+
+.single .content.page-content h1 {
+  margin: 24px 0;
 }
 
 .content.page-content h2 {
@@ -1002,6 +1014,23 @@ html.can_embed-html body {
 
 .page-launch .page-header h1 {
   display: none;
+}
+
+.archive-wrapper h1 {
+  color: #2852a1;
+}
+
+.archive-wrapper article {
+  margin-bottom: 24px;
+}
+
+.archive-wrapper article h1 {
+  font-size: 22px;
+  font-size: 1.375rem;
+  line-height: 28px;
+  line-height: 1.75rem;
+  font-weight: 400;
+  text-transform: none;
 }
 
 .footer {
@@ -1461,7 +1490,7 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
   width: 126px;
 }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 1050px) {
   .masthead {
     padding: 10px;
   }
@@ -1485,12 +1514,12 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
     top: 80px;
   }
   .header-nav a {
-    font-size: 18px;
-    font-size: 1.125rem;
-    line-height: 18px;
-    line-height: 1.125rem;
+    font-size: 16px;
+    font-size: 1rem;
+    line-height: 16px;
+    line-height: 1rem;
     display: inline-block;
-    margin: 0 0 0 26px;
+    margin: 0 0 0 20px;
   }
   .navOpen .mobile-nav {
     display: none;
@@ -1516,98 +1545,6 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
     margin: 0 0 3px;
     width: 100%;
   }
-}
-
-@media only screen and (min-width: 768px) and (max-width: 1023px) {
-  .header-nav {
-    right: 165px;
-    top: 82px;
-  }
-  .header-nav a {
-    font-size: 16px;
-    font-size: 1rem;
-    line-height: 16px;
-    line-height: 1rem;
-    margin: 0 0 0 15px;
-  }
-  .home .hero p {
-    margin: 0 0 0 -webkit-calc((630px / 2) * -1);
-    margin: 0 0 0 calc((630px / 2) * -1);
-    width: 630px;
-    font-size: 30px;
-    font-size: 1.875rem;
-    line-height: 32px;
-    line-height: 2rem;
-    height: 40%;
-  }
-  body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters #can_embed_form_inner #form_col2 input[type="submit"] {
-    margin: 0 auto;
-    width: 300px;
-  }
-  .content .section-image {
-    margin: 0 0 0 10%;
-  }
-  .content h2 {
-    margin: 2% 20% 2% 10%;
-  }
-  .modal-wrapper {
-    height: 382px;
-    bottom: -webkit-calc((100% - 382px) / 2);
-    bottom: calc((100% - 382px) / 2);
-    top: -webkit-calc((100% - 382px) / 2);
-    top: calc((100% - 382px) / 2);
-    left: -webkit-calc((100% - 650px) / 2);
-    left: calc((100% - 650px) / 2);
-    right: -webkit-calc((100% - 650px) / 2);
-    right: calc((100% - 650px) / 2);
-    width: 650px;
-  }
-  .simple-modal .modal-wrapper {
-    height: 382px;
-    bottom: -webkit-calc((100% - 382px) / 2);
-    bottom: calc((100% - 382px) / 2);
-    top: -webkit-calc((100% - 382px) / 2);
-    top: calc((100% - 382px) / 2);
-  }
-  .modal:not(.simple-modal) #modal-dynamic-section {
-    margin: 0 1.5% 0 41.5%;
-    position: static;
-    width: 57%;
-  }
-  .modal .modal-wrapper section {
-    padding: 35px 0 0;
-  }
-  body.action-logged-in .modal .modal-wrapper section {
-    padding: 55px 0 0;
-  }
-  .modal .modal-wrapper h3 {
-    font-size: 31px;
-    font-size: 1.9375rem;
-    line-height: 31px;
-    line-height: 1.9375rem;
-  }
-  .modal .modal-wrapper p {
-    font-size: 22px;
-    font-size: 1.375rem;
-    line-height: 26px;
-    line-height: 1.625rem;
-    margin: 20px 0;
-  }
-  #modal-form-id input[type="email"],
-  #modal-form-id input[type="text"] {
-    font-size: 12px;
-    font-size: 0.75rem;
-    line-height: 18px;
-    line-height: 1.125rem;
-    height: 28px;
-  }
-  #modal-form-id input[type="submit"] {
-    height: 40px;
-    margin: 10px 0 0;
-  }
-}
-
-@media only screen and (min-width: 1050px) {
   .hero {
     margin: 0 auto;
     max-width: 2400px;
@@ -1698,6 +1635,95 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
     line-height: 2.5rem;
     height: 40px;
     margin: 20px 0 0;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .header-nav {
+    right: 165px;
+    top: 82px;
+  }
+  .header-nav a {
+    font-size: 16px;
+    font-size: 1rem;
+    line-height: 16px;
+    line-height: 1rem;
+    margin: 0 0 0 15px;
+  }
+  .home .hero p {
+    margin: 0 0 0 -webkit-calc((630px / 2) * -1);
+    margin: 0 0 0 calc((630px / 2) * -1);
+    width: 630px;
+    font-size: 30px;
+    font-size: 1.875rem;
+    line-height: 32px;
+    line-height: 2rem;
+    height: 40%;
+  }
+  body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters #can_embed_form_inner #form_col2 input[type="submit"] {
+    margin: 0 auto;
+    width: 300px;
+  }
+  .content .section-image {
+    margin: 0 0 0 10%;
+  }
+  .content h2 {
+    margin: 2% 20% 2% 10%;
+  }
+  .modal-wrapper {
+    height: 382px;
+    bottom: -webkit-calc((100% - 382px) / 2);
+    bottom: calc((100% - 382px) / 2);
+    top: -webkit-calc((100% - 382px) / 2);
+    top: calc((100% - 382px) / 2);
+    left: -webkit-calc((100% - 650px) / 2);
+    left: calc((100% - 650px) / 2);
+    right: -webkit-calc((100% - 650px) / 2);
+    right: calc((100% - 650px) / 2);
+    width: 650px;
+  }
+  .simple-modal .modal-wrapper {
+    height: 382px;
+    bottom: -webkit-calc((100% - 382px) / 2);
+    bottom: calc((100% - 382px) / 2);
+    top: -webkit-calc((100% - 382px) / 2);
+    top: calc((100% - 382px) / 2);
+  }
+  .modal:not(.simple-modal) #modal-dynamic-section {
+    margin: 0 1.5% 0 41.5%;
+    position: static;
+    width: 57%;
+  }
+  .modal .modal-wrapper section {
+    padding: 35px 0 0;
+  }
+  body.action-logged-in .modal .modal-wrapper section {
+    padding: 55px 0 0;
+  }
+  .modal .modal-wrapper h3 {
+    font-size: 31px;
+    font-size: 1.9375rem;
+    line-height: 31px;
+    line-height: 1.9375rem;
+  }
+  .modal .modal-wrapper p {
+    font-size: 22px;
+    font-size: 1.375rem;
+    line-height: 26px;
+    line-height: 1.625rem;
+    margin: 20px 0;
+  }
+  #modal-form-id input[type="email"],
+  #modal-form-id input[type="text"] {
+    font-size: 12px;
+    font-size: 0.75rem;
+    line-height: 18px;
+    line-height: 1.125rem;
+    height: 28px;
+  }
+  #modal-form-id input[type="submit"] {
+    height: 40px;
+    margin: 10px 0 0;
   }
 }
 

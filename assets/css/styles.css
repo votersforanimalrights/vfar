@@ -1735,6 +1735,7 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
     max-width: 792px;
     width: 792px;
   }
+  .page-volunteer .hero .wp-post-image,
   .page-about-us .hero .wp-post-image {
     margin: 0 0 0 -webkit-calc(-1 * ((792px - 100%) / 2));
     margin: 0 0 0 calc(-1 * ((792px - 100%) / 2));

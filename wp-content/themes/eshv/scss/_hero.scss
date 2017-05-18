@@ -34,9 +34,14 @@ $text-width: 96%;
       max-width: 792px;
       width: 792px;
 
-      .page-volunteer &,
       .page-about-us & {
         margin: 0 0 0 calc(-1 * ((792px - 100%) / 2));
+      }
+
+      .page-volunteer & {
+        margin: 0;
+        max-width: 100%;
+        width: 100%;
       }
     }
   }

@@ -428,6 +428,10 @@ sup a {
   min-height: 330px;
 }
 
+.page-volunteer .hero .wp-post-image {
+  width: auto;
+}
+
 .hero p {
   margin: 0 0 0 -webkit-calc((96% / 2) * -1);
   margin: 0 0 0 calc((96% / 2) * -1);
@@ -1742,7 +1746,7 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
   .page-volunteer .hero .wp-post-image {
     margin: 0;
     max-width: 100%;
-    width: 100%;
+    width: auto;
   }
 }
 

@@ -6,6 +6,7 @@ $suppress = array(
   'donate',
   'launch-party-waiting-list',
   'volunteer',
+  'action',
 );
 $show = ! ( is_category() || is_single() || (is_page() && in_array( get_post()->post_name, $suppress )) );
 if ( $show && ( ! isset( $_COOKIE['splash'] ) || isset( $_GET['splash'] ) ) ) {

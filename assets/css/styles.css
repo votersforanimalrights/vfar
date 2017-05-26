@@ -424,7 +424,8 @@ sup a {
   width: 100%;
 }
 
-.home .hero .wp-post-image {
+.home .hero .wp-post-image,
+.page-issues .hero .wp-post-image {
   min-height: 330px;
 }
 
@@ -1735,7 +1736,8 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
     max-width: 792px;
     width: 792px;
   }
-  .home .hero .wp-post-image {
+  .home .hero .wp-post-image,
+  .page-issues .hero .wp-post-image {
     margin: 0 0 0 -webkit-calc(-1 * (792px - 100%));
     margin: 0 0 0 calc(-1 * (792px - 100%));
     max-width: 792px;

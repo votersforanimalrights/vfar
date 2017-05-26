@@ -107,4 +107,26 @@ class WPSEO_Premium_Prominent_Words_Versioning implements WPSEO_WordPress_Integr
 			)
 		);
 	}
+
+	/**
+	 * Removes the meta key for the prominent words version for the unsupported languages that might have this value
+	 * set.
+	 */
+	public static function upgrade_4_8() {
+		$language_support = new WPSEO_Premium_Prominent_Words_Language_Support();
+
+		if ( $language_support->is_language_supported( WPSEO_Utils::get_language( get_locale() ) ) ) {
+			return;
+		}
+
+		global $wpdb;
+
+		// The remove all post metas.
+		$wpdb->query(
+			$wpdb->prepare(
+				'DELETE FROM ' . $wpdb->postmeta . ' WHERE meta_key = "%s"',
+				self::POST_META_NAME
+			)
+		);
+	}
 }

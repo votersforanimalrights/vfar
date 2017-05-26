@@ -424,8 +424,7 @@ sup a {
   width: 100%;
 }
 
-.home .hero .wp-post-image,
-.page-issues .hero .wp-post-image {
+.home .hero .wp-post-image {
   min-height: 330px;
 }
 

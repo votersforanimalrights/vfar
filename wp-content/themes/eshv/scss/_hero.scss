@@ -31,10 +31,12 @@ $text-width: 96%;
       width: 792px;
     }
 
+    .home & {
+      min-height: 330px;
+    }
+
     .home &,
     .page-issues & {
-      min-height: 330px;
-
       @media only screen and (min-width: 320px) and (max-width: 792px) {
         margin: 0 0 0 calc(-1 * (792px - 100%));
         max-width: 792px;

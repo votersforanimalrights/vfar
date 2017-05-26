@@ -29,10 +29,6 @@ $text-width: 96%;
       min-height: 330px;
     }
 
-    .page-volunteer & {
-      width: auto;
-    }
-
     @media only screen and (min-width: 320px) and (max-width: 792px) {
       margin: 0 0 0 calc(-1 * (792px - 100%));
       max-width: 792px;
@@ -40,12 +36,6 @@ $text-width: 96%;
 
       .page-about-us & {
         margin: 0 0 0 calc(-1 * ((792px - 100%) / 2));
-      }
-
-      .page-volunteer & {
-        margin: 0;
-        max-width: 100%;
-        width: auto;
       }
     }
   }

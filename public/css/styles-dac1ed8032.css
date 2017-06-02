@@ -1742,6 +1742,11 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
     max-width: 792px;
     width: 792px;
   }
+  .page-action .hero .wp-post-image {
+    margin: 0 auto;
+    max-width: 100%;
+    width: 100%;
+  }
 }
 
 @media only screen and (min-width: 768px) {

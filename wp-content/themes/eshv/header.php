@@ -3,6 +3,7 @@ $post_name = get_post()->post_name;
 $is_launch = is_page() && ('launch' === $post_name || 'launch-party-waiting-list' === $post_name);
 $is_circus = is_page() && 'may2circus' === $post_name;
 $is_action = is_page() && 'action' === $post_name;
+$is_volunteer = is_page() && 'volunteer' === $post_name;
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?> xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
@@ -52,9 +53,15 @@ if ( is_singular() && ! is_front_page() ) {
 <?php if ( $is_launch ) { ?>
 <meta property="og:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/launch-kitten.jpg" />
 <meta name="twitter:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/launch-kitten.jpg" />
-<?php } elseif ( $is_circus || $is_action ) { ?>
+<?php } elseif ( $is_circus ) { ?>
 <meta property="og:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/circus-action.jpg" />
 <meta name="twitter:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/circus-action.jpg" />
+<?php } elseif ( $is_action ) { ?>
+<meta property="og:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/action.jpg" />
+<meta name="twitter:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/action.jpg" />
+<?php } else if ( $is_volunteer ) { ?>
+<meta property="og:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/volunteer.jpg" />
+<meta name="twitter:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/volunteer.jpg" />
 <?php } else { ?>
 <meta property="og:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/splash-og.png" />
 <meta name="twitter:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/splash-og.png" />

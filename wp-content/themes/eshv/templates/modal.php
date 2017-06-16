@@ -7,6 +7,7 @@ $suppress = array(
   'launch-party-waiting-list',
   'volunteer',
   'events',
+  'circusvote',
   'end-the-use-of-exotic-animals-in-the-circus',
   'action',
 );

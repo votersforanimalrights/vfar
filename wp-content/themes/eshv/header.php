@@ -28,7 +28,7 @@ if ( is_singular() && ! is_front_page() ) {
 <meta property="og:type" content="article" />
 <meta property="og:url" content="<?php the_permalink() ?>" />
 <?php if ($is_action) {
-  $title = 'Urge City Council To Ban Wild Animals in the Circus!';
+  $title = 'Thank Your City Council Member For Banning Animals In Circuses!';
   $desc = 'Call your City Council Member now.'
 ?>
 <meta property="og:title" content="<?php echo $title ?>" />

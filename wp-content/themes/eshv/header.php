@@ -62,8 +62,8 @@ if ( is_singular() && ! is_front_page() ) {
 <meta property="og:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/circus-action.jpg" />
 <meta name="twitter:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/circus-action.jpg" />
 <?php } elseif ( $is_action ) { ?>
-<meta property="og:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/action.jpg" />
-<meta name="twitter:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/action.jpg" />
+<meta property="og:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/victory.jpg" />
+<meta name="twitter:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/victory.jpg" />
 <?php } else if ( $is_volunteer ) { ?>
 <meta property="og:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/volunteer.jpg" />
 <meta name="twitter:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/volunteer.jpg" />

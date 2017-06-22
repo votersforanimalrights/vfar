@@ -74,7 +74,11 @@ if ( is_singular() && ! is_front_page() ) {
 <script src="https://use.fontawesome.com/0554d22be7.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans:300,400,600,700" rel="stylesheet" />
 <link href="<?php echo ESHV\assetUrl( 'css/styles.css' ) ?>" rel="stylesheet" />
-<?php wp_head(); ?>
+<?php
+remove_all_actions( 'wpseo_twitter' );
+remove_action( 'wpseo_head', array( 'WPSEO_Twitter', 'get_instance' ), 40 );
+remove_all_actions( 'wpseo_opengraph' );
+wp_head(); ?>
 </head>
 <body <?php
 $classes = '';

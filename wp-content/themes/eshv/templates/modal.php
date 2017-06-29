@@ -8,6 +8,7 @@ $suppress = array(
   'volunteer',
   'events',
   'circusvote',
+  'circusparty',
   'end-the-use-of-exotic-animals-in-the-circus',
   'action',
 );

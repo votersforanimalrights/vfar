@@ -5,7 +5,7 @@ $is_launch = $is_page && ('launch' === $post_name || 'launch-party-waiting-list'
 $is_circus = $is_page && 'may2circus' === $post_name;
 $is_action = $is_page && 'action' === $post_name;
 $is_volunteer = $is_page && 'volunteer' === $post_name;
-$is_events = $is_page && 'circusvote' === $post_name;
+$is_events = $is_page && 'circusparty' === $post_name;
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?> xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
@@ -56,8 +56,8 @@ if ( is_singular() && ! is_front_page() ) {
 <meta property="og:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/launch-kitten.jpg" />
 <meta name="twitter:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/launch-kitten.jpg" />
 <?php } elseif ( $is_events ) { ?>
-  <meta property="og:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/circus-vote.jpg" />
-  <meta name="twitter:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/circus-vote.jpg" />
+  <meta property="og:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/circus-party.jpg" />
+  <meta name="twitter:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/circus-party.jpg" />
 <?php } elseif ( $is_circus ) { ?>
 <meta property="og:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/circus-action.jpg" />
 <meta name="twitter:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/circus-action.jpg" />

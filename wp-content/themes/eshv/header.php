@@ -43,8 +43,8 @@ if ( is_singular() && ! is_front_page() ) {
 <meta property="og:title" content="<?php echo $title ?>" />
 <meta name="twitter:title" content="<?php echo $title ?>" />
 <meta property="og:description" content="<?php echo $desc ?>" />
-<meta name="twitter:description" content="<?php echo $desc ?>" />
-<meta name="twitter:text:description" content="<?php echo $desc ?>" />
+<meta name="twitter:description" content="<?php echo $description ?>" />
+<meta name="twitter:text:description" content="<?php echo $description ?>" />
 <?php } else { ?>
 <meta property="og:title" content="<?php the_title_attribute() ?> - <?php bloginfo( 'name' ) ?>" />
 <meta name="twitter:title" content="<?php the_title_attribute() ?> - <?php bloginfo( 'name' ) ?>" />

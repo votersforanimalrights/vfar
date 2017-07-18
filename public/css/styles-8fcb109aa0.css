@@ -1021,7 +1021,11 @@ html.can_embed-html body {
   font-family: "Open Sans", sans-serif;
   font-style: normal;
   font-weight: 700;
-  padding: 10px 15px 10px 8px;
+  font-size: 11px;
+  font-size: 0.6875rem;
+  line-height: 20px;
+  line-height: 1.25rem;
+  padding: 6px;
   text-align: left;
 }
 
@@ -1030,7 +1034,6 @@ html.can_embed-html body {
   font-size: 1rem;
   line-height: 20px;
   line-height: 1.25rem;
-  white-space: nowrap;
 }
 
 .eshv-table td {
@@ -1039,7 +1042,7 @@ html.can_embed-html body {
   line-height: 20px;
   line-height: 1.25rem;
   border: 1px solid #eee;
-  padding: 8px 15px 8px 8px;
+  padding: 6px;
 }
 
 .archive-wrapper h1 {
@@ -1602,6 +1605,19 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
   }
   .content h2 {
     margin: 0;
+  }
+  .eshv-table th {
+    font-size: 14px;
+    font-size: 0.875rem;
+    line-height: 20px;
+    line-height: 1.25rem;
+    padding: 10px 15px 10px 8px;
+  }
+  .eshv-table tr > td:first-child {
+    white-space: nowrap;
+  }
+  .eshv-table td {
+    padding: 8px 15px 8px 8px;
   }
   .modal-wrapper {
     height: 411px;

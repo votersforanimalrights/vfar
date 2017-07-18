@@ -71,7 +71,7 @@
 
     @include respond-to(desktop) {
       margin: 0;
-    };
+    }
   }
 
   h1 {
@@ -314,5 +314,25 @@ html.can_embed-html {
     h1 {
       display: none;
     }
+  }
+}
+
+.eshv-table {
+  th {
+    @include bold;
+    padding: 10px 15px 10px 8px;
+    text-align: left;
+  }
+  tr > td:first-child {
+    @include size-height(16, 20);
+
+    white-space: nowrap;
+  }
+
+  td {
+    @include size-height(14, 20);
+
+    border: 1px solid $light-grey;
+    padding: 8px 15px 8px 8px;
   }
 }

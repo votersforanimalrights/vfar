@@ -1017,6 +1017,31 @@ html.can_embed-html body {
   display: none;
 }
 
+.eshv-table th {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  padding: 10px 15px 10px 8px;
+  text-align: left;
+}
+
+.eshv-table tr > td:first-child {
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 20px;
+  line-height: 1.25rem;
+  white-space: nowrap;
+}
+
+.eshv-table td {
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 20px;
+  line-height: 1.25rem;
+  border: 1px solid #eee;
+  padding: 8px 15px 8px 8px;
+}
+
 .archive-wrapper h1 {
   color: #2852a1;
 }

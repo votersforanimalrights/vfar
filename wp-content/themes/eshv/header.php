@@ -1,5 +1,5 @@
 <?php
-$post_name = get_post()->post_name;
+$post_name = get_post() && get_post()->post_name;
 $is_page = is_page();
 $is_launch = $is_page && ('launch' === $post_name || 'launch-party-waiting-list' === $post_name);
 $is_circus = $is_page && 'may2circus' === $post_name;

@@ -250,6 +250,13 @@
       margin: 0 0 15px;
     }
   }
+
+  .single & .wp-post-image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 24px;
+  }
 }
 
 #js-ticketed_event_widget {

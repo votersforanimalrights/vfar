@@ -1,6 +1,5 @@
 <?php get_header() ?>
 <section class="page-wrapper">
-  <?php get_template_part('templates/hero'); ?>
   <section class="content centered-content page-content">
     <div class="page-content-wrapper archive-wrapper">
       <header>

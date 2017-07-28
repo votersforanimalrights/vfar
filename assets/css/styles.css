@@ -946,6 +946,13 @@ body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters
   margin: 0 0 15px;
 }
 
+.single .page-content-wrapper .wp-post-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 24px;
+}
+
 #js-ticketed_event_widget #action_info,
 #js-ticketed_event_widget #donation_recipient_wrap,
 #js-ticketed_event_widget #donate_login {

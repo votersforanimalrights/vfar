@@ -78,7 +78,7 @@ if ( is_singular() && ! is_front_page() ) {
 <meta property="og:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/volunteer.jpg" />
 <meta name="twitter:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/volunteer.jpg" />
 <?php } else if ( ! empty( $attachment_id ) ) {
-  $atts = wp_get_attachment_image_src( $attachment_id, 'full' );
+  $atts = wp_get_attachment_image_src( $attachment_id, 'large' );
   $featured_image = reset( $atts );
 ?>
 <meta property="og:image" content="<?php echo $featured_image ?>" />

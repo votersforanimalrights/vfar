@@ -9,6 +9,7 @@ class Theme {
     add_action( 'after_setup_theme', [ $this, 'after_setup_theme' ] );
     add_action( 'widgets_init', [ $this, 'widgets_init' ] );
     add_filter( 'mce_buttons_2', [ $this, 'mce_buttons' ], 5 );
+    add_rewrite_endpoint( 'iframe', EP_PAGES );
   }
 
   public function mce_buttons( $buttons ) {

@@ -1,13 +1,30 @@
 const b = document.body;
+const mainNav = document.getElementById('header-nav');
+const mainNavLinks = mainNav.getElementsByTagName('a');
 const burger = document.getElementById('hamburger');
 const hero = document.querySelector('.hero');
 const modal = document.querySelector('.modal');
-const triggerModal = document.getElementById('join-the-pack');
+const triggerModal = document.getElementById('join-us');
 const inlineTriggerModal = document.querySelectorAll('.trigger-modal');
+
+for (let i = 0; i < mainNavLinks.length; i += 1) {
+  const link = mainNavLinks[i];
+  const id = link.id.replace('nav-', '');
+  const subnav = document.getElementById(`subnav-${id}`);
+  if (subnav) {
+    link.addEventListener('mouseover', () => {
+      subnav.style.display = 'inline-block';
+    });
+
+    link.addEventListener('mouseout', () => {
+      subnav.style.display = 'none';
+    });
+  }
+}
 
 const navOpenClass = 'navOpen';
 
-const toggleMenu = (e) => {
+const toggleMenu = e => {
   e.stopPropagation();
 
   if (b.classList.contains(navOpenClass)) {
@@ -17,7 +34,7 @@ const toggleMenu = (e) => {
   }
 };
 
-b.onclick = (e) => {
+b.onclick = e => {
   if (b.classList.contains(navOpenClass)) {
     toggleMenu(e);
   }
@@ -51,7 +68,7 @@ if (modal) {
       return form;
     };
 
-    const clickHandler = (e) => {
+    const clickHandler = e => {
       e.preventDefault();
 
       bindForm();
@@ -60,7 +77,7 @@ if (modal) {
     };
 
     triggerModal.onclick = clickHandler;
-    inlineTriggerModal.forEach((item) => {
+    inlineTriggerModal.forEach(item => {
       item.addEventListener('click', clickHandler);
     });
   }

@@ -74,7 +74,7 @@ class Theme {
 
 		$top_level = [];
 		$sub_items = [];
-		$GLOBALS['_menu_item_sort_prop'] = 'menu_order';
+
 		foreach ( $items as $item ) {
 			if ( 0 === (int) $item->menu_item_parent ) {
 				$top_level[] = $item;
@@ -82,7 +82,7 @@ class Theme {
 				$sub_items[] = $item;
 			}
 		}
-		usort( $sub_items, '_sort_nav_menu_items' );
+    $sub_items = wp_list_sort( $sub_items, 'menu_order', 'ASC' );
 		$menu = [];
 		foreach ( $top_level as $t ) {
 			$menu[ $t->ID ] = $t;
@@ -93,7 +93,7 @@ class Theme {
 		}
 		foreach ( $menu as &$m ) {
 			$m->has_children = ! empty( $m->children );
-			usort( $m->children, '_sort_nav_menu_items' );
+      $m->children = wp_list_sort( $m->children, 'menu_order', 'ASC' );
 		}
 		return array_values( $menu );
 	}

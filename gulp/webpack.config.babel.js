@@ -8,14 +8,16 @@ const DEST = path.resolve('assets/js');
 export default {
   entry: SRC,
   module: {
-    rules: [{
-      test: /.jsx?$/,
-      loader: 'babel-loader',
-      exclude: /node_modules/,
-      query: {
-        presets: ['es2015', 'stage-0'],
+    rules: [
+      {
+        test: /.jsx?$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/,
+        query: {
+          presets: ['env', 'stage-0'],
+        },
       },
-    }],
+    ],
   },
   output: {
     path: DEST,

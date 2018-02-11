@@ -190,8 +190,37 @@ sup a {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  position: relative;
   padding: 0 0 2px;
+  position: relative;
+}
+
+.masthead .subnav {
+  background: #3c3d41;
+  bottom: 0;
+  display: none;
+  height: 40px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  width: 100%;
+}
+
+.masthead .subnav ul {
+  display: none;
+  margin: 0 auto;
+}
+
+.masthead .subnav li {
+  display: inline-block;
+}
+
+.masthead .subnav a {
+  color: #fff;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 20px;
+  text-decoration: none;
 }
 
 .masthead h1 {
@@ -200,20 +229,6 @@ sup a {
 }
 
 .masthead .logo {
-  display: none;
-}
-
-.masthead .logo img {
-  display: block;
-  height: 80px;
-  width: auto;
-}
-
-.masthead .logo-small {
-  display: block;
-}
-
-.masthead .logo-small img {
   display: block;
   height: auto;
   width: 160px;
@@ -242,8 +257,8 @@ sup a {
   text-shadow: none;
   text-transform: uppercase;
   top: 40px;
-  -webkit-transition: background .3s, color .3s;
-  transition: background .3s, color .3s;
+  -webkit-transition: background 0.3s, color 0.3s;
+  transition: background 0.3s, color 0.3s;
   width: 40px;
   z-index: 9989;
 }
@@ -283,8 +298,8 @@ sup a {
   position: absolute;
   right: 8px;
   top: 50%;
-  -webkit-transition: .3s;
-  transition: .3s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .header-nav {
@@ -391,8 +406,8 @@ sup a {
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
-  width: -webkit-calc(50% - .5px);
-  width: calc(50% - .5px);
+  width: -webkit-calc(50% - 0.5px);
+  width: calc(50% - 0.5px);
 }
 
 .header-actions a:last-child {
@@ -1528,17 +1543,19 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
 
 @media only screen and (min-width: 1050px) {
   .masthead {
-    padding: 10px;
+    padding: 10px 10px 50px;
+  }
+  .masthead .subnav {
+    display: block;
   }
   .masthead h1 {
     margin: 0;
+    padding: 0;
     width: 250px;
   }
   .masthead .logo {
-    display: block;
-  }
-  .masthead .logo-small {
-    display: none;
+    height: 100px;
+    width: auto;
   }
   .hamburger {
     display: none;

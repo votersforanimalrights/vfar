@@ -1,11 +1,44 @@
 .masthead {
   background: $white;
   box-sizing: border-box;
-  position: relative;
   padding: 0 0 2px;
+  position: relative;
 
   @include bigscreens() {
-    padding: 10px;
+    padding: 10px 10px 50px;
+  }
+
+  .subnav {
+    background: $dark;
+    bottom: 0;
+    display: none;
+    height: 40px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    width: 100%;
+
+    @include bigscreens() {
+      display: block;
+    }
+
+    ul {
+      display: none;
+      margin: 0 auto;
+    }
+
+    li {
+      display: inline-block;
+    }
+
+    a {
+      color: $white;
+      height: 40px;
+      line-height: 40px;
+      padding: 0 20px;
+      text-decoration: none;
+    }
   }
 
   h1 {
@@ -14,35 +47,19 @@
 
     @include bigscreens() {
       margin: 0;
+      padding: 0;
       width: 250px;
     }
   }
 
   .logo {
-    display: none;
-
-    @include bigscreens() {
-      display: block;
-    }
-
-    img {
-      display: block;
-      height: 80px;
-      width: auto;
-    }
-  }
-
-  .logo-small {
     display: block;
+    height: auto;
+    width: 160px;
 
     @include bigscreens() {
-      display: none;
-    }
-
-    img {
-      display: block;
-      height: auto;
-      width: 160px;
+      height: 100px;
+      width: auto;
     }
   }
 }
@@ -68,7 +85,7 @@
   text-shadow: none;
   text-transform: uppercase;
   top: 40px;
-  transition: background .3s, color .3s;
+  transition: background 0.3s, color 0.3s;
   width: 40px;
   z-index: 9989;
 
@@ -104,7 +121,7 @@
     position: absolute;
     right: 8px;
     top: 50%;
-    transition: .3s;
+    transition: 0.3s;
   }
 
   @include bigscreens() {
@@ -239,7 +256,7 @@
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
-    width: calc(50% - .5px);
+    width: calc(50% - 0.5px);
 
     &:last-child {
       float: right;

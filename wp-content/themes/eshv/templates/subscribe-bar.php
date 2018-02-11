@@ -1,5 +1,5 @@
 <section class="subscribe-bar">
-  <div class="subscribe-content" id="join-the-pack">
+  <div class="subscribe-content" id="join-us">
     <script src="https://actionnetwork.org/widgets/v2/form/get-updates-from-empire-state-humane-voters?format=js&source=widget"></script>
     <div id="can-form-area-get-updates-from-empire-state-humane-voters"></div>
     <div class="subscribe-social">

@@ -117,24 +117,16 @@ get_template_part( 'templates/modal' );
 <header class="masthead">
   <h1>
     <a href="<?php echo home_url() ?>" class="logo">
-      <img
-        src="/wp-content/themes/eshv/images/logo-2x.png"
-        alt="<?php echo esc_attr( get_bloginfo( 'name' ) ) ?>"
-      />
-    </a>
-    <a href="<?php echo home_url() ?>" class="logo-small">
-      <img
-        src="/wp-content/themes/eshv/images/logo-small.png"
-        alt="<?php echo esc_attr( get_bloginfo( 'name' ) ) ?>"
-      />
+      <?php get_template_part('logo') ?>
     </a>
   </h1>
   <?php $links = ESHV\Theme::getNavMenuItems( 'header-links' ); ?>
-  <nav class="header-nav">
+  <nav class="header-nav" id="header-nav">
     <?php
     foreach ( $links as $link ) {
       printf(
-        '<a href="%s">%s</a>',
+        '<a id="nav-%d" href="%s">%s</a>',
+        $link->ID,
         $link->url,
         $link->title
       );
@@ -156,8 +148,27 @@ get_template_part( 'templates/modal' );
     </ul>
   </nav>
   <nav class="header-actions">
-    <a id="join-the-pack" href="<?php echo home_url() ?>#join-the-pack">Join the Pack</a>
+    <a id="join-us" href="<?php echo home_url() ?>#join-us">Join Us</a>
     <a href="<?php echo home_url( '/donate/' ) ?>">Donate</a>
+  </nav>
+  <nav class="subnav">
+    <?php
+    foreach ( $links as $link ) {
+      if ($link->children) { ?>
+      <ul id="subnav-<?php echo $link->ID ?>">
+      <?php
+        foreach ( $link->children as $child ) {
+          printf(
+            '<li><a href="%s">%s</a></li>',
+            $child->url,
+            $child->title
+          );
+        }
+        ?>
+      </ul>
+      <?php
+      }
+    } ?>
   </nav>
 </header>
 <main class="main">

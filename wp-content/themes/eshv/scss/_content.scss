@@ -160,11 +160,6 @@
       text-decoration: none;
       text-transform: uppercase;
     }
-
-    .animal-svg {
-      display: inline-block;
-      margin: 15px;
-    }
   }
 
   .acknowledgements {
@@ -410,4 +405,14 @@ html.can_embed-html {
       padding: 8px 15px 8px 8px;
     }
   }
+}
+
+.animal-shortcode {
+  padding: 30px 0;
+  text-align: center;
+}
+
+.animal-svg {
+  display: inline-block;
+  margin: 15px;
 }

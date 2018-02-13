@@ -10,6 +10,30 @@ class Theme {
     add_action( 'widgets_init', [ $this, 'widgets_init' ] );
     add_filter( 'mce_buttons_2', [ $this, 'mce_buttons' ], 5 );
     add_rewrite_endpoint( 'iframe', EP_PAGES );
+    add_shortcode( 'animals', [ $this, 'animals' ] );
+  }
+
+  public function animals() {
+    ob_start(); ?>
+    <div class="animal-shortcode">
+      <div class="animal-svg">
+        <?php get_template_part('svg/companion-animals'); ?>
+      </div>
+      <div class="animal-svg">
+        <?php get_template_part('svg/animals-used-for-food'); ?>
+      </div>
+      <div class="animal-svg">
+        <?php get_template_part('svg/animals-used-for-clothing'); ?>
+      </div>
+      <div class="animal-svg">
+        <?php get_template_part('svg/animals-in-the-wild'); ?>
+      </div>
+      <div class="animal-svg">
+        <?php get_template_part('svg/animals-used-for-entertainment'); ?>
+      </div>
+    </div>
+    <?php
+    return ob_get_clean();  
   }
 
   public function mce_buttons( $buttons ) {

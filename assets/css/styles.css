@@ -912,11 +912,6 @@ body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters
   text-transform: uppercase;
 }
 
-.content.animal-content .animal-svg {
-  display: inline-block;
-  margin: 15px;
-}
-
 .content .acknowledgements li {
   margin: 0 0 16px;
 }
@@ -1137,6 +1132,16 @@ html.can_embed-html body {
   line-height: 1.25rem;
   border: 1px solid #eee;
   padding: 6px;
+}
+
+.animal-shortcode {
+  padding: 30px 0;
+  text-align: center;
+}
+
+.animal-svg {
+  display: inline-block;
+  margin: 15px;
 }
 
 .archive-wrapper h1 {

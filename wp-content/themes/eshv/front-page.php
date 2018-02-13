@@ -8,7 +8,9 @@ get_header() ?>
   get_template_part('templates/subscribe-bar');
   ?>
   <section class="content">
-    <?php the_content() ?>
+    <div class="home-content">
+      <?php the_content() ?>
+    </div>  
   </section>
   <section class="content animal-content">
     <div class="animal-svg">

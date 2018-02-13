@@ -20,6 +20,19 @@
     padding: 18px 0;
   }
 
+  .home & {
+    padding: 2px 0;
+  }
+
+  .home-content {
+    background: #e0e3e3;
+    overflow: hidden;
+
+    h2 {
+      margin-top: 10px;
+    }
+  }
+
   .section-image {
     margin: 0 auto;
 

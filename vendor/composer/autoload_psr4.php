@@ -6,6 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'ESHV\\' => array($baseDir . '/wp-content/themes/eshv/php'),
+    'VFAR\\' => array($baseDir . '/wp-content/themes/eshv/php'),
     'Composer\\Installers\\' => array($vendorDir . '/composer/installers/src/Composer/Installers'),
 );

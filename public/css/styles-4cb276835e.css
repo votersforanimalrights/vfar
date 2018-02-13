@@ -804,7 +804,7 @@ body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters
 }
 
 .home .content {
-  padding: 2px 0;
+  padding: 2px 0 20px;
 }
 
 .content .home-content {
@@ -888,13 +888,11 @@ body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters
 }
 
 .content.animal-content {
-  padding: 30px 0;
   text-align: center;
 }
 
-.content.animal-content p {
-  display: block;
-  margin: 0 0 15px;
+.home .content.animal-content {
+  padding: 30px 0;
 }
 
 .content.animal-content a {
@@ -905,7 +903,7 @@ body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters
 
 .content.animal-content .animal-svg {
   display: inline-block;
-  margin: 0 30px;
+  margin: 15px;
 }
 
 .content .acknowledgements li {
@@ -1681,6 +1679,9 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
   body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters {
     width: 515px;
   }
+  .home .content {
+    padding: 2px 0;
+  }
   .content .section-image {
     float: left;
     margin: 0 22px 0 0;
@@ -1800,6 +1801,9 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
     line-height: 27px;
     line-height: 1.6875rem;
     margin: 0 20% 0 10%;
+  }
+  .home .content p {
+    margin: 0 10%;
   }
   .content li {
     font-size: 18px;

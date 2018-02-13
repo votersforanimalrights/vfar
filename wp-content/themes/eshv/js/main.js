@@ -59,6 +59,18 @@ for (let i = 0; i < mainNavLinks.length; i += 1) {
   }
 }
 
+function scrollTo(element, to, duration) {
+  if (duration <= 0) return;
+  const difference = to - element.scrollTop;
+  const perTick = difference / duration * 10;
+
+  setTimeout(() => {
+    window.scrollTo(0, window.scrollY + perTick);
+    if (element.scrollTop === to) return;
+    scrollTo(element, to, duration - 10);
+  }, 10);
+}
+
 const handleClick = id => e => {
   e.preventDefault();
 

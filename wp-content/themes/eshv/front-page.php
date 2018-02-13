@@ -8,9 +8,7 @@ get_header() ?>
   get_template_part('templates/subscribe-bar');
   ?>
   <section class="content">
-    <div class="home-content">
-      <?php the_content() ?>
-    </div>  
+    <?php the_content() ?>
   </section>
 </article>
 <?php get_footer() ?>

@@ -54,16 +54,10 @@
 
     a {
       color: $white;
-      display: block;
       height: 40px;
       line-height: 40px;
       padding: 0 20px;
       text-decoration: none;
-
-      &.active,
-      &:hover {
-        background: $subscribe-input;
-      }
     }
   }
 
@@ -172,9 +166,13 @@
     text-decoration: none;
     text-transform: uppercase;
 
-    &.active,
     &.hovered,
     &:hover {
+      color: $blue;
+    }
+
+    &.active,
+    &.active:hover {
       color: $dark;
     }
   }
@@ -186,14 +184,14 @@
 
     a {
       @include size-height(16, 40);
-      border-bottom: 6px solid transparent;
+      border-bottom: 10px solid transparent;
       display: inline-block;
       padding: 0 20px;
 
       &.active,
       &.hovered,
       &:hover {
-        border-bottom: 6px solid $button;
+        border-bottom: 10px solid $dark;
       }
     }
   }

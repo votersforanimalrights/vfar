@@ -850,7 +850,6 @@ body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters
   font-size: 1.25rem;
   line-height: 28px;
   line-height: 1.75rem;
-  margin: 20px 0 10px;
 }
 
 .content h1 {
@@ -1709,6 +1708,9 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
   .content h2,
   .content h3 {
     margin: 0;
+  }
+  .content h3 {
+    margin: 20px 0 10px;
   }
   .eshv-table th {
     font-size: 14px;

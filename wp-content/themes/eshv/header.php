@@ -16,8 +16,8 @@ $attachment_id = get_post_thumbnail_id();
 <meta property="fb:app_id" content="245483685859438" />
 <meta property="og:site_name" content="<?php bloginfo( 'name' ) ?>" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:site" content="@nyvoteshumane" />
-<meta name="twitter:creator" content="@nyvoteshumane" />
+<meta name="twitter:site" content="@theanimalvoters" />
+<meta name="twitter:creator" content="@theanimalvoters" />
 <?php
 $description = 'We work to elect candidates who support animal protection, lobby for stronger laws to stop animal cruelty, and hold elected officials accountable to humane voters.';
 if ( is_singular() && ! is_front_page() ) {

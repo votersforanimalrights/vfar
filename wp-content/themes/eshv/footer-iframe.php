@@ -1,5 +1,5 @@
 </main>
 <?php wp_footer() ?>
-<script src="<?php echo ESHV\assetUrl( 'js/main.js' ) ?>"></script>
+<script src="<?php echo VFAR\assetUrl( 'js/main.js' ) ?>"></script>
 </body>
 </html>

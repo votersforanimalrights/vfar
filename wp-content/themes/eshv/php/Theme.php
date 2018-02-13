@@ -1,5 +1,5 @@
 <?php
-namespace ESHV;
+namespace VFAR;
 
 class Theme {
   public function __construct() {
@@ -91,14 +91,41 @@ class Theme {
 		foreach ( $sub_items as $sub_item ) {
 			$menu[ $sub_item->menu_item_parent ]->children[] = $sub_item;
 		}
+
+    $childIds = [];
+    foreach ( $menu as $m ) {
+      foreach ($m->children as $c) {
+        $childIds[] = $c->object_id;
+      }
+    }
+
+    $posts = get_posts([
+      'post__in' => $childIds,
+      'post_type' => 'page',
+      'posts_per_page' => '-1',
+    ]);
+
+    $slugs = [];
+    foreach ( $posts as $p ) {
+      $slugs[$p->ID] = $p->post_name;
+    }
+
 		foreach ( $menu as &$m ) {
 			$m->has_children = ! empty( $m->children );
       $m->children = wp_list_sort( $m->children, 'menu_order', 'ASC' );
+      _wp_menu_item_classes_by_context($m->children);
+
+      foreach ($m->children as &$child) {
+        $child->slug = $slugs[$child->object_id];
+      }
 		}
+    _wp_menu_item_classes_by_context($menu);
+
 		return array_values( $menu );
 	}
 
   public function removeFilters() {
+    add_filter('show_admin_bar', '__return_false');
     remove_action( 'admin_init', '_maybe_update_core' );
 		remove_action( 'admin_init', '_maybe_update_plugins' );
 		remove_action( 'admin_init', '_maybe_update_themes' );

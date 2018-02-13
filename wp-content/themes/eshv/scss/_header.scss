@@ -16,16 +16,36 @@
     left: 0;
     position: absolute;
     right: 0;
-    text-align: center;
     width: 100%;
+
+    &.sticky-nav {
+      bottom: auto;
+      position: fixed;
+      top: 0;
+      z-index: 10000000;
+    }
 
     @include bigscreens() {
       display: block;
     }
 
-    ul {
+    div {
       display: none;
-      margin: 0 auto;
+      margin: 0 5%;
+      max-width: 90%;
+
+      &.active {
+        display: block;
+      }
+    }
+
+    ul {
+      display: block;
+      margin: 0;
+
+      @include nonphone() {
+        margin: 0 20% 0 10%;
+      }
     }
 
     li {
@@ -133,21 +153,27 @@
   display: none;
   position: absolute;
   right: 15px;
-  top: 16px;
+  bottom: 40px;
   z-index: 9989;
 
   a {
     @include bold;
     @include size-height(13, 20);
 
-    color: $blue;
+    color: $dark;
     display: block;
     text-align: right;
     text-decoration: none;
     text-transform: uppercase;
 
+    &.hovered,
     &:hover {
-      color: $button;
+      color: $blue;
+    }
+
+    &.active,
+    &.active:hover {
+      color: $dark;
     }
   }
 
@@ -155,18 +181,23 @@
     display: block;
     right: 165px;
     text-align: left;
-    top: 80px;
 
     a {
-      @include size-height(16, 16);
+      @include size-height(16, 40);
+      border-bottom: 10px solid transparent;
       display: inline-block;
-      margin: 0 0 0 20px;
+      padding: 0 20px;
+
+      &.active,
+      &.hovered,
+      &:hover {
+        border-bottom: 10px solid $dark;
+      }
     }
   }
 
   @include respond-to(tablet) {
     right: 165px;
-    top: 82px;
 
     a {
       @include size-height(16, 16);

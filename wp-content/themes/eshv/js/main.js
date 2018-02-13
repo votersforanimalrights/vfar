@@ -1,25 +1,117 @@
 const b = document.body;
+const masthead = document.getElementById('masthead');
+const subnav = document.getElementById('subnav');
 const mainNav = document.getElementById('header-nav');
 const mainNavLinks = mainNav.getElementsByTagName('a');
+const subnavLinks = document.querySelectorAll('.subnav-links');
 const burger = document.getElementById('hamburger');
 const hero = document.querySelector('.hero');
 const modal = document.querySelector('.modal');
 const triggerModal = document.getElementById('join-us');
 const inlineTriggerModal = document.querySelectorAll('.trigger-modal');
 
+window.addEventListener('scroll', () => {
+  if (window.scrollY >= 120) {
+    subnav.classList.add('sticky-nav');
+  } else {
+    subnav.classList.remove('sticky-nav');
+  }
+});
+
+masthead.addEventListener('mouseleave', () => {
+  for (let i = 0; i < mainNavLinks.length; i += 1) {
+    mainNavLinks[i].classList.remove('hovered');
+  }
+  for (let j = 0; j < subnavLinks.length; j += 1) {
+    if (subnavLinks[j].classList.contains('active')) {
+      subnavLinks[j].style.display = 'block';
+    } else {
+      subnavLinks[j].style.display = 'none';
+    }
+  }
+});
+
+const toggleHovered = link => {
+  for (let i = 0; i < mainNavLinks.length; i += 1) {
+    mainNavLinks[i].classList.remove('hovered');
+  }
+  link.classList.add('hovered');
+};
+
+const handleMouseover = e => {
+  e.stopPropagation();
+
+  toggleHovered(e.currentTarget);
+  for (let j = 0; j < subnavLinks.length; j += 1) {
+    subnavLinks[j].style.display = 'none';
+  }
+  const id = e.currentTarget.id.replace('nav-', '');
+  const current = document.getElementById(`subnav-${id}`);
+  current.style.display = 'block';
+};
+
 for (let i = 0; i < mainNavLinks.length; i += 1) {
   const link = mainNavLinks[i];
   const id = link.id.replace('nav-', '');
-  const subnav = document.getElementById(`subnav-${id}`);
-  if (subnav) {
-    link.addEventListener('mouseover', () => {
-      subnav.style.display = 'inline-block';
-    });
-
-    link.addEventListener('mouseout', () => {
-      subnav.style.display = 'none';
-    });
+  const hasLinks = document.getElementById(`subnav-${id}`);
+  if (hasLinks) {
+    link.addEventListener('mouseover', handleMouseover);
   }
+}
+
+function scrollTo(element, to, duration) {
+  if (duration <= 0) return;
+  const difference = to - element.scrollTop;
+  const perTick = difference / duration * 10;
+
+  setTimeout(() => {
+    window.scrollTo(0, window.scrollY + perTick);
+    if (element.scrollTop === to) return;
+    scrollTo(element, to, duration - 10);
+  }, 10);
+}
+
+const handleClick = id => e => {
+  e.preventDefault();
+
+  const d = document.documentElement;
+  const item = document.getElementById(id);
+  const dest = item.offsetTop - 50;
+  const durationLength = 600;
+  let difference;
+  if (dest > window.scrollY) {
+    difference = dest - window.scrollY;
+  } else {
+    difference = window.scrollY - dest;
+  }
+  const move = duration => {
+    setTimeout(() => {
+      const offset = d.scrollTop + window.innerHeight;
+      const height = d.offsetHeight;
+      if ((durationLength !== duration && offset === height) || window.scrollY === dest) {
+        return;
+      }
+
+      let to = dest;
+      const delta = difference / duration * 10;
+      if (dest > window.scrollY) {
+        to = Math.min(window.scrollY + delta, dest);
+      } else {
+        to = Math.max(window.scrollY - delta, dest);
+      }
+
+      window.scrollTo(0, to);
+      move(duration - 10);
+    }, 10);
+  };
+  move(durationLength);
+};
+
+const subnavItems = document.querySelectorAll('.subnav-links a');
+for (let i = 0; i < subnavItems.length; i += 1) {
+  const subnavLink = subnavItems[i];
+  const [, id] = subnavLink.href.split('#');
+  subnavLink.addEventListener('click', handleClick(id));
 }
 
 const navOpenClass = 'navOpen';

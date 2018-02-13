@@ -11,7 +11,7 @@
     </div>
     <div class="column right-column">
       <?php
-      $links = ESHV\Theme::getNavMenuItems( 'footer-links' );
+      $links = VFAR\Theme::getNavMenuItems( 'footer-links' );
       if ( ! empty( $links ) ): ?>
       <nav class="nav-column">
         <?php
@@ -26,7 +26,7 @@
       </nav>
       <?php endif;
 
-      echo ESHV\Theme::renderSidebar( 'footer', [
+      echo VFAR\Theme::renderSidebar( 'footer', [
         'year' => date( 'Y' ),
         'site_name' => get_bloginfo( 'name' ),
       ] ) ?>
@@ -34,6 +34,6 @@
   </div>
 </footer>
 <?php wp_footer() ?>
-<script src="<?php echo ESHV\assetUrl( 'js/main.js' ) ?>"></script>
+<script src="<?php echo VFAR\assetUrl( 'js/main.js' ) ?>"></script>
 </body>
 </html>

@@ -89,7 +89,7 @@ if ( is_singular() && ! is_front_page() ) {
 <?php } ?>
 <script src="https://use.fontawesome.com/0554d22be7.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans:300,400,600,700" rel="stylesheet" />
-<link href="<?php echo ESHV\assetUrl( 'css/styles.css' ) ?>" rel="stylesheet" />
+<link href="<?php echo VFAR\assetUrl( 'css/styles.css' ) ?>" rel="stylesheet" />
 <?php
 remove_all_actions( 'wpseo_twitter' );
 remove_action( 'wpseo_head', array( 'WPSEO_Twitter', 'get_instance' ), 40 );
@@ -114,19 +114,22 @@ ga('send', 'pageview');
 <?php
 get_template_part( 'templates/modal' );
 ?>
-<header class="masthead">
+<header class="masthead" id="masthead">
   <h1>
     <a href="<?php echo home_url() ?>" class="logo">
       <?php get_template_part('logo') ?>
     </a>
   </h1>
-  <?php $links = ESHV\Theme::getNavMenuItems( 'header-links' ); ?>
+  <?php $links = VFAR\Theme::getNavMenuItems( 'header-links' ); ?>
   <nav class="header-nav" id="header-nav">
     <?php
     foreach ( $links as $link ) {
+      $active = in_array( 'current-menu-item', $link->classes ) || in_array( 'current-page-ancestor', $link->classes );
+
       printf(
-        '<a id="nav-%d" href="%s">%s</a>',
+        '<a id="nav-%d" class="%s" href="%s">%s</a>',
         $link->ID,
+        $active ? 'active' : '',
         $link->url,
         $link->title
       );
@@ -151,21 +154,25 @@ get_template_part( 'templates/modal' );
     <a id="join-us" href="<?php echo home_url() ?>#join-us">Join Us</a>
     <a href="<?php echo home_url( '/donate/' ) ?>">Donate</a>
   </nav>
-  <nav class="subnav">
+  <nav class="subnav" id="subnav">
     <?php
     foreach ( $links as $link ) {
-      if ($link->children) { ?>
-      <ul id="subnav-<?php echo $link->ID ?>">
-      <?php
-        foreach ( $link->children as $child ) {
-          printf(
-            '<li><a href="%s">%s</a></li>',
-            $child->url,
-            $child->title
-          );
-        }
+      if ($link->children) {
+        $active = in_array( 'current-menu-item', $link->classes ) || in_array( 'current-page-ancestor', $link->classes );
+      ?>
+      <div id="subnav-<?php echo $link->ID ?>" class="subnav-links<?php echo $active ? ' active' : '' ?>">
+        <ul>
+        <?php
+          foreach ( $link->children as $child ) {
+            printf(
+              '<li><a href="#%s">%s</a></li>',
+              $child->slug,
+              $child->title
+            );
+          }
         ?>
-      </ul>
+        </ul>
+      </div>
       <?php
       }
     } ?>

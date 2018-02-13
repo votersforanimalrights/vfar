@@ -1,5 +1,5 @@
 <?php
-namespace ESHV;
+namespace VFAR;
 
 function assetUrl($path) {
   static $assets = null;

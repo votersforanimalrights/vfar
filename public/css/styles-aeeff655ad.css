@@ -202,13 +202,29 @@ sup a {
   left: 0;
   position: absolute;
   right: 0;
-  text-align: center;
   width: 100%;
 }
 
-.masthead .subnav ul {
+.masthead .subnav.sticky-nav {
+  bottom: auto;
+  position: fixed;
+  top: 0;
+  z-index: 10000000;
+}
+
+.masthead .subnav div {
   display: none;
-  margin: 0 auto;
+  margin: 0 5%;
+  max-width: 90%;
+}
+
+.masthead .subnav div.active {
+  display: block;
+}
+
+.masthead .subnav ul {
+  display: block;
+  margin: 0;
 }
 
 .masthead .subnav li {
@@ -306,7 +322,7 @@ sup a {
   display: none;
   position: absolute;
   right: 15px;
-  top: 16px;
+  bottom: 40px;
   z-index: 9989;
 }
 
@@ -318,15 +334,19 @@ sup a {
   font-size: 0.8125rem;
   line-height: 20px;
   line-height: 1.25rem;
-  color: #2852a1;
+  color: #3c3d41;
   display: block;
   text-align: right;
   text-decoration: none;
   text-transform: uppercase;
 }
 
-.header-nav a:hover {
-  color: #cc3b53;
+.header-nav a.hovered, .header-nav a:hover {
+  color: #2852a1;
+}
+
+.header-nav a.active, .header-nav a.active:hover {
+  color: #3c3d41;
 }
 
 .mobile-nav {
@@ -1564,15 +1584,18 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
     display: block;
     right: 165px;
     text-align: left;
-    top: 80px;
   }
   .header-nav a {
     font-size: 16px;
     font-size: 1rem;
-    line-height: 16px;
-    line-height: 1rem;
+    line-height: 40px;
+    line-height: 2.5rem;
+    border-bottom: 10px solid transparent;
     display: inline-block;
-    margin: 0 0 0 20px;
+    padding: 0 20px;
+  }
+  .header-nav a.active, .header-nav a.hovered, .header-nav a:hover {
+    border-bottom: 10px solid #3c3d41;
   }
   .navOpen .mobile-nav {
     display: none;
@@ -1704,117 +1727,10 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
   }
 }
 
-@media only screen and (min-width: 768px) and (max-width: 1023px) {
-  .header-nav {
-    right: 165px;
-    top: 82px;
-  }
-  .header-nav a {
-    font-size: 16px;
-    font-size: 1rem;
-    line-height: 16px;
-    line-height: 1rem;
-    margin: 0 0 0 15px;
-  }
-  .home .hero p {
-    margin: 0 0 0 -webkit-calc((630px / 2) * -1);
-    margin: 0 0 0 calc((630px / 2) * -1);
-    width: 630px;
-    font-size: 30px;
-    font-size: 1.875rem;
-    line-height: 32px;
-    line-height: 2rem;
-    height: 40%;
-  }
-  body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters #can_embed_form_inner #form_col2 input[type="submit"] {
-    margin: 0 auto;
-    width: 300px;
-  }
-  .content .section-image {
-    margin: 0 0 0 10%;
-  }
-  .content h2 {
-    margin: 2% 20% 2% 10%;
-  }
-  .modal-wrapper {
-    height: 382px;
-    bottom: -webkit-calc((100% - 382px) / 2);
-    bottom: calc((100% - 382px) / 2);
-    top: -webkit-calc((100% - 382px) / 2);
-    top: calc((100% - 382px) / 2);
-    left: -webkit-calc((100% - 650px) / 2);
-    left: calc((100% - 650px) / 2);
-    right: -webkit-calc((100% - 650px) / 2);
-    right: calc((100% - 650px) / 2);
-    width: 650px;
-  }
-  .simple-modal .modal-wrapper {
-    height: 382px;
-    bottom: -webkit-calc((100% - 382px) / 2);
-    bottom: calc((100% - 382px) / 2);
-    top: -webkit-calc((100% - 382px) / 2);
-    top: calc((100% - 382px) / 2);
-  }
-  .modal:not(.simple-modal) #modal-dynamic-section {
-    margin: 0 1.5% 0 41.5%;
-    position: static;
-    width: 57%;
-  }
-  .modal .modal-wrapper section {
-    padding: 35px 0 0;
-  }
-  body.action-logged-in .modal .modal-wrapper section {
-    padding: 55px 0 0;
-  }
-  .modal .modal-wrapper h3 {
-    font-size: 31px;
-    font-size: 1.9375rem;
-    line-height: 31px;
-    line-height: 1.9375rem;
-  }
-  .modal .modal-wrapper p {
-    font-size: 22px;
-    font-size: 1.375rem;
-    line-height: 26px;
-    line-height: 1.625rem;
-    margin: 20px 0;
-  }
-  #modal-form-id input[type="email"],
-  #modal-form-id input[type="text"] {
-    font-size: 12px;
-    font-size: 0.75rem;
-    line-height: 18px;
-    line-height: 1.125rem;
-    height: 28px;
-  }
-  #modal-form-id input[type="submit"] {
-    height: 40px;
-    margin: 10px 0 0;
-  }
-}
-
-@media only screen and (min-width: 320px) and (max-width: 792px) {
-  .hero .wp-post-image {
-    margin: 0 0 0 -webkit-calc(-1 * ((792px - 100%) / 2));
-    margin: 0 0 0 calc(-1 * ((792px - 100%) / 2));
-    max-width: 792px;
-    width: 792px;
-  }
-  .home .hero .wp-post-image,
-  .page-issues .hero .wp-post-image {
-    margin: 0 0 0 -webkit-calc(-1 * (792px - 100%));
-    margin: 0 0 0 calc(-1 * (792px - 100%));
-    max-width: 792px;
-    width: 792px;
-  }
-  .page-action .hero .wp-post-image {
-    margin: 0 auto;
-    max-width: 100%;
-    width: 100%;
-  }
-}
-
 @media only screen and (min-width: 768px) {
+  .masthead .subnav ul {
+    margin: 0 20% 0 10%;
+  }
   .hero p {
     font-size: 64px;
     font-size: 4rem;
@@ -1930,6 +1846,115 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
     right: -18px;
     top: -18px;
     width: 36px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .header-nav {
+    right: 165px;
+  }
+  .header-nav a {
+    font-size: 16px;
+    font-size: 1rem;
+    line-height: 16px;
+    line-height: 1rem;
+    margin: 0 0 0 15px;
+  }
+  .home .hero p {
+    margin: 0 0 0 -webkit-calc((630px / 2) * -1);
+    margin: 0 0 0 calc((630px / 2) * -1);
+    width: 630px;
+    font-size: 30px;
+    font-size: 1.875rem;
+    line-height: 32px;
+    line-height: 2rem;
+    height: 40%;
+  }
+  body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters #can_embed_form_inner #form_col2 input[type="submit"] {
+    margin: 0 auto;
+    width: 300px;
+  }
+  .content .section-image {
+    margin: 0 0 0 10%;
+  }
+  .content h2 {
+    margin: 2% 20% 2% 10%;
+  }
+  .modal-wrapper {
+    height: 382px;
+    bottom: -webkit-calc((100% - 382px) / 2);
+    bottom: calc((100% - 382px) / 2);
+    top: -webkit-calc((100% - 382px) / 2);
+    top: calc((100% - 382px) / 2);
+    left: -webkit-calc((100% - 650px) / 2);
+    left: calc((100% - 650px) / 2);
+    right: -webkit-calc((100% - 650px) / 2);
+    right: calc((100% - 650px) / 2);
+    width: 650px;
+  }
+  .simple-modal .modal-wrapper {
+    height: 382px;
+    bottom: -webkit-calc((100% - 382px) / 2);
+    bottom: calc((100% - 382px) / 2);
+    top: -webkit-calc((100% - 382px) / 2);
+    top: calc((100% - 382px) / 2);
+  }
+  .modal:not(.simple-modal) #modal-dynamic-section {
+    margin: 0 1.5% 0 41.5%;
+    position: static;
+    width: 57%;
+  }
+  .modal .modal-wrapper section {
+    padding: 35px 0 0;
+  }
+  body.action-logged-in .modal .modal-wrapper section {
+    padding: 55px 0 0;
+  }
+  .modal .modal-wrapper h3 {
+    font-size: 31px;
+    font-size: 1.9375rem;
+    line-height: 31px;
+    line-height: 1.9375rem;
+  }
+  .modal .modal-wrapper p {
+    font-size: 22px;
+    font-size: 1.375rem;
+    line-height: 26px;
+    line-height: 1.625rem;
+    margin: 20px 0;
+  }
+  #modal-form-id input[type="email"],
+  #modal-form-id input[type="text"] {
+    font-size: 12px;
+    font-size: 0.75rem;
+    line-height: 18px;
+    line-height: 1.125rem;
+    height: 28px;
+  }
+  #modal-form-id input[type="submit"] {
+    height: 40px;
+    margin: 10px 0 0;
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 792px) {
+  .hero .wp-post-image {
+    margin: 0 0 0 -webkit-calc(-1 * ((792px - 100%) / 2));
+    margin: 0 0 0 calc(-1 * ((792px - 100%) / 2));
+    max-width: 792px;
+    width: 792px;
+  }
+  .home .hero .wp-post-image,
+  .page-issues .hero .wp-post-image {
+    margin: 0 0 0 -webkit-calc(-1 * (792px - 100%));
+    margin: 0 0 0 calc(-1 * (792px - 100%));
+    max-width: 792px;
+    width: 792px;
+  }
+  .page-action .hero .wp-post-image {
+    margin: 0 auto;
+    max-width: 100%;
+    width: 100%;
   }
 }
 

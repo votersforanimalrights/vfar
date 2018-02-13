@@ -1,2 +1,2 @@
 <?php
-new ESHV\Theme();
+new VFAR\Theme();

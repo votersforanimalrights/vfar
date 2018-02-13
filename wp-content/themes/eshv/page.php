@@ -16,6 +16,13 @@ if ($is_iframe) {
   return;
 }
 
+$children = get_posts(array(
+  'post_type' => 'page',
+  'post_parent' => get_the_ID(),
+  'orderby' => 'menu_order',
+  'order' => 'ASC',
+));
+
 get_header() ?>
 <article class="page-wrapper">
   <?php
@@ -23,7 +30,12 @@ get_header() ?>
   ?>
   <section class="content centered-content page-content">
     <div class="page-content-wrapper">
-      <?php the_content() ?>
+      <?php foreach ($children as $child) { ?>
+        <div id="<?php echo $child->post_name ?>">
+          <h2><?php echo $child->post_title ?></h2>
+          <?php echo apply_filters('the_content', $child->post_content) ?>
+        </div>
+      <?php } ?>
     </div>
   </section>
 </article>

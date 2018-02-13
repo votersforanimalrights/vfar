@@ -416,3 +416,41 @@ html.can_embed-html {
   display: inline-block;
   margin: 15px;
 }
+
+.page-content-wrapper {
+  .vfar-bios {
+    li {
+      margin: 20px 0;
+      overflow: hidden;
+    }
+
+    strong {
+      @include bold;
+      color: $blue;
+      display: block;
+    }
+
+    span {
+      color: $blue;
+      font-style: italic;
+    }
+
+    img {
+      float: left;
+      width: 250px;
+      height: 250px;
+      margin: 0 20px 0 0;
+
+      @include respond-to(desktop) {
+        margin: 0 20px 20px 0;
+      }
+    }
+    @include respond-to(desktop) {
+      p {
+        .content & {
+          margin-bottom: 8px;
+        }
+      }
+    }
+  }
+}

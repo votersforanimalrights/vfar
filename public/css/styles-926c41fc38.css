@@ -1144,6 +1144,31 @@ html.can_embed-html body {
   margin: 15px;
 }
 
+.page-content-wrapper .vfar-bios li {
+  margin: 20px 0;
+  overflow: hidden;
+}
+
+.page-content-wrapper .vfar-bios strong {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  color: #2852a1;
+  display: block;
+}
+
+.page-content-wrapper .vfar-bios span {
+  color: #2852a1;
+  font-style: italic;
+}
+
+.page-content-wrapper .vfar-bios img {
+  float: left;
+  width: 250px;
+  height: 250px;
+  margin: 0 20px 0 0;
+}
+
 .archive-wrapper h1 {
   color: #2852a1;
 }
@@ -1729,6 +1754,12 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
   }
   .eshv-table td {
     padding: 8px 15px 8px 8px;
+  }
+  .page-content-wrapper .vfar-bios img {
+    margin: 0 20px 20px 0;
+  }
+  .content .page-content-wrapper .vfar-bios p {
+    margin-bottom: 8px;
   }
   .modal-wrapper {
     height: 411px;

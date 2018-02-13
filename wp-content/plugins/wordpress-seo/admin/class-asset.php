@@ -199,7 +199,9 @@ class WPSEO_Admin_Asset {
 	 * @return string
 	 */
 	protected function get_relative_path( $type, $force_suffix = null ) {
-		$relative_path = $rtl_path = $rtl_suffix = '';
+		$relative_path = '';
+		$rtl_path      = '';
+		$rtl_suffix    = '';
 
 		$suffix = ( is_null( $force_suffix ) ) ? $this->get_suffix() : $force_suffix;
 
@@ -211,10 +213,9 @@ class WPSEO_Admin_Asset {
 			case self::TYPE_CSS:
 				// Path and suffix for RTL stylesheets.
 				if ( function_exists( 'is_rtl' ) && is_rtl() && $this->has_rtl() ) {
-					$rtl_path = 'dist/';
 					$rtl_suffix = '-rtl';
 				}
-				$relative_path = 'css/' . $rtl_path . $this->get_src() . $rtl_suffix . $suffix . '.css';
+				$relative_path = 'css/dist/' . $this->get_src() . $rtl_suffix . $suffix . '.css';
 				break;
 		}
 

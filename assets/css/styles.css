@@ -917,6 +917,10 @@ body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters
   line-height: 1.25rem;
 }
 
+.content .child-page {
+  margin: 0 0 24px;
+}
+
 .content.page-content {
   padding: 16px 0 30px;
 }

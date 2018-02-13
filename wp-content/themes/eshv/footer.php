@@ -4,9 +4,9 @@
     <div class="column left-column">
       <h3>Follow Us</h3>
       <nav>
-        <a href="https://www.facebook.com/empirestatehumanevoters/" target="_blank" class="fa fa-facebook"></a>
-        <a href="https://twitter.com/nyvoteshumane" target="_blank" class="fa fa-twitter"></a>
-        <a href="https://www.instagram.com/empirestatehumanevoters/" target="_blank" class="fa fa-instagram"></a>
+        <a href="https://www.facebook.com/votersforanimalrights/" target="_blank" class="fa fa-facebook"></a>
+        <a href="https://twitter.com/theanimalvoters" target="_blank" class="fa fa-twitter"></a>
+        <a href="https://www.instagram.com/votersforanimalrights/" target="_blank" class="fa fa-instagram"></a>
       </nav>
     </div>
     <div class="column right-column">

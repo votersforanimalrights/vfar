@@ -59,12 +59,20 @@ for (let i = 0; i < mainNavLinks.length; i += 1) {
   }
 }
 
+const subnavItems = document.querySelectorAll('.subnav-links a');
+
 // eslint-disable-next-line
 const handleClick = id => e => {
   if (!e.currentTarget.parentNode.classList.contains('active')) {
     return true;
   }
   e.preventDefault();
+
+  for (let i = 0; i < subnavItems.length; i += 1) {
+    subnavItems[i].classList.remove('active');
+  }
+
+  e.currentTarget.classList.add('active');
 
   const d = document.documentElement;
   const item = document.getElementById(id);
@@ -99,7 +107,6 @@ const handleClick = id => e => {
   move(durationLength);
 };
 
-const subnavItems = document.querySelectorAll('.subnav-links a');
 for (let i = 0; i < subnavItems.length; i += 1) {
   const subnavLink = subnavItems[i];
   const [, id] = subnavLink.href.split('#');

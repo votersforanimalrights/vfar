@@ -13,7 +13,7 @@ get_header() ?>
     </div>
   </section>
   <section class="content animal-content">
-    <p><strong>We campaign for the rights of all animals.</strong> <a href="#">Learn more</a></p>
+    <p><strong>We campaign for the rights of all animals.</strong> <a href="/what-we-do/#our-focus">Learn more</a></p>
     <div class="animal-svg">
       <?php get_template_part('svg/companion-animals'); ?>
     </div>

@@ -61,7 +61,7 @@ for (let i = 0; i < mainNavLinks.length; i += 1) {
 
 // eslint-disable-next-line
 const handleClick = id => e => {
-  if (!e.currentTarget.classList.contains('active')) {
+  if (!e.currentTarget.parentNode.classList.contains('active')) {
     return true;
   }
   e.preventDefault();

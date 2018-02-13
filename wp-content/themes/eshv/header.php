@@ -165,10 +165,10 @@ get_template_part( 'templates/modal' );
         <?php
           foreach ( $link->children as $child ) {
             printf(
-              '<li><a href="%s#%s" class="%s">%s</a></li>',
+              '<li class="%s"><a href="%s#%s">%s</a></li>',
+              $active ? 'active' : '',
               $link->url,
               $child->slug,
-              $active ? 'active' : '',
               $child->title
             );
           }

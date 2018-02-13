@@ -65,9 +65,9 @@
     }
   }
 
-  h2 {
+  h2,
+  h3 {
     @include bold;
-    @include size-height(24, 34);
 
     color: $blue;
     display: block;
@@ -89,6 +89,14 @@
     @include respond-to(desktop) {
       margin: 0;
     }
+  }
+
+  h2 {
+    @include size-height(24, 34);
+  }
+
+  h3 {
+    @include size-height(20, 28);
   }
 
   h1 {
@@ -206,6 +214,10 @@
     h2 {
       margin: 0;
       text-transform: none;
+    }
+
+    h3 {
+      color: $dark;
     }
 
     p {

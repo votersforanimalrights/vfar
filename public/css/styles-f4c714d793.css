@@ -827,18 +827,29 @@ body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters
   max-width: 100%;
 }
 
-.content h2 {
+.content h2,
+.content h3 {
   font-family: "Open Sans", sans-serif;
   font-style: normal;
   font-weight: 700;
-  font-size: 24px;
-  font-size: 1.5rem;
-  line-height: 34px;
-  line-height: 2.125rem;
   color: #2852a1;
   display: block;
   margin: 5% 5% 2%;
   text-transform: uppercase;
+}
+
+.content h2 {
+  font-size: 24px;
+  font-size: 1.5rem;
+  line-height: 34px;
+  line-height: 2.125rem;
+}
+
+.content h3 {
+  font-size: 20px;
+  font-size: 1.25rem;
+  line-height: 28px;
+  line-height: 1.75rem;
 }
 
 .content h1 {
@@ -946,6 +957,10 @@ body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters
 .content.page-content h2 {
   margin: 0;
   text-transform: none;
+}
+
+.content.page-content h3 {
+  color: #3c3d41;
 }
 
 .content.page-content p {
@@ -1690,7 +1705,8 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
     float: left;
     margin: 0 22px 0 0;
   }
-  .content h2 {
+  .content h2,
+  .content h3 {
     margin: 0;
   }
   .eshv-table th {
@@ -1786,7 +1802,8 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
   .content img {
     margin: 0;
   }
-  .content h2 {
+  .content h2,
+  .content h3 {
     font-size: 24px;
     font-size: 1.5rem;
     line-height: 36px;
@@ -1920,7 +1937,8 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
   .content .section-image {
     margin: 0 0 0 10%;
   }
-  .content h2 {
+  .content h2,
+  .content h3 {
     margin: 2% 20% 2% 10%;
   }
   .modal-wrapper {
@@ -2220,7 +2238,8 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
   .content .section-image {
     margin: 0 0 0 10%;
   }
-  .content h2 {
+  .content h2,
+  .content h3 {
     margin: 2% 20% 2% 10%;
   }
   .modal-wrapper {

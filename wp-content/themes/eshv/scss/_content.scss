@@ -133,6 +133,26 @@
     }
   }
 
+  &.animal-content {
+    padding: 30px 0;
+    text-align: center;
+
+    p {
+      display: block;
+      margin: 0 0 15px;
+    }
+    a {
+      color: $button;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .animal-svg {
+      display: inline-block;
+      margin: 0 30px;
+    }
+  }
+
   .acknowledgements {
     li {
       margin: 0 0 16px;

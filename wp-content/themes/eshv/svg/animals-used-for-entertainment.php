@@ -1,4 +1,4 @@
-<svg viewBox="0 0 130.78 107.55">
+<svg viewBox="0 0 130.78 107.55" width="131" height="108">
   <defs><style>.cls-1{fill:#4d4d4f;stroke:#4d4d4f;stroke-miterlimit:10;stroke-width:.62px}</style></defs>
   <g id="Layer_2" data-name="Layer 2">
     <g id="Layer_1-2" data-name="Layer 1">

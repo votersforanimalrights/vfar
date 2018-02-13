@@ -160,7 +160,7 @@ get_template_part( 'templates/modal' );
       if ($link->children) {
         $parentActive = in_array( 'current-menu-item', $link->classes ) || in_array( 'current-page-ancestor', $link->classes );
       ?>
-      <div id="subnav-<?php echo $link->ID ?>" class="subnav-links<?php echo $active ? ' active' : '' ?>">
+      <div id="subnav-<?php echo $link->ID ?>" class="subnav-links<?php echo $parentActive ? ' active' : '' ?>">
         <ul>
         <?php
           foreach ( $link->children as $child ) {

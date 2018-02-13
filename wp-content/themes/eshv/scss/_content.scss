@@ -74,10 +74,6 @@
     margin: 5% 5% 2%;
     text-transform: uppercase;
 
-    @include nonphone() {
-      @include size-height(24, 36);
-    }
-
     @include respond-to(tablet) {
       margin: 2% 20% 2% 10%;
     }

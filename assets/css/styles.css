@@ -1802,13 +1802,6 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
   .content img {
     margin: 0;
   }
-  .content h2,
-  .content h3 {
-    font-size: 24px;
-    font-size: 1.5rem;
-    line-height: 36px;
-    line-height: 2.25rem;
-  }
   .content h1 {
     font-size: 24px;
     font-size: 1.5rem;

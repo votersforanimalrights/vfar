@@ -1163,10 +1163,9 @@ html.can_embed-html body {
 }
 
 .page-content-wrapper .vfar-bios img {
-  float: left;
   width: 250px;
   height: 250px;
-  margin: 0 20px 0 0;
+  margin: 0 0 20px;
 }
 
 .archive-wrapper h1 {
@@ -1900,6 +1899,10 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
   .page-content-wrapper #can_embed_form h2,
   .page-content-wrapper #can_embed_form p {
     margin: 0 0 15px;
+  }
+  .page-content-wrapper .vfar-bios img {
+    float: left;
+    margin: 0 20px 0 0;
   }
   .footer .columns {
     padding: 20px 0;

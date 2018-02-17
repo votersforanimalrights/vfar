@@ -30,12 +30,18 @@ get_header() ?>
   ?>
   <section class="content centered-content page-content">
     <div class="page-content-wrapper">
-      <?php foreach ($children as $child) { ?>
+      <?php
+      if (count($children) > 0) {
+        foreach ($children as $child) { ?>
         <div id="<?php echo $child->post_name ?>" class="child-page">
           <h2><?php echo $child->post_title ?></h2>
           <?php echo apply_filters('the_content', $child->post_content) ?>
         </div>
-      <?php } ?>
+      <?php }
+      } else {
+        the_content();
+      }
+      ?>
     </div>
   </section>
 </article>

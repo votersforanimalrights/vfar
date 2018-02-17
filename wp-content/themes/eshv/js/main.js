@@ -1,5 +1,4 @@
 const b = document.body;
-const masthead = document.getElementById('masthead');
 const subnav = document.getElementById('subnav');
 const mainNav = document.getElementById('header-nav');
 const mainNavLinks = mainNav.getElementsByTagName('a');
@@ -12,22 +11,21 @@ const inlineTriggerModal = document.querySelectorAll('.trigger-modal');
 
 window.addEventListener('scroll', () => {
   if (window.scrollY >= 120) {
+    if (mainNav.getElementsByClassName('hovered').length > 0) {
+      for (let i = 0; i < mainNavLinks.length; i += 1) {
+        mainNavLinks[i].classList.remove('hovered');
+      }
+      for (let j = 0; j < subnavLinks.length; j += 1) {
+        if (subnavLinks[j].classList.contains('active')) {
+          subnavLinks[j].style.display = 'block';
+        } else {
+          subnavLinks[j].style.display = 'none';
+        }
+      }
+    }
     subnav.classList.add('sticky-nav');
   } else {
     subnav.classList.remove('sticky-nav');
-  }
-});
-
-masthead.addEventListener('mouseleave', () => {
-  for (let i = 0; i < mainNavLinks.length; i += 1) {
-    mainNavLinks[i].classList.remove('hovered');
-  }
-  for (let j = 0; j < subnavLinks.length; j += 1) {
-    if (subnavLinks[j].classList.contains('active')) {
-      subnavLinks[j].style.display = 'block';
-    } else {
-      subnavLinks[j].style.display = 'none';
-    }
   }
 });
 

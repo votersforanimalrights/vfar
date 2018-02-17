@@ -26,7 +26,6 @@ if ( $show && ( ! isset( $_COOKIE['splash'] ) || isset( $_GET['splash'] ) ) ) {
     <section>
       <h3>Stand Up for Animals!</h3>
       <p>Be part of the movement.</p>
-      <p>Pledge your vote<br/>for humane candidates.</p>
     </section>
     <div id="modal-dynamic-section">
       <h3 class="eshv-join-header">Join Our Pack of Political Animals</h3>

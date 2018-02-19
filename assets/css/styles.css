@@ -1183,31 +1183,31 @@ html.can_embed-html body {
 
 .page-content-wrapper .vfar-bios li {
   float: left;
-  height: 255px;
+  height: 245px;
   padding: 15px;
   overflow: hidden;
-  width: 155px;
+  width: 165px;
 }
 
 .page-content-wrapper .vfar-bios li a {
   display: block;
-  height: 155px;
-  margin: 0 0 20px;
+  height: 165px;
+  margin: 0 0 10px;
   position: relative;
-  width: 155px;
+  width: 165px;
 }
 
 .page-content-wrapper .vfar-bios li a::before {
   background: transparent;
+  bottom: 0;
   content: ' ';
   display: block;
-  height: 155px;
   left: 0;
   position: absolute;
+  right: 0;
   top: 0;
   -webkit-transition: background 400ms;
   transition: background 400ms;
-  width: 155px;
   z-index: 2;
 }
 
@@ -1244,10 +1244,14 @@ html.can_embed-html body {
   font-weight: 700;
   color: #2852a1;
   display: block;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 22px;
 }
 
 .page-content-wrapper .vfar-bios span {
   color: #2852a1;
+  font-size: 17px;
   font-style: italic;
 }
 

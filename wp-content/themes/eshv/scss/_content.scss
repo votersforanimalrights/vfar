@@ -423,28 +423,28 @@ html.can_embed-html {
 
     li {
       float: left;
-      height: 255px;
+      height: 245px;
       padding: 15px;
       overflow: hidden;
-      width: 155px;
+      width: 165px;
 
       a {
         display: block;
-        height: 155px;
-        margin: 0 0 20px;
+        height: 165px;
+        margin: 0 0 10px;
         position: relative;
-        width: 155px;
+        width: 165px;
 
         &::before {
           background: transparent;
+          bottom: 0;
           content: ' ';
           display: block;
-          height: 155px;
           left: 0;
           position: absolute;
+          right: 0;
           top: 0;
           transition: background 400ms;
-          width: 155px;
           z-index: 2;
         }
         &::after {
@@ -479,10 +479,14 @@ html.can_embed-html {
       @include bold;
       color: $blue;
       display: block;
+      font-size: 19px;
+      font-weight: 600;
+      line-height: 22px;
     }
 
     span {
       color: $blue;
+      font-size: 17px;
       font-style: italic;
     }
 

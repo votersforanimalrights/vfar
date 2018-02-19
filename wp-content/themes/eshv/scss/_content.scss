@@ -423,10 +423,13 @@ html.can_embed-html {
 
     li {
       float: left;
-      height: 245px;
       padding: 15px;
       overflow: hidden;
       width: 165px;
+
+      @include nonphone() {
+        height: 245px;
+      }
 
       a {
         display: block;

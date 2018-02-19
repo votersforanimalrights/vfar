@@ -18,8 +18,8 @@ if ( $show && ( ! isset( $_COOKIE['splash'] ) || isset( $_GET['splash'] ) ) ) {
   $className = ' auto-modal';
 }
 ?>
-<div class="modal<?php echo $className ?>">
-  <div class="modal-wrapper">
+<div class="modal splash-modal<?php echo $className ?>">
+  <div class="splash-wrapper">
     <span class="modal-close">
       <img src="/wp-content/themes/eshv/images/modal-close.png" />
     </span>
@@ -32,5 +32,16 @@ if ( $show && ( ! isset( $_COOKIE['splash'] ) || isset( $_GET['splash'] ) ) ) {
       <script src="https://actionnetwork.org/widgets/v2/form/get-updates-from-empire-state-humane-voters?format=js&source=widget&can_widget_id=modal-form-id"></script>
       <div id="modal-form-id"></div>
     </div>
+  </div>
+</div>
+<div class="modal" id="bio-modal">
+  <div class="modal-wrapper">
+    <span class="modal-close">
+      <img src="/wp-content/themes/eshv/images/modal-close.png" />
+    </span>
+    <section>
+      <h3>Stand Up for Animals!</h3>
+      <p>Be part of the movement.</p>
+    </section>
   </div>
 </div>

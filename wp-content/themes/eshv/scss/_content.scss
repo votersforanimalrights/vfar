@@ -419,9 +419,60 @@ html.can_embed-html {
 
 .page-content-wrapper {
   .vfar-bios {
+    overflow: hidden;
+
     li {
-      margin: 20px 0;
+      float: left;
+      height: 255px;
+      padding: 15px;
       overflow: hidden;
+      width: 155px;
+
+      a {
+        display: block;
+        height: 155px;
+        margin: 0 0 20px;
+        position: relative;
+        width: 155px;
+
+        &::before {
+          background: transparent;
+          content: ' ';
+          display: block;
+          height: 155px;
+          left: 0;
+          position: absolute;
+          top: 0;
+          transition: background 400ms;
+          width: 155px;
+          z-index: 2;
+        }
+        &::after {
+          background: url('/wp-content/themes/eshv/images/bio.png') no-repeat;
+          bottom: 5px;
+          content: ' ';
+          display: block;
+          height: 43px;
+          opacity: 0;
+          position: absolute;
+          right: 5px;
+          transition: opacity 400ms;
+          width: 43px;
+          z-index: 1;
+        }
+        &:hover {
+          &::after {
+            opacity: 1;
+          }
+          &::before {
+            background: rgba(3, 151, 215, 0.5);
+          }
+        }
+      }
+
+      p {
+        display: none;
+      }
     }
 
     strong {
@@ -436,18 +487,7 @@ html.can_embed-html {
     }
 
     img {
-      width: 250px;
-      height: 250px;
-      margin: 0 0 20px;
-
-      @include respond-to(notphone) {
-        float: left;
-        margin: 0 20px 0 0;
-      }
-
-      @include respond-to(desktop) {
-        margin: 0 20px 20px 0;
-      }
+      display: block;
     }
     @include respond-to(desktop) {
       p {

@@ -38,7 +38,7 @@ $image: '/wp-content/themes/eshv/splash-dog.jpg';
   width: 57%;
 }
 
-.modal-wrapper {
+.splash-wrapper {
   @include mobile-centered(270px);
 
   @include respond-to(biggerphone) {
@@ -171,20 +171,125 @@ $image: '/wp-content/themes/eshv/splash-dog.jpg';
   right: 0;
   top: 0;
   width: 100%;
-  z-index: 9990;
+  z-index: 1000000000;
 
   &.simple-modal,
   &.auto-modal {
     display: block;
   }
 
+  .modal-close {
+    cursor: pointer;
+    display: block;
+    height: 18px;
+    position: absolute;
+    right: -9px;
+    top: -9px;
+    width: 18px;
+
+    @include nonphone() {
+      height: 36px;
+      right: -18px;
+      top: -18px;
+      width: 36px;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
   .modal-wrapper {
+    background: $white;
+    bottom: auto;
+    box-shadow: 0 0 30px $black;
+    display: block;
+    left: 15%;
+    overflow: scroll;
+    position: fixed;
+    right: 15%;
+    top: 15%;
+    width: 70%;
+    z-index: 9991;
+
+    .modal-close {
+      height: 18px;
+      right: 9px;
+      top: 9px;
+      width: 18px;
+
+      @include nonphone() {
+        height: 36px;
+        right: 18px;
+        top: 18px;
+        width: 36px;
+      }
+    }
+
+    section {
+      margin: 0 0 0 170px;
+      padding: 40px;
+
+      strong {
+        display: block;
+        font-weight: 300;
+        font-size: 32px;
+        line-height: 1;
+      }
+
+      span {
+        display: block;
+        font-size: 14px;
+        font-style: italic;
+        font-weight: 300;
+        letter-spacing: 1px;
+        line-height: 18px;
+        margin: 0 0 5px;
+      }
+
+      a {
+        float: left;
+        margin: 0 20px 0 -170px;
+      }
+
+      img {
+        display: block;
+        height: 155px;
+        width: 155px;
+      }
+
+      p {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 23px;
+        margin: 20px 0;
+      }
+    }
+  }
+
+  .splash-wrapper {
     background: $dark url('#{$image}') no-repeat;
     background-size: contain;
     box-shadow: 0 0 30px $black;
     display: block;
     position: fixed;
     z-index: 9991;
+
+    .modal-close {
+      height: 18px;
+      right: -9px;
+      top: -9px;
+      width: 18px;
+
+      @include nonphone() {
+        height: 36px;
+        right: -18px;
+        top: -18px;
+        width: 36px;
+      }
+    }
 
     section {
       display: block;
@@ -285,35 +390,12 @@ $image: '/wp-content/themes/eshv/splash-dog.jpg';
   }
 
   &.simple-modal {
-    .modal-wrapper {
+    .splash-wrapper {
       background: $dark;
 
       section {
         display: none;
       }
-    }
-  }
-
-  .modal-close {
-    cursor: pointer;
-    display: block;
-    height: 18px;
-    position: absolute;
-    right: -9px;
-    top: -9px;
-    width: 18px;
-
-    @include nonphone() {
-      height: 36px;
-      right: -18px;
-      top: -18px;
-      width: 36px;
-    }
-
-    img {
-      display: block;
-      width: 100%;
-      height: auto;
     }
   }
 }
@@ -360,8 +442,8 @@ $image: '/wp-content/themes/eshv/splash-dog.jpg';
     }
   }
 
-  input[type="email"],
-  input[type="text"] {
+  input[type='email'],
+  input[type='text'] {
     @include size-height(12, 15);
     border-radius: 2px;
     color: $dark-grey;
@@ -412,7 +494,7 @@ $image: '/wp-content/themes/eshv/splash-dog.jpg';
     }
   }
 
-  input[type="submit"] {
+  input[type='submit'] {
     @include size-height(15, 20);
     appearance: none;
     background: $button;

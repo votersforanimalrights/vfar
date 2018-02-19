@@ -1177,9 +1177,65 @@ html.can_embed-html body {
   margin: 15px;
 }
 
-.page-content-wrapper .vfar-bios li {
-  margin: 20px 0;
+.page-content-wrapper .vfar-bios {
   overflow: hidden;
+}
+
+.page-content-wrapper .vfar-bios li {
+  float: left;
+  height: 255px;
+  padding: 15px;
+  overflow: hidden;
+  width: 155px;
+}
+
+.page-content-wrapper .vfar-bios li a {
+  display: block;
+  height: 155px;
+  margin: 0 0 20px;
+  position: relative;
+  width: 155px;
+}
+
+.page-content-wrapper .vfar-bios li a::before {
+  background: transparent;
+  content: ' ';
+  display: block;
+  height: 155px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transition: background 400ms;
+  transition: background 400ms;
+  width: 155px;
+  z-index: 2;
+}
+
+.page-content-wrapper .vfar-bios li a::after {
+  background: url("/wp-content/themes/eshv/images/bio.png") no-repeat;
+  bottom: 5px;
+  content: ' ';
+  display: block;
+  height: 43px;
+  opacity: 0;
+  position: absolute;
+  right: 5px;
+  -webkit-transition: opacity 400ms;
+  transition: opacity 400ms;
+  width: 43px;
+  z-index: 1;
+}
+
+.page-content-wrapper .vfar-bios li a:hover::after {
+  opacity: 1;
+}
+
+.page-content-wrapper .vfar-bios li a:hover::before {
+  background: rgba(3, 151, 215, 0.5);
+}
+
+.page-content-wrapper .vfar-bios li p {
+  display: none;
 }
 
 .page-content-wrapper .vfar-bios strong {
@@ -1196,9 +1252,7 @@ html.can_embed-html body {
 }
 
 .page-content-wrapper .vfar-bios img {
-  width: 250px;
-  height: 250px;
-  margin: 0 0 20px;
+  display: block;
 }
 
 .archive-wrapper h1 {
@@ -1412,7 +1466,7 @@ html.can_embed-html body {
   top: 14px;
 }
 
-.modal-wrapper {
+.splash-wrapper {
   height: 290px;
   bottom: -webkit-calc((100% - 290px) / 2);
   bottom: calc((100% - 290px) / 2);
@@ -1425,7 +1479,7 @@ html.can_embed-html body {
   width: 270px;
 }
 
-.simple-modal .modal-wrapper {
+.simple-modal .splash-wrapper {
   height: 158px;
   bottom: -webkit-calc((100% - 158px) / 2);
   bottom: calc((100% - 158px) / 2);
@@ -1477,62 +1531,11 @@ body.action-logged-in .simple-modal #modal-dynamic-section {
   right: 0;
   top: 0;
   width: 100%;
-  z-index: 9990;
+  z-index: 1000000000;
 }
 
 .modal.simple-modal, .modal.auto-modal {
   display: block;
-}
-
-.modal .modal-wrapper {
-  background: #3c3d41 url("/wp-content/themes/eshv/splash-dog.jpg") no-repeat;
-  -webkit-background-size: contain;
-  background-size: contain;
-  -webkit-box-shadow: 0 0 30px #000;
-  box-shadow: 0 0 30px #000;
-  display: block;
-  position: fixed;
-  z-index: 9991;
-}
-
-.modal .modal-wrapper section {
-  display: block;
-  margin: 0 1.5% 0 41.5%;
-  padding: 35px 0;
-  text-align: center;
-  text-transform: uppercase;
-  width: 57%;
-}
-
-.modal .modal-wrapper h3 {
-  font-family: "Open Sans", sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 18px;
-  font-size: 1.125rem;
-  line-height: 18px;
-  line-height: 1.125rem;
-  color: #cc3b53;
-}
-
-.modal .modal-wrapper p {
-  font-family: "Open Sans", sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 13px;
-  font-size: 0.8125rem;
-  line-height: 13px;
-  line-height: 0.8125rem;
-  color: #1fabe5;
-  margin: 5px 0;
-}
-
-.modal.simple-modal .modal-wrapper {
-  background: #3c3d41;
-}
-
-.modal.simple-modal .modal-wrapper section {
-  display: none;
 }
 
 .modal .modal-close {
@@ -1549,6 +1552,126 @@ body.action-logged-in .simple-modal #modal-dynamic-section {
   display: block;
   width: 100%;
   height: auto;
+}
+
+.modal .modal-wrapper {
+  background: #fff;
+  bottom: auto;
+  -webkit-box-shadow: 0 0 30px #000;
+  box-shadow: 0 0 30px #000;
+  display: block;
+  left: 15%;
+  overflow: scroll;
+  position: fixed;
+  right: 15%;
+  top: 15%;
+  width: 70%;
+  z-index: 9991;
+}
+
+.modal .modal-wrapper .modal-close {
+  height: 18px;
+  right: 9px;
+  top: 9px;
+  width: 18px;
+}
+
+.modal .modal-wrapper section {
+  margin: 0 0 0 170px;
+  padding: 40px;
+}
+
+.modal .modal-wrapper section strong {
+  display: block;
+  font-weight: 300;
+  font-size: 32px;
+  line-height: 1;
+}
+
+.modal .modal-wrapper section span {
+  display: block;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 300;
+  letter-spacing: 1px;
+  line-height: 18px;
+  margin: 0 0 5px;
+}
+
+.modal .modal-wrapper section a {
+  float: left;
+  margin: 0 20px 0 -170px;
+}
+
+.modal .modal-wrapper section img {
+  display: block;
+  height: 155px;
+  width: 155px;
+}
+
+.modal .modal-wrapper section p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 23px;
+  margin: 20px 0;
+}
+
+.modal .splash-wrapper {
+  background: #3c3d41 url("/wp-content/themes/eshv/splash-dog.jpg") no-repeat;
+  -webkit-background-size: contain;
+  background-size: contain;
+  -webkit-box-shadow: 0 0 30px #000;
+  box-shadow: 0 0 30px #000;
+  display: block;
+  position: fixed;
+  z-index: 9991;
+}
+
+.modal .splash-wrapper .modal-close {
+  height: 18px;
+  right: -9px;
+  top: -9px;
+  width: 18px;
+}
+
+.modal .splash-wrapper section {
+  display: block;
+  margin: 0 1.5% 0 41.5%;
+  padding: 35px 0;
+  text-align: center;
+  text-transform: uppercase;
+  width: 57%;
+}
+
+.modal .splash-wrapper h3 {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  font-size: 1.125rem;
+  line-height: 18px;
+  line-height: 1.125rem;
+  color: #cc3b53;
+}
+
+.modal .splash-wrapper p {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 13px;
+  font-size: 0.8125rem;
+  line-height: 13px;
+  line-height: 0.8125rem;
+  color: #1fabe5;
+  margin: 5px 0;
+}
+
+.modal.simple-modal .splash-wrapper {
+  background: #3c3d41;
+}
+
+.modal.simple-modal .splash-wrapper section {
+  display: none;
 }
 
 body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_message div {
@@ -1593,8 +1716,8 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
   color: #fff;
 }
 
-#modal-form-id input[type="email"],
-#modal-form-id input[type="text"] {
+#modal-form-id input[type='email'],
+#modal-form-id input[type='text'] {
   font-size: 12px;
   font-size: 0.75rem;
   line-height: 15px;
@@ -1609,43 +1732,43 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
   width: 75%;
 }
 
-#modal-form-id input[type="email"]:active, #modal-form-id input[type="email"]:focus,
-#modal-form-id input[type="text"]:active,
-#modal-form-id input[type="text"]:focus {
+#modal-form-id input[type='email']:active, #modal-form-id input[type='email']:focus,
+#modal-form-id input[type='text']:active,
+#modal-form-id input[type='text']:focus {
   color: #636363;
   outline: 0;
 }
 
-#modal-form-id input[type="email"]::-webkit-input-placeholder,
-#modal-form-id input[type="text"]::-webkit-input-placeholder {
+#modal-form-id input[type='email']::-webkit-input-placeholder,
+#modal-form-id input[type='text']::-webkit-input-placeholder {
   color: #636363;
 }
 
-#modal-form-id input[type="email"]:-moz-placeholder,
-#modal-form-id input[type="text"]:-moz-placeholder {
+#modal-form-id input[type='email']:-moz-placeholder,
+#modal-form-id input[type='text']:-moz-placeholder {
   color: #636363;
 }
 
-#modal-form-id input[type="email"]::-moz-placeholder,
-#modal-form-id input[type="text"]::-moz-placeholder {
+#modal-form-id input[type='email']::-moz-placeholder,
+#modal-form-id input[type='text']::-moz-placeholder {
   color: #636363;
 }
 
-#modal-form-id input[type="email"]:-ms-input-placeholder,
-#modal-form-id input[type="text"]:-ms-input-placeholder {
+#modal-form-id input[type='email']:-ms-input-placeholder,
+#modal-form-id input[type='text']:-ms-input-placeholder {
   color: #636363;
 }
 
-#modal-form-id input[type="email"]::placeholder,
-#modal-form-id input[type="text"]::placeholder {
+#modal-form-id input[type='email']::placeholder,
+#modal-form-id input[type='text']::placeholder {
   color: #636363;
 }
 
-#modal-form-id input[type="email"]:-webkit-autofill, #modal-form-id input[type="email"]:-webkit-autofill:hover, #modal-form-id input[type="email"]:-webkit-autofill:focus, #modal-form-id input[type="email"]:-webkit-autofill:active,
-#modal-form-id input[type="text"]:-webkit-autofill,
-#modal-form-id input[type="text"]:-webkit-autofill:hover,
-#modal-form-id input[type="text"]:-webkit-autofill:focus,
-#modal-form-id input[type="text"]:-webkit-autofill:active {
+#modal-form-id input[type='email']:-webkit-autofill, #modal-form-id input[type='email']:-webkit-autofill:hover, #modal-form-id input[type='email']:-webkit-autofill:focus, #modal-form-id input[type='email']:-webkit-autofill:active,
+#modal-form-id input[type='text']:-webkit-autofill,
+#modal-form-id input[type='text']:-webkit-autofill:hover,
+#modal-form-id input[type='text']:-webkit-autofill:focus,
+#modal-form-id input[type='text']:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 1000px #fff inset;
   box-shadow: 0 0 0 1000px #fff inset;
   color: #636363;
@@ -1654,7 +1777,7 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
   transition: background-color 5000s ease-in-out 0s;
 }
 
-#modal-form-id input[type="submit"] {
+#modal-form-id input[type='submit'] {
   font-size: 15px;
   font-size: 0.9375rem;
   line-height: 20px;
@@ -1792,13 +1915,10 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
   .eshv-table td {
     padding: 8px 15px 8px 8px;
   }
-  .page-content-wrapper .vfar-bios img {
-    margin: 0 20px 20px 0;
-  }
   .content .page-content-wrapper .vfar-bios p {
     margin-bottom: 8px;
   }
-  .modal-wrapper {
+  .splash-wrapper {
     height: 411px;
     bottom: -webkit-calc((100% - 411px) / 2);
     bottom: calc((100% - 411px) / 2);
@@ -1810,7 +1930,7 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
     right: calc((100% - 700px) / 2);
     width: 700px;
   }
-  .simple-modal .modal-wrapper {
+  .simple-modal .splash-wrapper {
     height: 411px;
     bottom: -webkit-calc((100% - 411px) / 2);
     bottom: calc((100% - 411px) / 2);
@@ -1822,34 +1942,34 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
     position: static;
     width: 57%;
   }
-  .modal .modal-wrapper section {
+  .modal .splash-wrapper section {
     padding: 40px 0 0;
   }
-  body.action-logged-in .modal .modal-wrapper section {
+  body.action-logged-in .modal .splash-wrapper section {
     padding: 80px 0 0;
   }
-  .modal .modal-wrapper h3 {
+  .modal .splash-wrapper h3 {
     font-size: 31px;
     font-size: 1.9375rem;
     line-height: 31px;
     line-height: 1.9375rem;
   }
-  .modal .modal-wrapper p {
+  .modal .splash-wrapper p {
     font-size: 22px;
     font-size: 1.375rem;
     line-height: 26px;
     line-height: 1.625rem;
     margin: 20px 0;
   }
-  #modal-form-id input[type="email"],
-  #modal-form-id input[type="text"] {
+  #modal-form-id input[type='email'],
+  #modal-form-id input[type='text'] {
     font-size: 12px;
     font-size: 0.75rem;
     line-height: 18px;
     line-height: 1.125rem;
     height: 28px;
   }
-  #modal-form-id input[type="submit"] {
+  #modal-form-id input[type='submit'] {
     font-size: 15px;
     font-size: 0.9375rem;
     line-height: 40px;
@@ -1938,10 +2058,6 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
   .page-content-wrapper #can_embed_form p {
     margin: 0 0 15px;
   }
-  .page-content-wrapper .vfar-bios img {
-    float: left;
-    margin: 0 20px 0 0;
-  }
   .footer .columns {
     padding: 20px 0;
     width: 654px;
@@ -1975,6 +2091,18 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
     bottom: 34%;
   }
   .modal .modal-close {
+    height: 36px;
+    right: -18px;
+    top: -18px;
+    width: 36px;
+  }
+  .modal .modal-wrapper .modal-close {
+    height: 36px;
+    right: 18px;
+    top: 18px;
+    width: 36px;
+  }
+  .modal .splash-wrapper .modal-close {
     height: 36px;
     right: -18px;
     top: -18px;
@@ -2014,7 +2142,7 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
   .content h3 {
     margin: 2% 20% 2% 10%;
   }
-  .modal-wrapper {
+  .splash-wrapper {
     height: 382px;
     bottom: -webkit-calc((100% - 382px) / 2);
     bottom: calc((100% - 382px) / 2);
@@ -2026,7 +2154,7 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
     right: calc((100% - 650px) / 2);
     width: 650px;
   }
-  .simple-modal .modal-wrapper {
+  .simple-modal .splash-wrapper {
     height: 382px;
     bottom: -webkit-calc((100% - 382px) / 2);
     bottom: calc((100% - 382px) / 2);
@@ -2038,34 +2166,34 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
     position: static;
     width: 57%;
   }
-  .modal .modal-wrapper section {
+  .modal .splash-wrapper section {
     padding: 35px 0 0;
   }
-  body.action-logged-in .modal .modal-wrapper section {
+  body.action-logged-in .modal .splash-wrapper section {
     padding: 55px 0 0;
   }
-  .modal .modal-wrapper h3 {
+  .modal .splash-wrapper h3 {
     font-size: 31px;
     font-size: 1.9375rem;
     line-height: 31px;
     line-height: 1.9375rem;
   }
-  .modal .modal-wrapper p {
+  .modal .splash-wrapper p {
     font-size: 22px;
     font-size: 1.375rem;
     line-height: 26px;
     line-height: 1.625rem;
     margin: 20px 0;
   }
-  #modal-form-id input[type="email"],
-  #modal-form-id input[type="text"] {
+  #modal-form-id input[type='email'],
+  #modal-form-id input[type='text'] {
     font-size: 12px;
     font-size: 0.75rem;
     line-height: 18px;
     line-height: 1.125rem;
     height: 28px;
   }
-  #modal-form-id input[type="submit"] {
+  #modal-form-id input[type='submit'] {
     height: 40px;
     margin: 10px 0 0;
   }
@@ -2101,7 +2229,7 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
     height: 48%;
     width: 97%;
   }
-  .modal-wrapper {
+  .splash-wrapper {
     height: 333px;
     bottom: -webkit-calc((100% - 333px) / 2);
     bottom: calc((100% - 333px) / 2);
@@ -2113,7 +2241,7 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
     right: calc((100% - 310px) / 2);
     width: 310px;
   }
-  .simple-modal .modal-wrapper {
+  .simple-modal .splash-wrapper {
     height: 182px;
     bottom: -webkit-calc((100% - 182px) / 2);
     bottom: calc((100% - 182px) / 2);
@@ -2129,13 +2257,13 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
   .simple-modal #modal-dynamic-section {
     bottom: 15%;
   }
-  .modal .modal-wrapper p {
+  .modal .splash-wrapper p {
     font-size: 15px;
     font-size: 0.9375rem;
     line-height: 15px;
     line-height: 0.9375rem;
   }
-  #modal-form-id input[type="submit"] {
+  #modal-form-id input[type='submit'] {
     font-size: 15px;
     font-size: 0.9375rem;
     line-height: 25px;
@@ -2143,7 +2271,7 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
     height: 25px;
     margin: 10px 0 0;
   }
-  #modal-form-id input[type="submit"] {
+  #modal-form-id input[type='submit'] {
     font-size: 15px;
     font-size: 0.9375rem;
     line-height: 25px;
@@ -2164,7 +2292,7 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
     line-height: 1.6875rem;
     height: 49%;
   }
-  .modal-wrapper {
+  .splash-wrapper {
     height: 344px;
     bottom: -webkit-calc((100% - 344px) / 2);
     bottom: calc((100% - 344px) / 2);
@@ -2176,7 +2304,7 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
     right: calc((100% - 320px) / 2);
     width: 320px;
   }
-  .simple-modal .modal-wrapper {
+  .simple-modal .splash-wrapper {
     height: 188px;
     bottom: -webkit-calc((100% - 188px) / 2);
     bottom: calc((100% - 188px) / 2);
@@ -2196,19 +2324,19 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
   body.action-logged-in .simple-modal #modal-dynamic-section {
     bottom: 25%;
   }
-  .modal .modal-wrapper h3 {
+  .modal .splash-wrapper h3 {
     font-size: 24px;
     font-size: 1.5rem;
     line-height: 24px;
     line-height: 1.5rem;
   }
-  .modal .modal-wrapper p {
+  .modal .splash-wrapper p {
     font-size: 15px;
     font-size: 0.9375rem;
     line-height: 15px;
     line-height: 0.9375rem;
   }
-  #modal-form-id input[type="submit"] {
+  #modal-form-id input[type='submit'] {
     font-size: 15px;
     font-size: 0.9375rem;
     line-height: 25px;
@@ -2229,7 +2357,7 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
     line-height: 1.8125rem;
     height: 53%;
   }
-  .modal-wrapper {
+  .splash-wrapper {
     height: 387px;
     bottom: -webkit-calc((100% - 387px) / 2);
     bottom: calc((100% - 387px) / 2);
@@ -2241,7 +2369,7 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
     right: calc((100% - 360px) / 2);
     width: 360px;
   }
-  .simple-modal .modal-wrapper {
+  .simple-modal .splash-wrapper {
     height: 211px;
     bottom: -webkit-calc((100% - 211px) / 2);
     bottom: calc((100% - 211px) / 2);
@@ -2260,30 +2388,30 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
   body.action-logged-in .simple-modal #modal-dynamic-section {
     bottom: 25%;
   }
-  .modal .modal-wrapper section {
+  .modal .splash-wrapper section {
     padding: 35px 0 0;
   }
-  .modal .modal-wrapper h3 {
+  .modal .splash-wrapper h3 {
     font-size: 24px;
     font-size: 1.5rem;
     line-height: 24px;
     line-height: 1.5rem;
   }
-  .modal .modal-wrapper p {
+  .modal .splash-wrapper p {
     font-size: 17px;
     font-size: 1.0625rem;
     line-height: 17px;
     line-height: 1.0625rem;
   }
-  #modal-form-id input[type="email"],
-  #modal-form-id input[type="text"] {
+  #modal-form-id input[type='email'],
+  #modal-form-id input[type='text'] {
     font-size: 12px;
     font-size: 0.75rem;
     line-height: 18px;
     line-height: 1.125rem;
     height: 28px;
   }
-  #modal-form-id input[type="submit"] {
+  #modal-form-id input[type='submit'] {
     font-size: 15px;
     font-size: 0.9375rem;
     line-height: 25px;
@@ -2315,7 +2443,7 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
   .content h3 {
     margin: 2% 20% 2% 10%;
   }
-  .modal-wrapper {
+  .splash-wrapper {
     height: 411px;
     bottom: -webkit-calc((100% - 411px) / 2);
     bottom: calc((100% - 411px) / 2);
@@ -2327,7 +2455,7 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
     right: calc((100% - 700px) / 2);
     width: 700px;
   }
-  .simple-modal .modal-wrapper {
+  .simple-modal .splash-wrapper {
     height: 411px;
     bottom: -webkit-calc((100% - 411px) / 2);
     bottom: calc((100% - 411px) / 2);
@@ -2339,34 +2467,34 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
     position: static;
     width: 57%;
   }
-  .modal .modal-wrapper section {
+  .modal .splash-wrapper section {
     padding: 40px 0 20px;
   }
-  body.action-logged-in .modal .modal-wrapper section {
+  body.action-logged-in .modal .splash-wrapper section {
     padding: 80px 0 0;
   }
-  .modal .modal-wrapper h3 {
+  .modal .splash-wrapper h3 {
     font-size: 31px;
     font-size: 1.9375rem;
     line-height: 31px;
     line-height: 1.9375rem;
   }
-  .modal .modal-wrapper p {
+  .modal .splash-wrapper p {
     font-size: 22px;
     font-size: 1.375rem;
     line-height: 26px;
     line-height: 1.625rem;
     margin: 20px 0;
   }
-  #modal-form-id input[type="email"],
-  #modal-form-id input[type="text"] {
+  #modal-form-id input[type='email'],
+  #modal-form-id input[type='text'] {
     font-size: 12px;
     font-size: 0.75rem;
     line-height: 18px;
     line-height: 1.125rem;
     height: 28px;
   }
-  #modal-form-id input[type="submit"] {
+  #modal-form-id input[type='submit'] {
     height: 40px;
     margin: 20px 0 0;
   }

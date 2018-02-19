@@ -1606,7 +1606,7 @@ body.action-logged-in .simple-modal #modal-dynamic-section {
   margin: 0 0 5px;
 }
 
-.modal .modal-wrapper section a {
+.modal .modal-wrapper section .bio-image {
   display: block;
   margin: 0 0 20px;
 }
@@ -2128,7 +2128,7 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
     max-height: -webkit-calc(100vh - 100px);
     max-height: calc(100vh - 100px);
   }
-  .modal .modal-wrapper section a {
+  .modal .modal-wrapper section .bio-image {
     float: left;
     margin: 0 20px 0 -170px;
   }

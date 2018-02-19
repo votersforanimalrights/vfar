@@ -223,8 +223,8 @@
   display: none;
   font-size: 12px;
   font-weight: bold;
-  height: calc(100vh - 76px);
   left: 0;
+  max-height: calc(100vh - 76px);
   overflow: scroll;
   position: absolute;
   right: 0;
@@ -247,7 +247,7 @@
     padding: 0;
 
     ul {
-      margin: 15px;
+      margin: 0 15px;
     }
   }
 
@@ -276,6 +276,14 @@
 
       &:hover {
         text-decoration: none;
+      }
+    }
+
+    li {
+      a {
+        @include size-height(14, 16);
+        font-weight: 400;
+        text-transform: none;
       }
     }
   }

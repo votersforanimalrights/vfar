@@ -365,9 +365,9 @@ sup a {
   display: none;
   font-size: 12px;
   font-weight: bold;
-  height: -webkit-calc(100vh - 76px);
-  height: calc(100vh - 76px);
   left: 0;
+  max-height: -webkit-calc(100vh - 76px);
+  max-height: calc(100vh - 76px);
   overflow: scroll;
   position: absolute;
   right: 0;
@@ -388,7 +388,7 @@ sup a {
 }
 
 .mobile-nav ul ul {
-  margin: 15px;
+  margin: 0 15px;
 }
 
 .mobile-nav li {
@@ -419,6 +419,15 @@ sup a {
 
 .mobile-nav li a:hover {
   text-decoration: none;
+}
+
+.mobile-nav li li a {
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 16px;
+  line-height: 1rem;
+  font-weight: 400;
+  text-transform: none;
 }
 
 .header-actions {

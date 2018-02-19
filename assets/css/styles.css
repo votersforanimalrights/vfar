@@ -1580,6 +1580,8 @@ body.action-logged-in .simple-modal #modal-dynamic-section {
 }
 
 .modal .modal-wrapper section {
+  max-height: 100vh;
+  overflow: scroll;
   padding: 20px;
 }
 

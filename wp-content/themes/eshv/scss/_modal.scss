@@ -237,6 +237,8 @@ $image: '/wp-content/themes/eshv/splash-dog.jpg';
     }
 
     section {
+      max-height: 100vh;
+      overflow: scroll;
       padding: 20px;
 
       @include nonphone() {

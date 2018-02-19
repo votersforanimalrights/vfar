@@ -223,7 +223,9 @@
   display: none;
   font-size: 12px;
   font-weight: bold;
+  height: calc(100vh - 76px);
   left: 0;
+  overflow: scroll;
   position: absolute;
   right: 0;
   top: 76px;

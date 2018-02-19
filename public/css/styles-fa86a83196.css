@@ -187,11 +187,17 @@ sup a {
 
 .masthead {
   background: #fff;
+  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  left: 0;
   padding: 0 0 2px;
-  position: relative;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 10000000;
 }
 
 .masthead .subnav {
@@ -258,7 +264,7 @@ sup a {
 .hamburger {
   -webkit-background-clip: content-box;
   background-clip: content-box;
-  background-color: #000;
+  background-color: #3c3d41;
   border: 0;
   -webkit-box-shadow: none;
   box-shadow: none;
@@ -282,6 +288,10 @@ sup a {
   transition: background 0.3s, color 0.3s;
   width: 40px;
   z-index: 9989;
+}
+
+.hamburger:focus {
+  outline: 0 none;
 }
 
 .navOpen .hamburger {
@@ -309,7 +319,7 @@ sup a {
 }
 
 .hamburger::before, .hamburger::after {
-  background-color: #000;
+  background-color: #3c3d41;
   -webkit-box-sizing: inherit;
   -moz-box-sizing: inherit;
   box-sizing: inherit;
@@ -358,8 +368,7 @@ sup a {
   left: 0;
   position: absolute;
   right: 0;
-  text-align: center;
-  top: 104px;
+  top: 76px;
   width: 100%;
   z-index: 1000000;
 }
@@ -375,9 +384,17 @@ sup a {
   padding: 0;
 }
 
+.mobile-nav ul ul {
+  margin: 15px;
+}
+
 .mobile-nav li {
   border-bottom: 1px solid #4e5054;
   display: block;
+}
+
+.mobile-nav li:last-child {
+  border-bottom: 0;
 }
 
 .mobile-nav li:focus, .mobile-nav li:hover {
@@ -392,7 +409,7 @@ sup a {
   color: #f7f7f7;
   display: block;
   margin: 0;
-  padding: 15px 0;
+  padding: 15px;
   text-decoration: none;
   text-transform: uppercase;
 }
@@ -421,7 +438,7 @@ sup a {
   line-height: 2rem;
   background: #cc3b53;
   color: #fefefe;
-  display: block;
+  display: none;
   float: left;
   height: 32px;
   text-align: center;
@@ -437,6 +454,10 @@ sup a {
 
 .header-actions a:hover {
   background: #ae283a;
+}
+
+body {
+  padding-top: 76px;
 }
 
 .main {
@@ -1645,6 +1666,7 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
 @media only screen and (min-width: 1050px) {
   .masthead {
     padding: 10px 10px 50px;
+    position: relative;
   }
   .masthead .subnav {
     display: block;
@@ -1697,10 +1719,14 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
     line-height: 2.375rem;
     -webkit-border-radius: 2px;
     border-radius: 2px;
+    display: block;
     float: none;
     height: 38px;
     margin: 0 0 3px;
     width: 100%;
+  }
+  body {
+    padding-top: 0;
   }
   .hero {
     margin: 0 auto;

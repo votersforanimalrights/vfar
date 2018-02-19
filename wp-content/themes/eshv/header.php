@@ -141,10 +141,27 @@ get_template_part( 'templates/modal' );
     <ul>
       <?php
       foreach ( $links as $link ) {
+        $subnav = '';
+        if (count($link->children) > 0) {
+          $subnav = '<ul>';
+          foreach ( $link->children as $child ) {
+            $active = in_array( 'current-menu-item', $child->classes ) || in_array( 'current-page-ancestor', $child->classes );
+            $subnav .= sprintf(
+              '<li><a href="%s#%s" class="%s">%s</a></li>',
+              $link->url,
+              $child->slug,
+              $active ? 'active' : '',
+              $child->title
+            );
+          }
+          $subnav .= '</ul>';
+        }
+
         printf(
-          '<li><a href="%s">%s</a></li>',
+          '<li><a href="%s">%s</a>%s</li>',
           $link->url,
-          $link->title
+          $link->title,
+          $subnav
         );
       }
       ?>

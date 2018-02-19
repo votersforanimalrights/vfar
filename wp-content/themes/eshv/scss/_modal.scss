@@ -206,13 +206,21 @@ $image: '/wp-content/themes/eshv/splash-dog.jpg';
     bottom: auto;
     box-shadow: 0 0 30px $black;
     display: block;
-    left: 15%;
+    left: 5%;
     overflow: scroll;
     position: fixed;
-    right: 15%;
-    top: 15%;
-    width: 70%;
+    right: 5%;
+    top: 2%;
+    width: 90%;
     z-index: 9991;
+
+    @include nonphone() {
+      bottom: auto;
+      left: 15%;
+      right: 15%;
+      top: 15%;
+      width: 70%;
+    }
 
     .modal-close {
       height: 18px;
@@ -229,8 +237,12 @@ $image: '/wp-content/themes/eshv/splash-dog.jpg';
     }
 
     section {
-      margin: 0 0 0 170px;
-      padding: 40px;
+      padding: 20px;
+
+      @include nonphone() {
+        margin: 0 0 0 170px;
+        padding: 40px;
+      }
 
       strong {
         display: block;
@@ -250,8 +262,10 @@ $image: '/wp-content/themes/eshv/splash-dog.jpg';
       }
 
       a {
-        float: left;
-        margin: 0 20px 0 -170px;
+        @include nonphone() {
+          float: left;
+          margin: 0 20px 0 -170px;
+        }
       }
 
       img {

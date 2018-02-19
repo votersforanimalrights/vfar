@@ -1564,12 +1564,12 @@ body.action-logged-in .simple-modal #modal-dynamic-section {
   -webkit-box-shadow: 0 0 30px #000;
   box-shadow: 0 0 30px #000;
   display: block;
-  left: 15%;
+  left: 5%;
   overflow: scroll;
   position: fixed;
-  right: 15%;
-  top: 15%;
-  width: 70%;
+  right: 5%;
+  top: 2%;
+  width: 90%;
   z-index: 9991;
 }
 
@@ -1581,8 +1581,7 @@ body.action-logged-in .simple-modal #modal-dynamic-section {
 }
 
 .modal .modal-wrapper section {
-  margin: 0 0 0 170px;
-  padding: 40px;
+  padding: 20px;
 }
 
 .modal .modal-wrapper section strong {
@@ -1600,11 +1599,6 @@ body.action-logged-in .simple-modal #modal-dynamic-section {
   letter-spacing: 1px;
   line-height: 18px;
   margin: 0 0 5px;
-}
-
-.modal .modal-wrapper section a {
-  float: left;
-  margin: 0 20px 0 -170px;
 }
 
 .modal .modal-wrapper section img {
@@ -2100,11 +2094,26 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
     top: -18px;
     width: 36px;
   }
+  .modal .modal-wrapper {
+    bottom: auto;
+    left: 15%;
+    right: 15%;
+    top: 15%;
+    width: 70%;
+  }
   .modal .modal-wrapper .modal-close {
     height: 36px;
     right: 18px;
     top: 18px;
     width: 36px;
+  }
+  .modal .modal-wrapper section {
+    margin: 0 0 0 170px;
+    padding: 40px;
+  }
+  .modal .modal-wrapper section a {
+    float: left;
+    margin: 0 20px 0 -170px;
   }
   .modal .splash-wrapper .modal-close {
     height: 36px;

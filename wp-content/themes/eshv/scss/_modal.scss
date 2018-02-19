@@ -237,13 +237,20 @@ $image: '/wp-content/themes/eshv/splash-dog.jpg';
     }
 
     section {
-      max-height: calc(100vh - 80px);
-      overflow: scroll;
       padding: 20px;
 
       @include nonphone() {
         margin: 0 0 0 170px;
         padding: 40px;
+      }
+
+      article {
+        max-height: calc(70vh - 80px);
+        overflow: scroll;
+
+        @include nonphone() {
+          max-height: calc(100vh - 100px);
+        }
       }
 
       strong {

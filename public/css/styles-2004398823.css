@@ -1603,6 +1603,7 @@ body.action-logged-in .simple-modal #modal-dynamic-section {
 }
 
 .modal .modal-wrapper section a {
+  display: block;
   margin: 0 0 20px;
 }
 

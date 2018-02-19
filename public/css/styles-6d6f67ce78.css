@@ -1602,6 +1602,10 @@ body.action-logged-in .simple-modal #modal-dynamic-section {
   margin: 0 0 5px;
 }
 
+.modal .modal-wrapper section a {
+  margin: 0 0 20px;
+}
+
 .modal .modal-wrapper section img {
   display: block;
   height: 155px;

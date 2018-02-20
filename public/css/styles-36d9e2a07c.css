@@ -1183,7 +1183,7 @@ html.can_embed-html body {
 
 .page-content-wrapper .vfar-bios li {
   float: left;
-  margin: 15px 0 0;
+  margin: 15px 15px 0 0;
   overflow: hidden;
   width: 165px;
 }

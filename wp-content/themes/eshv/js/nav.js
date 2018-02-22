@@ -127,4 +127,13 @@ export default () => {
     }
   };
   burger.onclick = toggleMenu;
+
+  if (window.location.hash) {
+    const id = window.location.hash.substring(1);
+    const node = document.getElementById(id);
+    setTimeout(() => {
+      document.documentElement.scrollTop = node.offsetTop - 60;
+      document.body.scrollTop = node.offsetTop - 60;
+    }, 10);
+  }
 };

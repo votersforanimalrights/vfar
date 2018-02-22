@@ -849,6 +849,10 @@ body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters
   margin-top: 10px;
 }
 
+.content .home-content p {
+  padding: 0 0 20px;
+}
+
 .content .section-image {
   margin: 0 auto;
 }
@@ -1910,6 +1914,9 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
   }
   .home .content {
     padding: 2px 0;
+  }
+  .content .home-content p {
+    padding: 0;
   }
   .content .section-image {
     float: left;

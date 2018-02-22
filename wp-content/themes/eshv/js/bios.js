@@ -6,7 +6,7 @@ const bios = document.querySelectorAll('.vfar-bios a');
 function bioClick(e) {
   e.preventDefault();
 
-  container.innerHTML = e.target.parentNode.parentNode.innerHTML;
+  container.innerHTML = e.target.parentNode.parentNode.innerHTML.replace(/<br[ \\/]*?>/g, ' ');
 
   modal.style.display = 'block';
 }

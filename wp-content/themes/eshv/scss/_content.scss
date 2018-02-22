@@ -419,7 +419,12 @@ html.can_embed-html {
 }
 
 .page-content-wrapper {
+  h3.bio-group {
+    margin: 15px 0 0;
+  }
+
   .vfar-bios {
+    max-width: 795px;
     overflow: hidden;
 
     li {
@@ -450,7 +455,7 @@ html.can_embed-html {
           right: 0;
           top: 0;
           transition: background 400ms;
-          z-index: 2;
+          z-index: 1;
         }
         &::after {
           background: url('/wp-content/themes/eshv/images/bio.png') no-repeat;
@@ -464,7 +469,7 @@ html.can_embed-html {
           right: 8px;
           transition: opacity 400ms;
           width: 30px;
-          z-index: 1;
+          z-index: 2;
         }
         &:hover {
           &::after {
@@ -487,7 +492,7 @@ html.can_embed-html {
       display: block;
       font-size: 19px;
       font-weight: 600;
-      line-height: 22px;
+      line-height: 24px;
     }
 
     span {

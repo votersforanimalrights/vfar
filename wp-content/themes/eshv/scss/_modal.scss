@@ -207,7 +207,7 @@ $image: '/wp-content/themes/eshv/splash-dog.jpg';
     box-shadow: 0 0 30px $black;
     display: block;
     left: 5%;
-    overflow: scroll;
+    overflow: auto;
     position: fixed;
     right: 5%;
     top: 2%;
@@ -246,7 +246,7 @@ $image: '/wp-content/themes/eshv/splash-dog.jpg';
 
       article {
         max-height: calc(70vh - 80px);
-        overflow: scroll;
+        overflow: auto;
 
         @include nonphone() {
           max-height: calc(100vh - 100px);

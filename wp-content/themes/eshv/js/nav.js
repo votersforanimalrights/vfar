@@ -61,7 +61,7 @@ const handleClick = id => e => {
 
   const d = document.documentElement;
   const item = document.getElementById(id);
-  const anchorOffset = window.innerWidth < 1050 ? 110 : 60;
+  const anchorOffset = window.innerWidth < 1050 ? 100 : 60;
   const dest = item.offsetTop - anchorOffset;
   const durationLength = 600;
   let difference;
@@ -153,7 +153,7 @@ export default () => {
     const id = window.location.hash.substring(1);
     const node = document.getElementById(id);
     setTimeout(() => {
-      const offset = window.innerWidth < 1050 ? 110 : 80;
+      const offset = window.innerWidth < 1050 ? 100 : 80;
       document.documentElement.scrollTop = node.offsetTop - offset;
       document.body.scrollTop = node.offsetTop - offset;
     }, 10);

@@ -152,8 +152,8 @@ export default () => {
     const id = window.location.hash.substring(1);
     const node = document.getElementById(id);
     setTimeout(() => {
-      document.documentElement.scrollTop = node.offsetTop - 60;
-      document.body.scrollTop = node.offsetTop - 60;
+      document.documentElement.scrollTop = node.offsetTop - 80;
+      document.body.scrollTop = node.offsetTop - 80;
     }, 10);
   }
 };

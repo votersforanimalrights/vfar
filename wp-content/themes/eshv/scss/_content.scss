@@ -288,6 +288,8 @@
   }
 
   p {
+    font-size: 16px;
+    line-height: 23px;
     margin: 0 0 16px;
 
     @include nonphone() {
@@ -427,6 +429,10 @@ html.can_embed-html {
 }
 
 .page-content-wrapper {
+  .page-what-we-do & p > strong {
+    color: $blue;
+  }
+
   h3.bio-group {
     margin: 15px 0 0;
   }

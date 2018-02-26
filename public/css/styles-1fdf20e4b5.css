@@ -2238,6 +2238,8 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
     margin: 0 20% 0 10%;
   }
   .page-content-wrapper p {
+    font-size: 16px;
+    line-height: 23px;
     margin: 0 0 16px;
   }
   .page-content-wrapper #can_embed_form h2,

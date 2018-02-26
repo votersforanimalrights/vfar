@@ -1,4 +1,8 @@
 <?php
+ob_start();
+require_once __DIR__ . '/svg/caret.php';
+$caret = ob_get_clean();
+
 $post_name = get_post() && get_post()->post_name;
 $is_page = is_page();
 $is_launch = $is_page && ('launch' === $post_name || 'launch-party-waiting-list' === $post_name);
@@ -143,7 +147,7 @@ get_template_part( 'templates/modal' );
       foreach ( $links as $link ) {
         $subnav = '';
         if (count($link->children) > 0) {
-          $subnav = '<ul>';
+          $subnav = $caret . '<ul>';
           foreach ( $link->children as $child ) {
             $active = in_array( 'current-menu-item', $child->classes ) || in_array( 'current-page-ancestor', $child->classes );
             $subnav .= sprintf(

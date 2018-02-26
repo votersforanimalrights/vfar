@@ -387,13 +387,39 @@ sup a {
   padding: 0;
 }
 
-.mobile-nav ul ul {
+.mobile-nav ul li .subnav-caret {
+  cursor: pointer;
+  height: 8px;
+  padding: 10px;
+  position: absolute;
+  right: 5px;
+  top: 9px;
+  -webkit-transition: -webkit-transform 400ms;
+  transition: -webkit-transform 400ms;
+  transition: transform 400ms;
+  transition: transform 400ms, -webkit-transform 400ms;
+  width: 13px;
+}
+
+.mobile-nav ul li ul {
+  display: none;
   margin: 0 15px;
+}
+
+.mobile-nav ul li.open .subnav-caret {
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.mobile-nav ul li.open ul {
+  display: block;
 }
 
 .mobile-nav li {
   border-bottom: 1px solid #4e5054;
   display: block;
+  position: relative;
 }
 
 .mobile-nav li:last-child {

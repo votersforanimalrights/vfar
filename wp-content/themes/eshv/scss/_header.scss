@@ -242,14 +242,39 @@
     margin: 0;
     padding: 0;
 
-    ul {
-      margin: 0 15px;
+    li {
+      .subnav-caret {
+        cursor: pointer;
+        height: 8px;
+        padding: 10px;
+        position: absolute;
+        right: 5px;
+        top: 9px;
+        transition: transform 400ms;
+        width: 13px;
+      }
+
+      ul {
+        display: none;
+        margin: 0 15px;
+      }
+
+      &.open {
+        .subnav-caret {
+          transform: rotate(180deg);
+        }
+
+        ul {
+          display: block;
+        }
+      }
     }
   }
 
   li {
     border-bottom: 1px solid $detail;
     display: block;
+    position: relative;
 
     &:last-child {
       border-bottom: 0;

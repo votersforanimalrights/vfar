@@ -2,6 +2,7 @@ const subnav = document.getElementById('subnav');
 const mainNav = document.getElementById('header-nav');
 const mainNavLinks = mainNav.getElementsByTagName('a');
 const subnavLinks = document.querySelectorAll('.subnav-links');
+const subnavToggles = document.querySelectorAll('.subnav-caret');
 const burger = document.getElementById('hamburger');
 
 const scrollHandler = () => {
@@ -103,6 +104,21 @@ const toggleMenu = e => {
   }
 };
 
+const handleSubnavToggle = e => {
+  e.preventDefault();
+  e.stopPropagation();
+
+  const addClass = !e.currentTarget.parentNode.classList.contains('open');
+  for (let i = 0; i < subnavToggles.length; i += 1) {
+    subnavToggles[i].parentNode.classList.remove('open');
+  }
+  if (addClass) {
+    e.currentTarget.parentNode.classList.add('open');
+  } else {
+    document.activeElement.blur();
+  }
+};
+
 export default () => {
   window.addEventListener('scroll', scrollHandler);
 
@@ -119,6 +135,10 @@ export default () => {
     const subnavLink = subnavItems[i];
     const [, id] = subnavLink.href.split('#');
     subnavLink.addEventListener('click', handleClick(id));
+  }
+
+  for (let i = 0; i < subnavToggles.length; i += 1) {
+    subnavToggles[i].addEventListener('click', handleSubnavToggle);
   }
 
   document.body.onclick = e => {

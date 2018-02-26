@@ -426,10 +426,6 @@ sup a {
   border-bottom: 0;
 }
 
-.mobile-nav li:focus, .mobile-nav li:hover {
-  background: #000;
-}
-
 .mobile-nav li a {
   font-size: 16px;
   font-size: 1rem;

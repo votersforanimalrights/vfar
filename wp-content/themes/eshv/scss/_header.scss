@@ -280,11 +280,6 @@
       border-bottom: 0;
     }
 
-    &:focus,
-    &:hover {
-      background: $black;
-    }
-
     a {
       @include size-height(16, 16);
 

@@ -1,6 +1,7 @@
 <?php
 $className = '';
 $suppress = array(
+  'about-us',
   'may2circus',
   'launch',
   'donate',

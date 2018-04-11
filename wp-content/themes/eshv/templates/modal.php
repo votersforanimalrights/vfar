@@ -37,6 +37,9 @@ if ( $show && ( ! isset( $_COOKIE['splash'] ) || isset( $_GET['splash'] ) ) ) {
 </div>
 <div class="modal" id="bio-modal">
   <div class="modal-wrapper">
+    <div class="modal-header-bar">
+      <h4>Team Member Bio</h4>
+    </div>
     <span class="modal-close">
       <img src="/wp-content/themes/eshv/images/modal-close.png" />
     </span>

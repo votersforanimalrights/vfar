@@ -1600,8 +1600,8 @@ body.action-logged-in .simple-modal #modal-dynamic-section {
 .modal .modal-wrapper {
   background: #fff;
   bottom: auto;
-  -webkit-box-shadow: 0 0 30px #000;
-  box-shadow: 0 0 30px #000;
+  -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
   display: block;
   left: 5%;
   overflow: auto;
@@ -1613,10 +1613,24 @@ body.action-logged-in .simple-modal #modal-dynamic-section {
 }
 
 .modal .modal-wrapper .modal-close {
-  height: 18px;
-  right: 9px;
-  top: 9px;
-  width: 18px;
+  height: 24px;
+  right: 16px;
+  top: 16px;
+  width: 24px;
+}
+
+.modal .modal-wrapper .modal-header-bar {
+  background-color: #3c3d41;
+  display: block;
+  padding: 20px 20px;
+}
+
+.modal .modal-wrapper .modal-header-bar h4 {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  text-transform: uppercase;
 }
 
 .modal .modal-wrapper section {
@@ -2289,9 +2303,12 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
   }
   .modal .modal-wrapper .modal-close {
     height: 36px;
-    right: 18px;
-    top: 18px;
+    right: 12px;
+    top: 12px;
     width: 36px;
+  }
+  .modal .modal-wrapper .modal-header-bar {
+    padding: 20px 40px;
   }
   .modal .modal-wrapper section {
     margin: 0 0 0 170px;

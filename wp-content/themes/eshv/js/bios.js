@@ -9,6 +9,7 @@ function bioClick(e) {
   container.innerHTML = e.target.parentNode.parentNode.innerHTML.replace(/<br[ \\/]*?>/g, ' ');
 
   modal.style.display = 'block';
+  document.body.style.overflow = 'hidden';
 }
 
 export default () => {
@@ -19,6 +20,7 @@ export default () => {
 
     close.onclick = () => {
       modal.style.display = 'none';
+      document.body.style.overflow = '';
     };
   }
 };

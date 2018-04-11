@@ -1,11 +1,19 @@
 const splash = document.querySelector('.splash-modal');
 if (splash) {
+  if (splash.classList.contains('auto-modal')) {
+    document.body.style.overflow = 'hidden';
+  }
+
   const triggerModal = document.getElementById('join-us');
 
-  const modalClose = document.querySelector('.modal-close');
-  modalClose.onclick = () => {
+  const dismissCallback = () => {
     splash.style.display = 'none';
+    document.body.style.overflow = '';
   };
+
+  const modalClose = document.querySelector('.modal-close');
+  modalClose.onclick = dismissCallback;
+
   document.cookie = 'splash=1; path=/;';
 
   if (triggerModal) {
@@ -15,9 +23,7 @@ if (splash) {
         return form;
       }
       form = document.querySelector('#modal-form-id #new_answer');
-      form.onsubmit = () => {
-        splash.style.display = 'none';
-      };
+      form.onsubmit = dismissCallback;
       return form;
     };
 
@@ -27,6 +33,7 @@ if (splash) {
       bindForm();
       splash.style.display = 'block';
       splash.classList.add('simple-modal');
+      document.body.style.overflow = 'hidden';
     };
 
     triggerModal.onclick = clickHandler;

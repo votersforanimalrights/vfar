@@ -1,3 +1,5 @@
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+
 const modal = document.getElementById('bio-modal');
 const container = modal.querySelector('section');
 const close = modal.querySelector('.modal-close');
@@ -9,10 +11,7 @@ function bioClick(e) {
   container.innerHTML = e.target.parentNode.parentNode.innerHTML.replace(/<br[ \\/]*?>/g, ' ');
 
   modal.style.display = 'block';
-  document.body.style.overflow = 'hidden';
-  document.ontouchmove = evt => {
-    evt.preventDefault();
-  };
+  disableBodyScroll(modal);
 }
 
 export default () => {
@@ -23,8 +22,7 @@ export default () => {
 
     close.onclick = () => {
       modal.style.display = 'none';
-      document.body.style.overflow = '';
-      document.ontouchmove = () => true;
+      enableBodyScroll(modal);
     };
   }
 };

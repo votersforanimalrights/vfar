@@ -1,20 +1,17 @@
-const splash = document.querySelector('.splash-modal');
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
-const stopScroll = e => {
-  e.preventDefault();
-};
+const splash = document.querySelector('.splash-modal');
 
 if (splash) {
   if (splash.classList.contains('auto-modal')) {
-    document.body.style.overflow = 'hidden';
+    disableBodyScroll(splash);
   }
 
   const triggerModal = document.getElementById('join-us');
 
   const dismissCallback = () => {
     splash.style.display = 'none';
-    document.body.style.overflow = '';
-    document.ontouchmove = () => true;
+    enableBodyScroll(splash);
   };
 
   const modalClose = document.querySelector('.modal-close');
@@ -39,10 +36,7 @@ if (splash) {
       bindForm();
       splash.style.display = 'block';
       splash.classList.add('simple-modal');
-      document.body.style.overflow = 'hidden';
-      document.ontouchmove = evt => {
-        evt.preventDefault();
-      };
+      disableBodyScroll(splash);
     };
 
     triggerModal.onclick = clickHandler;

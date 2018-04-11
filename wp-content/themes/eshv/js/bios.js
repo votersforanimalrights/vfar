@@ -3,10 +3,6 @@ const container = modal.querySelector('section');
 const close = modal.querySelector('.modal-close');
 const bios = document.querySelectorAll('.vfar-bios a');
 
-const stopScroll = e => {
-  e.preventDefault();
-};
-
 function bioClick(e) {
   e.preventDefault();
 
@@ -14,7 +10,9 @@ function bioClick(e) {
 
   modal.style.display = 'block';
   document.body.style.overflow = 'hidden';
-  document.body.addEventListener('touchmove', stopScroll, false);
+  document.ontouchmove = evt => {
+    evt.preventDefault();
+  };
 }
 
 export default () => {
@@ -26,7 +24,7 @@ export default () => {
     close.onclick = () => {
       modal.style.display = 'none';
       document.body.style.overflow = '';
-      document.body.removeEventListener('touchmove', stopScroll, false);
+      document.ontouchmove = () => true;
     };
   }
 };

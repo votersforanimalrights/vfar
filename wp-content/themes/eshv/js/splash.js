@@ -14,7 +14,7 @@ if (splash) {
   const dismissCallback = () => {
     splash.style.display = 'none';
     document.body.style.overflow = '';
-    document.body.removeEventListener('touchmove', stopScroll, false);
+    document.ontouchmove = () => true;
   };
 
   const modalClose = document.querySelector('.modal-close');
@@ -40,7 +40,9 @@ if (splash) {
       splash.style.display = 'block';
       splash.classList.add('simple-modal');
       document.body.style.overflow = 'hidden';
-      document.body.addEventListener('touchmove', stopScroll, false);
+      document.ontouchmove = evt => {
+        evt.preventDefault();
+      };
     };
 
     triggerModal.onclick = clickHandler;

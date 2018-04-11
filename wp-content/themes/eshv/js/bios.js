@@ -9,7 +9,8 @@ function bioClick(e) {
   container.innerHTML = e.target.parentNode.parentNode.innerHTML.replace(/<br[ \\/]*?>/g, ' ');
 
   modal.style.display = 'block';
-  document.body.style.overflow = 'hidden';
+  document.documentElement.style.position = 'fixed';
+  document.body.style.position = 'fixed';
 }
 
 export default () => {
@@ -20,7 +21,8 @@ export default () => {
 
     close.onclick = () => {
       modal.style.display = 'none';
-      document.body.style.overflow = '';
+      document.documentElement.style.position = 'static';
+      document.body.style.position = 'static';
     };
   }
 };

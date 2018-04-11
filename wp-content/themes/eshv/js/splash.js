@@ -8,7 +8,8 @@ if (splash) {
 
   const dismissCallback = () => {
     splash.style.display = 'none';
-    document.body.style.overflow = '';
+    document.documentElement.style.position = 'static';
+    document.body.style.position = 'static';
   };
 
   const modalClose = document.querySelector('.modal-close');
@@ -33,7 +34,8 @@ if (splash) {
       bindForm();
       splash.style.display = 'block';
       splash.classList.add('simple-modal');
-      document.body.style.overflow = 'hidden';
+      document.documentElement.style.position = 'fixed';
+      document.body.style.position = 'fixed';
     };
 
     triggerModal.onclick = clickHandler;

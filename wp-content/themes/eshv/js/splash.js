@@ -1,4 +1,9 @@
 const splash = document.querySelector('.splash-modal');
+
+const stopScroll = e => {
+  e.preventDefault();
+};
+
 if (splash) {
   if (splash.classList.contains('auto-modal')) {
     document.body.style.overflow = 'hidden';
@@ -8,8 +13,8 @@ if (splash) {
 
   const dismissCallback = () => {
     splash.style.display = 'none';
-    document.documentElement.style.position = 'static';
-    document.body.style.position = 'static';
+    document.body.style.overflow = '';
+    document.body.removeEventListener('touchmove', stopScroll, false);
   };
 
   const modalClose = document.querySelector('.modal-close');
@@ -34,8 +39,8 @@ if (splash) {
       bindForm();
       splash.style.display = 'block';
       splash.classList.add('simple-modal');
-      document.documentElement.style.position = 'fixed';
-      document.body.style.position = 'fixed';
+      document.body.style.overflow = 'hidden';
+      document.body.addEventListener('touchmove', stopScroll, false);
     };
 
     triggerModal.onclick = clickHandler;

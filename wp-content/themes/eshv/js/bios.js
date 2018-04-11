@@ -3,14 +3,18 @@ const container = modal.querySelector('section');
 const close = modal.querySelector('.modal-close');
 const bios = document.querySelectorAll('.vfar-bios a');
 
+const stopScroll = e => {
+  e.preventDefault();
+};
+
 function bioClick(e) {
   e.preventDefault();
 
   container.innerHTML = e.target.parentNode.parentNode.innerHTML.replace(/<br[ \\/]*?>/g, ' ');
 
   modal.style.display = 'block';
-  document.documentElement.style.position = 'fixed';
-  document.body.style.position = 'fixed';
+  document.body.style.overflow = 'hidden';
+  document.body.addEventListener('touchmove', stopScroll, false);
 }
 
 export default () => {
@@ -21,8 +25,8 @@ export default () => {
 
     close.onclick = () => {
       modal.style.display = 'none';
-      document.documentElement.style.position = 'static';
-      document.body.style.position = 'static';
+      document.body.style.overflow = '';
+      document.body.removeEventListener('touchmove', stopScroll, false);
     };
   }
 };

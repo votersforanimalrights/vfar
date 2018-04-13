@@ -172,7 +172,7 @@
 
   .acknowledgements {
     li {
-      margin: 0 0 16px;
+      margin: 0 0 1rem;
 
       strong {
         @include size-height(16, 20);
@@ -224,13 +224,7 @@
     }
 
     p {
-      margin-bottom: 16px;
-    }
-
-    @include nonphone() {
-      p {
-        margin-bottom: 24px;
-      }
+      margin-bottom: 1rem;
     }
   }
 
@@ -248,7 +242,7 @@
     margin: 0 20px 24px 24px;
 
     li {
-      margin: 0 0 16px;
+      margin: 0 0 1rem;
       @include size-height(16, 22);
 
       @include nonphone() {
@@ -290,12 +284,11 @@
   p {
     font-size: 16px;
     line-height: 23px;
-    margin: 0 0 16px;
+    margin: 0 0 1rem;
 
     @include nonphone() {
       font-size: 16px;
       line-height: 23px;
-      margin: 0 0 16px;
     }
   }
 

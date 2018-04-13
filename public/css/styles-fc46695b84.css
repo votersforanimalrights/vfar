@@ -972,7 +972,7 @@ body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters
 }
 
 .content .acknowledgements li {
-  margin: 0 0 16px;
+  margin: 0 0 1rem;
 }
 
 .content .acknowledgements li strong {
@@ -1019,7 +1019,7 @@ body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters
 }
 
 .content.page-content p {
-  margin-bottom: 16px;
+  margin-bottom: 1rem;
 }
 
 .content .donate-disclaimer {
@@ -1036,7 +1036,7 @@ body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters
 }
 
 .content .list li {
-  margin: 0 0 16px;
+  margin: 0 0 1rem;
   font-size: 16px;
   font-size: 1rem;
   line-height: 22px;
@@ -1076,7 +1076,7 @@ body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters
 .page-content-wrapper p {
   font-size: 16px;
   line-height: 23px;
-  margin: 0 0 16px;
+  margin: 0 0 1rem;
 }
 
 .page-content-wrapper .event_map_wrap,
@@ -2232,9 +2232,6 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
   .content.page-content {
     padding: 24px 0 50px;
   }
-  .content.page-content p {
-    margin-bottom: 24px;
-  }
   .content .donate-disclaimer {
     margin: 30px;
   }
@@ -2250,7 +2247,6 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
   .page-content-wrapper p {
     font-size: 16px;
     line-height: 23px;
-    margin: 0 0 16px;
   }
   .page-content-wrapper #can_embed_form h2,
   .page-content-wrapper #can_embed_form p {

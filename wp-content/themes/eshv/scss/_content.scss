@@ -226,6 +226,12 @@
     p {
       margin-bottom: 1rem;
     }
+
+    @include nonphone() {
+      p {
+        margin-bottom: 1rem;
+      }
+    }
   }
 
   .donate-disclaimer {
@@ -289,6 +295,7 @@
     @include nonphone() {
       font-size: 16px;
       line-height: 23px;
+      margin: 0 0 1rem;
     }
   }
 

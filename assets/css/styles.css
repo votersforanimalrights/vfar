@@ -2232,6 +2232,9 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
   .content.page-content {
     padding: 24px 0 50px;
   }
+  .content.page-content p {
+    margin-bottom: 1rem;
+  }
   .content .donate-disclaimer {
     margin: 30px;
   }
@@ -2247,6 +2250,7 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
   .page-content-wrapper p {
     font-size: 16px;
     line-height: 23px;
+    margin: 0 0 1rem;
   }
   .page-content-wrapper #can_embed_form h2,
   .page-content-wrapper #can_embed_form p {

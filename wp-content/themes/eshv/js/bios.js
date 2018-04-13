@@ -11,7 +11,7 @@ function bioClick(e) {
   container.innerHTML = e.target.parentNode.parentNode.innerHTML.replace(/<br[ \\/]*?>/g, ' ');
 
   modal.style.display = 'block';
-  disableBodyScroll(modal);
+  disableBodyScroll(container.querySelector('article'));
 }
 
 export default () => {
@@ -22,7 +22,7 @@ export default () => {
 
     close.onclick = () => {
       modal.style.display = 'none';
-      enableBodyScroll(modal);
+      enableBodyScroll(container.querySelector('article'));
     };
   }
 };

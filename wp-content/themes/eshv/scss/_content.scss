@@ -170,6 +170,137 @@
     }
   }
 
+  &.agenda-content {
+    background: #e0e3e3;
+    padding: 30px 0;
+    text-align: center;
+
+    h5 {
+      @include bold;
+      @include size-height(20, 28);
+      color: $dark;
+      text-transform: uppercase;
+    }
+
+    ul {
+      margin: 0 auto 30px auto;
+      max-width: 840px;
+      overflow: hidden;
+    }
+
+    li {
+      cursor: pointer;
+      display: inline-block;
+      height: 135px;
+      line-height: 135px;
+      margin: 10px;
+      overflow: hidden;
+      position: relative;
+      transition: background 1s;
+      width: 135px;
+
+      @include nonphone() {
+        height: 235px;
+        line-height: 235px;
+        margin: 20px;
+        width: 235px;
+      }
+
+      img {
+        display: block;
+        height: auto;
+        position: absolute;
+        transform: scale(1, 1);
+        transition: transform 1s;
+        width: 100%;
+        z-index: 1;
+      }
+
+      &:hover {
+        img {
+          transform: scale(1.1, 1.1);
+        }
+      }
+
+      span {
+        @include bold;
+        @include size-height(13, 18);
+        color: $white;
+        display: inline-block;
+        position: relative;
+        vertical-align: middle;
+        z-index: 3;
+
+        @include nonphone() {
+          @include size-height(20, 28);
+        }
+      }
+
+      section {
+        display: none;
+      }
+
+      .agenda-overlay {
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 2;
+      }
+
+      &:nth-of-type(1),
+      &:nth-of-type(2) {
+        .agenda-overlay {
+          background: rgba(6, 131, 205, 0.6);
+        }
+
+        &:hover {
+          .agenda-overlay {
+            background: rgba(6, 131, 205, 0.75);
+          }
+        }
+      }
+
+      &:nth-of-type(3),
+      &:nth-of-type(4) {
+        .agenda-overlay {
+          background: rgba(191, 37, 66, 0.6);
+        }
+
+        &:hover {
+          .agenda-overlay {
+            background: rgba(191, 37, 66, 0.75);
+          }
+        }
+      }
+
+      &:nth-of-type(5) {
+        .agenda-overlay {
+          background: rgba(112, 66, 112, 0.6);
+        }
+
+        &:hover {
+          .agenda-overlay {
+            background: rgba(112, 66, 112, 0.75);
+          }
+        }
+      }
+
+      &:nth-of-type(6) {
+        .agenda-overlay {
+          background: rgba(31, 61, 144, 0.6);
+        }
+
+        &:hover {
+          .agenda-overlay {
+            background: rgba(31, 61, 144, 0.75);
+          }
+        }
+      }
+    }
+  }
+
   .acknowledgements {
     li {
       margin: 0 0 1rem;

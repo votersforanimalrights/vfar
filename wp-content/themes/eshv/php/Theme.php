@@ -31,9 +31,12 @@ class Theme {
       <div class="animal-svg">
         <?php get_template_part('svg/animals-used-for-entertainment'); ?>
       </div>
+      <div class="animal-svg">
+        <?php get_template_part('svg/animals-used-for-research'); ?>
+      </div>
     </div>
     <?php
-    return ob_get_clean();  
+    return ob_get_clean();
   }
 
   public function mce_buttons( $buttons ) {

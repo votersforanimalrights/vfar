@@ -49,3 +49,17 @@ if ( $show && ( ! isset( $_COOKIE['splash'] ) || isset( $_GET['splash'] ) ) ) {
     </section>
   </div>
 </div>
+<div class="modal" id="agenda-modal">
+  <div class="modal-wrapper">
+    <div class="modal-header-bar">
+      <h4>Current Agenda Issue</h4>
+    </div>
+    <span class="modal-close">
+      <img src="/wp-content/themes/eshv/images/modal-close.png" />
+    </span>
+    <section>
+      <h3>Stand Up for Animals!</h3>
+      <p>Be part of the movement.</p>
+    </section>
+  </div>
+</div>

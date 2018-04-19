@@ -971,6 +971,124 @@ body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters
   text-transform: uppercase;
 }
 
+.content.agenda-content {
+  background: #e0e3e3;
+  padding: 30px 0;
+  text-align: center;
+}
+
+.content.agenda-content h5 {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  font-size: 1.25rem;
+  line-height: 28px;
+  line-height: 1.75rem;
+  color: #3c3d41;
+  text-transform: uppercase;
+}
+
+.content.agenda-content ul {
+  margin: 0 auto 30px auto;
+  max-width: 840px;
+  overflow: hidden;
+}
+
+.content.agenda-content li {
+  cursor: pointer;
+  display: inline-block;
+  height: 135px;
+  line-height: 135px;
+  margin: 10px;
+  overflow: hidden;
+  position: relative;
+  -webkit-transition: background 1s;
+  transition: background 1s;
+  width: 135px;
+}
+
+.content.agenda-content li img {
+  display: block;
+  height: auto;
+  position: absolute;
+  -webkit-transform: scale(1, 1);
+  -ms-transform: scale(1, 1);
+  transform: scale(1, 1);
+  -webkit-transition: -webkit-transform 1s;
+  transition: -webkit-transform 1s;
+  transition: transform 1s;
+  transition: transform 1s, -webkit-transform 1s;
+  width: 100%;
+  z-index: 1;
+}
+
+.content.agenda-content li:hover img {
+  -webkit-transform: scale(1.1, 1.1);
+  -ms-transform: scale(1.1, 1.1);
+  transform: scale(1.1, 1.1);
+}
+
+.content.agenda-content li span {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 13px;
+  font-size: 0.8125rem;
+  line-height: 18px;
+  line-height: 1.125rem;
+  color: #fff;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  z-index: 3;
+}
+
+.content.agenda-content li section {
+  display: none;
+}
+
+.content.agenda-content li .agenda-overlay {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 2;
+}
+
+.content.agenda-content li:nth-of-type(1) .agenda-overlay, .content.agenda-content li:nth-of-type(2) .agenda-overlay {
+  background: rgba(6, 131, 205, 0.6);
+}
+
+.content.agenda-content li:nth-of-type(1):hover .agenda-overlay, .content.agenda-content li:nth-of-type(2):hover .agenda-overlay {
+  background: rgba(6, 131, 205, 0.75);
+}
+
+.content.agenda-content li:nth-of-type(3) .agenda-overlay, .content.agenda-content li:nth-of-type(4) .agenda-overlay {
+  background: rgba(191, 37, 66, 0.6);
+}
+
+.content.agenda-content li:nth-of-type(3):hover .agenda-overlay, .content.agenda-content li:nth-of-type(4):hover .agenda-overlay {
+  background: rgba(191, 37, 66, 0.75);
+}
+
+.content.agenda-content li:nth-of-type(5) .agenda-overlay {
+  background: rgba(112, 66, 112, 0.6);
+}
+
+.content.agenda-content li:nth-of-type(5):hover .agenda-overlay {
+  background: rgba(112, 66, 112, 0.75);
+}
+
+.content.agenda-content li:nth-of-type(6) .agenda-overlay {
+  background: rgba(31, 61, 144, 0.6);
+}
+
+.content.agenda-content li:nth-of-type(6):hover .agenda-overlay {
+  background: rgba(31, 61, 144, 0.75);
+}
+
 .content .acknowledgements li {
   margin: 0 0 1rem;
 }
@@ -1663,7 +1781,12 @@ body.action-logged-in .simple-modal #modal-dynamic-section {
   margin: 2px 0 5px;
 }
 
-.modal .modal-wrapper section .bio-image {
+.modal .modal-wrapper section a {
+  color: #2852a1;
+}
+
+.modal .modal-wrapper section .bio-image,
+.modal .modal-wrapper section .agenda-image {
   display: block;
   margin: 0 0 20px;
 }
@@ -2223,6 +2346,18 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
     line-height: 27px;
     line-height: 1.6875rem;
   }
+  .content.agenda-content li {
+    height: 235px;
+    line-height: 235px;
+    margin: 20px;
+    width: 235px;
+  }
+  .content.agenda-content li span {
+    font-size: 20px;
+    font-size: 1.25rem;
+    line-height: 28px;
+    line-height: 1.75rem;
+  }
   .content .acknowledgements li strong {
     font-size: 18px;
     font-size: 1.125rem;
@@ -2298,7 +2433,7 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
     bottom: auto;
     left: 15%;
     right: 15%;
-    top: 15%;
+    top: 5%;
     width: 70%;
   }
   .modal .modal-wrapper .modal-close {
@@ -2318,7 +2453,8 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
     max-height: -webkit-calc(100vh - 100px);
     max-height: calc(100vh - 100px);
   }
-  .modal .modal-wrapper section .bio-image {
+  .modal .modal-wrapper section .bio-image,
+  .modal .modal-wrapper section .agenda-image {
     float: left;
     margin: 0 20px 0 -170px;
   }

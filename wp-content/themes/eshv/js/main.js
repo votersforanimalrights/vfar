@@ -1,4 +1,4 @@
-import bios from './bios';
+import modals from './modals';
 import nav from './nav';
 import './splash';
 
@@ -11,7 +11,7 @@ if (hero && document.body.classList.contains('home')) {
   }
 }
 
-bios();
+modals();
 nav();
 
 window.onload = () => {

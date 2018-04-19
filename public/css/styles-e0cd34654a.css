@@ -2094,6 +2094,9 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
   .content h3 {
     margin: 20px 0 10px;
   }
+  .content.agenda-content ul {
+    max-width: 840px;
+  }
   .eshv-table th {
     font-size: 14px;
     font-size: 0.875rem;
@@ -2345,9 +2348,6 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
     font-size: 1.375rem;
     line-height: 27px;
     line-height: 1.6875rem;
-  }
-  .content.agenda-content ul {
-    max-width: 840px;
   }
   .content.agenda-content li {
     height: 235px;

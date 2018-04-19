@@ -991,7 +991,7 @@ body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters
 
 .content.agenda-content ul {
   margin: 0 auto 30px auto;
-  max-width: 840px;
+  max-width: 640px;
   overflow: hidden;
 }
 
@@ -2345,6 +2345,9 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
     font-size: 1.375rem;
     line-height: 27px;
     line-height: 1.6875rem;
+  }
+  .content.agenda-content ul {
+    max-width: 840px;
   }
   .content.agenda-content li {
     height: 235px;

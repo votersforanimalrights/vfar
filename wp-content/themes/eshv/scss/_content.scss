@@ -184,8 +184,12 @@
 
     ul {
       margin: 0 auto 30px auto;
-      max-width: 840px;
+      max-width: 640px;
       overflow: hidden;
+
+      @include nonphone() {
+        max-width: 840px;
+      }
     }
 
     li {

@@ -570,7 +570,6 @@ html.can_embed-html {
   }
 
   @include respond-to(desktop) {
-    margin: 0;
     width: 100%;
   }
 }

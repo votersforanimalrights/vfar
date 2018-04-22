@@ -2358,9 +2358,6 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
     line-height: 27px;
     line-height: 1.6875rem;
   }
-  .content.agenda-content ul {
-    max-width: 560px;
-  }
   .content.agenda-content li {
     height: 235px;
     line-height: 235px;
@@ -2875,6 +2872,9 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1049px) {
+  .content.agenda-content ul {
+    max-width: 560px;
+  }
   .animal-shortcode {
     width: 500px;
   }

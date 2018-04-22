@@ -11,31 +11,18 @@ class Theme {
     add_filter( 'mce_buttons_2', [ $this, 'mce_buttons' ], 5 );
     add_rewrite_endpoint( 'iframe', EP_PAGES );
     add_shortcode( 'animals', [ $this, 'animals' ] );
+    add_shortcode( 'issues', [ $this, 'issues' ] );
   }
 
   public function animals() {
-    ob_start(); ?>
-    <div class="animal-shortcode">
-      <div class="animal-svg">
-        <?php get_template_part('svg/companion-animals'); ?>
-      </div>
-      <div class="animal-svg">
-        <?php get_template_part('svg/animals-used-for-food'); ?>
-      </div>
-      <div class="animal-svg">
-        <?php get_template_part('svg/animals-used-for-clothing'); ?>
-      </div>
-      <div class="animal-svg">
-        <?php get_template_part('svg/animals-in-the-wild'); ?>
-      </div>
-      <div class="animal-svg">
-        <?php get_template_part('svg/animals-used-for-entertainment'); ?>
-      </div>
-      <div class="animal-svg">
-        <?php get_template_part('svg/animals-used-for-research'); ?>
-      </div>
-    </div>
-    <?php
+    ob_start();
+    get_template_part('templates/animals');
+    return ob_get_clean();
+  }
+
+  public function issues() {
+    ob_start();
+    get_template_part('templates/agenda-issues');
     return ob_get_clean();
   }
 

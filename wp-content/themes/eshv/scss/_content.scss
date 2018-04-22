@@ -183,7 +183,7 @@
       max-width: 320px;
       overflow: hidden;
 
-      @include respond-to(notphone) {
+      @include respond-to(tabletAll) {
         max-width: 560px;
       }
 

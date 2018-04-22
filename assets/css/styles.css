@@ -1762,8 +1762,8 @@ body.action-logged-in .simple-modal #modal-dynamic-section {
 }
 
 .modal .modal-wrapper section article {
-  max-height: -webkit-calc(70vh - 120px);
-  max-height: calc(70vh - 120px);
+  max-height: -webkit-calc(70vh - 160px);
+  max-height: calc(70vh - 160px);
   overflow: auto;
 }
 

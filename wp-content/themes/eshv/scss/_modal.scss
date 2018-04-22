@@ -263,7 +263,7 @@ $image: '/wp-content/themes/eshv/splash-dog.jpg';
       }
 
       article {
-        max-height: calc(70vh - 120px);
+        max-height: calc(70vh - 160px);
         overflow: auto;
 
         @include nonphone() {

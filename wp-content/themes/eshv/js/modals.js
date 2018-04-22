@@ -1,9 +1,13 @@
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
+const DELAY_MS = 50;
+const TRANSITION_MS = 600;
+
 function setAgenda(agendaItems) {
   const modal = document.getElementById('agenda-modal');
   const container = modal.querySelector('section');
   const close = modal.querySelector('.modal-close');
+  const wrapper = modal.querySelector('.modal-wrapper');
 
   const agendaClick = e => {
     e.preventDefault();
@@ -11,6 +15,9 @@ function setAgenda(agendaItems) {
     container.innerHTML = e.currentTarget.querySelector('section').innerHTML;
 
     modal.style.display = 'block';
+    setTimeout(() => {
+      wrapper.classList.add('animated-wrapper');
+    }, DELAY_MS);
     disableBodyScroll(container.querySelector('article'));
   };
 
@@ -19,7 +26,10 @@ function setAgenda(agendaItems) {
   }
 
   close.onclick = () => {
-    modal.style.display = 'none';
+    wrapper.classList.remove('animated-wrapper');
+    setTimeout(() => {
+      modal.style.display = 'none';
+    }, TRANSITION_MS);
     enableBodyScroll(container.querySelector('article'));
   };
 }
@@ -28,6 +38,7 @@ function setBios(bios) {
   const modal = document.getElementById('bio-modal');
   const container = modal.querySelector('section');
   const close = modal.querySelector('.modal-close');
+  const wrapper = modal.querySelector('.modal-wrapper');
 
   const bioClick = e => {
     e.preventDefault();
@@ -35,6 +46,9 @@ function setBios(bios) {
     container.innerHTML = e.target.parentNode.parentNode.innerHTML.replace(/<br[ \\/]*?>/g, ' ');
 
     modal.style.display = 'block';
+    setTimeout(() => {
+      wrapper.classList.add('animated-wrapper');
+    }, DELAY_MS);
     disableBodyScroll(container.querySelector('article'));
   };
 
@@ -43,7 +57,10 @@ function setBios(bios) {
   }
 
   close.onclick = () => {
-    modal.style.display = 'none';
+    wrapper.classList.remove('animated-wrapper');
+    setTimeout(() => {
+      modal.style.display = 'none';
+    }, TRANSITION_MS);
     enableBodyScroll(container.querySelector('article'));
   };
 }

@@ -35,7 +35,7 @@ if ( $show && ( ! isset( $_COOKIE['splash'] ) || isset( $_GET['splash'] ) ) ) {
     </div>
   </div>
 </div>
-<div class="modal" id="bio-modal">
+<div class="modal animated-modal" id="bio-modal">
   <div class="modal-wrapper">
     <div class="modal-header-bar">
       <h4>Team Member Bio</h4>
@@ -49,7 +49,7 @@ if ( $show && ( ! isset( $_COOKIE['splash'] ) || isset( $_GET['splash'] ) ) ) {
     </section>
   </div>
 </div>
-<div class="modal" id="agenda-modal">
+<div class="modal animated-modal" id="agenda-modal">
   <div class="modal-wrapper">
     <div class="modal-header-bar">
       <h4>Current Agenda Issue</h4>

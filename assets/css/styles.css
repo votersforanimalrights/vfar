@@ -1348,7 +1348,7 @@ html.can_embed-html body {
   height: 265px;
   margin: 15px 15px 0 0;
   overflow: hidden;
-  width: 150px;
+  width: 146px;
 }
 
 .page-content-wrapper .vfar-bios li:nth-of-type(even) {
@@ -1809,6 +1809,18 @@ body.action-logged-in .simple-modal #modal-dynamic-section {
   font-weight: 400;
   line-height: 23px;
   margin: 20px 0;
+}
+
+.modal.animated-modal .modal-wrapper {
+  opacity: 0;
+  top: 1%;
+  -webkit-transition: all 600ms;
+  transition: all 600ms;
+}
+
+.modal.animated-modal .modal-wrapper.animated-wrapper {
+  opacity: 1;
+  top: 2%;
 }
 
 .modal .splash-wrapper {
@@ -2470,6 +2482,12 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
     float: left;
     margin: 0 20px 0 -170px;
   }
+  .modal.animated-modal .modal-wrapper {
+    top: 1%;
+  }
+  .modal.animated-modal .modal-wrapper.animated-wrapper {
+    top: 5%;
+  }
   .modal .splash-wrapper .modal-close {
     height: 36px;
     right: -18px;
@@ -2877,5 +2895,8 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
   }
   .animal-shortcode {
     width: 500px;
+  }
+  .page-content-wrapper .vfar-bios li:nth-of-type(even) {
+    margin: 15px 15px 0 0;
   }
 }

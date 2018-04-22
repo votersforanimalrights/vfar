@@ -601,10 +601,16 @@ html.can_embed-html {
       height: 265px;
       margin: 15px 15px 0 0;
       overflow: hidden;
-      width: 150px;
+      width: 146px;
 
       &:nth-of-type(even) {
         margin: 15px 0 0 15px;
+      }
+
+      @include respond-to(tabletAll) {
+        &:nth-of-type(even) {
+          margin: 15px 15px 0 0;
+        }
       }
 
       @include respond-to(desktop) {

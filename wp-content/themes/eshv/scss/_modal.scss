@@ -320,6 +320,27 @@ $image: '/wp-content/themes/eshv/splash-dog.jpg';
     }
   }
 
+  &.animated-modal {
+    .modal-wrapper {
+      opacity: 0;
+      top: 1%;
+      transition: all 600ms;
+
+      @include nonphone() {
+        top: 1%;
+      }
+
+      &.animated-wrapper {
+        opacity: 1;
+        top: 2%;
+
+        @include nonphone() {
+          top: 5%;
+        }
+      }
+    }
+  }
+
   .splash-wrapper {
     background: $dark url('#{$image}') no-repeat;
     background-size: contain;

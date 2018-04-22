@@ -561,16 +561,16 @@ html.can_embed-html {
   text-align: center;
   width: 300px;
 
-  .home & {
-    padding: 0;
-  }
-
-  @include respond-to(notphone) {
+  @include respond-to(tabletAll) {
     width: 500px;
   }
 
   @include respond-to(desktop) {
     width: 100%;
+  }
+
+  .home & {
+    padding: 0;
   }
 }
 

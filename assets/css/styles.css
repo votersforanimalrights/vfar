@@ -2406,9 +2406,6 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
   .page-content-wrapper #can_embed_form p {
     margin: 0 0 15px;
   }
-  .animal-shortcode {
-    width: 500px;
-  }
   .footer .columns {
     padding: 20px 0;
     width: 654px;
@@ -2874,5 +2871,11 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
   }
   #can-form-area-get-updates-from-empire-state-humane-voters #can_embed_form_inner #can_thank_you h1 {
     margin: 0 48px 0 0;
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1049px) {
+  .animal-shortcode {
+    width: 500px;
   }
 }

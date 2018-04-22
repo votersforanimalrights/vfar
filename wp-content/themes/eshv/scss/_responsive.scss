@@ -17,17 +17,33 @@ $break-biggest: 1200px;
 
 @mixin respond-to($media) {
   @if $media == phone {
-    @media only screen and (min-width: $break-small) and (max-width: $break-tablet - 1) { @content; }
+    @media only screen and (min-width: $break-small) and (max-width: $break-tablet - 1) {
+      @content;
+    }
   } @else if $media == biggerphone {
-    @media only screen and (min-width: $break-medium) and (max-width: $break-big - 1) { @content; }
+    @media only screen and (min-width: $break-medium) and (max-width: $break-big - 1) {
+      @content;
+    }
   } @else if $media == bigphone {
-    @media only screen and (min-width: $break-big) and (max-width: $break-plus - 1) { @content; }
+    @media only screen and (min-width: $break-big) and (max-width: $break-plus - 1) {
+      @content;
+    }
   } @else if $media == plusphone {
-    @media only screen and (min-width: $break-plus) and (max-width: $break-tablet - 1) { @content; }
+    @media only screen and (min-width: $break-plus) and (max-width: $break-tablet - 1) {
+      @content;
+    }
   } @else if $media == tablet {
-    @media only screen and (min-width: $break-tablet) and (max-width: $break-tabletpro - 1) { @content; }
+    @media only screen and (min-width: $break-tablet) and (max-width: $break-tabletpro - 1) {
+      @content;
+    }
   } @else if $media == tabletpro {
-    @media only screen and (min-width: $break-tabletpro) and (max-width: $break-desktop - 1) { @content; }
+    @media only screen and (min-width: $break-tabletpro) and (max-width: $break-desktop - 1) {
+      @content;
+    }
+  } @else if $media == tabletAll {
+    @media only screen and (min-device-width: $break-tablet) and (max-device-width: $break-desktop - 1) {
+      @content;
+    }
   } @else if $media == tabletPortrait {
     @media only screen and (min-device-width: $break-tablet) and (max-device-width: $break-desktop - 1) and (orientation: portrait) {
       @content;
@@ -37,18 +53,28 @@ $break-biggest: 1200px;
       @content;
     }
   } @else if $media == biggest {
-    @media only screen and (min-width: $break-biggest) { @content; }
+    @media only screen and (min-width: $break-biggest) {
+      @content;
+    }
   } @else if $media == desktop {
-    @media only screen and (min-width: $break-desktop) { @content; }
+    @media only screen and (min-width: $break-desktop) {
+      @content;
+    }
   } @else if $media == notphone {
-    @media only screen and (min-width: $break-tablet) { @content; }
+    @media only screen and (min-width: $break-tablet) {
+      @content;
+    }
   }
 }
 
 @mixin nonphone() {
-  @media only screen and (min-width: $break-tablet) { @content; }
+  @media only screen and (min-width: $break-tablet) {
+    @content;
+  }
 }
 
 @mixin bigscreens() {
-  @media only screen and (min-width: $break-desktop) { @content; }
+  @media only screen and (min-width: $break-desktop) {
+    @content;
+  }
 }

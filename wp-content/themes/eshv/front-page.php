@@ -14,23 +14,25 @@ get_header() ?>
   </section>
   <section class="content animal-content">
     <p><strong>We campaign for the rights of all animals.</strong></p>
-    <div class="animal-svg">
-      <?php get_template_part('svg/companion-animals'); ?>
-    </div>
-    <div class="animal-svg">
-      <?php get_template_part('svg/animals-used-for-food'); ?>
-    </div>
-    <div class="animal-svg">
-      <?php get_template_part('svg/animals-used-for-clothing'); ?>
-    </div>
-    <div class="animal-svg">
-      <?php get_template_part('svg/animals-in-the-wild'); ?>
-    </div>
-    <div class="animal-svg">
-      <?php get_template_part('svg/animals-used-for-entertainment'); ?>
-    </div>
-    <div class="animal-svg">
-      <?php get_template_part('svg/animals-used-for-research'); ?>
+    <div class="animal-shortcode">
+      <div class="animal-svg">
+        <?php get_template_part('svg/companion-animals'); ?>
+      </div>
+      <div class="animal-svg">
+        <?php get_template_part('svg/animals-used-for-food'); ?>
+      </div>
+      <div class="animal-svg">
+        <?php get_template_part('svg/animals-used-for-clothing'); ?>
+      </div>
+      <div class="animal-svg">
+        <?php get_template_part('svg/animals-in-the-wild'); ?>
+      </div>
+      <div class="animal-svg">
+        <?php get_template_part('svg/animals-used-for-entertainment'); ?>
+      </div>
+      <div class="animal-svg">
+        <?php get_template_part('svg/animals-used-for-research'); ?>
+      </div>
     </div>
   </section>
   <?php get_template_part('templates/agenda-issues'); ?>

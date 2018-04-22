@@ -20,7 +20,7 @@
     padding: 18px 0;
   }
 
-  .home & {
+  .home &:not(.agenda-content):not(.animal-content) {
     padding: 2px 0 20px;
 
     @include respond-to(desktop) {
@@ -131,11 +131,7 @@
 
     @include nonphone() {
       @include size-height(22, 27);
-      margin: 0 20% 0 10%;
-
-      .home & {
-        margin: 0 10%;
-      }
+      margin: 0 10%;
     }
   }
 
@@ -183,9 +179,13 @@
     }
 
     ul {
-      margin: 0 auto 30px auto;
+      margin: 0 auto 30px;
       max-width: 320px;
       overflow: hidden;
+
+      @include respond-to(notphone) {
+        max-width: 560px;
+      }
 
       @include respond-to(desktop) {
         max-width: 840px;
@@ -419,7 +419,7 @@
   margin: 0;
 
   @include nonphone() {
-    margin: 0 20% 0 10%;
+    margin: 0 10%;
   }
 
   p {
@@ -556,13 +556,32 @@ html.can_embed-html {
 }
 
 .animal-shortcode {
+  margin: 0 auto;
   padding: 30px 0;
   text-align: center;
+  width: 300px;
+
+  .home & {
+    padding: 0;
+  }
+
+  @include respond-to(notphone) {
+    width: 500px;
+  }
+
+  @include respond-to(desktop) {
+    margin: 0;
+    width: 100%;
+  }
 }
 
 .animal-svg {
   display: inline-block;
   margin: 15px;
+
+  @include respond-to(desktop) {
+    margin: 12px;
+  }
 }
 
 .page-content-wrapper {

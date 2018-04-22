@@ -858,7 +858,7 @@ body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters
   display: table;
 }
 
-.home .content {
+.home .content:not(.agenda-content):not(.animal-content) {
   padding: 2px 0 20px;
 }
 
@@ -990,7 +990,7 @@ body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters
 }
 
 .content.agenda-content ul {
-  margin: 0 auto 30px auto;
+  margin: 0 auto 30px;
   max-width: 320px;
   overflow: hidden;
 }
@@ -1315,8 +1315,14 @@ html.can_embed-html body {
 }
 
 .animal-shortcode {
+  margin: 0 auto;
   padding: 30px 0;
   text-align: center;
+  width: 300px;
+}
+
+.home .animal-shortcode {
+  padding: 0;
 }
 
 .animal-svg {
@@ -2077,7 +2083,7 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
   body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters {
     width: 515px;
   }
-  .home .content {
+  .home .content:not(.agenda-content):not(.animal-content) {
     padding: 2px 0;
   }
   .content .home-content p {
@@ -2109,6 +2115,13 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
   }
   .eshv-table td {
     padding: 8px 15px 8px 8px;
+  }
+  .animal-shortcode {
+    margin: 0;
+    width: 100%;
+  }
+  .animal-svg {
+    margin: 12px;
   }
   .page-content-wrapper .vfar-bios li {
     margin: 15px 30px 0 0;
@@ -2332,9 +2345,6 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
     font-size: 1.375rem;
     line-height: 27px;
     line-height: 1.6875rem;
-    margin: 0 20% 0 10%;
-  }
-  .home .content p {
     margin: 0 10%;
   }
   .content li {
@@ -2348,6 +2358,9 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
     font-size: 1.375rem;
     line-height: 27px;
     line-height: 1.6875rem;
+  }
+  .content.agenda-content ul {
+    max-width: 560px;
   }
   .content.agenda-content li {
     height: 235px;
@@ -2383,7 +2396,7 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
     line-height: 1.5625rem;
   }
   .page-content-wrapper {
-    margin: 0 20% 0 10%;
+    margin: 0 10%;
   }
   .page-content-wrapper p {
     font-size: 16px;
@@ -2393,6 +2406,9 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
   .page-content-wrapper #can_embed_form h2,
   .page-content-wrapper #can_embed_form p {
     margin: 0 0 15px;
+  }
+  .animal-shortcode {
+    width: 500px;
   }
   .footer .columns {
     padding: 20px 0;

@@ -1,5 +1,5 @@
 <section class="content agenda-content">
-  <h5>Explore Our Current Agenda Issues</h5>
+  <p><strong>Explore Our Current Agenda Issues</strong></p>
   <ul>
     <li>
       <img src="/wp-content/themes/eshv/images/modals/animals-companion.jpg" />
@@ -22,12 +22,12 @@ Hundreds of cities across the U.S. have implemented regulations on the sale of d
       </section>
     </li>
     <li>
-      <img src="/wp-content/themes/eshv/images/modals/animals-companion.jpg" />
+      <img src="/wp-content/themes/eshv/images/modals/animals-declaw.jpg" />
       <div class="agenda-overlay"></div>
       <span>ENDING<br />THE PRACTICE OF<br />CAT DECLAWING</span>
       <section>
         <div class="agenda-image">
-          <img src="/wp-content/themes/eshv/images/modals/animals-companion.jpg" />
+          <img src="/wp-content/themes/eshv/images/modals/animals-declaw.jpg" />
         </div>
         <article>
           <strong>ENDING THE PRACTICE OF CAT DECLAWING</strong>
@@ -41,12 +41,12 @@ VFAR stands by humane alternatives to declawing and is looking forward to New Yo
       </section>
     </li>
     <li>
-      <img src="/wp-content/themes/eshv/images/modals/animals-food.jpg" />
+      <img src="/wp-content/themes/eshv/images/modals/animals-feeding.jpg" />
       <div class="agenda-overlay"></div>
       <span>STOPPING THE<br />SALE OF FORCE-FED<br />GEESE AND<br />DUCK PRODUCTS</span>
       <section>
         <div class="agenda-image">
-          <img src="/wp-content/themes/eshv/images/modals/animals-food.jpg" />
+          <img src="/wp-content/themes/eshv/images/modals/animals-feeding.jpg" />
         </div>
         <article>
           <strong>STOPPING THE SALE OF FORCE-FED GEESE AND DUCK PRODUCTS</strong>

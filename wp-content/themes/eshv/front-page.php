@@ -13,7 +13,7 @@ get_header() ?>
     </div>
   </section>
   <section class="content animal-content">
-    <p><strong>We campaign for the rights of all animals.</strong></p>
+    <p><strong>We campaign for all animals.</strong></p>
     <?php get_template_part('templates/animals') ?>
   </section>
   <?php get_template_part('templates/agenda-issues'); ?>

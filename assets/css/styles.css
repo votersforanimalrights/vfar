@@ -977,20 +977,8 @@ body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters
   text-align: center;
 }
 
-.content.agenda-content h5 {
-  font-family: "Open Sans", sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 20px;
-  font-size: 1.25rem;
-  line-height: 28px;
-  line-height: 1.75rem;
-  color: #3c3d41;
-  text-transform: uppercase;
-}
-
 .content.agenda-content ul {
-  margin: 0 auto 30px;
+  margin: 20px auto 30px;
   max-width: 320px;
   overflow: hidden;
 }
@@ -998,14 +986,14 @@ body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters
 .content.agenda-content li {
   cursor: pointer;
   display: inline-block;
-  height: 135px;
-  line-height: 135px;
-  margin: 10px;
+  height: 155px;
+  line-height: 155px;
+  margin: 1px;
   overflow: hidden;
   position: relative;
   -webkit-transition: background 1s;
   transition: background 1s;
-  width: 135px;
+  width: 155px;
 }
 
 .content.agenda-content li img {
@@ -2371,9 +2359,9 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
     line-height: 1.6875rem;
   }
   .content.agenda-content li {
+    margin: 5px;
     height: 235px;
     line-height: 235px;
-    margin: 20px;
     width: 235px;
   }
   .content.agenda-content li span {
@@ -2632,6 +2620,14 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
     line-height: 29px;
     line-height: 1.8125rem;
     height: 53%;
+  }
+  .content.agenda-content ul {
+    max-width: 410px;
+  }
+  .content.agenda-content li {
+    height: 200px;
+    line-height: 200px;
+    width: 200px;
   }
   .splash-wrapper {
     height: 387px;

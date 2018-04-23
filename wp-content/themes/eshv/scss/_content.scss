@@ -171,17 +171,14 @@
     padding: 30px 0;
     text-align: center;
 
-    h5 {
-      @include bold;
-      @include size-height(20, 28);
-      color: $dark;
-      text-transform: uppercase;
-    }
-
     ul {
-      margin: 0 auto 30px;
+      margin: 20px auto 30px;
       max-width: 320px;
       overflow: hidden;
+
+      @include respond-to(plusphone) {
+        max-width: 410px;
+      }
 
       @include respond-to(tabletAll) {
         max-width: 560px;
@@ -195,18 +192,24 @@
     li {
       cursor: pointer;
       display: inline-block;
-      height: 135px;
-      line-height: 135px;
-      margin: 10px;
+      height: 155px;
+      line-height: 155px;
+      margin: 1px;
       overflow: hidden;
       position: relative;
       transition: background 1s;
-      width: 135px;
+      width: 155px;
+
+      @include respond-to(plusphone) {
+        height: 200px;
+        line-height: 200px;
+        width: 200px;
+      }
 
       @include nonphone() {
+        margin: 5px;
         height: 235px;
         line-height: 235px;
-        margin: 20px;
         width: 235px;
       }
 

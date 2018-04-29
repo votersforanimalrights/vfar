@@ -180,12 +180,16 @@
         max-width: 410px;
       }
 
-      @include respond-to(tabletAll) {
-        max-width: 560px;
+      @include nonphone() {
+        max-width: 606px;
+      }
+
+      @include respond-to(tabletpro) {
+        max-width: 910px;
       }
 
       @include respond-to(desktop) {
-        max-width: 840px;
+        max-width: 910px;
       }
     }
 
@@ -207,10 +211,10 @@
       }
 
       @include nonphone() {
+        height: 290px;
+        line-height: 290px;
         margin: 5px;
-        height: 235px;
-        line-height: 235px;
-        width: 235px;
+        width: 290px;
       }
 
       img {
@@ -564,8 +568,12 @@ html.can_embed-html {
   text-align: center;
   width: 300px;
 
-  @include respond-to(tabletAll) {
+  @include respond-to(notphone) {
     width: 500px;
+  }
+
+  @include respond-to(tabletpro) {
+    width: 100%;
   }
 
   @include respond-to(desktop) {

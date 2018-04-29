@@ -61,5 +61,8 @@ if ( $show && ( ! isset( $_COOKIE['splash'] ) || isset( $_GET['splash'] ) ) ) {
       <h3>Stand Up for Animals!</h3>
       <p>Be part of the movement.</p>
     </section>
+    <div class="button">
+      <a href="/get-involved/">Be Part of the Solution</a>
+    </div>
   </div>
 </div>

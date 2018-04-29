@@ -6,7 +6,6 @@ import path from 'path';
 import postcss from 'gulp-postcss';
 import sass from 'gulp-sass';
 import autoprefixer from 'autoprefixer';
-import mqpacker from 'css-mqpacker';
 import csswring from 'csswring';
 import c from './color-log';
 import fingerprint from './fingerprint-assets';
@@ -23,7 +22,6 @@ const processors = [
     ],
     cascade: false,
   }),
-  mqpacker,
 ];
 
 const scssDir = 'wp-content/themes/eshv/scss';
@@ -34,13 +32,16 @@ const compileSCSS = () => {
   gutil.log('Compiling SCSS templates ...');
 
   return new Promise((resolve, reject) => {
-    gulp.src(SRC)
-      .pipe(sass({
-        outputStyle: 'expanded',
-      }).on('error', (error) => {
-        sass.logError(error);
-        reject(error);
-      }))
+    gulp
+      .src(SRC)
+      .pipe(
+        sass({
+          outputStyle: 'expanded',
+        }).on('error', error => {
+          sass.logError(error);
+          reject(error);
+        })
+      )
       .on('end', () => {
         gutil.log('Running', c('PostCSS'), 'tasks...');
       })
@@ -60,6 +61,4 @@ const compileSCSS = () => {
   });
 };
 
-export default () => (
-  compileSCSS().then(fingerprint)
-);
+export default () => compileSCSS().then(fingerprint);

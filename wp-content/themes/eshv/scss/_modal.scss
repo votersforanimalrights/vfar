@@ -259,15 +259,16 @@ $image: '/wp-content/themes/eshv/splash-dog.jpg';
 
       @include nonphone() {
         margin: 0 0 0 170px;
-        padding: 40px;
+        padding: 20px 40px 40px;
       }
 
       article {
         max-height: calc(70vh - 200px);
         overflow: auto;
+        padding: 0 0 40px;
 
         @include nonphone() {
-          max-height: calc(100vh - 100px);
+          max-height: calc(92vh - 200px);
         }
       }
 
@@ -315,14 +316,16 @@ $image: '/wp-content/themes/eshv/splash-dog.jpg';
         font-size: 16px;
         font-weight: 400;
         line-height: 23px;
-        margin: 20px 0;
+        margin: 18px 0;
       }
     }
   }
 
   &.animated-modal {
     .modal-wrapper {
+      max-height: 90%;
       opacity: 0;
+      overflow: hidden;
       top: 1%;
       transition: all 600ms;
 
@@ -337,6 +340,29 @@ $image: '/wp-content/themes/eshv/splash-dog.jpg';
         @include nonphone() {
           top: 5%;
         }
+      }
+    }
+
+    .button {
+      position: absolute;
+      bottom: 0;
+      display: block;
+      text-align: center;
+      width: calc(100% - 10px);
+      padding: 5px;
+      background: #cfd0d0;
+
+      a {
+        @include bold;
+        @include size-height(13, 28);
+
+        background: $button;
+        color: $button-text;
+        display: inline-block;
+        padding: 5px;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
       }
     }
   }

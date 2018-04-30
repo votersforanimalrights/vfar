@@ -119,5 +119,44 @@ VFAR will work to pass legislation to increase the level of this already illegal
         </article>
       </section>
     </li>
+    <li>
+      <img src="/wp-content/themes/eshv/images/modals/animals-entertainment.jpg" />
+      <div class="agenda-overlay"></div>
+      <span>enforcing<br />the ban on<br />animals in<br />circuses</span>
+      <section>
+        <div class="agenda-image">
+          <img src="/wp-content/themes/eshv/images/modals/animals-entertainment.jpg" />
+        </div>
+        <article>
+          <strong>enforcing the ban on animals in circuses</strong>
+        </article>
+      </section>
+    </li>
+    <li>
+      <img src="/wp-content/themes/eshv/images/modals/animals-for-food.jpg" />
+      <div class="agenda-overlay"></div>
+      <span>healthy<br />plant-based<br />lunches for<br />NYC kids</span>
+      <section>
+        <div class="agenda-image">
+          <img src="/wp-content/themes/eshv/images/modals/animals-for-food.jpg" />
+        </div>
+        <article>
+          <strong>healthy plant-based lunches for NYC kids</strong>
+        </article>
+      </section>
+    </li>
+    <li>
+      <img src="/wp-content/themes/eshv/images/modals/animals-research.jpg" />
+      <div class="agenda-overlay"></div>
+      <span>alternatives<br />to using animals<br />as classroom<br />science projects</span>
+      <section>
+        <div class="agenda-image">
+          <img src="/wp-content/themes/eshv/images/modals/animals-research.jpg" />
+        </div>
+        <article>
+          <strong>alternatives to using animals as classroom science projects</strong>
+        </article>
+      </section>
+    </li>
   </ul>
 </section>

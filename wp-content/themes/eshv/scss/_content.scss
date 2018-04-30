@@ -239,6 +239,7 @@
         color: $white;
         display: inline-block;
         position: relative;
+        text-transform: uppercase;
         vertical-align: middle;
         z-index: 3;
 
@@ -274,7 +275,8 @@
       }
 
       &:nth-of-type(3),
-      &:nth-of-type(4) {
+      &:nth-of-type(4),
+      &:nth-of-type(8) {
         .agenda-overlay {
           background: rgba(191, 37, 66, 0.6);
         }
@@ -306,6 +308,30 @@
         &:hover {
           .agenda-overlay {
             background: rgba(31, 61, 144, 0.75);
+          }
+        }
+      }
+
+      &:nth-of-type(7) {
+        .agenda-overlay {
+          background: rgba(86, 70, 136, 0.6);
+        }
+
+        &:hover {
+          .agenda-overlay {
+            background: rgba(86, 70, 136, 0.75);
+          }
+        }
+      }
+
+      &:nth-of-type(9) {
+        .agenda-overlay {
+          background: rgba(0, 173, 232, 0.6);
+        }
+
+        &:hover {
+          .agenda-overlay {
+            background: rgba(0, 173, 232, 0.75);
           }
         }
       }

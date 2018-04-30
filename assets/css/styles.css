@@ -1613,6 +1613,7 @@ body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters
   color: #fff;
   display: inline-block;
   position: relative;
+  text-transform: uppercase;
   vertical-align: middle;
   z-index: 3;
 }
@@ -1647,11 +1648,11 @@ body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters
   background: rgba(6, 131, 205, 0.75);
 }
 
-.content.agenda-content li:nth-of-type(3) .agenda-overlay, .content.agenda-content li:nth-of-type(4) .agenda-overlay {
+.content.agenda-content li:nth-of-type(3) .agenda-overlay, .content.agenda-content li:nth-of-type(4) .agenda-overlay, .content.agenda-content li:nth-of-type(8) .agenda-overlay {
   background: rgba(191, 37, 66, 0.6);
 }
 
-.content.agenda-content li:nth-of-type(3):hover .agenda-overlay, .content.agenda-content li:nth-of-type(4):hover .agenda-overlay {
+.content.agenda-content li:nth-of-type(3):hover .agenda-overlay, .content.agenda-content li:nth-of-type(4):hover .agenda-overlay, .content.agenda-content li:nth-of-type(8):hover .agenda-overlay {
   background: rgba(191, 37, 66, 0.75);
 }
 
@@ -1669,6 +1670,22 @@ body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters
 
 .content.agenda-content li:nth-of-type(6):hover .agenda-overlay {
   background: rgba(31, 61, 144, 0.75);
+}
+
+.content.agenda-content li:nth-of-type(7) .agenda-overlay {
+  background: rgba(86, 70, 136, 0.6);
+}
+
+.content.agenda-content li:nth-of-type(7):hover .agenda-overlay {
+  background: rgba(86, 70, 136, 0.75);
+}
+
+.content.agenda-content li:nth-of-type(9) .agenda-overlay {
+  background: rgba(0, 173, 232, 0.6);
+}
+
+.content.agenda-content li:nth-of-type(9):hover .agenda-overlay {
+  background: rgba(0, 173, 232, 0.75);
 }
 
 .content .acknowledgements li {
@@ -2787,6 +2804,7 @@ body.action-logged-in .simple-modal #modal-dynamic-section {
 }
 
 .modal .modal-wrapper section article {
+  min-height: 170px;
   max-height: -webkit-calc(70vh - 200px);
   max-height: calc(70vh - 200px);
   overflow: auto;
@@ -2809,6 +2827,7 @@ body.action-logged-in .simple-modal #modal-dynamic-section {
   font-size: 19px;
   font-weight: 600;
   line-height: 24px;
+  text-transform: uppercase;
 }
 
 .modal .modal-wrapper section span {

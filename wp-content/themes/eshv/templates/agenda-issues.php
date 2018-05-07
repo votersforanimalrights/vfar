@@ -129,6 +129,8 @@ VFAR will work to pass legislation to increase the level of this already illegal
         </div>
         <article>
           <strong>enforcing the ban on animals in circuses</strong>
+          <p>In 2017, VFAR helped lead the effort to pass Intro 1233 into law, which banned the use of wild animals in circuses in NYC. This was our first victory, and We are grateful to the City Council and Mayor de Blasio for taking this bold step!</p>
+<p>But now, the circus industry is trying to gut the law by introducing a new bill, Intro 57, that would delay implementation of the ban by at least two years. We oppose this effort to proliferate the suffering of circus animals, and will fight to keep the effective date of the law (October 1, 2018) in place. You can help by <a href="https://council.nyc.gov/" target="_blank">calling your City Council Member</a> and urging them to OPPOSE Intro 57.</p>
         </article>
       </section>
     </li>
@@ -142,6 +144,7 @@ VFAR will work to pass legislation to increase the level of this already illegal
         </div>
         <article>
           <strong>healthy plant-based lunches for NYC kids</strong>
+          <p>We support Reso 238 by Council Member Fernando Cabrera, which calls on the New York City Department of Education to ban processed meats from being served in New York City public schools. We also support Reso 551 by Council Member Helen Rosenthal, which recognizes 'Meatless Monday" in NYC: a national and international campaign that encourages people to enjoy meat-free meals on Mondays to improve their personal and public health, animal welfare, wildlife protection, and environmental and agricultural sustainability.</p>
         </article>
       </section>
     </li>
@@ -155,6 +158,21 @@ VFAR will work to pass legislation to increase the level of this already illegal
         </div>
         <article>
           <strong>alternatives to using animals as classroom science projects</strong>
+          <p>We are working to introduce legislation that would stop the use of live animals in classroom science projects and making dissection projects a thing of the past.</p>
+        </article>
+      </section>
+    </li>
+    <li>
+      <img src="/wp-content/themes/eshv/images/modals/animals-wild.jpg" />
+      <div class="agenda-overlay"></div>
+      <span>protecting<br />ny wildlife</span>
+      <section>
+        <div class="agenda-image">
+          <img src="/wp-content/themes/eshv/images/modals/animals-wild.jpg" />
+        </div>
+        <article>
+          <strong>protecting ny wildlife</strong>
+          <p>We support the WildlifeNYC initiative to promote awareness and co-existence with urban wildlife. We advocate for humane strategies to conflicts with urban wildlife, support efforts to aid groups and individuals working in wildlife rescue and rehabilitation, and support efforts to address risk of migrating birds collisions with glass buildings.</p>
         </article>
       </section>
     </li>

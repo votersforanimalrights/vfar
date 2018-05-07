@@ -1664,11 +1664,11 @@ body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters
   background: rgba(112, 66, 112, 0.75);
 }
 
-.content.agenda-content li:nth-of-type(6) .agenda-overlay {
+.content.agenda-content li:nth-of-type(6) .agenda-overlay, .content.agenda-content li:nth-of-type(10) .agenda-overlay {
   background: rgba(31, 61, 144, 0.6);
 }
 
-.content.agenda-content li:nth-of-type(6):hover .agenda-overlay {
+.content.agenda-content li:nth-of-type(6):hover .agenda-overlay, .content.agenda-content li:nth-of-type(10):hover .agenda-overlay {
   background: rgba(31, 61, 144, 0.75);
 }
 

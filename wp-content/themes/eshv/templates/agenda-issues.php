@@ -135,7 +135,7 @@ VFAR will work to pass legislation to increase the level of this already illegal
     <li>
       <img src="/wp-content/themes/eshv/images/modals/animals-for-food.jpg" />
       <div class="agenda-overlay"></div>
-      <span>healthy<br />plant-based<br />lunches for<br />NYC kids</span>
+      <span>healthy<br />plant-based<br />food for<br />NYC kids</span>
       <section>
         <div class="agenda-image">
           <img src="/wp-content/themes/eshv/images/modals/animals-for-food.jpg" />

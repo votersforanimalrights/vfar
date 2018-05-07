@@ -17,7 +17,7 @@ Most puppies and kittens sold in pet stores come from cruel puppy mills and kitt
 <p>According to USDA inspection reports and undercover investigations by animal welfare groups, these facilities have repeatedly been found to have problems such as poor sanitation leading to infectious disease, animals overcrowded in cages with no exercise, lack of proper veterinary care for severe illnesses and injuries, lack of protection from harsh weather conditions, and lack of adequate food and water. These conditions result in great suffering, as well as many sick offspring sold to unaware consumers which often leads to financial and emotional distress to the new owners. As a result, these animals can end up surrendered to animal shelters. This means that city-funded animal shelters, NYC taxpayers, and non-profit rescue groups have to bear the burden of caring for tens of thousands of homeless animals per year. These animals are just waiting to be adopted, and unfortunately, many of their lives end in needless deaths in the shelter system. Basically, the puppy and kitten mill/pet store connection creates lives of misery from beginning to end.
 
 <p><strong>Solution:</strong>
-Hundreds of cities across the U.S. have implemented regulations on the sale of dogs and cats in pet stores to address this cruel and unnecessary industry. VFAR will be working on increasing NYC pet store regulations so as to provide protection and relief to dogs and cats, animal shelters, consumers, and taxpayers of New York City.</p>
+Hundreds of cities across the U.S. have implemented regulations on the sale of dogs and cats in pet stores to address this cruel and unnecessary industry. VFAR is working on introducing legislation that would increase NYC pet store regulations so as to provide protection and relief to dogs and cats, animal shelters, consumers, and taxpayers of New York City.</p>
         </article>
       </section>
     </li>
@@ -35,7 +35,7 @@ Hundreds of cities across the U.S. have implemented regulations on the sale of d
 Declawing, or onychectomy, is a major surgical procedure involving multiple amputations of the last bone of each of your cat’s toes. It is <em>not</em> a surgery that removes just the nails, but in fact a complex surgery that is incredibly detrimental to felines and has been found to be an unnecessary procedure — both scientifically and ethically. Declawing can cause serious short- and long-term physical problems such as painful paws, infections, and tissue death and also behavioral issues such as aggression and/or inappropriate soiling. Cat declawing can also endanger humans as cats will revert to biting in order to defend themselves. Contrary to popular belief, cat surrenders to animal shelters do not increase after a declaw ban is enacted. Shelter studies conducted by the Paw Project in 2015 showed that there were lower owner-surrender cat intakes post legislation, reporting a 43% reduction.</p>
 
 <p><strong>Solution:</strong>
-VFAR stands by humane alternatives to declawing and is looking forward to New York joining the European Union, the U.K., Australia, Brazil, Israel, Denver and several California cities in banning this practice. Let’s be the next city to rid the inhumane practice of declawing!
+VFAR stands by humane alternatives to declawing and is looking forward to New York joining the European Union, the U.K., Australia, Brazil, Israel, Denver and several California cities in banning this practice. We support state legislation A595/S3376 by Assembly Member Linda Rosenthal and Senator Joseph Griffo that would ban cat declawing in New York.
 </p>
         </article>
       </section>
@@ -56,7 +56,7 @@ Foie Gras, or fatty liver, is produced with massive animal suffering. To enlarge
 <p>Multiple undercover investigations of Hudson Valley Foie Gras (the only foie gras producer in New York) from organizations like <a href="http://www.amazoncruelty.com/" target="_blank">Mercy For Animals</a> and <a href="https://www.peta.org/issues/animals-used-for-food/factory-farming/ducks-geese/foie-gras/" target="_blank">PETA</a> show malicious animal torture including death from force-feeding, ducks hyperventilating as their unnaturally large livers pressed against their lungs, birds with open, bleeding wounds left to suffer in tiny wire cages without proper veterinary care, and fully conscious ducks being shackled upside down and having their throats cut open. One investigation found that a single worker was expected to force-feed 500 birds three times each day.</p>
 
 <p><strong>Solution:</strong>
-California has banned the sale of foie gras along with a dozen countries. Because of its cruelty, businesses like Costco, Safeway, Target, Whole Foods Market, and Wolfgang Puck have also refused to sell the diseased liver products. It’s time New York City takes a stand and ends its contribution to such an inhumane industry.
+California has banned the sale of foie gras along with a dozen countries. Because of its cruelty, businesses like Costco, Safeway, Target, Whole Foods Market, and Wolfgang Puck have also refused to sell the diseased liver products. It’s time New York City takes a stand, so we are working to introduce legislation to ends such an inhumane industry.
 </p>
         </article>
       </section>
@@ -77,7 +77,7 @@ There are approximately 80 slaughterhouses and live markets in New York City, in
 <p>Due to these concerns, and thanks to advocates from <a href="http://www.humanesociety.org/" target="_blank">HSUS</a>, New York State enacted a law in 2008 which prohibits the licensing of any new slaughterhouse within 1,500 feet of a residence in NYC. This law must be renewed every four years, and thanks to Governor Cuomo and the New York State legislature, it was renewed in 2012 and 2016.</p>
 
 <p><strong>Solution:</strong>
-VFAR proposes to introduce similar legislation at the city level to permanently ban the licensing of slaughterhouses anywhere within city limits. We look forward to working with the city council to improve the health and safety of our city and its residents. We believe that most New Yorkers agree:  slaughterhouses do not belong in our neighborhoods.
+VFAR proposes to introduce similar legislation at the city level to permanently ban the licensing of slaughterhouses anywhere within city limits. We look forward to working with the City Council to improve the health and safety of our city and its residents. We believe that most New Yorkers agree:  slaughterhouses do not belong in our neighborhoods.
 </p>
         </article>
       </section>

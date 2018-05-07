@@ -163,12 +163,12 @@ VFAR will work to pass legislation to increase the level of this already illegal
       </section>
     </li>
     <li>
-      <img src="/wp-content/themes/eshv/images/modals/animals-wild.jpg" />
+      <img src="/wp-content/themes/eshv/images/modals/animals-wildlife.jpg" />
       <div class="agenda-overlay"></div>
       <span>protecting<br />ny wildlife</span>
       <section>
         <div class="agenda-image">
-          <img src="/wp-content/themes/eshv/images/modals/animals-wild.jpg" />
+          <img src="/wp-content/themes/eshv/images/modals/animals-wildlife.jpg" />
         </div>
         <article>
           <strong>protecting ny wildlife</strong>

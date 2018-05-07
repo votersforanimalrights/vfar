@@ -2808,7 +2808,7 @@ body.action-logged-in .simple-modal #modal-dynamic-section {
   max-height: -webkit-calc(70vh - 200px);
   max-height: calc(70vh - 200px);
   overflow: auto;
-  padding: 0 0 200px;
+  padding: 0 0 280px;
 }
 
 @media only screen and (min-width: 768px) {

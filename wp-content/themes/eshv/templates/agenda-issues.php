@@ -143,7 +143,7 @@ VFAR will work to pass legislation to increase the level of this already illegal
           <img src="/wp-content/themes/eshv/images/modals/animals-for-food.jpg" />
         </div>
         <article>
-          <strong>healthy plant-based lunches for NYC kids</strong>
+          <strong>healthy plant-based food for New Yorkers</strong>
           <p>We support Reso 238 by Council Member Fernando Cabrera, which calls on the New York City Department of Education to ban processed meats from being served in New York City public schools. We also support Reso 551 by Council Member Helen Rosenthal, which recognizes 'Meatless Monday" in NYC: a national and international campaign that encourages people to enjoy meat-free meals on Mondays to improve their personal and public health, animal welfare, wildlife protection, and environmental and agricultural sustainability.</p>
         </article>
       </section>

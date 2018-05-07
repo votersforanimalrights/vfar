@@ -266,7 +266,7 @@ $image: '/wp-content/themes/eshv/splash-dog.jpg';
         min-height: 170px;
         max-height: calc(70vh - 200px);
         overflow: auto;
-        padding: 0 0 40px;
+        padding: 0 0 120px;
 
         @include nonphone() {
           max-height: calc(92vh - 200px);

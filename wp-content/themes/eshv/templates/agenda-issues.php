@@ -4,20 +4,20 @@
     <li>
       <img src="/wp-content/themes/eshv/images/modals/animals-companion.jpg" />
       <div class="agenda-overlay"></div>
-      <span>CRACKING DOWN<br />ON SALES OF<br />DOGS AND CATS<br />IN PET STORES</span>
+      <span>BANNING<br />SALES OF<br />DOGS AND CATS<br />IN PET STORES</span>
       <section>
         <div class="agenda-image">
           <img src="/wp-content/themes/eshv/images/modals/animals-companion.jpg" />
         </div>
         <article>
-          <strong>CRACKING DOWN ON SALES OF DOGS AND CATS IN PET STORES</strong>
+          <strong>BANNING SALES OF DOGS AND CATS IN PET STORES</strong>
           <p><strong>Problem:</strong>
 Most puppies and kittens sold in pet stores come from cruel puppy mills and kitten factories across the nation. Thousands of dogs and cats are forced to endlessly breed in these inhumane facilities and then their puppies and kittens are shipped away, in often harsh conditions, to pet stores.</p>
 
 <p>According to USDA inspection reports and undercover investigations by animal welfare groups, these facilities have repeatedly been found to have problems such as poor sanitation leading to infectious disease, animals overcrowded in cages with no exercise, lack of proper veterinary care for severe illnesses and injuries, lack of protection from harsh weather conditions, and lack of adequate food and water. These conditions result in great suffering, as well as many sick offspring sold to unaware consumers which often leads to financial and emotional distress to the new owners. As a result, these animals can end up surrendered to animal shelters. This means that city-funded animal shelters, NYC taxpayers, and non-profit rescue groups have to bear the burden of caring for tens of thousands of homeless animals per year. These animals are just waiting to be adopted, and unfortunately, many of their lives end in needless deaths in the shelter system. Basically, the puppy and kitten mill/pet store connection creates lives of misery from beginning to end.
 
 <p><strong>Solution:</strong>
-Hundreds of cities across the U.S. have implemented regulations on the sale of dogs and cats in pet stores to address this cruel and unnecessary industry. VFAR is working on introducing legislation that would increase NYC pet store regulations so as to provide protection and relief to dogs and cats, animal shelters, consumers, and taxpayers of New York City.</p>
+Hundreds of cities across the U.S. have implemented regulations on the sale of dogs and cats in pet stores to address this cruel and unnecessary industry. VFAR is working on introducing legislation that would ban the sale of dogs and cats in pet stores (unless they come from a rescue or a shelter), providing protection and relief to dogs and cats, animal shelters, consumers, and taxpayers of New York.</p>
         </article>
       </section>
     </li>

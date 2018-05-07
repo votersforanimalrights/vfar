@@ -2815,6 +2815,7 @@ body.action-logged-in .simple-modal #modal-dynamic-section {
   .modal .modal-wrapper section article {
     max-height: -webkit-calc(92vh - 200px);
     max-height: calc(92vh - 200px);
+    padding: 0 0 40px;
   }
 }
 

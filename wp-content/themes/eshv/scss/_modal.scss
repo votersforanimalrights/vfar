@@ -270,6 +270,7 @@ $image: '/wp-content/themes/eshv/splash-dog.jpg';
 
         @include nonphone() {
           max-height: calc(92vh - 200px);
+          padding: 0 0 40px;
         }
       }
 

@@ -177,11 +177,14 @@ VFAR will work to pass legislation to increase the level of this already illegal
     <li>
       <img src="/wp-content/themes/eshv/images/modals/animals-department.jpg" />
       <div class="agenda-overlay"></div>
-      <span></span>
+      <span>Create a department<br />of animal advocacy<br />within ny government</span>
       <section>
-        <div class="agenda-image"></div>
-        <article>
+        <div class="agenda-image">
           <img src="/wp-content/themes/eshv/images/modals/animals-department.jpg" />
+        </div>
+        <article>
+          <strong>Create a department of animal advocacy within ny government</strong>
+          <p>More to come.</p>
         </article>
       </section>
     </li>

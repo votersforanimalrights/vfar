@@ -2864,11 +2864,6 @@ body.action-logged-in .simple-modal #modal-dynamic-section {
   width: 155px;
 }
 
-.modal .modal-wrapper section#agenda-modal article img {
-  width: auto;
-  height: auto;
-}
-
 .modal .modal-wrapper section p {
   color: #3c3d41;
   font-size: 16px;

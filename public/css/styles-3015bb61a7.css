@@ -2864,7 +2864,7 @@ body.action-logged-in .simple-modal #modal-dynamic-section {
   width: 155px;
 }
 
-.modal .modal-wrapper section #agenda-modal article img {
+.modal .modal-wrapper section#agenda-modal article img {
   width: auto;
   height: auto;
 }

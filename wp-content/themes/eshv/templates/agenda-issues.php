@@ -184,7 +184,7 @@ VFAR will work to pass legislation to increase the level of this already illegal
         </div>
         <article>
           <strong>Create a department of animal advocacy within ny government</strong>
-          <p>More to come.</p>
+          <p>We are working on legislation to create a NY Department on Animal Protection.</p>
         </article>
       </section>
     </li>

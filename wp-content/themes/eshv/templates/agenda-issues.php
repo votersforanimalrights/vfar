@@ -174,5 +174,16 @@ VFAR will work to pass legislation to increase the level of this already illegal
         </article>
       </section>
     </li>
+    <li>
+      <img src="/wp-content/themes/eshv/images/modals/animals-department.jpg" />
+      <div class="agenda-overlay"></div>
+      <span></span>
+      <section>
+        <div class="agenda-image"></div>
+        <article>
+          <img src="/wp-content/themes/eshv/images/modals/animals-department.jpg" />
+        </article>
+      </section>
+    </li>
   </ul>
 </section>

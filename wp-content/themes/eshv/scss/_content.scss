@@ -301,7 +301,8 @@
       }
 
       &:nth-of-type(6),
-      &:nth-of-type(10) {
+      &:nth-of-type(10),
+      &:nth-of-type(11) {
         .agenda-overlay {
           background: rgba(31, 61, 144, 0.6);
         }

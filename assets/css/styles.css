@@ -988,6 +988,41 @@ body {
   }
 }
 
+#can-form-area-get-updates-from-empire-state-humane-voters #can_embed_form_inner #form_col1 li {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: inline;
+}
+
+#can-form-area-get-updates-from-empire-state-humane-voters #can_embed_form_inner #form_col1 .core_field {
+  display: block;
+  float: left;
+  margin: 0 0 2px;
+  width: -webkit-calc(50% - 1px);
+  width: calc(50% - 1px);
+}
+
+#can-form-area-get-updates-from-empire-state-humane-voters #can_embed_form_inner #form_col1 .core_field:nth-of-type(odd) {
+  float: right;
+}
+
+@media only screen and (min-width: 1200px) {
+  #can-form-area-get-updates-from-empire-state-humane-voters #can_embed_form_inner #form_col1 .core_field {
+    margin: 0 1px 0 0;
+    width: auto;
+  }
+  #can-form-area-get-updates-from-empire-state-humane-voters #can_embed_form_inner #form_col1 .core_field:nth-of-type(odd) {
+    float: left;
+  }
+}
+
+#can-form-area-get-updates-from-empire-state-humane-voters #can_embed_form_inner #form_col1 .country_wrap,
+#can-form-area-get-updates-from-empire-state-humane-voters #can_embed_form_inner #form_col1 .country_drop_wrap,
+#can-form-area-get-updates-from-empire-state-humane-voters #can_embed_form_inner #form_col1 .international_link-wrap {
+  display: none;
+}
+
 #can-form-area-get-updates-from-empire-state-humane-voters #can_embed_form_inner #form_col1 input {
   font-size: 14px;
   font-size: 0.875rem;
@@ -1001,8 +1036,6 @@ body {
   display: block;
   height: 40px;
   padding: 0 15px;
-  float: left;
-  margin: 0 0 2px;
 }
 
 @media only screen and (min-width: 1200px) {
@@ -1069,21 +1102,10 @@ body {
   transition: background-color 5000s ease-in-out 0s;
 }
 
-#can-form-area-get-updates-from-empire-state-humane-voters #can_embed_form_inner #form_col1 input:nth-child(even) {
-  float: right;
-}
-
-@media only screen and (min-width: 1200px) {
+@media only screen and (max-width: 1199px) {
   #can-form-area-get-updates-from-empire-state-humane-voters #can_embed_form_inner #form_col1 input {
-    margin: 0 1px 0 0;
+    width: 100%;
   }
-  #can-form-area-get-updates-from-empire-state-humane-voters #can_embed_form_inner #form_col1 input:nth-child(even) {
-    float: left;
-  }
-}
-
-#can-form-area-get-updates-from-empire-state-humane-voters #can_embed_form_inner #form_col1 .country_wrap {
-  display: none;
 }
 
 #can-form-area-get-updates-from-empire-state-humane-voters #can_embed_form_inner #form_col2 {
@@ -1097,7 +1119,7 @@ body {
   }
 }
 
-#can-form-area-get-updates-from-empire-state-humane-voters #can_embed_form_inner #form_col2 input[type="submit"] {
+#can-form-area-get-updates-from-empire-state-humane-voters #can_embed_form_inner #form_col2 input[type='submit'] {
   font-family: "Open Sans", sans-serif;
   font-style: normal;
   font-weight: 700;
@@ -1122,26 +1144,26 @@ body {
   width: 100%;
 }
 
-#can-form-area-get-updates-from-empire-state-humane-voters #can_embed_form_inner #form_col2 input[type="submit"]:hover {
+#can-form-area-get-updates-from-empire-state-humane-voters #can_embed_form_inner #form_col2 input[type='submit']:hover {
   background: #2aace5;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
-  body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters #can_embed_form_inner #form_col2 input[type="submit"] {
+  body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters #can_embed_form_inner #form_col2 input[type='submit'] {
     margin: 0 auto;
     width: 300px;
   }
 }
 
 @media only screen and (min-width: 1024px) and (max-width: 1049px) {
-  body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters #can_embed_form_inner #form_col2 input[type="submit"] {
+  body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters #can_embed_form_inner #form_col2 input[type='submit'] {
     margin: 0 auto;
     width: 300px;
   }
 }
 
 @media only screen and (min-width: 1200px) {
-  #can-form-area-get-updates-from-empire-state-humane-voters #can_embed_form_inner #form_col2 input[type="submit"] {
+  #can-form-area-get-updates-from-empire-state-humane-voters #can_embed_form_inner #form_col2 input[type='submit'] {
     font-size: 16px;
     font-size: 1rem;
     line-height: 45px;
@@ -3168,6 +3190,19 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
 
 #modal-form-id #action_welcome_message_inner a {
   color: #fff;
+}
+
+#modal-form-id li {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: inline;
+}
+
+#modal-form-id .country_wrap,
+#modal-form-id .country_drop_wrap,
+#modal-form-id .international_link-wrap {
+  display: none;
 }
 
 #modal-form-id input[type='email'],

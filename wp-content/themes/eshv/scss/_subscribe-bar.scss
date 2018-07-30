@@ -214,26 +214,43 @@ $breakpoint: biggest;
         float: left;
       }
 
-      input {
-        @include input;
+      li {
+        appearance: none;
+        display: inline;
+      }
+
+      .core_field {
+        display: block;
         float: left;
         margin: 0 0 2px;
+        width: calc(50% - 1px);
 
-        &:nth-child(even) {
+        &:nth-of-type(odd) {
           float: right;
         }
 
         @include respond-to($breakpoint) {
           margin: 0 1px 0 0;
+          width: auto;
 
-          &:nth-child(even) {
+          &:nth-of-type(odd) {
             float: left;
           }
         }
       }
 
-      .country_wrap {
+      .country_wrap,
+      .country_drop_wrap,
+      .international_link-wrap {
         display: none;
+      }
+
+      input {
+        @include input;
+
+        @media only screen and (max-width: 1199px) {
+          width: 100%;
+        }
       }
     }
 
@@ -246,7 +263,7 @@ $breakpoint: biggest;
       }
 
       // scss-lint:disable QualifyingElement
-      input[type="submit"] {
+      input[type='submit'] {
         @include submit;
       }
     }

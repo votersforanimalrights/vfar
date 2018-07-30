@@ -543,6 +543,17 @@ $image: '/wp-content/themes/eshv/splash-dog.jpg';
     }
   }
 
+  li {
+    appearance: none;
+    display: inline;
+  }
+
+  .country_wrap,
+  .country_drop_wrap,
+  .international_link-wrap {
+    display: none;
+  }
+
   input[type='email'],
   input[type='text'] {
     @include size-height(12, 15);

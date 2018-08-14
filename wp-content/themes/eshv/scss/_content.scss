@@ -262,7 +262,8 @@
       }
 
       &:nth-of-type(1),
-      &:nth-of-type(2) {
+      &:nth-of-type(2),
+      &:nth-of-type(12) {
         .agenda-overlay {
           background: rgba(6, 131, 205, 0.6);
         }
@@ -302,7 +303,8 @@
 
       &:nth-of-type(6),
       &:nth-of-type(10),
-      &:nth-of-type(11) {
+      &:nth-of-type(11),
+      &:nth-of-type(13) {
         .agenda-overlay {
           background: rgba(31, 61, 144, 0.6);
         }
@@ -314,7 +316,8 @@
         }
       }
 
-      &:nth-of-type(7) {
+      &:nth-of-type(7),
+      &:nth-of-type(14) {
         .agenda-overlay {
           background: rgba(86, 70, 136, 0.6);
         }
@@ -334,6 +337,18 @@
         &:hover {
           .agenda-overlay {
             background: rgba(0, 173, 232, 0.75);
+          }
+        }
+      }
+
+      &:nth-of-type(15) {
+        .agenda-overlay {
+          background: rgba(175, 41, 41, 0.6);
+        }
+
+        &:hover {
+          .agenda-overlay {
+            background: rgba(175, 41, 41, 0.75);
           }
         }
       }

@@ -188,5 +188,61 @@ VFAR will work to pass legislation to increase the level of this already illegal
         </article>
       </section>
     </li>
+    <li>
+      <img src="/wp-content/themes/eshv/images/modals/12_BQshelters.jpg" />
+      <div class="agenda-overlay"></div>
+      <span>Building<br />Animal Shelters<br />In The Bronx<br />&amp; Queens</span>
+      <section>
+        <div class="agenda-image">
+          <img src="/wp-content/themes/eshv/images/modals/12_BQshelters.jpg" />
+        </div>
+        <article>
+          <strong>Building Animal Shelters In The Bronx &amp; Queens</strong>
+          <p></p>
+        </article>
+      </section>
+    </li>
+    <li>
+      <img src="/wp-content/themes/eshv/images/modals/13_straws.jpg" />
+      <div class="agenda-overlay"></div>
+      <span>Supporting<br />the Single-Use<br />Plastic Straw<br />Ban in NYC</span>
+      <section>
+        <div class="agenda-image">
+          <img src="/wp-content/themes/eshv/images/modals/13_straws.jpg" />
+        </div>
+        <article>
+          <strong>Supporting the Single-Use Plastic Straw Ban in NYC</strong>
+          <p></p>
+        </article>
+      </section>
+    </li>
+    <li>
+      <img src="/wp-content/themes/eshv/images/modals/14_horses.jpg" />
+      <div class="agenda-overlay"></div>
+      <span>Ending the<br />Horse Carriage<br />Industry in NYC</span>
+      <section>
+        <div class="agenda-image">
+          <img src="/wp-content/themes/eshv/images/modals/14_horses.jpg" />
+        </div>
+        <article>
+          <strong>Ending the Horse Carriage Industry in NYC</strong>
+          <p></p>
+        </article>
+      </section>
+    </li>
+    <li>
+      <img src="/wp-content/themes/eshv/images/modals/15_cosmetics.jpg" />
+      <div class="agenda-overlay"></div>
+      <span>Banning<br />the Sale of<br />Animal-Tested<br />Cosmetics</span>
+      <section>
+        <div class="agenda-image">
+          <img src="/wp-content/themes/eshv/images/modals/15_cosmetics.jpg" />
+        </div>
+        <article>
+          <strong>Banning the Sale of Animal-Tested Cosmetics</strong>
+          <p></p>
+        </article>
+      </section>
+    </li>
   </ul>
 </section>

@@ -1662,11 +1662,11 @@ body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters
   z-index: 2;
 }
 
-.content.agenda-content li:nth-of-type(1) .agenda-overlay, .content.agenda-content li:nth-of-type(2) .agenda-overlay {
+.content.agenda-content li:nth-of-type(1) .agenda-overlay, .content.agenda-content li:nth-of-type(2) .agenda-overlay, .content.agenda-content li:nth-of-type(12) .agenda-overlay {
   background: rgba(6, 131, 205, 0.6);
 }
 
-.content.agenda-content li:nth-of-type(1):hover .agenda-overlay, .content.agenda-content li:nth-of-type(2):hover .agenda-overlay {
+.content.agenda-content li:nth-of-type(1):hover .agenda-overlay, .content.agenda-content li:nth-of-type(2):hover .agenda-overlay, .content.agenda-content li:nth-of-type(12):hover .agenda-overlay {
   background: rgba(6, 131, 205, 0.75);
 }
 
@@ -1686,19 +1686,19 @@ body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters
   background: rgba(112, 66, 112, 0.75);
 }
 
-.content.agenda-content li:nth-of-type(6) .agenda-overlay, .content.agenda-content li:nth-of-type(10) .agenda-overlay, .content.agenda-content li:nth-of-type(11) .agenda-overlay {
+.content.agenda-content li:nth-of-type(6) .agenda-overlay, .content.agenda-content li:nth-of-type(10) .agenda-overlay, .content.agenda-content li:nth-of-type(11) .agenda-overlay, .content.agenda-content li:nth-of-type(13) .agenda-overlay {
   background: rgba(31, 61, 144, 0.6);
 }
 
-.content.agenda-content li:nth-of-type(6):hover .agenda-overlay, .content.agenda-content li:nth-of-type(10):hover .agenda-overlay, .content.agenda-content li:nth-of-type(11):hover .agenda-overlay {
+.content.agenda-content li:nth-of-type(6):hover .agenda-overlay, .content.agenda-content li:nth-of-type(10):hover .agenda-overlay, .content.agenda-content li:nth-of-type(11):hover .agenda-overlay, .content.agenda-content li:nth-of-type(13):hover .agenda-overlay {
   background: rgba(31, 61, 144, 0.75);
 }
 
-.content.agenda-content li:nth-of-type(7) .agenda-overlay {
+.content.agenda-content li:nth-of-type(7) .agenda-overlay, .content.agenda-content li:nth-of-type(14) .agenda-overlay {
   background: rgba(86, 70, 136, 0.6);
 }
 
-.content.agenda-content li:nth-of-type(7):hover .agenda-overlay {
+.content.agenda-content li:nth-of-type(7):hover .agenda-overlay, .content.agenda-content li:nth-of-type(14):hover .agenda-overlay {
   background: rgba(86, 70, 136, 0.75);
 }
 
@@ -1708,6 +1708,14 @@ body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters
 
 .content.agenda-content li:nth-of-type(9):hover .agenda-overlay {
   background: rgba(0, 173, 232, 0.75);
+}
+
+.content.agenda-content li:nth-of-type(15) .agenda-overlay {
+  background: rgba(175, 41, 41, 0.6);
+}
+
+.content.agenda-content li:nth-of-type(15):hover .agenda-overlay {
+  background: rgba(175, 41, 41, 0.75);
 }
 
 .content .acknowledgements li {

@@ -150,13 +150,22 @@ get_template_part( 'templates/modal' );
           $subnav = $caret . '<ul>';
           foreach ( $link->children as $child ) {
             $active = in_array( 'current-menu-item', $child->classes ) || in_array( 'current-page-ancestor', $child->classes );
-            $subnav .= sprintf(
-              '<li><a href="%s#%s" class="%s">%s</a></li>',
-              $link->url,
-              $child->slug,
-              $active ? 'active' : '',
-              $child->title
-            );
+            if (strpos($child->url, $link->url) === 0) {
+              $subnav .= sprintf(
+                '<li><a href="%s#%s" class="%s">%s</a></li>',
+                $link->url,
+                $child->slug,
+                $active ? 'active' : '',
+                $child->title
+              );
+            } else {
+              $subnav .= sprintf(
+                '<li><a href="%s" class="%s">%s</a></li>',
+                $child->url,
+                $active ? 'active' : '',
+                $child->title
+              );
+            }
           }
           $subnav .= '</ul>';
         }
@@ -186,14 +195,24 @@ get_template_part( 'templates/modal' );
         <?php
           foreach ( $link->children as $child ) {
             $active = in_array( 'current-menu-item', $child->classes ) || in_array( 'current-page-ancestor', $child->classes );
-            printf(
-              '<li class="%s"><a href="%s#%s" class="%s">%s</a></li>',
-              $parentActive ? 'active' : '',
-              $link->url,
-              $child->slug,
-              $active ? 'active' : '',
-              $child->title
-            );
+            if (strpos($child->url, $link->url) === 0) {
+              printf(
+                '<li class="%s"><a href="%s#%s" class="%s">%s</a></li>',
+                $parentActive ? 'active' : '',
+                $link->url,
+                $child->slug,
+                $active ? 'active' : '',
+                $child->title
+              );
+            } else {
+              printf(
+                '<li class="%s"><a href="%s" class="%s">%s</a></li>',
+                $parentActive ? 'active' : '',
+                $child->url,
+                $active ? 'active' : '',
+                $child->title
+              );
+            }
           }
         ?>
         </ul>

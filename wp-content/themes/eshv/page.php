@@ -38,10 +38,11 @@ get_header() ?>
           <?php echo apply_filters('the_content', $child->post_content) ?>
         </div>
       <?php }
-      } else {
+      } else { ?>
+        <h2><?php echo $post->post_title ?></h2>
+      <?php
         the_content();
-      }
-      ?>
+      } ?>
     </div>
   </section>
 </article>

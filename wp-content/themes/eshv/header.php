@@ -3,13 +3,14 @@ ob_start();
 require_once __DIR__ . '/svg/caret.php';
 $caret = ob_get_clean();
 
-$post_name = get_post() && get_post()->post_name;
+$post_name = get_post() ? get_post()->post_name : '';
 $is_page = is_page();
 $is_launch = $is_page && ('launch' === $post_name || 'launch-party-waiting-list' === $post_name);
 $is_circus = $is_page && 'may2circus' === $post_name;
 $is_action = $is_page && 'action' === $post_name;
 $is_volunteer = $is_page && 'volunteer' === $post_name;
 $is_events = $is_page && 'circusparty' === $post_name;
+$is_election_center = $is_page && 'election-center' === $post_name;
 $attachment_id = get_post_thumbnail_id();
 ?>
 <!DOCTYPE html>
@@ -32,7 +33,17 @@ if ( is_singular() && ! is_front_page() ) {
 ?>
 <meta property="og:type" content="article" />
 <meta property="og:url" content="<?php the_permalink() ?>" />
-<?php if ($is_action) {
+<?php
+if ($is_election_center) {
+  $title = '2018 New York Candidate Endorsements';
+?>
+<meta property="og:title" content="<?php echo $title ?>" />
+<meta name="twitter:title" content="<?php echo $title ?>" />
+<meta property="og:description" content="<?php echo $description ?>" />
+<meta name="twitter:description" content="<?php echo $description ?>" />
+<meta name="twitter:text:description" content="<?php echo $description ?>" />
+<?php
+} elseif ($is_action) {
   $title = 'Thank Your New York City Council Member For Banning Wild Animals In Circuses!';
   $desc = 'Contact your City Council Member now.'
 ?>
@@ -66,7 +77,10 @@ if ( is_singular() && ! is_front_page() ) {
 <meta name="twitter:description" content="<?php echo esc_attr( $description ) ?>" />
 <meta name="twitter:text:description" content="<?php echo esc_attr( $description ) ?>" />
 <?php } ?>
-<?php if ( $is_launch ) { ?>
+<?php if ( $is_election_center ) { ?>
+<meta property="og:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/primary-endorsements.png" />
+<meta name="twitter:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/primary-endorsements.png" />
+<?php } elseif ( $is_launch ) { ?>
 <meta property="og:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/launch-kitten.jpg" />
 <meta name="twitter:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/launch-kitten.jpg" />
 <?php } elseif ( $is_events ) { ?>

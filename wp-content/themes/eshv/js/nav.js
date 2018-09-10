@@ -135,7 +135,9 @@ export default () => {
   for (let i = 0; i < subnavItems.length; i += 1) {
     const subnavLink = subnavItems[i];
     const [, id] = subnavLink.href.split('#');
-    subnavLink.addEventListener('click', handleClick(id));
+    if (id) {
+      subnavLink.addEventListener('click', handleClick(id));
+    }
   }
 
   for (let i = 0; i < subnavToggles.length; i += 1) {

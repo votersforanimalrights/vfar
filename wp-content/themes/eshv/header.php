@@ -77,10 +77,7 @@ if ($is_election_center) {
 <meta name="twitter:description" content="<?php echo esc_attr( $description ) ?>" />
 <meta name="twitter:text:description" content="<?php echo esc_attr( $description ) ?>" />
 <?php } ?>
-<?php if ( $is_election_center ) { ?>
-<meta property="og:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/primary-endorsements-v2.png" />
-<meta name="twitter:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/primary-endorsements-v2.png" />
-<?php } elseif ( $is_launch ) { ?>
+<?php if ( $is_launch ) { ?>
 <meta property="og:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/launch-kitten.jpg" />
 <meta name="twitter:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/launch-kitten.jpg" />
 <?php } elseif ( $is_events ) { ?>

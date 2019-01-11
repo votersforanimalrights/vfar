@@ -1,3 +1,9 @@
+@import "agenda-content";
+@import "bios";
+@import "table";
+@import "list";
+@import "headers";
+
 .centered-content {
   margin: 0 5%;
   max-width: 90%;
@@ -73,56 +79,7 @@
     }
   }
 
-  h2,
-  h3 {
-    @include bold;
-
-    color: $blue;
-    display: block;
-    margin: 5% 5% 2%;
-    text-transform: uppercase;
-
-    @include respond-to(tablet) {
-      margin: 2% 20% 2% 10%;
-    }
-
-    @include respond-to(tabletpro) {
-      margin: 2% 20% 2% 10%;
-    }
-
-    @include respond-to(desktop) {
-      margin: 0;
-    }
-  }
-
-  h2 {
-    @include size-height(24, 34);
-  }
-
-  h3 {
-    @include size-height(20, 28);
-    @include respond-to(desktop) {
-      margin: 20px 0 10px;
-    }
-  }
-
-  h1 {
-    @include bold;
-    @include size-height(24, 34);
-    color: $blue;
-    margin: 20px 5%;
-    text-transform: uppercase;
-
-    @include nonphone() {
-      @include size-height(24, 34);
-      margin: 20px 20% 20px 10%;
-    }
-
-    .single & {
-      @include size-height(24, 30);
-      color: $black;
-    }
-  }
+  @include headers;
 
   p {
     @include size-height(18, 24);
@@ -166,194 +123,7 @@
     }
   }
 
-  &.agenda-content {
-    background: #e0e3e3;
-    padding: 30px 0;
-    text-align: center;
-
-    ul {
-      margin: 20px auto 30px;
-      max-width: 320px;
-      overflow: hidden;
-
-      @include respond-to(plusphone) {
-        max-width: 410px;
-      }
-
-      @include nonphone() {
-        max-width: 606px;
-      }
-
-      @include respond-to(tabletpro) {
-        max-width: 910px;
-      }
-
-      @include respond-to(desktop) {
-        max-width: 910px;
-      }
-    }
-
-    li {
-      cursor: pointer;
-      display: inline-block;
-      height: 155px;
-      line-height: 155px;
-      margin: 1px;
-      overflow: hidden;
-      position: relative;
-      transition: background 1s;
-      width: 155px;
-
-      @include respond-to(plusphone) {
-        height: 200px;
-        line-height: 200px;
-        width: 200px;
-      }
-
-      @include nonphone() {
-        height: 290px;
-        line-height: 290px;
-        margin: 5px;
-        width: 290px;
-      }
-
-      img {
-        display: block;
-        height: auto;
-        position: absolute;
-        transform: scale(1, 1);
-        transition: transform 1s;
-        width: 100%;
-        z-index: 1;
-      }
-
-      &:hover {
-        img {
-          transform: scale(1.1, 1.1);
-        }
-      }
-
-      span {
-        @include bold;
-        @include size-height(13, 18);
-        color: $white;
-        display: inline-block;
-        position: relative;
-        text-transform: uppercase;
-        vertical-align: middle;
-        z-index: 3;
-
-        @include nonphone() {
-          @include size-height(20, 28);
-        }
-      }
-
-      section {
-        display: none;
-      }
-
-      .agenda-overlay {
-        bottom: 0;
-        left: 0;
-        position: absolute;
-        right: 0;
-        top: 0;
-        z-index: 2;
-      }
-
-      &:nth-of-type(1),
-      &:nth-of-type(2),
-      &:nth-of-type(12) {
-        .agenda-overlay {
-          background: rgba(6, 131, 205, 0.6);
-        }
-
-        &:hover {
-          .agenda-overlay {
-            background: rgba(6, 131, 205, 0.75);
-          }
-        }
-      }
-
-      &:nth-of-type(3),
-      &:nth-of-type(4),
-      &:nth-of-type(8) {
-        .agenda-overlay {
-          background: rgba(191, 37, 66, 0.6);
-        }
-
-        &:hover {
-          .agenda-overlay {
-            background: rgba(191, 37, 66, 0.75);
-          }
-        }
-      }
-
-      &:nth-of-type(5) {
-        .agenda-overlay {
-          background: rgba(112, 66, 112, 0.6);
-        }
-
-        &:hover {
-          .agenda-overlay {
-            background: rgba(112, 66, 112, 0.75);
-          }
-        }
-      }
-
-      &:nth-of-type(6),
-      &:nth-of-type(10),
-      &:nth-of-type(11),
-      &:nth-of-type(13) {
-        .agenda-overlay {
-          background: rgba(31, 61, 144, 0.6);
-        }
-
-        &:hover {
-          .agenda-overlay {
-            background: rgba(31, 61, 144, 0.75);
-          }
-        }
-      }
-
-      &:nth-of-type(7),
-      &:nth-of-type(14) {
-        .agenda-overlay {
-          background: rgba(86, 70, 136, 0.6);
-        }
-
-        &:hover {
-          .agenda-overlay {
-            background: rgba(86, 70, 136, 0.75);
-          }
-        }
-      }
-
-      &:nth-of-type(9) {
-        .agenda-overlay {
-          background: rgba(0, 173, 232, 0.6);
-        }
-
-        &:hover {
-          .agenda-overlay {
-            background: rgba(0, 173, 232, 0.75);
-          }
-        }
-      }
-
-      &:nth-of-type(15) {
-        .agenda-overlay {
-          background: rgba(175, 41, 41, 0.6);
-        }
-
-        &:hover {
-          .agenda-overlay {
-            background: rgba(175, 41, 41, 0.75);
-          }
-        }
-      }
-    }
-  }
+  @include agenda-content;
 
   .acknowledgements {
     li {
@@ -405,7 +175,7 @@
 
     h3 {
       color: $dark;
-      margin: 5% 0 2%;
+      margin: 20px 0 10px;
     }
 
     p {
@@ -429,17 +199,7 @@
   }
 
   .list {
-    list-style-type: disc;
-    margin: 0 20px 24px 24px;
-
-    li {
-      margin: 0 0 1rem;
-      @include size-height(16, 22);
-
-      @include nonphone() {
-        @include size-height(20, 25);
-      }
-    }
+    @include ul;
   }
 
   .footnotes {
@@ -573,36 +333,7 @@ html.can_embed-html {
 }
 
 .eshv-table {
-  th {
-    @include bold;
-    @include size-height(11, 20);
-    padding: 6px;
-    text-align: left;
-
-    @include respond-to(desktop) {
-      @include size-height(14, 20);
-      padding: 10px 15px 10px 8px;
-    }
-  }
-
-  tr > td:first-child {
-    @include size-height(16, 20);
-
-    @include respond-to(desktop) {
-      white-space: nowrap;
-    }
-  }
-
-  td {
-    @include size-height(14, 20);
-
-    border: 1px solid $light-grey;
-    padding: 6px;
-
-    @include respond-to(desktop) {
-      padding: 8px 15px 8px 8px;
-    }
-  }
+  @include table;
 }
 
 .animal-shortcode {
@@ -646,121 +377,5 @@ html.can_embed-html {
     margin: 15px 0 0;
   }
 
-  .vfar-bios {
-    max-width: 795px;
-    overflow: hidden;
-
-    li {
-      float: left;
-      height: 265px;
-      margin: 15px 15px 0 0;
-      overflow: hidden;
-      width: 146px;
-
-      &:nth-of-type(even) {
-        margin: 15px 0 0 15px;
-      }
-
-      @include respond-to(tabletAll) {
-        &:nth-of-type(even) {
-          margin: 15px 15px 0 0;
-        }
-      }
-
-      @include respond-to(desktop) {
-        margin: 15px 30px 0 0;
-        width: 165px;
-
-        &:nth-of-type(even) {
-          margin: 15px 30px 0 0;
-        }
-      }
-
-      a {
-        display: block;
-        height: 150px;
-        margin: 0 0 10px;
-        position: relative;
-        width: 150px;
-
-        &::before {
-          background: transparent;
-          bottom: 0;
-          content: ' ';
-          display: block;
-          left: 0;
-          position: absolute;
-          right: 0;
-          top: 0;
-          transition: background 400ms;
-          z-index: 1;
-        }
-        &::after {
-          background: url('/wp-content/themes/eshv/images/bio.png') no-repeat;
-          background-size: 30px 30px;
-          bottom: 8px;
-          content: ' ';
-          display: block;
-          height: 30px;
-          opacity: 1;
-          position: absolute;
-          right: 8px;
-          transition: opacity 400ms;
-          width: 30px;
-          z-index: 2;
-        }
-
-        @include respond-to(desktop) {
-          height: 165px;
-          width: 165px;
-
-          &::after {
-            opacity: 0;
-          }
-
-          &:hover {
-            &::after {
-              opacity: 1;
-            }
-            &::before {
-              background: rgba(3, 151, 215, 0.5);
-            }
-          }
-        }
-      }
-
-      p {
-        display: none;
-      }
-    }
-
-    strong {
-      @include bold;
-      color: $blue;
-      display: block;
-      font-size: 19px;
-      font-weight: 600;
-      line-height: 24px;
-    }
-
-    span {
-      color: $blue;
-      display: block;
-      font-size: 17px;
-      font-style: italic;
-      line-height: 20px;
-      margin: 2px 0 0;
-    }
-
-    img {
-      display: block;
-    }
-    @include respond-to(desktop) {
-      p {
-        .content & {
-          margin-bottom: 8px;
-        }
-      }
-    }
-  }
+  @include bios;
 }

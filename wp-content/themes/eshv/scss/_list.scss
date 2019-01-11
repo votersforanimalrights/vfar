@@ -1,0 +1,26 @@
+@mixin li($size: 16) {
+  margin: 0 0 1rem;
+  @include size-height($size, $size + 5);
+
+  @include nonphone() {
+    @include size-height($size + 4, $size + 9);
+  }
+}
+
+@mixin ul($size: 16) {
+  list-style-type: disc;
+  margin: 0 20px 24px 24px;
+
+  li {
+    @include li($size);
+  }
+}
+
+@mixin ol($size: 16) {
+  list-style-type: decimal;
+  margin: 0 20px 24px 24px;
+
+  li {
+    @include li($size);
+  }
+}

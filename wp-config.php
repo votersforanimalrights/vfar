@@ -26,7 +26,7 @@ define('WP_CONTENT_URL', $protocol . '://' . $_SERVER['HTTP_HOST'] . '/wp-conten
 require( __DIR__ . '/vendor/autoload.php' );
 
 if ( file_exists( __DIR__ . '/local.php' ) ) {
-	define('DB_NAME', 'eshv');
+	define('DB_NAME', 'vfar');
 
 	/** MySQL database username */
 	define('DB_USER', 'root');

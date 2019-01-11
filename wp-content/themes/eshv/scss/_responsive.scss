@@ -74,7 +74,7 @@ $break-biggest: 1200px;
 }
 
 @mixin bigscreens() {
-  @media only screen and (min-width: $break-desktop) {
+  @media only screen and (min-width: 1180px) {
     @content;
   }
 }

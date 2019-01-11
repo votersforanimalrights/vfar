@@ -200,7 +200,7 @@ sup a {
   z-index: 10000000;
 }
 
-@media only screen and (min-width: 1050px) {
+@media only screen and (min-width: 1180px) {
   .masthead {
     padding: 10px 10px 50px;
     position: relative;
@@ -225,7 +225,7 @@ sup a {
   z-index: 10000000;
 }
 
-@media only screen and (min-width: 1050px) {
+@media only screen and (min-width: 1180px) {
   .masthead .subnav {
     display: block;
   }
@@ -268,7 +268,7 @@ sup a {
   width: 160px;
 }
 
-@media only screen and (min-width: 1050px) {
+@media only screen and (min-width: 1180px) {
   .masthead h1 {
     margin: 0;
     padding: 0;
@@ -282,7 +282,7 @@ sup a {
   width: 160px;
 }
 
-@media only screen and (min-width: 1050px) {
+@media only screen and (min-width: 1180px) {
   .masthead .logo {
     height: 100px;
     width: auto;
@@ -361,7 +361,7 @@ sup a {
   transition: 0.3s;
 }
 
-@media only screen and (min-width: 1050px) {
+@media only screen and (min-width: 1180px) {
   .hamburger {
     display: none;
   }
@@ -394,7 +394,7 @@ sup a {
   color: #3c3d41;
 }
 
-@media only screen and (min-width: 1050px) {
+@media only screen and (min-width: 1180px) {
   .header-nav {
     display: block;
     right: 165px;
@@ -447,7 +447,7 @@ sup a {
   display: block;
 }
 
-@media only screen and (min-width: 1050px) {
+@media only screen and (min-width: 1180px) {
   .navOpen .mobile-nav {
     display: none;
   }
@@ -525,7 +525,7 @@ sup a {
   text-transform: none;
 }
 
-@media only screen and (min-width: 1050px) {
+@media only screen and (min-width: 1180px) {
   .mobile-nav {
     display: none;
   }
@@ -544,7 +544,7 @@ sup a {
   display: table;
 }
 
-@media only screen and (min-width: 1050px) {
+@media only screen and (min-width: 1180px) {
   .header-actions {
     position: absolute;
     right: 20px;
@@ -574,7 +574,7 @@ sup a {
   float: right;
 }
 
-@media only screen and (min-width: 1050px) {
+@media only screen and (min-width: 1180px) {
   .header-actions a {
     font-size: 15px;
     font-size: 0.9375rem;
@@ -598,7 +598,7 @@ body {
   padding-top: 76px;
 }
 
-@media only screen and (min-width: 1050px) {
+@media only screen and (min-width: 1180px) {
   body {
     padding-top: 0;
   }
@@ -1387,34 +1387,37 @@ body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters
   }
 }
 
-.content h2,
-.content h3 {
+.content h1, .content h2, .content h3, .content h4, .content h5, .content h6 {
   font-family: "Open Sans", sans-serif;
   font-style: normal;
   font-weight: 700;
-  color: #2852a1;
   display: block;
-  margin: 5% 5% 2%;
   text-transform: uppercase;
 }
 
+.content h2,
+.content h3 {
+  color: #2852a1;
+}
+
+.content h2, .content h3, .content h4, .content h5, .content h6 {
+  margin: 5% 5% 2%;
+}
+
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
-  .content h2,
-  .content h3 {
+  .content h2, .content h3, .content h4, .content h5, .content h6 {
     margin: 2% 20% 2% 10%;
   }
 }
 
 @media only screen and (min-width: 1024px) and (max-width: 1049px) {
-  .content h2,
-  .content h3 {
+  .content h2, .content h3, .content h4, .content h5, .content h6 {
     margin: 2% 20% 2% 10%;
   }
 }
 
 @media only screen and (min-width: 1050px) {
-  .content h2,
-  .content h3 {
+  .content h2, .content h3, .content h4, .content h5, .content h6 {
     margin: 0;
   }
 }
@@ -1440,16 +1443,12 @@ body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters
 }
 
 .content h1 {
-  font-family: "Open Sans", sans-serif;
-  font-style: normal;
-  font-weight: 700;
   font-size: 24px;
   font-size: 1.5rem;
   line-height: 34px;
   line-height: 2.125rem;
   color: #2852a1;
   margin: 20px 5%;
-  text-transform: uppercase;
 }
 
 @media only screen and (min-width: 768px) {
@@ -1468,6 +1467,13 @@ body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters
   line-height: 30px;
   line-height: 1.875rem;
   color: #000;
+}
+
+.content h4, .content h5, .content h6 {
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 24px;
+  line-height: 1.5rem;
 }
 
 .content p {
@@ -1777,7 +1783,7 @@ body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters
 
 .content.page-content h3 {
   color: #3c3d41;
-  margin: 5% 0 2%;
+  margin: 20px 0 10px;
 }
 
 .content.page-content p {
@@ -1813,8 +1819,8 @@ body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters
   margin: 0 0 1rem;
   font-size: 16px;
   font-size: 1rem;
-  line-height: 22px;
-  line-height: 1.375rem;
+  line-height: 21px;
+  line-height: 1.3125rem;
 }
 
 @media only screen and (min-width: 768px) {
@@ -2192,20 +2198,26 @@ html.can_embed-html body {
   }
 }
 
-.archive-wrapper h1 {
+.content .archive-wrapper h1 {
   color: #2852a1;
 }
 
-.archive-wrapper article {
-  margin-bottom: 24px;
+.content .archive-wrapper article {
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
 }
 
-.archive-wrapper article h1 {
-  font-size: 22px;
-  font-size: 1.375rem;
+.content .archive-wrapper article:last-of-type {
+  border-bottom: 0;
+}
+
+.content .archive-wrapper article h1 {
+  font-size: 20px;
+  font-size: 1.25rem;
   line-height: 28px;
   line-height: 1.75rem;
   font-weight: 400;
+  margin: 0;
   text-transform: none;
 }
 
@@ -3406,4 +3418,177 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
     height: 40px;
     margin: 20px 0 0;
   }
+}
+
+.post-content code {
+  background: #eee;
+  font-family: monospace;
+  padding: 1px;
+}
+
+.post-content p img {
+  margin: 1em 0;
+}
+
+.post-content .wp-caption {
+  margin: 0 0 1em;
+}
+
+.post-content .wp-caption img {
+  margin: 0 0 10px;
+}
+
+.post-content .wp-caption p {
+  margin: 0;
+}
+
+.post-content .wp-caption-text {
+  font-size: 13px;
+  font-style: italic;
+  line-height: 20px;
+}
+
+.post-content table {
+  margin: 0 0 24px;
+}
+
+.post-content table th {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 11px;
+  font-size: 0.6875rem;
+  line-height: 20px;
+  line-height: 1.25rem;
+  padding: 6px;
+  text-align: left;
+}
+
+@media only screen and (min-width: 1050px) {
+  .post-content table th {
+    font-size: 14px;
+    font-size: 0.875rem;
+    line-height: 20px;
+    line-height: 1.25rem;
+    padding: 10px 15px 10px 8px;
+  }
+}
+
+.post-content table tr > td:first-child {
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 20px;
+  line-height: 1.25rem;
+}
+
+@media only screen and (min-width: 1050px) {
+  .post-content table tr > td:first-child {
+    white-space: nowrap;
+  }
+}
+
+.post-content table td {
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 20px;
+  line-height: 1.25rem;
+  border: 1px solid #eee;
+  padding: 6px;
+}
+
+@media only screen and (min-width: 1050px) {
+  .post-content table td {
+    padding: 8px 15px 8px 8px;
+  }
+}
+
+.post-content ul {
+  list-style-type: disc;
+  margin: 0 20px 24px 24px;
+  margin: 24px 20px 24px 28px;
+}
+
+.post-content ul li {
+  margin: 0 0 1rem;
+  font-size: 12px;
+  font-size: 0.75rem;
+  line-height: 17px;
+  line-height: 1.0625rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .post-content ul li {
+    font-size: 16px;
+    font-size: 1rem;
+    line-height: 21px;
+    line-height: 1.3125rem;
+  }
+}
+
+.post-content ol {
+  list-style-type: decimal;
+  margin: 0 20px 24px 24px;
+  margin: 24px 20px 24px 28px;
+}
+
+.post-content ol li {
+  margin: 0 0 1rem;
+  font-size: 12px;
+  font-size: 0.75rem;
+  line-height: 17px;
+  line-height: 1.0625rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .post-content ol li {
+    font-size: 16px;
+    font-size: 1rem;
+    line-height: 21px;
+    line-height: 1.3125rem;
+  }
+}
+
+.post-content blockquote {
+  border-left: 3px solid #eee;
+  font-size: 13px;
+  font-style: italic;
+  line-height: 16px;
+  margin: 0 0 1em;
+  padding: 4px 15px;
+}
+
+.post-content blockquote p:last-of-type {
+  margin: 0;
+}
+
+.post-content sub {
+  vertical-align: sub;
+}
+
+.post-content sup {
+  vertical-align: super;
+}
+
+.post-content b {
+  font-weight: bold;
+}
+
+.post-content i {
+  font-style: italic;
+}
+
+.post-content big {
+  font-size: bigger;
+}
+
+.post-content small {
+  font-size: smaller;
+}
+
+.post-content address {
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 22px;
+  line-height: 1.375rem;
+  margin: 1em 0;
 }

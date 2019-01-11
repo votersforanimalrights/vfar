@@ -1,0 +1,190 @@
+@mixin agenda-content {
+  &.agenda-content {
+    background: #e0e3e3;
+    padding: 30px 0;
+    text-align: center;
+
+    ul {
+      margin: 20px auto 30px;
+      max-width: 320px;
+      overflow: hidden;
+
+      @include respond-to(plusphone) {
+        max-width: 410px;
+      }
+
+      @include nonphone() {
+        max-width: 606px;
+      }
+
+      @include respond-to(tabletpro) {
+        max-width: 910px;
+      }
+
+      @include respond-to(desktop) {
+        max-width: 910px;
+      }
+    }
+
+    li {
+      cursor: pointer;
+      display: inline-block;
+      height: 155px;
+      line-height: 155px;
+      margin: 1px;
+      overflow: hidden;
+      position: relative;
+      transition: background 1s;
+      width: 155px;
+
+      @include respond-to(plusphone) {
+        height: 200px;
+        line-height: 200px;
+        width: 200px;
+      }
+
+      @include nonphone() {
+        height: 290px;
+        line-height: 290px;
+        margin: 5px;
+        width: 290px;
+      }
+
+      img {
+        display: block;
+        height: auto;
+        position: absolute;
+        transform: scale(1, 1);
+        transition: transform 1s;
+        width: 100%;
+        z-index: 1;
+      }
+
+      &:hover {
+        img {
+          transform: scale(1.1, 1.1);
+        }
+      }
+
+      span {
+        @include bold;
+        @include size-height(13, 18);
+        color: $white;
+        display: inline-block;
+        position: relative;
+        text-transform: uppercase;
+        vertical-align: middle;
+        z-index: 3;
+
+        @include nonphone() {
+          @include size-height(20, 28);
+        }
+      }
+
+      section {
+        display: none;
+      }
+
+      .agenda-overlay {
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 2;
+      }
+
+      &:nth-of-type(1),
+      &:nth-of-type(2),
+      &:nth-of-type(12) {
+        .agenda-overlay {
+          background: rgba(6, 131, 205, 0.6);
+        }
+
+        &:hover {
+          .agenda-overlay {
+            background: rgba(6, 131, 205, 0.75);
+          }
+        }
+      }
+
+      &:nth-of-type(3),
+      &:nth-of-type(4),
+      &:nth-of-type(8) {
+        .agenda-overlay {
+          background: rgba(191, 37, 66, 0.6);
+        }
+
+        &:hover {
+          .agenda-overlay {
+            background: rgba(191, 37, 66, 0.75);
+          }
+        }
+      }
+
+      &:nth-of-type(5) {
+        .agenda-overlay {
+          background: rgba(112, 66, 112, 0.6);
+        }
+
+        &:hover {
+          .agenda-overlay {
+            background: rgba(112, 66, 112, 0.75);
+          }
+        }
+      }
+
+      &:nth-of-type(6),
+      &:nth-of-type(10),
+      &:nth-of-type(11),
+      &:nth-of-type(13) {
+        .agenda-overlay {
+          background: rgba(31, 61, 144, 0.6);
+        }
+
+        &:hover {
+          .agenda-overlay {
+            background: rgba(31, 61, 144, 0.75);
+          }
+        }
+      }
+
+      &:nth-of-type(7),
+      &:nth-of-type(14) {
+        .agenda-overlay {
+          background: rgba(86, 70, 136, 0.6);
+        }
+
+        &:hover {
+          .agenda-overlay {
+            background: rgba(86, 70, 136, 0.75);
+          }
+        }
+      }
+
+      &:nth-of-type(9) {
+        .agenda-overlay {
+          background: rgba(0, 173, 232, 0.6);
+        }
+
+        &:hover {
+          .agenda-overlay {
+            background: rgba(0, 173, 232, 0.75);
+          }
+        }
+      }
+
+      &:nth-of-type(15) {
+        .agenda-overlay {
+          background: rgba(175, 41, 41, 0.6);
+        }
+
+        &:hover {
+          .agenda-overlay {
+            background: rgba(175, 41, 41, 0.75);
+          }
+        }
+      }
+    }
+  }
+}

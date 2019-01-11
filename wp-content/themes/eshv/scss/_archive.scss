@@ -1,15 +1,23 @@
-.archive-wrapper {
-  h1 {
-    color: $blue;
-  }
-
-  article {
+.content {
+  .archive-wrapper {
     h1 {
-      @include size-height(22, 28);
-      font-weight: 400;
-      text-transform: none;
+      color: $blue;
     }
 
-    margin-bottom: 24px;
+    article {
+      border-bottom: 1px solid #eee;
+      padding: 10px 0;
+
+      &:last-of-type {
+        border-bottom: 0;
+      }
+
+      h1 {
+        @include size-height(20, 28);
+        font-weight: 400;
+        margin: 0;
+        text-transform: none;
+      }
+    }
   }
 }

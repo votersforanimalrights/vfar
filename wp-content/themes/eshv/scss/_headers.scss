@@ -1,0 +1,59 @@
+@mixin headers {
+  h1, h2, h3, h4, h5, h6 {
+    @include bold;
+    display: block;
+    text-transform: uppercase;
+  }
+
+  h2,
+  h3 {
+    color: $blue;
+  }
+
+  h2, h3, h4, h5, h6 {
+    margin: 5% 5% 2%;
+
+    @include respond-to(tablet) {
+      margin: 2% 20% 2% 10%;
+    }
+
+    @include respond-to(tabletpro) {
+      margin: 2% 20% 2% 10%;
+    }
+
+    @include respond-to(desktop) {
+      margin: 0;
+    }
+  }
+
+  h2 {
+    @include size-height(24, 34);
+  }
+
+  h3 {
+    @include size-height(20, 28);
+    @include respond-to(desktop) {
+      margin: 20px 0 10px;
+    }
+  }
+
+  h1 {
+    @include size-height(24, 34);
+    color: $blue;
+    margin: 20px 5%;
+
+    @include nonphone() {
+      @include size-height(24, 34);
+      margin: 20px 20% 20px 10%;
+    }
+
+    .single & {
+      @include size-height(24, 30);
+      color: $black;
+    }
+  }
+
+  h4, h5, h6 {
+    @include size-height(16, 24);
+  }
+}

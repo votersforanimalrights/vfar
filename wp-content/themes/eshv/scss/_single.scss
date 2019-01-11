@@ -1,0 +1,92 @@
+@import "table";
+
+.post-content {
+  code {
+    background: #eee;
+    font-family: monospace;
+    padding: 1px;
+  }
+
+  p {
+    img {
+      margin: 1em 0;
+    }
+  }
+
+  .wp-caption {
+    margin: 0 0 1em;
+
+    img {
+      margin: 0 0 10px;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  .wp-caption-text {
+    font-size: 13px;
+    font-style: italic;
+    line-height: 20px;
+  }
+
+  table {
+    @include table;
+    margin: 0 0 24px;
+  }
+
+  ul {
+    @include ul(12);
+    margin: 24px 20px 24px 28px;
+  }
+
+  ol {
+    @include ol(12);
+    margin: 24px 20px 24px 28px;
+  }
+
+  blockquote {
+    border-left: 3px solid #eee;
+    font-size: 13px;
+    font-style: italic;
+    line-height: 16px;
+    margin: 0 0 1em;
+    padding: 4px 15px;
+
+    p {
+      &:last-of-type {
+        margin: 0;
+      }
+    }
+  }
+
+  sub {
+    vertical-align: sub;
+  }
+
+  sup {
+    vertical-align: super;
+  }
+
+  b {
+    font-weight: bold;
+  }
+
+  i {
+    font-style: italic;
+  }
+
+  big {
+    font-size: bigger;
+  }
+
+  small {
+    font-size: smaller;
+  }
+
+  address {
+    @include size-height(16, 22);
+    margin: 1em 0;
+  }
+}

@@ -1,0 +1,119 @@
+@mixin bios {
+  .vfar-bios {
+    max-width: 795px;
+    overflow: hidden;
+
+    li {
+      float: left;
+      height: 265px;
+      margin: 15px 15px 0 0;
+      overflow: hidden;
+      width: 146px;
+
+      &:nth-of-type(even) {
+        margin: 15px 0 0 15px;
+      }
+
+      @include respond-to(tabletAll) {
+        &:nth-of-type(even) {
+          margin: 15px 15px 0 0;
+        }
+      }
+
+      @include respond-to(desktop) {
+        margin: 15px 30px 0 0;
+        width: 165px;
+
+        &:nth-of-type(even) {
+          margin: 15px 30px 0 0;
+        }
+      }
+
+      a {
+        display: block;
+        height: 150px;
+        margin: 0 0 10px;
+        position: relative;
+        width: 150px;
+
+        &::before {
+          background: transparent;
+          bottom: 0;
+          content: ' ';
+          display: block;
+          left: 0;
+          position: absolute;
+          right: 0;
+          top: 0;
+          transition: background 400ms;
+          z-index: 1;
+        }
+        &::after {
+          background: url('/wp-content/themes/eshv/images/bio.png') no-repeat;
+          background-size: 30px 30px;
+          bottom: 8px;
+          content: ' ';
+          display: block;
+          height: 30px;
+          opacity: 1;
+          position: absolute;
+          right: 8px;
+          transition: opacity 400ms;
+          width: 30px;
+          z-index: 2;
+        }
+
+        @include respond-to(desktop) {
+          height: 165px;
+          width: 165px;
+
+          &::after {
+            opacity: 0;
+          }
+
+          &:hover {
+            &::after {
+              opacity: 1;
+            }
+            &::before {
+              background: rgba(3, 151, 215, 0.5);
+            }
+          }
+        }
+      }
+
+      p {
+        display: none;
+      }
+    }
+
+    strong {
+      @include bold;
+      color: $blue;
+      display: block;
+      font-size: 19px;
+      font-weight: 600;
+      line-height: 24px;
+    }
+
+    span {
+      color: $blue;
+      display: block;
+      font-size: 17px;
+      font-style: italic;
+      line-height: 20px;
+      margin: 2px 0 0;
+    }
+
+    img {
+      display: block;
+    }
+    @include respond-to(desktop) {
+      p {
+        .content & {
+          margin-bottom: 8px;
+        }
+      }
+    }
+  }
+}

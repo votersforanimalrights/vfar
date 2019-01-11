@@ -41,7 +41,9 @@ const handleMouseover = e => {
   }
   const id = e.currentTarget.id.replace('nav-', '');
   const current = document.getElementById(`subnav-${id}`);
-  current.style.display = 'block';
+  if (current) {
+    current.style.display = 'block';
+  }
 };
 
 const subnavItems = document.querySelectorAll('.subnav-links a');
@@ -124,12 +126,7 @@ export default () => {
   window.addEventListener('scroll', scrollHandler);
 
   for (let i = 0; i < mainNavLinks.length; i += 1) {
-    const link = mainNavLinks[i];
-    const id = link.id.replace('nav-', '');
-    const hasLinks = document.getElementById(`subnav-${id}`);
-    if (hasLinks) {
-      link.addEventListener('mouseover', handleMouseover);
-    }
+    mainNavLinks[i].addEventListener('mouseenter', handleMouseover);
   }
 
   for (let i = 0; i < subnavItems.length; i += 1) {

@@ -1,0 +1,32 @@
+@mixin table {
+  th {
+    @include bold;
+    @include size-height(11, 20);
+    padding: 6px;
+    text-align: left;
+
+    @include respond-to(desktop) {
+      @include size-height(14, 20);
+      padding: 10px 15px 10px 8px;
+    }
+  }
+
+  tr > td:first-child {
+    @include size-height(16, 20);
+
+    @include respond-to(desktop) {
+      white-space: nowrap;
+    }
+  }
+
+  td {
+    @include size-height(14, 20);
+
+    border: 1px solid $light-grey;
+    padding: 6px;
+
+    @include respond-to(desktop) {
+      padding: 8px 15px 8px 8px;
+    }
+  }
+}

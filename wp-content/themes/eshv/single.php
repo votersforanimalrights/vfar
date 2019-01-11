@@ -9,7 +9,9 @@ get_header() ?>
         <h1><?php the_title() ?></h1>
       </header>
       <?php the_post_thumbnail(); ?>
+      <section class="post-content">
       <?php the_content() ?>
+      </section>
     </div>
   </section>
 </article>

@@ -1284,7 +1284,7 @@ body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters
   min-height: 300px;
 }
 
-.centered-content iframe {
+.page .centered-content iframe {
   width: -webkit-calc(100% - 20px);
   width: calc(100% - 20px);
 }

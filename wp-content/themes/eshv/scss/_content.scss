@@ -1,15 +1,15 @@
-@import "agenda-content";
-@import "bios";
-@import "table";
-@import "list";
-@import "headers";
+@import 'agenda-content';
+@import 'bios';
+@import 'table';
+@import 'list';
+@import 'headers';
 
 .centered-content {
   margin: 0 5%;
   max-width: 90%;
   min-height: 300px;
 
-  iframe {
+  .page & iframe {
     width: calc(100% - 20px);
   }
 }

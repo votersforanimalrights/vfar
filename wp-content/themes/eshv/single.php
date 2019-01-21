@@ -17,6 +17,9 @@ function vfar_time() {
     get_the_modified_date()
   );
 }
+
+$twitter = get_the_author_meta('twitter');
+$email = get_the_author_meta('email');
 ?>
 <article class="page-wrapper">
   <section class="content centered-content page-content">
@@ -26,15 +29,22 @@ function vfar_time() {
       </header>
       <?php the_post_thumbnail(); ?>
       <section class="post-content">
-        <p class="byline-time">
+        <div class="byline-time">
           By <span class="byline">
             <span class="author vcard"><?php echo get_the_author() ?></span>
+            <?php if (!empty($twitter)): ?>
+              <span class="sep"></span>
+              <a href="https://twitter.com/<?php echo esc_url( $twitter ) ?>">Twitter</a>
+            <?php endif; ?>
+            <?php if (!empty($email)): ?>
+              <span class="sep"></span>
+              <a href="mailto:<?php echo esc_url( $email ) ?>">Email</a>
+            <?php endif; ?>
           </span>
           <span class="posted-on">
-            <span class="screen-reader-text">Posted on</span>
-            <?php echo vfar_time() ?>
+            Posted on <span><?php echo vfar_time() ?></span>
           </span>
-        </p>
+        </div>
       <?php the_content() ?>
       </section>
     </div>

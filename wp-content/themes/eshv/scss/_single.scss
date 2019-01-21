@@ -4,11 +4,33 @@
   max-width: 800px;
 
   .byline-time {
+    margin: 0 0 32px;
+  }
+
+  .byline {
+    font-size: 16px;
     font-weight: 600;
+    line-height: 24px;
+
+    .sep,
+    a {
+      display: inline-block;
+      margin-left: 3px;
+    }
+
+    .sep::before {
+      content: ' • ';
+    }
   }
 
   .posted-on {
     display: block;
+    font-size: 14px;
+    margin: 3px 0 0;
+
+    span {
+      font-weight: 600;
+    }
   }
 
   .screen-reader-text {

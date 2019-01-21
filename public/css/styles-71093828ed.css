@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
@@ -3393,11 +3394,33 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
 }
 
 .post-content .byline-time {
+  margin: 0 0 32px;
+}
+
+.post-content .byline {
+  font-size: 16px;
   font-weight: 600;
+  line-height: 24px;
+}
+
+.post-content .byline .sep,
+.post-content .byline a {
+  display: inline-block;
+  margin-left: 3px;
+}
+
+.post-content .byline .sep::before {
+  content: ' • ';
 }
 
 .post-content .posted-on {
   display: block;
+  font-size: 14px;
+  margin: 3px 0 0;
+}
+
+.post-content .posted-on span {
+  font-weight: 600;
 }
 
 .post-content .screen-reader-text {

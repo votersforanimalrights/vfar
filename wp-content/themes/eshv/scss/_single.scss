@@ -3,6 +3,31 @@
 .post-content {
   max-width: 800px;
 
+  .byline-time {
+    font-weight: 600;
+  }
+
+  .posted-on {
+    display: block;
+  }
+
+  .screen-reader-text {
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute !important;
+    width: 1px;
+    word-wrap: normal !important;
+  }
+
+  .updated:not(.published) {
+    display: none;
+  }
+
   code {
     background: #eee;
     font-family: monospace;

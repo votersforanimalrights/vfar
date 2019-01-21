@@ -3392,6 +3392,32 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
   max-width: 800px;
 }
 
+.post-content .byline-time {
+  font-weight: 600;
+}
+
+.post-content .posted-on {
+  display: block;
+}
+
+.post-content .screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important;
+}
+
+.post-content .updated:not(.published) {
+  display: none;
+}
+
 .post-content code {
   background: #eee;
   font-family: monospace;

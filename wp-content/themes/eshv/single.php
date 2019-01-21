@@ -34,11 +34,11 @@ $email = get_the_author_meta('email');
             <span class="author vcard"><?php echo get_the_author() ?></span>
             <?php if (!empty($twitter)): ?>
               <span class="sep"></span>
-              <a href="https://twitter.com/<?php echo esc_url( $twitter ) ?>">Twitter</a>
+              <a href="https://twitter.com/<?php echo $twitter ?>">Twitter</a>
             <?php endif; ?>
             <?php if (!empty($email)): ?>
               <span class="sep"></span>
-              <a href="mailto:<?php echo esc_url( $email ) ?>">Email</a>
+              <a href="mailto:<?php echo $email ?>">Email</a>
             <?php endif; ?>
           </span>
           <span class="posted-on">

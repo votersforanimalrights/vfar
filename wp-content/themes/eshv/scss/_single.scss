@@ -3,6 +3,15 @@
 .post-content {
   max-width: 800px;
 
+  img {
+    display: block;
+  }
+
+  img,
+  iframe {
+    max-width: 100%;
+  }
+
   .byline-time {
     margin: 0 0 32px;
   }
@@ -64,6 +73,7 @@
 
   .wp-caption {
     margin: 0 0 1em;
+    max-width: 100%;
 
     img {
       margin: 0 0 10px;

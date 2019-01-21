@@ -21,3 +21,12 @@
     }
   }
 }
+
+.archive-post {
+  display: flex;
+  justify-content: space-between;
+
+  img {
+    margin-right: 24px;
+  }
+}

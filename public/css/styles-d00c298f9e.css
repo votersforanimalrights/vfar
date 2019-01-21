@@ -2208,6 +2208,23 @@ html.can_embed-html body {
   text-transform: none;
 }
 
+.archive-post {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.archive-post img {
+  margin-right: 24px;
+}
+
 .footer {
   font-size: 13px;
   font-size: 0.8125rem;

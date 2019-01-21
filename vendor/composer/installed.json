@@ -122,6 +122,28 @@
         ]
     },
     {
+        "name": "wpackagist-plugin/social-warfare",
+        "version": "3.4.2",
+        "version_normalized": "3.4.2.0",
+        "source": {
+            "type": "svn",
+            "url": "https://plugins.svn.wordpress.org/social-warfare/",
+            "reference": "tags/3.4.2"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://downloads.wordpress.org/plugin/social-warfare.3.4.2.zip",
+            "reference": null,
+            "shasum": null
+        },
+        "require": {
+            "composer/installers": "~1.0"
+        },
+        "type": "wordpress-plugin",
+        "installation-source": "dist",
+        "homepage": "https://wordpress.org/plugins/social-warfare/"
+    },
+    {
         "name": "wpackagist-plugin/wordpress-seo",
         "version": "9.4",
         "version_normalized": "9.4.0.0",

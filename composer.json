@@ -15,6 +15,7 @@
         }
     ],
     "require": {
+        "wpackagist-plugin/social-warfare": "^3.4",
         "wpackagist-plugin/wordpress-seo": "^9.4"
     },
     "config": {

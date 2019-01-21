@@ -15,7 +15,7 @@
         }
     ],
     "require": {
-        "wpackagist-plugin/wordpress-seo": "^4.7"
+        "wpackagist-plugin/wordpress-seo": "^9.4"
     },
     "config": {
         "optimize-autoloader": true,

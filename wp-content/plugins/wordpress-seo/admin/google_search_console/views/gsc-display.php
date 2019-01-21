@@ -1,6 +1,8 @@
 <?php
 /**
- * @package WPSEO\Admin|Google_Search_Console
+ * WPSEO plugin file.
+ *
+ * @package WPSEO\Admin\Google_Search_Console
  */
 
 // Admin header.
@@ -59,7 +61,7 @@ switch ( $platform_tabs->current_tab() ) {
 			echo "</form>\n";
 		}
 		else {
-			$reset_button = '<a class="button" href="' . esc_url( add_query_arg( 'gsc_reset', 1 ) ) . '">' . esc_html__( 'Reauthenticate with Google ', 'wordpress-seo' ) . '</a>';
+			$reset_button = '<a class="button" href="' . esc_url( add_query_arg( 'gsc_reset', 1 ) ) . '">' . esc_html__( 'Reauthenticate with Google', 'wordpress-seo' ) . '</a>';
 			echo '<h3>', esc_html__( 'Current profile', 'wordpress-seo' ), '</h3>';
 			$profile = WPSEO_GSC_Settings::get_profile();
 			if ( $profile !== '' ) {
@@ -138,7 +140,7 @@ switch ( $platform_tabs->current_tab() ) {
 	);
 
 	echo '</p>';
-?>
+	?>
 
 	<br class="clear" />
 <?php

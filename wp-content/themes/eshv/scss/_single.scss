@@ -1,6 +1,8 @@
-@import "table";
+@import 'table';
 
 .post-content {
+  max-width: 800px;
+
   code {
     background: #eee;
     font-family: monospace;
@@ -47,14 +49,16 @@
   }
 
   blockquote {
-    border-left: 3px solid #eee;
-    font-size: 13px;
+    border-left: 4px solid #eee;
+    font-size: 18px;
     font-style: italic;
-    line-height: 16px;
-    margin: 0 0 1em;
-    padding: 4px 15px;
+    line-height: 26px;
+    margin: 28px 0 28px 28px;
+    padding: 8px 20px;
 
     p {
+      font-size: 18px;
+      line-height: 26px;
       &:last-of-type {
         margin: 0;
       }

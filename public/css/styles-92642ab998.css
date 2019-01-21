@@ -1059,15 +1059,7 @@ body {
   color: #f7f7f7;
 }
 
-#can-form-area-get-updates-from-empire-state-humane-voters #can_embed_form_inner #form_col1 input:-moz-placeholder {
-  color: #f7f7f7;
-}
-
 #can-form-area-get-updates-from-empire-state-humane-voters #can_embed_form_inner #form_col1 input::-moz-placeholder {
-  color: #f7f7f7;
-}
-
-#can-form-area-get-updates-from-empire-state-humane-voters #can_embed_form_inner #form_col1 input:-ms-input-placeholder {
   color: #f7f7f7;
 }
 
@@ -1079,13 +1071,7 @@ body {
   #can-form-area-get-updates-from-empire-state-humane-voters #can_embed_form_inner #form_col1 input::-webkit-input-placeholder {
     color: #f7f7f7;
   }
-  #can-form-area-get-updates-from-empire-state-humane-voters #can_embed_form_inner #form_col1 input:-moz-placeholder {
-    color: #f7f7f7;
-  }
   #can-form-area-get-updates-from-empire-state-humane-voters #can_embed_form_inner #form_col1 input::-moz-placeholder {
-    color: #f7f7f7;
-  }
-  #can-form-area-get-updates-from-empire-state-humane-voters #can_embed_form_inner #form_col1 input:-ms-input-placeholder {
     color: #f7f7f7;
   }
   #can-form-area-get-updates-from-empire-state-humane-voters #can_embed_form_inner #form_col1 input::placeholder {
@@ -2400,15 +2386,7 @@ html.can_embed-html body {
   color: #878787;
 }
 
-.eshv-email:-moz-placeholder {
-  color: #878787;
-}
-
 .eshv-email::-moz-placeholder {
-  color: #878787;
-}
-
-.eshv-email:-ms-input-placeholder {
   color: #878787;
 }
 
@@ -3297,18 +3275,8 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
   color: #636363;
 }
 
-#modal-form-id input[type='email']:-moz-placeholder,
-#modal-form-id input[type='text']:-moz-placeholder {
-  color: #636363;
-}
-
 #modal-form-id input[type='email']::-moz-placeholder,
 #modal-form-id input[type='text']::-moz-placeholder {
-  color: #636363;
-}
-
-#modal-form-id input[type='email']:-ms-input-placeholder,
-#modal-form-id input[type='text']:-ms-input-placeholder {
   color: #636363;
 }
 
@@ -3418,6 +3386,10 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
     height: 40px;
     margin: 20px 0 0;
   }
+}
+
+.post-content {
+  max-width: 800px;
 }
 
 .post-content code {
@@ -3549,12 +3521,17 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
 }
 
 .post-content blockquote {
-  border-left: 3px solid #eee;
-  font-size: 13px;
+  border-left: 4px solid #eee;
+  font-size: 18px;
   font-style: italic;
-  line-height: 16px;
-  margin: 0 0 1em;
-  padding: 4px 15px;
+  line-height: 26px;
+  margin: 28px 0 28px 28px;
+  padding: 8px 20px;
+}
+
+.post-content blockquote p {
+  font-size: 18px;
+  line-height: 26px;
 }
 
 .post-content blockquote p:last-of-type {

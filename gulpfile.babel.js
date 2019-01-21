@@ -1,6 +1,6 @@
 import gulp from 'gulp';
 import watchers from './gulp/watchers';
-import sprite from './gulp/sprite';
+// import sprite from './gulp/sprite';
 import sass from './gulp/sass';
 import js from './gulp/webpack';
 import fingerprint from './gulp/fingerprint-assets';
@@ -8,7 +8,7 @@ import build from './gulp/build';
 
 process.env.THEME = 'eshv';
 
-gulp.task('sprite', () => sprite());
+// gulp.task('sprite', () => sprite());
 
 gulp.task('scss-pipeline', () => sass());
 

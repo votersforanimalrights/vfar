@@ -1,5 +1,10 @@
 @mixin headers {
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @include bold;
     display: block;
     text-transform: uppercase;
@@ -10,7 +15,11 @@
     color: $blue;
   }
 
-  h2, h3, h4, h5, h6 {
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     margin: 5% 5% 2%;
 
     @include respond-to(tablet) {
@@ -48,12 +57,14 @@
     }
 
     .single & {
-      @include size-height(24, 30);
+      @include size-height(32, 40);
       color: $black;
     }
   }
 
-  h4, h5, h6 {
+  h4,
+  h5,
+  h6 {
     @include size-height(16, 24);
   }
 }

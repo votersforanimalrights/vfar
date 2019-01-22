@@ -1374,7 +1374,12 @@ body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters
   }
 }
 
-.content h1, .content h2, .content h3, .content h4, .content h5, .content h6 {
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
   font-family: "Open Sans", sans-serif;
   font-style: normal;
   font-weight: 700;
@@ -1387,24 +1392,40 @@ body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters
   color: #2852a1;
 }
 
-.content h2, .content h3, .content h4, .content h5, .content h6 {
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
   margin: 5% 5% 2%;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
-  .content h2, .content h3, .content h4, .content h5, .content h6 {
+  .content h2,
+  .content h3,
+  .content h4,
+  .content h5,
+  .content h6 {
     margin: 2% 20% 2% 10%;
   }
 }
 
 @media only screen and (min-width: 1024px) and (max-width: 1049px) {
-  .content h2, .content h3, .content h4, .content h5, .content h6 {
+  .content h2,
+  .content h3,
+  .content h4,
+  .content h5,
+  .content h6 {
     margin: 2% 20% 2% 10%;
   }
 }
 
 @media only screen and (min-width: 1050px) {
-  .content h2, .content h3, .content h4, .content h5, .content h6 {
+  .content h2,
+  .content h3,
+  .content h4,
+  .content h5,
+  .content h6 {
     margin: 0;
   }
 }
@@ -1449,14 +1470,16 @@ body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters
 }
 
 .single .content h1 {
-  font-size: 24px;
-  font-size: 1.5rem;
-  line-height: 30px;
-  line-height: 1.875rem;
+  font-size: 32px;
+  font-size: 2rem;
+  line-height: 40px;
+  line-height: 2.5rem;
   color: #000;
 }
 
-.content h4, .content h5, .content h6 {
+.content h4,
+.content h5,
+.content h6 {
   font-size: 16px;
   font-size: 1rem;
   line-height: 24px;
@@ -2222,7 +2245,7 @@ html.can_embed-html body {
   }
   .archive-post figure {
     margin: 0 24px 0 0;
-    max-width: 50%;
+    max-width: 33%;
   }
 }
 

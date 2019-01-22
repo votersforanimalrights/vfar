@@ -23,9 +23,15 @@
 }
 
 .archive-post {
-  display: flex;
+  figure {
+    margin: 0 auto 12px;
+  }
 
-  img {
-    margin-right: 24px;
+  @include respond-to(desktop) {
+    display: flex;
+    figure {
+      margin: 0 24px 0 0;
+      max-width: 50%;
+    }
   }
 }

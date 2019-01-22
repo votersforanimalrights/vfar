@@ -2208,16 +2208,22 @@ html.can_embed-html body {
   text-transform: none;
 }
 
-.archive-post {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
+.archive-post figure {
+  margin: 0 auto 12px;
 }
 
-.archive-post img {
-  margin-right: 24px;
+@media only screen and (min-width: 1050px) {
+  .archive-post {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .archive-post figure {
+    margin: 0 24px 0 0;
+    max-width: 50%;
+  }
 }
 
 .footer {

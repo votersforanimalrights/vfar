@@ -42,7 +42,7 @@ get_header() ?>
       <?php }
       } else { ?>
       <?php
-        if ( ! in_array( get_post()->post_name, $no_title ) ) { ?
+        if ( ! in_array( get_post()->post_name, $no_title ) ) { ?>
           <h2><?php echo $post->post_title ?></h2>
         <?php }
         the_content();

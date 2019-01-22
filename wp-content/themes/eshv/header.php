@@ -18,6 +18,8 @@ $attachment_id = get_post_thumbnail_id();
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<link rel="icon" href="/logo.png" type="image/x-icon"/>
+<link rel="shortcut icon" href="/logo.png" type="image/x-icon"/>
 <meta property="fb:app_id" content="245483685859438" />
 <meta property="og:site_name" content="<?php bloginfo( 'name' ) ?>" />
 <meta name="twitter:card" content="summary_large_image" />

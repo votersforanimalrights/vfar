@@ -3411,6 +3411,16 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
   max-width: 800px;
 }
 
+.post-content .fb_iframe_widget {
+  margin-bottom: 32px;
+  max-width: 90% !important;
+  width: 90% !important;
+}
+
+.post-content .fb_iframe_widget_fluid span {
+  width: 90% !important;
+}
+
 .post-content img {
   display: block;
 }

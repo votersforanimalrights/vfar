@@ -3,6 +3,16 @@
 .post-content {
   max-width: 800px;
 
+  .fb_iframe_widget {
+    margin-bottom: 32px;
+    max-width: 90% !important;
+    width: 90% !important;
+  }
+
+  .fb_iframe_widget_fluid span {
+    width: 90% !important;
+  }
+
   img {
     display: block;
   }

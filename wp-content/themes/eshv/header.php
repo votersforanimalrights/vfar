@@ -96,8 +96,8 @@ if ($is_election_center) {
 <meta property="og:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/volunteer.jpg" />
 <meta name="twitter:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/volunteer.jpg" />
 <?php } else if ( $is_agenda ) { ?>
-<meta property="og:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/agenda.jpg" />
-<meta name="twitter:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/agenda.jpg" />
+<meta property="og:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/agenda-image.jpg" />
+<meta name="twitter:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/agenda-image.jpg" />
 <?php } else if ( ! empty( $attachment_id ) ) {
   $atts = wp_get_attachment_image_src( $attachment_id, 'large' );
   $featured_image = reset( $atts );

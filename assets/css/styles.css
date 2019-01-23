@@ -3599,7 +3599,7 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
 
 @media only screen and (min-width: 768px) {
   .post-content ul {
-    margin: 0 20px 24px 24px;
+    margin: 24px 20px 24px 24px;
   }
   .post-content ul li {
     margin: 0 0 1rem;

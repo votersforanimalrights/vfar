@@ -115,7 +115,7 @@
     }
 
     @include nonphone() {
-      margin: 0 20px 24px 24px;
+      margin: 24px 20px 24px 24px;
 
       li {
         margin: 0 0 1rem;

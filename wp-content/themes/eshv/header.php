@@ -11,6 +11,7 @@ $is_action = $is_page && 'action' === $post_name;
 $is_volunteer = $is_page && 'volunteer' === $post_name;
 $is_events = $is_page && 'circusparty' === $post_name;
 $is_election_center = $is_page && 'election-center' === $post_name;
+$is_agenda = $is_page && '2019animalrights' === $post_name;
 $attachment_id = get_post_thumbnail_id();
 ?>
 <!DOCTYPE html>
@@ -94,6 +95,9 @@ if ($is_election_center) {
 <?php } else if ( $is_volunteer ) { ?>
 <meta property="og:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/volunteer.jpg" />
 <meta name="twitter:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/volunteer.jpg" />
+<?php } else if ( $is_agenda ) { ?>
+<meta property="og:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/agenda.jpg" />
+<meta name="twitter:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/agenda.jpg" />
 <?php } else if ( ! empty( $attachment_id ) ) {
   $atts = wp_get_attachment_image_src( $attachment_id, 'large' );
   $featured_image = reset( $atts );

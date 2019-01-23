@@ -106,8 +106,22 @@
   }
 
   ul {
-    @include ul(12);
-    margin: 24px 20px 24px 28px;
+    list-style-type: disc;
+    margin: 0 20px 12px 24px;
+
+    li {
+      margin: 0 0 5px;
+      @include size-height(12, 15);
+    }
+
+    @include nonphone() {
+      margin: 0 20px 24px 24px;
+
+      li {
+        margin: 0 0 1rem;
+        @include size-height(16, 21);
+      }
+    }
   }
 
   ol {

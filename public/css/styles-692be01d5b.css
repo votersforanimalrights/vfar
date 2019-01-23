@@ -3586,20 +3586,23 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
 
 .post-content ul {
   list-style-type: disc;
-  margin: 0 20px 24px 24px;
-  margin: 24px 20px 24px 28px;
+  margin: 0 20px 12px 24px;
 }
 
 .post-content ul li {
-  margin: 0 0 1rem;
+  margin: 0 0 5px;
   font-size: 12px;
   font-size: 0.75rem;
-  line-height: 17px;
-  line-height: 1.0625rem;
+  line-height: 15px;
+  line-height: 0.9375rem;
 }
 
 @media only screen and (min-width: 768px) {
+  .post-content ul {
+    margin: 0 20px 24px 24px;
+  }
   .post-content ul li {
+    margin: 0 0 1rem;
     font-size: 16px;
     font-size: 1rem;
     line-height: 21px;

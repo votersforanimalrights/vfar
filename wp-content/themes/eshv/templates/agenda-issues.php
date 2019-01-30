@@ -54,7 +54,7 @@ Foie Gras, or fatty liver, is produced with massive animal suffering. To enlarge
 <p>Multiple undercover investigations of Hudson Valley Foie Gras (the only foie gras producer in New York) from organizations like <a href="http://www.amazoncruelty.com/" target="_blank">Mercy For Animals</a> and <a href="https://www.peta.org/issues/animals-used-for-food/factory-farming/ducks-geese/foie-gras/" target="_blank">PETA</a> show malicious animal torture including death from force-feeding, ducks hyperventilating as their unnaturally large livers pressed against their lungs, birds with open, bleeding wounds left to suffer in tiny wire cages without proper veterinary care, and fully conscious ducks being shackled upside down and having their throats cut open. One investigation found that a single worker was expected to force-feed 500 birds three times each day.</p>
 
 <p><strong>Solution:</strong>
-California has banned the sale of foie gras along with a dozen countries. Because of its cruelty, businesses like Costco, Safeway, Target, Whole Foods Market, and Wolfgang Puck have also refused to sell the diseased liver products. It’s time New York City takes a stand, so we are working to introduce legislation to ends such an inhumane industry.
+California has banned the sale of foie gras along with a dozen countries. Because of its cruelty, businesses like Costco, Safeway, Target, Whole Foods Market, and Wolfgang Puck have also refused to sell the diseased liver products. It’s time New York City takes a stand. We support Intro 1378, sponsored by New York City Council Member Carlina Rivera. This legislation would prohibit the sale of foie gras from force-fed birds.
 </p>
         </article>
       </section>

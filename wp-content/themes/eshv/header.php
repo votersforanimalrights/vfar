@@ -47,7 +47,7 @@ if ($is_election_center) {
 <meta name="twitter:text:description" content="<?php echo $description ?>" />
 <?php
 } elseif ($is_action) {
-  $title = 'Thank Your New York City Council Member For Banning Wild Animals In Circuses!';
+  $title = 'NYC Council: Ban The Sale of Foie Gras From Force-Fed Birds';
   $desc = 'Contact your City Council Member now.'
 ?>
 <meta property="og:title" content="<?php echo $title ?>" />
@@ -90,8 +90,8 @@ if ($is_election_center) {
 <meta property="og:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/circus-action.jpg" />
 <meta name="twitter:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/circus-action.jpg" />
 <?php } elseif ( $is_action ) { ?>
-<meta property="og:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/foie.jpg" />
-<meta name="twitter:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/foie.jpg" />
+<meta property="og:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/foie-v2.jpg" />
+<meta name="twitter:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/foie-v2.jpg" />
 <?php } else if ( $is_volunteer ) { ?>
 <meta property="og:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/volunteer.jpg" />
 <meta name="twitter:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/volunteer.jpg" />

@@ -96,7 +96,8 @@
 
       &:nth-of-type(1),
       &:nth-of-type(2),
-      &:nth-of-type(12) {
+      &:nth-of-type(12),
+      &:nth-of-type(16) {
         .agenda-overlay {
           background: rgba(6, 131, 205, 0.6);
         }
@@ -137,7 +138,8 @@
       &:nth-of-type(6),
       &:nth-of-type(10),
       &:nth-of-type(11),
-      &:nth-of-type(13) {
+      &:nth-of-type(13),
+      &:nth-of-type(17) {
         .agenda-overlay {
           background: rgba(31, 61, 144, 0.6);
         }

@@ -244,5 +244,33 @@ VFAR will work to pass legislation to increase the level of this already illegal
         </article>
       </section>
     </li>
+    <li>
+      <img src="/wp-content/themes/eshv/images/modals/16_Bella.jpg" />
+      <div class="agenda-overlay"></div>
+      <span>Bella's Bill:<br />Strengthen NY's<br />Outdated Animal<br />Cruelty Laws</span>
+      <section>
+        <div class="agenda-image">
+          <img src="/wp-content/themes/eshv/images/modals/16_Bella.jpg" />
+        </div>
+        <article>
+          <strong>Bella's Bill: Strengthen NY's Outdated Animal Cruelty Laws</strong>
+          <p></p>
+        </article>
+      </section>
+    </li>
+    <li>
+      <img src="/wp-content/themes/eshv/images/modals/17_HumaneEd.jpg" />
+      <div class="agenda-overlay"></div>
+      <span>Promoting<br />Humane Education<br />In All New York<br />Schools</span>
+      <section>
+        <div class="agenda-image">
+          <img src="/wp-content/themes/eshv/images/modals/17_HumaneEd.jpg" />
+        </div>
+        <article>
+          <strong>Promoting Humane Education In All New York Schools</strong>
+          <p></p>
+        </article>
+      </section>
+    </li>
   </ul>
 </section>

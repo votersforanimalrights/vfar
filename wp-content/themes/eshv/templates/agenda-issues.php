@@ -4,7 +4,7 @@
     <li>
       <img src="/wp-content/themes/eshv/images/modals/animals-companion.jpg" />
       <div class="agenda-overlay"></div>
-      <span>BANNING<br />SALES OF<br />DOGS AND CATS<br />IN PET STORES</span>
+      <span>BANNING<br />SALES OF<br />DOGS, CATS & RABBITS<br />IN PET STORES</span>
       <section>
         <div class="agenda-image">
           <img src="/wp-content/themes/eshv/images/modals/animals-companion.jpg" />

@@ -38,7 +38,7 @@ if ( is_singular() && ! is_front_page() ) {
 <meta property="og:url" content="<?php the_permalink() ?>" />
 <?php
 if ($is_election_center) {
-  $title = '2019 Special Election For NYC Public Advocate';
+  $title = '2019 General Election Endorsements';
 ?>
 <meta property="og:title" content="<?php echo $title ?>" />
 <meta name="twitter:title" content="<?php echo $title ?>" />

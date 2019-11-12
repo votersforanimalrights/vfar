@@ -84,7 +84,7 @@ if ($is_election_center) {
 <?php if ( $is_launch ) { ?>
 <meta property="og:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/launch-kitten.jpg" />
 <meta name="twitter:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/launch-kitten.jpg" />
-<?php } elseif ($is_deer) {
+<?php } elseif ($is_deer) { ?>
   <meta property="og:image" content="https://vfar.org/wp-content/uploads/2019/11/Image-from-iOS.jpg" />
   <meta name="twitter:image" content="https://vfar.org/wp-content/uploads/2019/11/Image-from-iOS.jpg" />
 <?php } elseif ( $is_events ) { ?>

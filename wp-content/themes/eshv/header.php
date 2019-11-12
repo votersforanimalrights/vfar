@@ -12,6 +12,7 @@ $is_volunteer = $is_page && 'volunteer' === $post_name;
 $is_events = $is_page && 'circusparty' === $post_name;
 $is_election_center = $is_page && 'election-center' === $post_name;
 $is_agenda = $is_page && '2019animalrights' === $post_name;
+$is_deer = $is_page && 'statenislanddeer' === $post_name;
 $attachment_id = get_post_thumbnail_id();
 ?>
 <!DOCTYPE html>
@@ -83,6 +84,9 @@ if ($is_election_center) {
 <?php if ( $is_launch ) { ?>
 <meta property="og:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/launch-kitten.jpg" />
 <meta name="twitter:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/launch-kitten.jpg" />
+<?php } elseif ($is_deer) {
+  <meta property="og:image" content="https://vfar.org/wp-content/uploads/2019/11/Image-from-iOS.jpg" />
+  <meta name="twitter:image" content="https://vfar.org/wp-content/uploads/2019/11/Image-from-iOS.jpg" />
 <?php } elseif ( $is_events ) { ?>
   <meta property="og:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/circus-party.jpg" />
   <meta name="twitter:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/circus-party.jpg" />

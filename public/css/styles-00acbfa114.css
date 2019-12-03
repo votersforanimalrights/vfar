@@ -2212,14 +2212,6 @@ html.can_embed-html body {
   }
 }
 
-#NVContributionForm493141 .HeaderHtml h1 {
-  display: none;
-}
-
-#NVContributionForm493141 .MeterHtml iframe.meter-frame {
-  height: 112px;
-}
-
 .content .archive-wrapper h1 {
   color: #2852a1;
 }

@@ -383,15 +383,3 @@ html.can_embed-html {
 
   @include bios;
 }
-
-#NVContributionForm493141 {
-  .HeaderHtml {
-    h1 {
-      display: none;
-    }
-  }
-
-  .MeterHtml iframe.meter-frame {
-    height: 112px;
-  }
-}

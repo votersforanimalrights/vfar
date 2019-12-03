@@ -389,7 +389,7 @@ html.can_embed-html {
     display: none;
   }
 
-  .at form .label-amount > a {
+  .label-amount > a {
     @include respond-to(desktop) {
       height: 68px;
     }

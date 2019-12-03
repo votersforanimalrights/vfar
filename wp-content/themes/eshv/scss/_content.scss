@@ -157,6 +157,10 @@
       &:hover {
         text-decoration: underline;
       }
+
+      &.btn-at-primary {
+        color: #fff;
+      }
     }
 
     h1 {
@@ -378,4 +382,12 @@ html.can_embed-html {
   }
 
   @include bios;
+}
+
+#NVContributionForm493141 {
+  .HeaderHtml {
+    h1 {
+      display: none;
+    }
+  }
 }

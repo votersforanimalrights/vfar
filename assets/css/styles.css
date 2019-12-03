@@ -1777,6 +1777,10 @@ body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters
   text-decoration: underline;
 }
 
+.content.page-content a.btn-at-primary {
+  color: #fff;
+}
+
 .content.page-content h1 {
   margin: 0 0 16px;
   padding: 0;
@@ -2206,6 +2210,10 @@ html.can_embed-html body {
   .content .page-content-wrapper .vfar-bios p {
     margin-bottom: 8px;
   }
+}
+
+#NVContributionForm493141 .HeaderHtml h1 {
+  display: none;
 }
 
 .content .archive-wrapper h1 {

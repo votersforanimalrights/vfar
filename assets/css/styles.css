@@ -2222,6 +2222,10 @@ html.can_embed-html body {
   }
 }
 
+#NVContributionForm493141 .HeaderHtml img {
+  height: auto !important;
+}
+
 .content .archive-wrapper h1 {
   color: #2852a1;
 }

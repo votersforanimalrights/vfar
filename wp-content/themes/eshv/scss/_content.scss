@@ -383,3 +383,15 @@ html.can_embed-html {
 
   @include bios;
 }
+
+#NVContributionForm493141 {
+  .at-recurring {
+    display: none;
+  }
+
+  .at form .label-amount > a {
+    @include respond-to(desktop) {
+      height: 68px;
+    }
+  }
+}

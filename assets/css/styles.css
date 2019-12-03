@@ -2212,6 +2212,16 @@ html.can_embed-html body {
   }
 }
 
+#NVContributionForm493141 .at-recurring {
+  display: none;
+}
+
+@media only screen and (min-width: 1050px) {
+  #NVContributionForm493141 .at form .label-amount > a {
+    height: 68px;
+  }
+}
+
 .content .archive-wrapper h1 {
   color: #2852a1;
 }

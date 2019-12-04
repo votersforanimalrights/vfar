@@ -89,8 +89,8 @@ if ($is_election_center) {
   <meta property="og:image" content="https://vfar.org/wp-content/uploads/2019/11/Image-from-iOS.jpg" />
   <meta name="twitter:image" content="https://vfar.org/wp-content/uploads/2019/11/Image-from-iOS.jpg" />
 <?php } elseif ($is_membership) { ?>
-  <meta property="og:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/membership.jpg" />
-  <meta name="twitter:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/membership.jpg" />
+  <meta property="og:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/membership_v2.jpg" />
+  <meta name="twitter:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/membership_v2.jpg" />
 <?php } elseif ( $is_events ) { ?>
   <meta property="og:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/circus-party.jpg" />
   <meta name="twitter:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/circus-party.jpg" />

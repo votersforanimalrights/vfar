@@ -14,6 +14,7 @@ $is_election_center = $is_page && 'election-center' === $post_name;
 $is_agenda = $is_page && '2019animalrights' === $post_name;
 $is_deer = $is_page && 'statenislanddeer' === $post_name;
 $is_membership = $is_page && 'membership' === $post_name;
+$is_birds = $is_page && 'birds' === $post_name;
 $attachment_id = get_post_thumbnail_id();
 ?>
 <!DOCTYPE html>
@@ -50,6 +51,16 @@ if ($is_election_center) {
 <?php
 } elseif ($is_action) {
   $title = 'NYC Council: Ban The Sale of Foie Gras From Force-Fed Birds';
+  $desc = 'Contact your City Council Member now.'
+?>
+<meta property="og:title" content="<?php echo $title ?>" />
+<meta name="twitter:title" content="<?php echo $title ?>" />
+<meta property="og:description" content="<?php echo $desc ?>" />
+<meta name="twitter:description" content="<?php echo $desc ?>" />
+<meta name="twitter:text:description" content="<?php echo $desc ?>" />
+<?php
+} elseif ($is_birds) {
+  $title = 'Tell your NYC Council Member to VOTE YES on Intro1482B To Protect NYC Birds From Glass Buildings';
   $desc = 'Contact your City Council Member now.'
 ?>
 <meta property="og:title" content="<?php echo $title ?>" />

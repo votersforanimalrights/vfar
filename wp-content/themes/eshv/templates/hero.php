@@ -1,5 +1,5 @@
 <?php
-$no_title = ['2019animalrights'];
+$no_title = ['2019animalrights', 'birds'];
 
 if (has_post_thumbnail()) { ?>
 <section class="hero">

@@ -1,5 +1,5 @@
 <?php
-$no_title = ['2019animalrights', 'statenislanddeer', 'membership'];
+$no_title = ['2019animalrights', 'statenislanddeer', 'membership', 'birds'];
 
 the_post();
 

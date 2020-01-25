@@ -15,6 +15,7 @@ $is_agenda = $is_page && '2019animalrights' === $post_name;
 $is_deer = $is_page && 'statenislanddeer' === $post_name;
 $is_membership = $is_page && 'membership' === $post_name;
 $is_birds = $is_page && 'birds' === $post_name;
+$is_opposed = $is_page && 'vfar-opposes-dec-proposal-to-remove-protections-from-wildlife-in-new-york' === $post_name;
 $attachment_id = get_post_thumbnail_id();
 ?>
 <!DOCTYPE html>
@@ -52,6 +53,16 @@ if ($is_election_center) {
 } elseif ($is_action) {
   $title = 'NYC Council: Ban The Sale of Foie Gras From Force-Fed Birds';
   $desc = 'Contact your City Council Member now.'
+?>
+<meta property="og:title" content="<?php echo $title ?>" />
+<meta name="twitter:title" content="<?php echo $title ?>" />
+<meta property="og:description" content="<?php echo $desc ?>" />
+<meta name="twitter:description" content="<?php echo $desc ?>" />
+<meta name="twitter:text:description" content="<?php echo $desc ?>" />
+<?php
+} elseif ($is_opposed) {
+  $title = 'VFAR Opposes DEC Proposal to Remove Protections from Wildlife in New York';
+  $desc = 'Changes will impact Humpback Whales, Ospreys, Cooper’s Hawks and other species.'
 ?>
 <meta property="og:title" content="<?php echo $title ?>" />
 <meta name="twitter:title" content="<?php echo $title ?>" />
@@ -117,6 +128,9 @@ if ($is_election_center) {
 <?php } else if ( $is_agenda ) { ?>
 <meta property="og:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/agenda-image.jpg" />
 <meta name="twitter:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/agenda-image.jpg" />
+<?php } else if ( $is_opposed ) { ?>
+<meta property="og:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/opposed.jpg" />
+<meta name="twitter:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/opposed.jpg" />
 <?php } else if ( ! empty( $attachment_id ) ) {
   $atts = wp_get_attachment_image_src( $attachment_id, 'large' );
   $featured_image = reset( $atts );

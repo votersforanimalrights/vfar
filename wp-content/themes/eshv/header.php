@@ -15,6 +15,7 @@ $is_agenda = $is_page && '2019animalrights' === $post_name;
 $is_deer = $is_page && 'statenislanddeer' === $post_name;
 $is_membership = $is_page && 'membership' === $post_name;
 $is_birds = $is_page && 'birds' === $post_name;
+$is_puppy = $is_page && 'puppy' === $post_name;
 $is_opposed = $is_page && 'vfar-opposes-dec-proposal-to-remove-protections-from-wildlife-in-new-york' === $post_name;
 $attachment_id = get_post_thumbnail_id();
 ?>
@@ -49,6 +50,16 @@ if ($is_election_center) {
 <meta property="og:description" content="<?php echo $description ?>" />
 <meta name="twitter:description" content="<?php echo $description ?>" />
 <meta name="twitter:text:description" content="<?php echo $description ?>" />
+<?php
+} elseif ($is_puppy) {
+  $title = 'Shut Down The Puppy Mill Pipeline in New York State!';
+  $desc = ' Ask your New York State Senator to Support S.4234/A.6298!'
+?>
+<meta property="og:title" content="<?php echo $title ?>" />
+<meta name="twitter:title" content="<?php echo $title ?>" />
+<meta property="og:description" content="<?php echo $desc ?>" />
+<meta name="twitter:description" content="<?php echo $desc ?>" />
+<meta name="twitter:text:description" content="<?php echo $desc ?>" />
 <?php
 } elseif ($is_action) {
   $title = 'NYC Council: Ban The Sale of Foie Gras From Force-Fed Birds';
@@ -110,6 +121,9 @@ if ($is_election_center) {
 <?php } elseif ($is_deer) { ?>
   <meta property="og:image" content="https://vfar.org/wp-content/uploads/2019/11/Image-from-iOS.jpg" />
   <meta name="twitter:image" content="https://vfar.org/wp-content/uploads/2019/11/Image-from-iOS.jpg" />
+<?php } elseif ($is_puppy) { ?>
+  <meta property="og:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/puppy.jpg" />
+  <meta name="twitter:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/puppy.jpg" />
 <?php } elseif ($is_membership) { ?>
   <meta property="og:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/membership_v2.jpg" />
   <meta name="twitter:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/membership_v2.jpg" />

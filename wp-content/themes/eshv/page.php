@@ -1,5 +1,5 @@
 <?php
-$no_title = ['2019animalrights', 'statenislanddeer', 'membership', 'birds', 'vfar-opposes-dec-proposal-to-remove-protections-from-wildlife-in-new-york'];
+$no_title = ['2019animalrights', 'statenislanddeer', 'membership', 'birds', 'vfar-opposes-dec-proposal-to-remove-protections-from-wildlife-in-new-york', 'puppy'];
 
 the_post();
 

@@ -52,8 +52,8 @@ if ($is_election_center) {
 <meta name="twitter:text:description" content="<?php echo $description ?>" />
 <?php
 } elseif ($is_puppy) {
-  $title = 'Shut Down The Puppy Mill Pipeline in New York State!';
-  $desc = ' Ask your New York State Senator to Support S.4234/A.6298!'
+  $title = 'ACTION ALERT: Ask your New York State Senator to Support S.4234/A.6298!';
+  $desc = ''
 ?>
 <meta property="og:title" content="<?php echo $title ?>" />
 <meta name="twitter:title" content="<?php echo $title ?>" />

@@ -16,8 +16,12 @@ $is_deer = $is_page && 'statenislanddeer' === $post_name;
 $is_membership = $is_page && 'membership' === $post_name;
 $is_birds = $is_page && 'birds' === $post_name;
 $is_puppy = $is_page && 'puppy' === $post_name;
+$is_bags = $is_page && 'banplasticbags' === $post_name;
 $is_opposed = $is_page && 'vfar-opposes-dec-proposal-to-remove-protections-from-wildlife-in-new-york' === $post_name;
 $attachment_id = get_post_thumbnail_id();
+
+$title = get_bloginfo('name');
+$description = 'We work to elect candidates who support animal protection, lobby for stronger laws to stop animal cruelty, and hold elected officials accountable to humane voters.';
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?> xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
@@ -32,129 +36,88 @@ $attachment_id = get_post_thumbnail_id();
 <meta name="twitter:site" content="@theanimalvoters" />
 <meta name="twitter:creator" content="@theanimalvoters" />
 <?php
-$description = 'We work to elect candidates who support animal protection, lobby for stronger laws to stop animal cruelty, and hold elected officials accountable to humane voters.';
 if ( is_singular() && ! is_front_page() ) {
   $excerpt = strip_tags( get_the_excerpt() );
   if (empty($excerpt)) {
     $excerpt = $description;
   }
+  $title = the_title_attribute([ 'echo' => false ]) . ' - ' . get_bloginfo('name');
+  $description = $excerpt;
 ?>
 <meta property="og:type" content="article" />
 <meta property="og:url" content="<?php the_permalink() ?>" />
 <?php
-if ($is_election_center) {
-  $title = '2019 General Election Endorsements';
-?>
-<meta property="og:title" content="<?php echo $title ?>" />
-<meta name="twitter:title" content="<?php echo $title ?>" />
-<meta property="og:description" content="<?php echo $description ?>" />
-<meta name="twitter:description" content="<?php echo $description ?>" />
-<meta name="twitter:text:description" content="<?php echo $description ?>" />
-<?php
-} elseif ($is_puppy) {
-  $title = 'ACTION ALERT: Ask your New York State Senator to Support S.4234/A.6298!';
-  $desc = ''
-?>
-<meta property="og:title" content="<?php echo $title ?>" />
-<meta name="twitter:title" content="<?php echo $title ?>" />
-<meta property="og:description" content="<?php echo $desc ?>" />
-<meta name="twitter:description" content="<?php echo $desc ?>" />
-<meta name="twitter:text:description" content="<?php echo $desc ?>" />
-<?php
-} elseif ($is_action) {
-  $title = 'NYC Council: Ban The Sale of Foie Gras From Force-Fed Birds';
-  $desc = 'Contact your City Council Member now.'
-?>
-<meta property="og:title" content="<?php echo $title ?>" />
-<meta name="twitter:title" content="<?php echo $title ?>" />
-<meta property="og:description" content="<?php echo $desc ?>" />
-<meta name="twitter:description" content="<?php echo $desc ?>" />
-<meta name="twitter:text:description" content="<?php echo $desc ?>" />
-<?php
-} elseif ($is_opposed) {
-  $title = 'VFAR Opposes DEC Proposal to Remove Protections from Wildlife in New York';
-  $desc = 'Changes will impact Humpback Whales, Ospreys, Cooper’s Hawks and other species.'
-?>
-<meta property="og:title" content="<?php echo $title ?>" />
-<meta name="twitter:title" content="<?php echo $title ?>" />
-<meta property="og:description" content="<?php echo $desc ?>" />
-<meta name="twitter:description" content="<?php echo $desc ?>" />
-<meta name="twitter:text:description" content="<?php echo $desc ?>" />
-<?php
-} elseif ($is_birds) {
-  $title = 'Tell your NYC Council Member to VOTE YES on Intro1482B To Protect NYC Birds From Glass Buildings';
-  $desc = 'Contact your City Council Member now.'
-?>
-<meta property="og:title" content="<?php echo $title ?>" />
-<meta name="twitter:title" content="<?php echo $title ?>" />
-<meta property="og:description" content="<?php echo $desc ?>" />
-<meta name="twitter:description" content="<?php echo $desc ?>" />
-<meta name="twitter:text:description" content="<?php echo $desc ?>" />
-<?php } elseif ($is_events) {
-  $title = 'Please RSVP';
-  $desc = '';
-?>
-<meta property="og:title" content="<?php echo $title ?>" />
-<meta name="twitter:title" content="<?php echo $title ?>" />
-<meta property="og:description" content="<?php echo $desc ?>" />
-<meta name="twitter:description" content="<?php echo $description ?>" />
-<meta name="twitter:text:description" content="<?php echo $description ?>" />
-<?php } else { ?>
-<meta property="og:title" content="<?php the_title_attribute() ?> - <?php bloginfo( 'name' ) ?>" />
-<meta name="twitter:title" content="<?php the_title_attribute() ?> - <?php bloginfo( 'name' ) ?>" />
-<meta property="og:description" content="<?php echo esc_attr( $excerpt ) ?>" />
-<meta name="twitter:description" content="<?php echo esc_attr( $excerpt ) ?>" />
-<meta name="twitter:text:description" content="<?php echo esc_attr( $excerpt ) ?>" />
-<?php } ?>
-<?php } else {
-?>
-<meta property="og:url" content="<?php echo home_url() ?>" />
-<meta property="og:title" content="<?php bloginfo( 'name' ) ?>" />
-<meta name="twitter:title" content="<?php bloginfo( 'name' ) ?>">
+  if ($is_election_center) {
+    $title = '2019 General Election Endorsements';
+  } elseif ($is_bags) {
+    $title = 'Voters for Animal Rights’ Policy Recommendation on Plastic Bag Reduction, Reuse, and Recycling';
+    $description = 'New York should be enforcing the ban on plastic bags, not weakening it.';
+  } elseif ($is_puppy) {
+    $title = 'ACTION ALERT: Ask your New York State Senator to Support S.4234/A.6298!';
+    $description = '';
+  } elseif ($is_action) {
+    $title = 'NYC Council: Ban The Sale of Foie Gras From Force-Fed Birds';
+    $description = 'Contact your City Council Member now.'
+  } elseif ($is_opposed) {
+    $title = 'VFAR Opposes DEC Proposal to Remove Protections from Wildlife in New York';
+    $description = 'Changes will impact Humpback Whales, Ospreys, Cooper’s Hawks and other species.'
+  } elseif ($is_birds) {
+    $title = 'Tell your NYC Council Member to VOTE YES on Intro1482B To Protect NYC Birds From Glass Buildings';
+    $description = 'Contact your City Council Member now.'
+  } elseif ($is_events) {
+    $title = 'Please RSVP';
+    $description = '';
+  }
+} else { ?>
+<meta property="og:url" content="<?php echo home_url() ?>" /><?php
+}
+
+if ( $is_launch ) {
+  $image = WP_CONTENT_URL . '/themes/eshv/launch-kitten.jpg';
+} elseif ( $is_deer ) {
+  $image = 'https://vfar.org/wp-content/uploads/2019/11/Image-from-iOS.jpg';
+} elseif ( $is_puppy ) {
+  $image = WP_CONTENT_URL . '/themes/eshv/puppy.jpg';
+} elseif ( $is_membership ) {
+  $image = WP_CONTENT_URL . '/themes/eshv/membership_v2.jpg';
+} elseif ( $is_events ) {
+  $image = WP_CONTENT_URL . '/themes/eshv/circus-party.jpg';
+} elseif ( $is_circus ) {
+  $image = WP_CONTENT_URL . '/themes/eshv/circus-action.jpg';
+} elseif ( $is_action ) {
+  $image = WP_CONTENT_URL . '/themes/eshv/foie-v2.jpg';
+} else if ( $is_volunteer ) {
+  $image = WP_CONTENT_URL . '/themes/eshv/volunteer.jpg';
+} else if ( $is_agenda ) {
+  $image = WP_CONTENT_URL . '/themes/eshv/agenda-image.jpg';
+} else if ( $is_opposed ) {
+  $image = WP_CONTENT_URL . '/themes/eshv/opposed.jpg';
+} else if ( $is_bags ) {
+  $image = WP_CONTENT_URL . '/themes/eshv/banplasticbags.jpg';
+} else if ( ! empty( $attachment_id ) ) {
+  $atts = wp_get_attachment_image_src( $attachment_id, 'large' );
+  $image = reset( $atts );
+} else {
+  $image = WP_CONTENT_URL . '/themes/eshv/splash-og.jpg';
+}
+
+if ( ! empty( $title ) ) { ?>
+<meta property="og:title" content="<?php echo esc_attr( $title ) ?>" />
+<meta name="twitter:title" content="<?php echo esc_attr( $title ) ?>" />
+<?php }
+
+if ( ! empty( $description ) ) { ?>
 <meta property="og:description" content="<?php echo esc_attr( $description ) ?>" />
 <meta name="twitter:description" content="<?php echo esc_attr( $description ) ?>" />
 <meta name="twitter:text:description" content="<?php echo esc_attr( $description ) ?>" />
-<?php } ?>
-<?php if ( $is_launch ) { ?>
-<meta property="og:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/launch-kitten.jpg" />
-<meta name="twitter:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/launch-kitten.jpg" />
-<?php } elseif ($is_deer) { ?>
-  <meta property="og:image" content="https://vfar.org/wp-content/uploads/2019/11/Image-from-iOS.jpg" />
-  <meta name="twitter:image" content="https://vfar.org/wp-content/uploads/2019/11/Image-from-iOS.jpg" />
-<?php } elseif ($is_puppy) { ?>
-  <meta property="og:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/puppy.jpg" />
-  <meta name="twitter:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/puppy.jpg" />
-<?php } elseif ($is_membership) { ?>
-  <meta property="og:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/membership_v2.jpg" />
-  <meta name="twitter:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/membership_v2.jpg" />
-<?php } elseif ( $is_events ) { ?>
-  <meta property="og:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/circus-party.jpg" />
-  <meta name="twitter:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/circus-party.jpg" />
-<?php } elseif ( $is_circus ) { ?>
-<meta property="og:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/circus-action.jpg" />
-<meta name="twitter:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/circus-action.jpg" />
-<?php } elseif ( $is_action ) { ?>
-<meta property="og:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/foie-v2.jpg" />
-<meta name="twitter:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/foie-v2.jpg" />
-<?php } else if ( $is_volunteer ) { ?>
-<meta property="og:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/volunteer.jpg" />
-<meta name="twitter:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/volunteer.jpg" />
-<?php } else if ( $is_agenda ) { ?>
-<meta property="og:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/agenda-image.jpg" />
-<meta name="twitter:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/agenda-image.jpg" />
-<?php } else if ( $is_opposed ) { ?>
-<meta property="og:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/opposed.jpg" />
-<meta name="twitter:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/opposed.jpg" />
-<?php } else if ( ! empty( $attachment_id ) ) {
-  $atts = wp_get_attachment_image_src( $attachment_id, 'large' );
-  $featured_image = reset( $atts );
+<?php }
+
+if ( ! empty( $image ) ) { ?>
+<meta property="og:image" content="<?php echo $image ?>" />
+<meta name="twitter:image" content="<?php echo $image ?>" />
+<?php }
+
 ?>
-<meta property="og:image" content="<?php echo $featured_image ?>" />
-<meta name="twitter:image" content="<?php echo $featured_image ?>" />
-<?php } else { ?>
-<meta property="og:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/splash-og.png" />
-<meta name="twitter:image" content="<?php echo WP_CONTENT_URL ?>/themes/eshv/splash-og.png" />
-<?php } ?>
 <script src="https://use.fontawesome.com/0554d22be7.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans:300,400,600,700" rel="stylesheet" />
 <link href="<?php echo VFAR\assetUrl( 'css/styles.css' ) ?>" rel="stylesheet" />

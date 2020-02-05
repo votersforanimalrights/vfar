@@ -57,13 +57,13 @@ if ( is_singular() && ! is_front_page() ) {
     $description = '';
   } elseif ($is_action) {
     $title = 'NYC Council: Ban The Sale of Foie Gras From Force-Fed Birds';
-    $description = 'Contact your City Council Member now.'
+    $description = 'Contact your City Council Member now.';
   } elseif ($is_opposed) {
     $title = 'VFAR Opposes DEC Proposal to Remove Protections from Wildlife in New York';
-    $description = 'Changes will impact Humpback Whales, Ospreys, Cooper’s Hawks and other species.'
+    $description = 'Changes will impact Humpback Whales, Ospreys, Cooper’s Hawks and other species.';
   } elseif ($is_birds) {
     $title = 'Tell your NYC Council Member to VOTE YES on Intro1482B To Protect NYC Birds From Glass Buildings';
-    $description = 'Contact your City Council Member now.'
+    $description = 'Contact your City Council Member now.';
   } elseif ($is_events) {
     $title = 'Please RSVP';
     $description = '';

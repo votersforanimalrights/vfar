@@ -48,7 +48,7 @@ if ( is_singular() && ! is_front_page() ) {
 <meta property="og:url" content="<?php the_permalink() ?>" />
 <?php
   if ($is_election_center) {
-    $title = '2020 New York Primary Election Endorsements - VOTE June 23!';
+    $title = 'Voters for Animal Rights’ 2020 New York Primary Election Endorsements - VOTE June 23!';
   } elseif ($is_bags) {
     $title = 'Voters for Animal Rights’ Policy Recommendation on Plastic Bag Reduction, Reuse, and Recycling';
     $description = 'New York should be enforcing the ban on plastic bags, not weakening it.';

@@ -18,7 +18,7 @@
  * @package WordPress
  */
 
-error_reporting(-1);
+// error_reporting(-1);
 define('WP_CONTENT_DIR', __DIR__ . '/wp-content');
 $protocol = isset($_SERVER['HTTPS']) && filter_var($_SERVER['HTTPS'], FILTER_VALIDATE_BOOLEAN) ? 'https' : 'http';
 define('WP_CONTENT_URL', $protocol . '://' . $_SERVER['HTTP_HOST'] . '/wp-content');
@@ -89,7 +89,7 @@ $table_prefix  = 'wp_';
  *
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
-define('WP_DEBUG', true);
+define('WP_DEBUG', false);
 
 /* That's all, stop editing! Happy blogging. */
 

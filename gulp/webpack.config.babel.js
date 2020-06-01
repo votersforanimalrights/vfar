@@ -14,7 +14,7 @@ export default {
         loader: 'babel-loader',
         exclude: /node_modules/,
         query: {
-          presets: ['env', 'stage-0'],
+          presets: ['@babel/preset-env'],
         },
       },
     ],

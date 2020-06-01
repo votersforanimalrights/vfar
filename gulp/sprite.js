@@ -11,20 +11,17 @@ import fingerprint from './fingerprint-assets';
 const spriteFile = 'sprites/sprite.png';
 const spriteFileRegex = /\.\.\/images\/sprite\.png/g;
 const THEME = './wp-content/themes/eshv/';
-const SRC = [
-  `${THEME}images/**/*.png`,
-  `!${THEME}images/logo.png`,
-  `!${THEME}images/logo-2x.png`,
-];
+const SRC = [`${THEME}images/**/*.png`, `!${THEME}images/logo.png`, `!${THEME}images/logo-2x.png`];
 const DEST = './assets/sprites/';
 const SCSS_DEST = `${THEME}scss/`;
 
-const spritePromise = (config) => {
+const spritePromise = config => {
   gutil.log(c('Building:'), config.style);
 
   return new Promise((resolve, reject) => {
-    sprity.src(config)
-      .on('error', (err) => {
+    sprity
+      .src(config)
+      .on('error', err => {
         gutil.log(err);
         reject(err);
       })
@@ -35,23 +32,21 @@ const spritePromise = (config) => {
   });
 };
 
-const mixinSprites = () => (
+const mixinSprites = () =>
   spritePromise({
     src: SRC,
     style: '_sprite.scss',
     processor: 'sass',
     template: './gulp/sprite/scss.hbs',
     margin: 0,
-  })
-);
+  });
 
-const cssSprites = () => (
+const cssSprites = () =>
   spritePromise({
     src: SRC,
     style: '_sprite-rules.scss',
     margin: 0,
-  })
-);
+  });
 
 function saveRev() {
   const json = JSON.parse(fs.readFileSync('./rev-manifest.json', 'utf8'));
@@ -65,10 +60,9 @@ function saveRev() {
   });
 }
 
-export default () => (
+export default () =>
   del(DEST)
     .then(mixinSprites)
     .then(cssSprites)
     .then(fingerprint)
-    .then(saveRev)
-);
+    .then(saveRev);

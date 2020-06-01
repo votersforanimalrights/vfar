@@ -15,15 +15,18 @@
   "bugs": {
     "url": "https://github.com/staylor/eshv/issues"
   },
+  "engines": {
+    "node": "< 12"
+  },
   "preferGlobal": true,
   "homepage": "https://github.com/staylor/eshv#readme",
   "devDependencies": {
+    "@babel/core": "7.10.2",
+    "@babel/preset-env": "7.10.2",
+    "@babel/register": "7.10.1",
     "autoprefixer": "^8.4.1",
-    "babel-core": "^6.26.3",
-    "babel-eslint": "^8.2.3",
-    "babel-loader": "^7.1.4",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-stage-0": "^6.24.1",
+    "babel-eslint": "10.1.0",
+    "babel-loader": "8.1.0",
     "css-mqpacker": "^6.0.2",
     "csswring": "^6.0.3",
     "del": "^3.0.0",

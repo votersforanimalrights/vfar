@@ -10,8 +10,9 @@ const assetsDir = path.join(rootDir, 'assets');
 const fingerprintDir = path.join(rootDir, 'public');
 
 function fingerprintAssets() {
-  return new Promise((resolve) => {
-    gulp.src(`${assetsDir}/**/*`)
+  return new Promise(resolve => {
+    gulp
+      .src(`${assetsDir}/**/*`)
       .pipe(rev())
       .on('end', () => {
         gutil.log('Fingerprinting assets...');
@@ -20,9 +21,11 @@ function fingerprintAssets() {
       .on('end', () => {
         gutil.log('Assets saved in:', c(fingerprintDir));
       })
-      .pipe(rev.manifest({
-        path: 'rev-manifest.json',
-      }))
+      .pipe(
+        rev.manifest({
+          path: 'rev-manifest.json',
+        })
+      )
       .on('end', () => {
         gutil.log('Asset manifest created.');
       })
@@ -34,6 +37,4 @@ function fingerprintAssets() {
   });
 }
 
-export default () => (
-  del(fingerprintDir).then(fingerprintAssets)
-);
+export default () => del(fingerprintDir).then(fingerprintAssets);

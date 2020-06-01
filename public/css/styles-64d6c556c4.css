@@ -1279,6 +1279,10 @@ body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters
   }
 }
 
+.blue-text {
+  color: #2852a1;
+}
+
 .centered-content {
   margin: 0 5%;
   max-width: 90%;

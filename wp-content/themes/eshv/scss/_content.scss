@@ -4,6 +4,10 @@
 @import 'list';
 @import 'headers';
 
+.blue-text {
+  color: $blue;
+}
+
 .centered-content {
   margin: 0 5%;
   max-width: 90%;

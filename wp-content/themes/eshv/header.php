@@ -53,7 +53,7 @@ if ( is_singular() && ! is_front_page() ) {
     $title = 'Voters for Animal Rights’ Policy Recommendation on Plastic Bag Reduction, Reuse, and Recycling';
     $description = 'New York should be enforcing the ban on plastic bags, not weakening it.';
   } elseif ($is_puppy) {
-    $title = 'ACTION ALERT: Ask your New York State Senator to Support S.4234/A.6298!';
+    $title = 'ACTION ALERT: Ask your New York State Assembly Member to Support A.6298!';
     $description = '';
   } elseif ($is_action) {
     $title = 'NYC Council: Ban The Sale of Foie Gras From Force-Fed Birds';

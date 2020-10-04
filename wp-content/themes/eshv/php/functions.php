@@ -1,6 +1,15 @@
 <?php
 namespace VFAR;
 
+function getPageChildren() {
+  return get_posts(array(
+    'post_type' => 'page',
+    'post_parent' => get_the_ID(),
+    'orderby' => 'menu_order',
+    'order' => 'ASC',
+  ));
+}
+
 function assetUrl($path) {
   static $assets = null;
   if ($assets === null) {

@@ -24,8 +24,8 @@ $title = get_bloginfo('name');
 $description = 'We work to elect candidates who support animal protection, lobby for stronger laws to stop animal cruelty, and hold elected officials accountable to humane voters.';
 ?>
 <!DOCTYPE html>
-<html <?php language_attributes(); ?> xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
-<head>
+<html <?php language_attributes(); ?> xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:article="http://ogp.me/ns/article#" xmlns:fb="https://www.facebook.com/2008/fbml">
+<head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# fb: https://www.facebook.com/2008/fbml#">
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="icon" href="/logo.png" type="image/x-icon"/>
@@ -43,10 +43,22 @@ if ( is_singular() && ! is_front_page() ) {
   }
   $title = the_title_attribute([ 'echo' => false ]) . ' - ' . get_bloginfo('name');
   $description = $excerpt;
+
+  $children = $is_page ? VFAR\getPageChildren() : null;
+  $time_post = $children && count($children) > 0 ? reset( $children ) : get_post();
+
+  $pub = mysql2date( DATE_W3C, $time_post->post_date_gmt, false );
+  $mod = mysql2date( DATE_W3C, $time_post->post_modified_gmt, false );
 ?>
 <meta property="og:type" content="article" />
 <meta property="og:url" content="<?php the_permalink() ?>" />
+<meta property="article:published_time" content="<?php echo $pub ?>" />
+<?php if ($mod !== $pub) { ?>
+  <meta property="article:modified_time" content="<?php echo $mod ?>" />
+  <meta property="og:updated_time" content="<?php echo $mod ?>" />
 <?php
+}
+
   if ($is_election_center) {
     $title = 'Voters for Animal Rights’ 2020 New York Primary Election Endorsements - VOTE by June 23!';
   } elseif ($is_bags) {

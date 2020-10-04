@@ -18,12 +18,7 @@ if ($is_iframe) {
   return;
 }
 
-$children = get_posts(array(
-  'post_type' => 'page',
-  'post_parent' => get_the_ID(),
-  'orderby' => 'menu_order',
-  'order' => 'ASC',
-));
+$children = VFAR\getPageChildren();
 
 get_header() ?>
 <article class="page-wrapper">

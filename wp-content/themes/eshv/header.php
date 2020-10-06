@@ -5,12 +5,14 @@ $caret = ob_get_clean();
 
 $post_name = get_post() ? get_post()->post_name : '';
 $is_page = is_page();
+$parent_page = $is_page ? get_post( wp_get_post_parent_id() ) : null;
+$parent_name = $parent_page ? $parent_page->post_name : '';
 $is_launch = $is_page && ('launch' === $post_name || 'launch-party-waiting-list' === $post_name);
 $is_circus = $is_page && 'may2circus' === $post_name;
 $is_action = $is_page && 'action' === $post_name;
 $is_volunteer = $is_page && 'volunteer' === $post_name;
 $is_events = $is_page && 'circusparty' === $post_name;
-$is_election_center = $is_page && 'election-center' === $post_name;
+$is_election_center = $is_page && ('election-center' === $post_name || 'election-center' === $parent_name);
 $is_agenda = $is_page && '2019animalrights' === $post_name;
 $is_deer = $is_page && 'statenislanddeer' === $post_name;
 $is_membership = $is_page && 'membership' === $post_name;

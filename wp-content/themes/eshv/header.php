@@ -112,7 +112,7 @@ if ( $is_launch ) {
   $atts = wp_get_attachment_image_src( $attachment_id, 'large' );
   $image = reset( $atts );
 } else {
-  $image = WP_CONTENT_URL . '/themes/eshv/splash-og.jpg';
+  $image = WP_CONTENT_URL . '/themes/eshv/splash-og.png';
 }
 
 if ( ! empty( $title ) ) { ?>

@@ -12,6 +12,11 @@ class Theme {
     add_rewrite_endpoint( 'iframe', EP_PAGES );
     add_shortcode( 'animals', [ $this, 'animals' ] );
     add_shortcode( 'issues', [ $this, 'issues' ] );
+    add_filter( 'wpseo_twitter_creator_account', [ $this, 'wpseo_twitter_creator_account' ] );
+  }
+
+  public function wpseo_twitter_creator_account( $account ) {
+    return 'theanimalvoters';
   }
 
   public function animals() {

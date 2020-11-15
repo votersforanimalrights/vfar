@@ -1,9 +1,10 @@
 === WordPress Social Sharing Plugin - Social Warfare ===
-Contributors: holas84, dustinwstout, webinator, warfareplugins, nutsandboltsmedia, cdegraff1, ckmahoney
+Contributors: holas84, dustinwstout, webinator, warfareplugins, cdegraff1, ckmahoney
 Tags: sharing buttons, social media share, floating share buttons, facebook share, google plus share, linkedin share, pin it, pinterest save, mix button, tweet button, twitter share, click to tweet, social sharing buttons, social share, social sharing, social media sharing, wordpress social sharing plugin, social sharing plugin, share buttons, share counts
 Requires at least: 4.5.0
-Tested up to: 5.0
-Stable tag: 3.4.2
+Tested up to: 5.5
+Stable tag: 4.1.0
+Requires PHP: 5.6
 License: GNU General Public License v2.0 or later
 
 The most beautiful, responsive, lightning fast social share buttons built to boost shares and drive more traffic without slowing down your site.
@@ -193,6 +194,101 @@ We have a growing archive of <a href="https://warfareplugins.com/support/" rel="
 
 == Changelog ==
 
+= 4.1.0 (17 AUG 2020) =
+* BRAND NEW!!! Added a "Social Optimizer" to the Gutenberg post editor sidebar.
+* Fixed a few minor CSS issues.
+* Updated the post editor custom fields to be compatable with WP 5.5.
+
+= 4.0.2 (28 JUL 2020) =
+* Added Facebook authentications to core to allow for faster and more reliable share counts when authenticated.
+* Added full AMP compatibility to the plugin.
+* Fixed the custom CSS field on the settings page so that it saves properly now.
+* Added dashboard notifications to alert users as to the state of their Facebook authentications.
+
+= 4.0.1 (14 APR 2020) =
+* New: Added the ability to connect Social Warfare with Facebook. We use this to fetch follow counts for pages and faster, more accurate share counts for the share buttons. Go to Social Warfare -> Social Identity -> Social Network Connections to get started.
+* New: Added a notice about clearing caches after updates.
+* New: Added additional share count debugging to the ?swp_debug=recover debugger.
+* Fixed: Fixed some CSS for the "more" share box overlay.
+* Fixed: Fixed a PHP error related to user options.
+* Maintenance: Adjusted the cache rebuild schedule.
+
+= 4.0.0 =
+* New: Added the ability to assign multiple Pinterest images with a slick overlay interface.
+* New: Added a "More" button that brings up an overlay with all of the available share options.
+* New: Added social follow widget with lots of styles and options.
+* New: Added lots of new network buttons (Xing, VK, Viber, Blogger, Evernote)
+* New: Added a print button.
+* New: Added OpenShareCount API as a source for Tweet counts.
+* New: Added Rebrandly as a link shortening service.
+* New: Added a bunch of brand new shortcodes.
+* New: Added the ability to emphasize the first one or two buttons in the panel.
+* New: Added the ability to use ?swp_cache=rebuild&swp_debug=recovery to view the URL's being checked for shares.
+* New: Converted all of the plugin's CSS to neatly organized SCSS/SASS.
+* New: Updated a few styles in the admin options page.
+* New: Updated the descriptions and image placeholders for the Social Warfare custom options in the post editor.
+* New: Added an "opt-in" only "Powered by Social Warfare" that will automatically link to our site using your affiliate URL.
+* New: Added an "age of post" check for shortlinks.
+* New: Added the option to delay the display of share counts on new posts.
+* Fixed: Fixed an extra doctype that would sometimes get added to the content.
+* Fixed: Fixed some javascript/jQuery errors.
+* Fixed: Fixed some PHP errors.
+* Removed: Removed all instances of Google Plus.
+* Maintenance: Vastly improved codebase organization and documentation.
+
+= 3.6.1 (3 JUN 2019) =
+* Updated Hover Save Pin functionality to work more globally.
+* Fixed conflcit with hover pin button in Thrive Architect page builder.
+* Removed the Google Plus network share button.
+* Fixed an "Uncaught Error" for $ in the JS on the widgets page.
+* Fixed a Twitter PHP notice.
+
+= 3.6.0 (2 MAY 2019) =
+* Updated Hover Save Pin functionality to work more globally.
+* Updated how Facebook share counts are requested.
+* Fixed placement of hidden pinterest image.
+* Fixed double quotation marks breaking Click to Tweets.
+* Fixed the hover-pin-opt out checkbox in a post editor.
+* Fixed hover pin description source.
+* Fixed whitespace/new HTML document being created in buttons panels.
+* Fixed character encoding for <meta> tags.
+
+= 3.5.4 (25 MAR 2019) =
+* Code security audit and updates.
+
+= 3.5.3 (21 MAR 2019) =
+* Immediate security patch for 3.5.x
+
+= 3.5.2 (19 MAR 2019) =
+* Fixed <meta> tags for OG and Twitter Card.
+* Fixed source of Pinterest description when pinning from Save or Pinterest button.
+* Fixed empty 'via' being added to Pinterest description and Click to Tweet.
+* Updated addon registration and unregistration messages.
+* Updated icon font file and encoding.
+
+
+= 3.5.1 (27 FEB 2019) =
+* Fixed the total share displaying an incorrect value.
+* Fixed PHP notices about 'undefined variable'.
+* Fixed floating buttons not showing or hiding as expected.
+* Fixed SWP Addon error.
+* Restored Custom Color CSS being applied to the page.
+
+
+= 3.5.0 (26 FEB 2019) =
+* Fixed the side floating buttons not showing on some themes.
+* Fixed 'operand type' notice when making cURL share count request.
+* Fixed the Pinterest description sometimes being too long when pinning.
+* Escaped the Pinterest description before sending to the client.
+* Fixed a missing @via tag for Click to Tweets.
+* Fixed the CSS selector for Gutenberg blocks.
+* Updated location of Total Shares and Share Counts options.
+* Updated og:image tags to include a name attribute (for LinkedIn).
+* Updated the Frame Buster feature.
+* Updated the pinterest button search & destroy method.
+* Fixed notice when there are no inactive icons.
+* Added interface for handling oAuth handshakes.
+
 = 3.4.2 (13 DEC 2018) =
 * Fixed floating bottom disappear on mobile when pro is deactivated.
 * Fixed blocks disappearing after Gutenberg update.
@@ -251,7 +347,7 @@ We have a growing archive of <a href="https://warfareplugins.com/support/" rel="
 = 3.2.0 (13 AUG 2018) =
 * Shoutout to our Warfare Community beta testers- thank you so much!
 * Created shortcode for Pinterest Image.
-* Created Custom Pinterst Description on a per-image basis.
+* Created Custom Pinterest Description on a per-image basis.
 * Fixed the Total Shares icon/counts not displaying.
 * Fixed many JS related issues on floating and mobile buttons.
 * Fixed an issue where some buttons did not display on some posts (after 'post_updated' fires).

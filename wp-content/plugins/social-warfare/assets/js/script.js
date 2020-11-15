@@ -4,6 +4,9 @@
  *
  * @since 1.0.0 | 01 JAN 2016 | Created
  * @since 3.4.0 | 19 OCT 2018 | Cleaned, Refactored, Simplified, Docblocked.
+ * @since 3.6.0 | 22 APR 2019 | Removed Facebook share counts. These are now
+ *                              fetched via PHP on the server side just like all
+ *                              other social networks.
  * @package   SocialWarfare\Assets\JS\
  * @copyright Copyright (c) 2018, Warfare Plugins, LLC
  * @license   GPL-3.0+
@@ -30,7 +33,7 @@
  *     #3. Floating Buttons Panel Controls
  *        Function: socialWarfare.createFloatHorizontalPanel()
  *        Function: socialWarfare.staticPanelIsVisible()
- *        Function: socialWarfare.toggleFloatingButtons()
+ *        Function: socialWarfare.updateFloatingButtons()
  *        Function: socialWarfare.toggleMobileButtons()
  *        Function: socialWarfare.toggleFloatingVerticalPanel()
  *        Function: socialWarfare.toggleFloatingHorizontalPanel()
@@ -83,7 +86,7 @@ window.socialWarfare = window.socialWarfare || {};
  * still be able to access our functions and variables from anywhere.
  *
  */
-(function(window, $, jQuery) {
+(function(window, $) {
 	'use strict';
 
 	if ( typeof $ != 'function' ) {
@@ -93,8 +96,16 @@ window.socialWarfare = window.socialWarfare || {};
 
 		else {
 			console.log("Social Warfare requires jQuery, or $ as an alias of jQuery. Please make sure your theme provides access to jQuery before activating Social Warfare.");
-            return;
+			return;
 		}
+	}
+
+	/**
+	* Values from the server may be sent as strings, but may also be empty.
+	* In this context, we are interested in strings with length only.
+	*/
+	function isString(maybeString) {
+	  return typeof maybeString == 'string' && maybeString.length > 0;
 	}
 
 	/***************************************************************************
@@ -104,41 +115,6 @@ window.socialWarfare = window.socialWarfare || {};
 	 *
 	 *
 	 ***************************************************************************/
-
-
-	/**
-	 * Load the plugin once the DOM has been loaded.
-	 *
-	 */
-	$(document).ready(function() {
-
-		// This is what fires up the entire plugin's JS functionality.
-		socialWarfare.initPlugin();
-
-
-		/**
-		 * On resize, we're going to purge and re-init the entirety of the
-		 * socialWarfare functions. This will fully reset all of the floating
-		 * buttons which will allow for a clean transition if the size change
-		 * causes the isMobile() check to flip from true to false or vica versa.
-		 *
-		 */
-		$(window).resize(socialWarfare.onWindowResize);
-
-	});
-
-
-	/**
-	 * This will cause our resize event to wait until the user is fully done
-	 * resizing the window prior to resetting and rebuilding the buttons and
-	 * their positioning and re-initializing the plugin JS functions.
-	 *
-	 */
-	var wait;
-	socialWarfare.onWindowResize = function(){
-	  clearTimeout(wait);
-	  wait = setTimeout(socialWarfare.initPlugin, 100 );
-	}
 
 
 	/**
@@ -179,11 +155,19 @@ window.socialWarfare = window.socialWarfare || {};
 			return;
 		}
 
+		socialWarfare.emphasizeButtons();
 		socialWarfare.createFloatHorizontalPanel();
 		socialWarfare.positionFloatSidePanel();
 		socialWarfare.activateHoverStates();
 		socialWarfare.handleButtonClicks();
-		socialWarfare.toggleFloatingButtons();
+		socialWarfare.updateFloatingButtons();
+		socialWarfare.closeLightboxOverlay();
+		socialWarfare.preloadPinterestImages();
+
+		if (typeof swpPinIt == 'object' && swpPinIt.enabled == true) {
+			socialWarfare.createHoverSaveButton();
+			socialWarfare.triggerImageListeners();
+		}
 
 
 		/**
@@ -193,7 +177,9 @@ window.socialWarfare = window.socialWarfare || {};
 		 * ensure that the buttons panel exist and activate the click bindings.
 		 *
 		 */
-		setTimeout( socialWarfare.checkListeners(0, 5), 2000);
+		setTimeout(function() {
+			socialWarfare.checkListeners(0, 5)
+		}, 2000);
 
 
 		/**
@@ -204,8 +190,27 @@ window.socialWarfare = window.socialWarfare || {};
 		 * floating buttons to flicker.
 		 *
 		 */
-		$(window).scroll(socialWarfare.throttle(50, socialWarfare.toggleFloatingButtons));
+		var time = Date.now();
+		var scrollDelay = 50;
+		$(window).scroll(function() {
+			if ((time + scrollDelay - Date.now()) < 0) {
+				socialWarfare.updateFloatingButtons();
+				time = Date.now();
+			}
+		});
+	}
 
+
+	/**
+	 * This will cause our resize event to wait until the user is fully done
+	 * resizing the window prior to resetting and rebuilding the buttons and
+	 * their positioning and re-initializing the plugin JS functions.
+	 *
+	 */
+	var resizeWait;
+	socialWarfare.onWindowResize = function(){
+	  clearTimeout(resizeWait);
+	  resizeWait = setTimeout(socialWarfare.initPlugin, 100 );
 	}
 
 
@@ -224,18 +229,75 @@ window.socialWarfare = window.socialWarfare || {};
 			floatingHorizontal: null
 		};
 
-		var staticHorizontal = $(".swp_social_panel").not(".swp_social_panelSide");
-		var floatingSide = $(".swp_social_panelSide");
-
-		if (staticHorizontal) {
-			socialWarfare.panels.staticHorizontal = staticHorizontal;
-		}
-
-		if (floatingSide) {
-			socialWarfare.panels.floatingSide = floatingSide;
-		}
+		// Set each type of panel as a jQuery object (with 0 or more panels)
+		socialWarfare.panels.staticHorizontal = $(".swp_social_panel").not(".swp_social_panelSide");
+		socialWarfare.panels.floatingSide = $(".swp_social_panelSide");
 
 		return socialWarfare.panels;
+	}
+
+
+	/**
+	 * A function to emphasize the first couple of buttons in the panel.
+	 *
+	 * @since  4.0.0 | 14 JUL 2019 | Created
+	 * @param  void
+	 * @return void
+	 *
+	 */
+	socialWarfare.emphasizeButtons = function() {
+
+
+		/**
+		 * If the variable that was passed from the server with the setting
+		 * isn't set, then bail early. Gracefully fail.
+		 *
+		 */
+		if (typeof socialWarfare.variables.emphasizeIcons == 'undefined') {
+			return;
+		}
+
+
+		/**
+		 * Don't use this feature on mobile. This is a desktop only feature.
+		 *
+		 */
+		if (socialWarfare.isMobile()) {
+			return;
+		}
+
+
+		/**
+		 * Loop through each buttons panel on the page. Within each panel, we'll
+		 * loop through each of the buttons and emphasize them.
+		 *
+		 */
+		jQuery(".swp_social_panel:not(.swp_social_panelSide)").each(function(i, panel){
+			jQuery(panel).find(".nc_tweetContainer:not(.total_shares)").each( function(index, button) {
+				if( index < socialWarfare.variables.emphasizeIcons) {
+
+					var shareWidth     = jQuery(button).find(".swp_share").width();
+					var iconWidth      = jQuery(button).find("i.sw").outerWidth();
+					var iconTextWidth  = shareWidth + iconWidth + 35;
+					var containerWidth = jQuery(button).width();
+					var change         = 1 + ((shareWidth + 35) / containerWidth);
+
+					if(change < 2) {
+						jQuery(button)
+							.addClass("swp_nohover")
+							.css({'flex': '2 1 0%'})
+							.find('.iconFiller')
+							.width(iconTextWidth);
+					} else {
+						jQuery(button)
+							.addClass("swp_nohover")
+							.css({'flex': change  + ' 1 0%'})
+							.find('.iconFiller')
+							.width(iconTextWidth);
+					}
+				}
+			});
+		});
 	}
 
 
@@ -307,6 +369,8 @@ window.socialWarfare = window.socialWarfare || {};
 	 * Manager if the user has that feature enabled.
 	 *
 	 * @since  1.0.0 | 01 JAN 2018 | Created
+	 * @since  4.0.0 | 25 FEB 2020 | Added "Print" button functionality.
+	 * @since  4.0.0 | 28 FEB 2020 | Added the Pinterest multi image section.
 	 * @param  void
 	 * @return bool Returns false on failure.
 	 *
@@ -324,6 +388,46 @@ window.socialWarfare = window.socialWarfare || {};
 		 */
 		$('.nc_tweet, a.swp_CTT').off('click');
 		$('.nc_tweet, a.swp_CTT').on('click', function(event) {
+
+
+			/**
+			 * This will intercept clicks that are made on the "Print" button
+			 * and trigger the window.print() method opening the browser's print
+			 * functionality.
+			 *
+			 */
+			if($(this).parent('.swp_print').length > 0) {
+				event.preventDefault();
+				window.print();
+				return;
+			}
+
+
+			/**
+			 * This will intercept clicks that are made on the Pinterest button
+			 * if the Pinterest button is set to display multiple images
+			 * available to the user to choose from. This will trigger the
+			 * lightbox overlay presenting the images to the user.
+			 *
+			 */
+			if( true === $(this).hasClass('pinterest_multi_image_select') ) {
+				event.preventDefault();
+				socialWarfare.openMultiPinterestOverlay( $(this) );
+				return;
+			}
+
+
+			/**
+			 * This will intercept clicks that are made on the "More" button and
+			 * load up our lightbox containing the buttons panels with all of
+			 * the available buttons for the entire plugin.
+			 *
+			 */
+			if($(this).parent('.swp_more').length > 0) {
+				event.preventDefault();
+				socialWarfare.openMoreOptions( $(this) );
+				return;
+			}
 
 
 			/**
@@ -350,7 +454,7 @@ window.socialWarfare = window.socialWarfare || {};
 			 * we need to make sure that this attribute exists.
 			 *
 			 */
-			if ('undefined' == typeof $(this).data('link')) {
+			if ('undefined' == typeof $(this).data('link') && false === $(this).is('.swp-hover-pin-button')) {
 				return event;
 			}
 
@@ -390,10 +494,11 @@ window.socialWarfare = window.socialWarfare || {};
 			 * that we set above.
 			 *
 			 */
-			if ($(this).is('.pinterest, .buffer_link, .flipboard')) {
+			if ($(this).is('.swp_pinterest a, .buffer_link a, .flipboard a, .swp-hover-pin-button')) {
 				height = 550;
 				width = 775;
 			}
+
 
 			/**
 			 * If a button was clicked, use the data-network attribute to
@@ -415,12 +520,334 @@ window.socialWarfare = window.socialWarfare || {};
 			 *
 			 */
 			top = window.screenY + (window.innerHeight - height) / 2;
- 			left = window.screenX + (window.innerWidth - width) / 2;
- 			windowAttributes = 'height=' + height + ',width=' + width + ',top=' + top + ',left=' + left;
- 			instance = window.open(href, network, windowAttributes);
+			left = window.screenX + (window.innerWidth - width) / 2;
+			windowAttributes = 'height=' + height + ',width=' + width + ',top=' + top + ',left=' + left;
+			instance = window.open(href, network, windowAttributes);
+
 			// Active Google Analytics event tracking for the button click.
 			socialWarfare.trackClick(network);
 		});
+	}
+
+
+	/**
+	 * The openMultiPinterestOverlay() function will control the overlay that
+	 * appears on the screen when the user has multiple Pinterest images
+	 * available to choose from.
+	 *
+	 * @since  4.0.0 | 28 FEB 2020 | Created
+	 * @param  object element The Pinterest button DOM element that was clicked.
+	 * @return void
+	 *
+	 */
+	socialWarfare.openMultiPinterestOverlay = function( element ) {
+
+		// If the overly has already been loaded once, just fade it in.
+		if( $('.pinterest-overlay').length > 0 ) {
+			$('.pinterest-overlay').fadeIn();
+			$('.swp-lightbox-inner').scrollTop(0);
+			return;
+		}
+
+
+		/**
+		 * We'll use this variable to store the string of html as we build it out.
+		 *
+		 */
+		var html = '';
+
+
+		/**
+		 * The pin data will be a JSON encoded array of data needed to build the
+		 * Pinterest image selection overlay. It will contain the following data:
+		 *
+		 * description - The Pinterest Description
+		 * url         - The processes, shareable link to the post.
+		 * images      - An array of image URL's to populate the selection.
+		 *
+		 */
+		var pin_data = element.data('pins');
+		var pin_images = '';
+
+
+		/**
+		 * We'll loop through each available image that the user has provided
+		 * and create a pinnable link to each one for the end user to select from.
+		 *
+		 */
+		pin_data.images.forEach( function( image ) {
+
+			// Build the share link for this image.
+			var share_url = 'https://pinterest.com/pin/create/button/?url=' + pin_data.url +
+			'&media=' + image +
+			'&description=' + encodeURIComponent( pin_data.description );
+
+			// Build out the HTML for the image and button.
+			var pin_html = '';
+			pin_html += '<div class="pin_image_select_wrapper">';
+			pin_html += '<img class="pin_image" src="'+ image +'" />';
+			pin_html += '<a class="swp-hover-pin-button" href="'+ share_url +'" data-link="'+ share_url +'">Save</a>';
+			pin_html += '</div>';
+
+			// Add all the images and buttons to the main html.
+			pin_images += pin_html;
+		});
+
+		// Create the html for the lightbox overlay, the title, and the close button.
+		html += '<div class="swp-lightbox-wrapper pinterest-overlay"><div class="swp-lightbox-inner">';
+		html += '<i class="sw swp_pinterest_icon top_icon"></i>';
+		html += '<div class="swp-lightbox-close"></div>';
+		html += '<h5>Which image would you like to pin?</h5>';
+		html += '<div class="pin_images_wrapper">';
+		html += pin_images;
+		html += '</div>';
+		html += socialWarfare.buildPoweredByLink();
+		html += '</div></div>';
+
+		// Append it, and hide it first so that we can fade it in.
+		$('body').append(html);
+		$('.pinterest-overlay').hide().fadeIn();
+
+		// Add the click handlers to the newly added elements (i.e. the buttons)
+		socialWarfare.handleButtonClicks();
+
+
+		/**
+		 * Here we'll loop through all of the images, and find the shortest one.
+		 * We'll then restrict all of them to be that height. This way all of the
+		 * images in the row will be the same height.
+		 *
+		 * Since we're looking for the smalled image, we'll start with an
+		 * insanely high number and every time we encounter one that is shorter,
+		 * we'll overwrite the number with that one.
+		 *
+		 */
+		var max_height = 999999;
+
+
+		/**
+		 * The images.load() will fire each and every time an image in the set
+		 * is loaded. This means that if there are 5 images, it will fire off
+		 * 5 separate times. However, we only want to fire after the last one is
+		 * loaded. As such, we'll count the number of elements, and iterate a
+		 * counter on each lap through the loop. Then once the counter reaches
+		 * the total count of the images, we'll run our function. This means that
+		 * it will only run one time after all of the images have loaded.
+		 *
+		 */
+		var iteration = 0, images = $('.pinterest-overlay .pin_images_wrapper img');
+
+
+		/**
+		 * This will run when each image is loaded, so we'll filter below to
+		 * only run when the last one is finished.
+		 *
+		 * This will cause each of the images to be the same exact height as one
+		 * another while also always filling up 100% of the width of the overlay
+		 * container. It's very similar to the Flick image layout effect.
+		 *
+		 */
+		images.load( function() {
+
+			// This will run after the last image has been loaded.
+			if( ++iteration === images.length ) {
+
+				// This will select all of the images and loop through them.
+				images.each( function() {
+
+					// Check if this image is shorter than the previous image.
+					if( $(this).height() < max_height ) {
+
+						// If it is shorter, this becomes our new "max height"
+						max_height = $(this).height();
+					}
+
+
+				/**
+				 * Once we've looped through all of the images and determined
+				 * the shortest image, now we'll set the height of all of the
+				 * taller images to match the shortest one. Now they are all the
+				 * same height.
+				 *
+				 */
+				}).promise().done( function() {
+
+					// This will make all of the images the same height.
+					images.height(max_height + 'px');
+
+					// Calculate the number of horizontal rows.
+					var number_of_rows = Math.ceil( images.length / 4 );
+
+					// Loop through each row of images.
+					for (i = 0; i < number_of_rows; i++) {
+
+						// Select the images that are in this row.
+						var current_row_images = images.slice( i * 4, i * 4 + 4 );
+
+						// If a row only has 2 images, it will be a maximum of 50% filled.
+						var max_allowable_width = current_row_images.length / 4;
+
+						// Find the total width of the container element.
+						var total_width = $('.pin_images_wrapper').width();
+
+						// Find the total width of all of the images in this row.
+						var total_images_width = 0;
+						current_row_images.each( function() {
+							total_images_width = total_images_width + $(this).width();
+						});
+
+						// Find the ratio between image width and container width.
+						var ratio = total_width / total_images_width;
+
+
+						/**
+						 * This will set the width of each pin to our calculated
+						 * value minus 1% since we add 1% of padding to the side.
+						 *
+						 */
+						current_row_images.each( function() {
+							var new_width = ( ( $(this).width() * ratio / total_width ) * 100) * max_allowable_width - 1;
+							$(this).parent().width( new_width + '%' );
+							$(this).height('auto');
+						});
+
+
+						/**
+						 * Some of the image heights were off by as much as 2px
+						 * from each other. With this, we'll just grab the height
+						 * of the first image in the set and then set all the
+						 * heights and widths to a static measurements.
+						 *
+						 */
+						var height = current_row_images.first().height();
+						current_row_images.each( function() {
+							$(this).width( $(this).width() ).height(height);
+						});
+					}
+				});
+			}
+		});
+
+	}
+
+
+	socialWarfare.buildPoweredByLink = function() {
+		var html = '';
+		if( true === socialWarfare.variables.powered_by_toggle ) {
+			var anchor_tag_open = '';
+			var anchor_tag_close = '';
+
+			if( false !== socialWarfare.variables.affiliate_link ) {
+				anchor_tag_open = '<a href="'+ socialWarfare.variables.affiliate_link +'" target="_blank">';
+				anchor_tag_close = '</a>';
+			}
+
+			html = '<div class="swp_powered_by">'+ anchor_tag_open +'<span>Powered by</span> <img src="/wp-content/plugins/social-warfare/assets/images/admin-options-page/social-warfare-pro-light.png">'+ anchor_tag_close +'</div>';
+
+		}
+		return html;
+	}
+
+
+	/**
+	 * If we preload the images prior to bringing up the overlay, they'll be
+	 * ready so that we can run our resizing algorithms on them and get the
+	 * overlay loaded instantly when called.
+	 *
+	 * @since  4.0.0 | 29 FEB 2020 | Created
+	 * @param  void
+	 * @return void
+	 *
+	 */
+	socialWarfare.preloadPinterestImages = function() {
+
+		// Bail if we don't have a Pinterest Multi-Image setup to preload.
+		if( $('.pinterest_multi_image_select').length < 1 ) {
+			return;
+		}
+
+		// Fetch the pin_data from the data attribute.
+		var pin_data = $('.pinterest_multi_image_select').data('pins');
+
+		// Loop through the Pinterest images and preload them.
+		pin_data.images.forEach( function( image_url ) {
+			var image_object = new Image();
+			image_object.src = image_url;
+		});
+	}
+
+
+	/**
+	 * The openMoreOptions function will open up the lightbox panel that contains
+	 * all of the social network buttons for the entire plugin allowing the user
+	 * to choose from all available sharing options.
+	 *
+	 * @param  void
+	 * @return void
+	 *
+	 */
+	socialWarfare.openMoreOptions = function( element ) {
+
+		// If the options already exist, just reopen them by fading them in.
+		if( $('.swp-more-wrapper').length > 0 ) {
+			$('.swp-more-wrapper').fadeIn();
+			return;
+		}
+
+		// Fetch the post_id from the parent container, the buttons panel.
+		var post_id = element.parents('.swp_social_panel').data('post-id');
+
+		// Setup the data for the admin-ajax call to fetch the button's html.
+		var data = {
+			action: 'swp_buttons_panel',
+			post_id: post_id,
+			_ajax_nonce: swp_nonce
+		};
+
+		// Post the data to the admin-ajax and fetch the html.
+		jQuery.post(swp_ajax_url, data, function(response){
+
+			// Append the fetched html to the body.
+			$('body').append(response);
+
+			// Hide the appended html only so that we can fade it into view.
+			$('.swp-lightbox-wrapper').hide().fadeIn();
+
+			// Activate the hover states and button click handlers.
+			socialWarfare.activateHoverStates();
+			socialWarfare.handleButtonClicks();
+		});
+	}
+
+
+	/**
+	 * The closeLightboxOverlay() function will handle clicks on the red X in the
+	 * corner of the more options box and will fade the lightbox out of view.
+	 *
+	 * @param  void
+	 * @return void
+	 *
+	 */
+	socialWarfare.closeLightboxOverlay = function() {
+
+		// Handle clicks on the red X
+		$('body').on('click','.swp-lightbox-close', function() {
+
+			// Fade the lightbox out of view and scroll it to the top so that it
+			// doesn't open midway down the viewport.
+			$('.swp-lightbox-wrapper').fadeOut();
+		});
+
+		// Handle presses of the "Escape" button on the keyboard.
+		$(document).keyup(function(e) {
+			if (e.key === "Escape") {
+
+				// Fade the lightbox out of view and scroll it to the top so that it
+				// doesn't open midway down the viewport.
+				$('.swp-lightbox-wrapper').fadeOut();
+			}
+		});
+
 	}
 
 
@@ -457,12 +884,17 @@ window.socialWarfare = window.socialWarfare || {};
 		var floatLocation       = socialWarfare.panels.staticHorizontal.data("float");
 		var mobileFloatLocation = socialWarfare.panels.staticHorizontal.data("float-mobile");
 		var backgroundColor     = socialWarfare.panels.staticHorizontal.data("float-color");
-		var wrapper             = $('<div class="nc_wrapper" style="background-color:' + backgroundColor + '"></div>');
+		var wrapper             = $('<div class="nc_wrapper swp_floating_horizontal_wrapper" style="background-color:' + backgroundColor + '"></div>');
 		var barLocation         = '';
 
 		//* .swp_social_panelSide is the side floater.
 		if ($(".nc_wrapper").length) {
 			$(".nc_wrapper").remove();
+		}
+
+		//* repeating the code above for the new selector.
+		if ($(".swp_floating_horizontal_wrapper").length) {
+			$(".swp_floating_horizontal_wrapper").remove();
 		}
 
 		//* No floating bars are used at all.
@@ -607,17 +1039,31 @@ window.socialWarfare = window.socialWarfare || {};
 	 * @return void
 	 *
 	 */
-	socialWarfare.toggleFloatingButtons = function() {
+	socialWarfare.updateFloatingButtons = function() {
+		// If buttons are on the page, there must be either a static horizontal
+		if (socialWarfare.panels.staticHorizontal.length) {
+			var panel = socialWarfare.panels.staticHorizontal;
+		}
+
+		// Or a side floating panel.
+		else if (socialWarfare.panels.floatingSide.length) {
+			var panel = socialWarfare.panels.floatingSide;
+		}
+
+		else {
+			return;
+		}
 
 		// Adjust the floating bar
-		var location = socialWarfare.panels.staticHorizontal.data('float');
-		if( true == socialWarfare.isMobile() ) {
-			var location = socialWarfare.panels.staticHorizontal.data('float-mobile');
+		var location = panel.data('float');
+
+		if (true == socialWarfare.isMobile()) {
+			var location = panel.data('float-mobile');
 		}
 
 		//* There are no floating buttons enabled, hide any that might exist.
 		if (location == 'none') {
-			return $(".nc_wrapper, .swp_social_panelSide").hide();
+			return $(".nc_wrapper, .swp_floating_horizontal_wrapper, .swp_social_panelSide").hide();
 		}
 
 		if (socialWarfare.isMobile()) {
@@ -648,7 +1094,7 @@ window.socialWarfare = window.socialWarfare || {};
 		socialWarfare.panels.floatingSide.hide();
 
 		var visibility = socialWarfare.staticPanelIsVisible() ? "collapse" : "visible";
-		$(".nc_wrapper").css("visibility", visibility);
+		$(".nc_wrapper, .swp_floating_horizontal_wrapper").css("visibility", visibility);
 	}
 
 
@@ -660,37 +1106,28 @@ window.socialWarfare = window.socialWarfare || {};
 	 */
 	socialWarfare.toggleFloatingVerticalPanel = function() {
 		var direction = '';
-		var location = socialWarfare.panels.floatingSide.data("float")
+		var location = socialWarfare.panels.floatingSide.data("float");
 		var visible  = socialWarfare.staticPanelIsVisible();
-		var style = "";
+		var offset = "";
 
 		//* This is on mobile and does not use side panels.
 		if (socialWarfare.isMobile()) {
 			return socialWarfare.panels.floatingSide.hide();
 		}
-		socialWarfare.panels.floatingSide.show();
 
-		//* No buttons panel! Manually re-define ${visibility}.
 		if (!socialWarfare.panels.floatingSide || !socialWarfare.panels.floatingSide.length) {
-			if (!socialWarfare.isMobile()) {
-				visible = false;
-			} else {
-				visible = true;
-			}
+			// No buttons panel! Update `visible` to hide floaters.
+			visible = true;
 		}
 
 		if (socialWarfare.panels.floatingSide.data("transition") == "slide") {
-
-			direction = (location.indexOf("left") !== -1) ? "left" : "right";
-			style     = visible ? "-150px" : "5px";
-
+			direction = location;
+			offset     = visible ? "-150px" : "5px";
 			//* Update the side panel CSS with the direction and amount.
-			socialWarfare.panels.floatingSide.css(direction, style);
-
+			socialWarfare.panels.floatingSide.css(direction, offset).show();
 		}
 
 		else {
-
 			/**
 			 * We had problems with the fading buttons flickering rather than having
 			 * a smooth fade animation. The workaround was to manually control opacity,
@@ -715,7 +1152,7 @@ window.socialWarfare = window.socialWarfare || {};
 
 	socialWarfare.hasReferencePanel = function() {
 		return typeof socialWarfare.panels.staticHorizontal != 'undefined' &&
-		              socialWarfare.panels.staticHorizontal.length > 0
+					  socialWarfare.panels.staticHorizontal.length > 0
 	}
 
 
@@ -746,7 +1183,7 @@ window.socialWarfare = window.socialWarfare || {};
 
 		//* Restore the padding to initial values.
 		if (socialWarfare.staticPanelIsVisible()) {
-			$(".nc_wrapper").hide();
+			$(".nc_wrapper, .swp_floating_horizontal_wrapper").hide();
 
 
 			if (socialWarfare.isMobile() && $("#wpadminbar").length) {
@@ -757,16 +1194,16 @@ window.socialWarfare = window.socialWarfare || {};
 		// Add some padding to the page so it fits nicely at the top or bottom.
 		else {
 			newPadding += 50;
-			$(".nc_wrapper").show();
+			$(".nc_wrapper, .swp_floating_horizontal_wrapper").show();
 
-            //* Compensate for the margin-top added to <html> by #wpadminbar.
+			//* Compensate for the margin-top added to <html> by #wpadminbar.
 			if (socialWarfare.isMobile() && location == 'top' && $("#wpadminbar").length) {
 				$("#wpadminbar").css("top", panel.parent().height());
 			}
 		}
 
 		//* Update padding to be either initial values, or to use padding for floatingHorizontal panels.
-        $("body").css(paddingProp, newPadding);
+		$("body").css(paddingProp, newPadding);
 	}
 
 
@@ -843,20 +1280,129 @@ window.socialWarfare = window.socialWarfare || {};
 	 *
 	 ***************************************************************************/
 
+	// Create a single instance of the save button and store it in socialWarfare.
+		socialWarfare.createHoverSaveButton = function() {
 
-	 /**
-	 * This reactivates and creates new image hover pin buttons when a page has
-	 * been loaded via AJAX. The 'load' event is the proper event that theme and
-	 * plugin creators are supposed to use when the AJAX load is complete.
+
+	   /**
+	    * This is a compatibility patch to make our plugin work nicely with the
+	    * Thrive Architect plugin. This will do two things:
+	    *
+	    * 1. It will stop the Pinterest Save button from appearing on images
+	    * when the post being loaded is inside of the Thrive Architect page
+	    * builder/editor.
+	    *
+	    * 2. It will locate any old Save buttons that have been added previously
+	    * that were then erroneously saved in the database. This way, whenever
+	    * they edit a post, it will simultanously repair/remove the invalid
+	    * markup that was stored in the database.
+	    *
+	    */
+		if( $('.tve_editor_page').length ) {
+			$('.sw-pinit-button').remove();
+			$('.sw-pinit').each( function() {
+				var inner_content = $('.sw-pinit').contents();
+				$(this).replaceWith(inner_content);
+			});
+			return;
+		}
+
+		var button = $(document.createElement("a"));
+		button.css("display: none");
+		button.addClass("swp-hover-pin-button");
+		button.text("Save");
+		socialWarfare.hoverSaveButton = $(button);
+		return button;
+	}
+
+
+	/**
+	 * Find all images of the images that are in the content area by looking
+	 * for the .swp-content-locator div which is an empty div that we add via
+	 * the_content() hook just so that we can target it here. Then iterate
+	 * through them and determine if we should add a Pinterest save button.
 	 *
 	 */
-	$(window).on('load', function() {
+	socialWarfare.triggerImageListeners = function() {
+		$(".swp-content-locator").parent().find("img").off('mouseenter', socialWarfare.renderPinterestSaveButton)
+		$(".swp-content-locator").parent().find("img").on('mouseenter', socialWarfare.renderPinterestSaveButton)
 
-		if ('undefined' !== typeof swpPinIt && swpPinIt.enabled) {
-			socialWarfare.enablePinterestSaveButtons();
+		// We need to assign the hover callback to new images
+		// loaded by ajax as the visitor scrolls through the page.
+		setTimeout(socialWarfare.triggerImageListeners, 2000);
+	}
+
+	socialWarfare.getPinMedia = function( image ) {
+		/**
+		 * If the swpPinIt.image_source variable exists, it means that the user
+		 * forces their custom Pinterest image instaed of the visitor's selection.
+		 *
+		 */
+		if (isString(swpPinIt.image_source)) {
+			return swpPinIt.image_source;
 		}
-		window.clearCheckID = 0;
-	});
+
+		// Most images will have a src already defined, this gets top priority.
+		if (isString(image.attr("src"))) {
+			return image.attr("src");
+		}
+
+		// Otherise check common data-attributes for an image source.
+		var dataSources = ['src', 'lazy-src', 'media'];
+		var media = '';
+
+		// Search for the first existing value and keep it if found.
+		dataSources.some(function(maybeSource) {
+			if (isString(image.data(maybeSource))) {
+			  media = image.data(maybeSource);
+			  return true;
+			}
+		})
+
+		if (media == '') {
+		  return;
+		}
+
+		// Use a jQuery image to guarantee we have an absolute path to the resource.
+		// Pinterest throws an error when passed a relative path.
+		var i = $("<img>");
+		i.attr("src", media)
+		return i.prop("src");
+	}
+
+
+	/**
+	 * This is where we compute a description that will be used when the
+	 * image is shared to Pinterest. In order of precedence, we will use the
+	 * image's data-pin-description attribute, the custom Pinterest description
+	 * for the post passed from the server, the image title, or the image
+	 * description.
+	 *
+	 */
+	socialWarfare.getPinDescription = function(image) {
+    if (isString(image.data("pin-description"))) {
+			return image.data("pin-description");
+		}
+
+
+		if (isString(swpPinIt.image_description)) {
+			return swpPinIt.image_description;
+		}
+
+		// Try image Title or Alt text.
+		if (isString(image.attr("title"))) {
+			return image.attr("title");
+		}
+
+		if (isString(image.attr("alt"))) {
+			return image.attr("alt");
+		}
+
+		// Default to the post title if nothing else is found.
+		if (isString(swpPinIt.post_title)) {
+			return swpPinIt.post_title;
+		}
+	}
 
 
 	/**
@@ -871,41 +1417,84 @@ window.socialWarfare = window.socialWarfare || {};
 	 *
 	 */
 	socialWarfare.enablePinterestSaveButtons = function() {
+		  /**
+		   * Search and Destroy: This will find any Pinterest buttons that were
+		   * added via their browser extension and then destroy them so that only
+		   * ours are on the page.
+		   *
+		   */
+		  jQuery('img').on('mouseenter', function() {
+				var pinterestBrowserButtons = socialWarfare.findPinterestBrowserSaveButtons();
+				if (typeof pinterestBrowserButtons != 'undefined' && pinterestBrowserButtons) {
+					  socialWarfare.removePinterestBrowserSaveButtons(pinterestBrowserButtons);
+				}
+		  });
+	}
 
 
-		/**
-		 * Search and Destroy: This will find any Pinterest buttons that were
-		 * added via their browser extension and then destroy them so that only
-		 * ours are on the page.
-		 *
-		 */
-		var pinterestBrowserButtons = socialWarfare.findPinterestBrowserSaveButtons();
-		if (typeof pinterestBrowserButtons != 'undefined' && pinterestBrowserButtons) {
-			socialWarfare.removePinterestBrowserSaveButtons(pinterestBrowserButtons);
+  socialWarfare.toggleHoverSaveDisplay = function(image) {
+	  var top = image.offset().top;
+	  var left = image.offset().left;
+	  var vMargin = 15;
+	  var hMargin = 15;
+	  var button_size = swpPinIt.button_size || 1;
+	  var buttonHeight = 24;
+	  var buttonWidth = 120;
+	  // Known height from CSS is 34 px.
+	  // Known width  from CSS is 120 px.
+
+	   switch (swpPinIt.vLocation) {
+		 case "top" :
+			 top += vMargin;
+			 break;
+
+		 case "middle" :
+			 var offset = image.height() / 2 - (vMargin / 2) - (buttonHeight / 2);
+			 top += offset;
+			 break;
+
+		 case "bottom" :
+			 top +=  image.height() - vMargin - buttonHeight;
+			 break;
+	   }
+
+
+		switch (swpPinIt.hLocation) {
+		  case "left" :
+			  left += hMargin;
+			  break;
+
+		  case "center" :
+			  var offset = image.width() / 2 - (hMargin / 2) - (buttonWidth / 2);
+			  left += offset;
+			  break;
+
+		  case "right" :
+			  left += image.width() - hMargin - buttonWidth;
+			  break;
 		}
 
 
-		/**
-		 * Find all images of the images that are in the content area by looking
-		 * for the .swp-content-locator div which is an empty div that we add via
-		 * the_content() hook just so that we can target it here. Then iterate
-		 * through them and determine if we should add a Pinterest save button.
-		 *
-		 */
-		$('.swp-content-locator').parent().find('img').each(socialWarfare.renderPinterestSaveButton);
+	socialWarfare.hoverSaveButton.css({
+		"top": top,
+		"left": left,
+		"transform": "scale(" + button_size + ")",
+		"transform-origin": swpPinIt.vLocation + ' ' + swpPinIt.hLocation,
+	});
 
 
-		/**
-		 * Attach a click handler to each of the newly created "Save" buttons,
-		 * and trigger the click tracking function.
-		 *
-		 */
-		$('.sw-pinit .sw-pinit-button').on('click', function(event) {
-			event.preventDefault();
-			window.open($(this).attr('href'), 'Pinterest', 'width=632,height=253,status=0,toolbar=0,menubar=0,location=1,scrollbars=1');
-			socialWarfare.trackClick('pin_image');
-		});
-	}
+	  // Entering the button from the image triggers mouseleave and mouseenter.
+	  // Keep the button where it would otherwise disappear due to a mouseleave.
+	  image.on("mouseleave", function(event) {
+
+		  if (event.relatedTarget != null && event.relatedTarget.className == 'swp-hover-pin-button') {
+			return;
+		  }
+		  $(".swp-hover-pin-button").remove();
+	  });
+
+	  $(document.body).append(socialWarfare.hoverSaveButton);
+  }
 
 
 	/**
@@ -915,128 +1504,69 @@ window.socialWarfare = window.socialWarfare || {};
 	* @since  void
 	*
 	*/
-	socialWarfare.renderPinterestSaveButton = function() {
-		var image, pinMedia, pinDesc, bookmark, imageClasses, imageStyles, shareLink;
-		image = $(this);
+	socialWarfare.renderPinterestSaveButton = function(event) {
+	  if (event.relatedTarget && event.relatedTarget.className == 'swp-hover-pin-button') {
+		return;
+	  }
 
-		/**
-		 * This disables the Pinterest save buttosn on images that are anchors/links
-		 * if the user has them disabled on them in the options page. So if this
-		 * image is a link, we just bail out.
-		 *
-		 */
-		if (typeof swpPinIt.disableOnAnchors != undefined && swpPinIt.disableOnAnchors) {
-			if ($(image).parents().filter("a").length) {
+	  if ($(".swp-hover-pin-button").length > 0) {
+		  return;
+	  }
+
+	  var image = $(event.target);
+		  /**
+		   * This disables the Pinterest save buttons on images that are anchors/links
+		   * if the user has them disabled on them in the options page. So if this
+		   * image is a link, we just bail out.
+		   *
+		   */
+		  if (typeof swpPinIt.disableOnAnchors != undefined && swpPinIt.disableOnAnchors) {
+				if (image.parents().filter("a").length) {
+					  return;
+				}
+		  }
+
+		  /**
+		   * In the option page, the user can set a minimum width and a minimum
+		   * height. Anything that isn't as large as these image dimensions will
+		   * be skipped. This is a JS variable that is generated and output by
+		   * the server.
+		   *
+		   */
+		  if (image.outerHeight() < swpPinIt.minHeight || image.outerWidth() < swpPinIt.minWidth) {
 				return;
-			}
-		}
+		  }
 
+		  /**
+		   * We offer users the option to manually opt any image out of having a
+		   * Pinterest save button on it by simply adding either the no_pin class
+		   * or the no-pin class. There is also a checkbox in the media uploader
+		   * that when checked will add one of these classes. If this image has
+		   * one, skip it.
+		   *
+		   */
+		  if (image.hasClass('no_pin') || image.hasClass('no-pin')) {
+				return;
+		  }
 
-		/**
-		 * In the option page, the user can set a minimum width and a minimum
-		 * height. Anything that isn't as large as these image dimensions will
-		 * be skipped. This is a JS variable that is generated and output by
-		 * the server.
-		 *
-		 */
-		if (image.outerHeight() < swpPinIt.minHeight || image.outerWidth() < swpPinIt.minWidth) {
-			return;
-		}
+	  socialWarfare.toggleHoverSaveDisplay(image);
 
+	  var description = socialWarfare.getPinDescription(image);
+	  var media = socialWarfare.getPinMedia(image);
+	  var shareLink = 'http://pinterest.com/pin/create/bookmarklet/?media=' + encodeURI(media) + '&url=' + encodeURI(document.URL) + '&is_video=false' + '&description=' + encodeURIComponent(description);
 
-		/**
-		 * We offer users the option to manually opt any image out of having a
-		 * Pinterest save button on it by simply adding either the no_pin class
-		 * or the no-pin class. There is also a checkbox in the media uploader
-		 * that when checked will add one of these classes. If this image has
-		 * one of these classes, just bail and skip this image.
-		 *
-		 */
-		if (image.hasClass('no_pin') || image.hasClass('no-pin')) {
-			return;
-		}
+	  function openPinterestDialogue(event) {
+      var offsetLeft = ($(window).width() - 775) / 2;
+      var offsetTop = ($(window).height() - 550) / 2;
+      var position = ',top=' + offsetTop + ',left=' + offsetLeft;
 
+		  window.open(shareLink, 'Pinterest', 'width=775,height=550,status=0,toolbar=0,menubar=0,location=1,scrollbars=1' + position);
+		  socialWarfare.trackClick('pin_image');
+		  $(".swp-hover-pin-button").remove();
+	  }
 
-		/**
-		 * If the swpPinIt.image_source variable exists, it means that the user
-		 * has opted to use their custom Pinterest image rather than having
-		 * visitors pin the actual image being hovered.
-		 *
-		 */
-		if ('undefined' !== typeof swpPinIt.image_source) {
-
-			/**
-			 * By creating a temporary image and then using jQuery to fetch the
-			 * URL of that image, it will convert any relative paths to
-			 * absolute paths. If we send a relative path image to Pinterest, it
-			 * will throw wonky errors.
-			 *
-			 */
-			var i = new Image();
-			i.src = swpPinIt.image_source;
-			pinMedia = $(i).prop('src');
-
-
-		/**
-		 * Both media and lazy-src are data attributes used by some lazy loading
-		 * plugins. If we don't look for these, we're not able to add the save
-		 * button to lazy loaded images that have not been loaded when the
-		 * document has been loaded.
-		 *
-		 */
-		} else if (image.data('media')) {
-			pinMedia = image.data('media');
-		} else if ($(this).data('lazy-src')) {
-			pinMedia = $(this).data('lazy-src');
-		} else if (image[0].src) {
-			pinMedia = image[0].src;
-		}
-
-		// Bail if we don't have any media to pin.
-		if (!pinMedia || 'undefined' === typeof pinMedia) {
-			return;
-		}
-
-
-		/**
-		 * This is where we compute a description that will be used when the
-		 * image is shared to Pinterest. In order of precedence, we will use the
-		 * image's data-pin-description attribute, the custom Pinterest description
-		 * for the post passed from the server, the image title, or the image
-		 * description.
-		 *
-		 */
-		if (typeof image.data("pin-description") != 'undefined') {
-			pinDesc = image.data("pin-description");
-		} else if ('undefined' !== typeof swpPinIt.image_description) {
-			pinDesc = swpPinIt.image_description;
-		} else if (image.attr('title')) {
-			pinDesc = image.attr('title');
-		} else if (image.attr('alt')) {
-			pinDesc = image.attr('alt');
-		}
-
-		shareLink = 'http://pinterest.com/pin/create/bookmarklet/?media=' + encodeURI(pinMedia) + '&url=' + encodeURI(document.URL) + '&is_video=false' + '&description=' + encodeURIComponent(pinDesc);
-
-
-		/**
-		 * In order to preserve all of the layout, positioning and style of the
-		 * image, we are going to fetch all of the classes and inline styles of
-		 * the image and move them onto the parent container in which we will be
-		 * wrapping the image.
-		 *
-		 */
-		imageClasses = image.attr('class');
-		imageStyles  = image.attr('style');
-
-		// Remove the image classes and styles. Create the wrapper div.
-		image.removeClass().attr('style', '').wrap('<div class="sw-pinit" />');
-
-		// Append the button as the last element inside the wrapper div.
-		image.after('<a href="' + shareLink + '" class="sw-pinit-button sw-pinit-' + swpPinIt.vLocation + ' sw-pinit-' + swpPinIt.hLocation + '">Save</a>');
-
-		// Add the removed classes and styles to the wrapper div.
-		image.parent('.sw-pinit').addClass(imageClasses).attr('style', imageStyles);
+	  $(".swp-hover-pin-button").on("click", openPinterestDialogue);
+	  // The elemnt and its event handlers are removed in toggleHoverSaveDisplay().
 	}
 
 
@@ -1048,10 +1578,11 @@ window.socialWarfare = window.socialWarfare || {};
 	 *
 	 */
 	socialWarfare.findPinterestBrowserSaveButtons = function() {
-		var pinterestRed, pinterestZIndex, pinterestBackgroundSize, button, style;
+		var pinterestRed, pinterestRed2019, pinterestZIndex, pinterestBackgroundSize, button, style;
 
 		//* Known constants used by Pinterest.
 		pinterestRed = "rgb(189, 8, 28)";
+		pinterestRed2019 = "rgb(230, 0, 35)";
 		pinterestZIndex = "8675309";
 		pinterestBackgroundSize = "14px 14px";
 		button = null;
@@ -1060,7 +1591,7 @@ window.socialWarfare = window.socialWarfare || {};
 		document.querySelectorAll("span").forEach(function(element, index) {
 			style = window.getComputedStyle(element);
 
-			if (style.backgroundColor == pinterestRed) {
+			if (style.backgroundColor == pinterestRed || style.backgroundColor == pinterestRed2019) {
 				if (style.backgroundSize == pinterestBackgroundSize && style.zIndex == pinterestZIndex) {
 					button = element;
 				}
@@ -1080,7 +1611,7 @@ window.socialWarfare = window.socialWarfare || {};
 		pinterestSquare = button.nextSibling;
 
 		//* The sibling to the Pinterest button is always a span.
-		if (typeof pinterestSquare != 'undefined' && pinterestSquare.nodeName == 'SPAN') {
+		if ( pinterestSquare != undefined && pinterestSquare.nodeName == 'SPAN') {
 			style = window.getComputedStyle(pinterestSquare);
 			size = "24px";
 
@@ -1094,81 +1625,92 @@ window.socialWarfare = window.socialWarfare || {};
 	}
 
 
-	/***************************************************************************
-	 *
-	 *
-	 *    SECTION #5: FACEBOOK SHARE COUNT FUNCTIONS
-	 *
-	 *
-	 ***************************************************************************/
+
+		/***************************************************************************
+		 *
+		 *
+		 *    SECTION #5: FACEBOOK SHARE COUNT FUNCTIONS
+		 *
+		 *
+		 ***************************************************************************/
 
 
-	/**
-	 * Makes external requsts to fetch Facebook share counts. We fetch Facebook
-	 * share counts via the frontened Javascript because their API has harsh
-	 * rate limits that are IP Address based. So it's very easy for a website to
-	 * hit those limits and recieve temporary bans from accessing the share count
-	 * data. By using the front end, the IP Addresses are distributed to users,
-	 * are therefore spread out, and don't hit the rate limits.
-	 *
-	 * @param  void
-	 * @return void
-	 *
-	 */
-	socialWarfare.fetchFacebookShares = function() {
+		/**
+		 * Makes external requsts to fetch Facebook share counts. We fetch Facebook
+		 * share counts via the frontened Javascript because their API has harsh
+		 * rate limits that are IP Address based. So it's very easy for a website to
+		 * hit those limits and recieve temporary bans from accessing the share count
+		 * data. By using the front end, the IP Addresses are distributed to users,
+		 * are therefore spread out, and don't hit the rate limits.
+		 *
+		 * @param  void
+		 * @return void
+		 *
+		 */
+		socialWarfare.fetchFacebookShares = function() {
 
-		// Compile the API links
-		var url1 = 'https://graph.facebook.com/?fields=og_object{likes.summary(true).limit(0)},share&id=' + swp_post_url;
-		var url2 = swp_post_recovery_url ? 'https://graph.facebook.com/?fields=og_object{likes.summary(true).limit(0)},share&id=' + swp_post_recovery_url : '';
+			// Compile the API links
+			var url1 = 'https://graph.facebook.com/v6.0/?fields=og_object{engagement}&id=' + swp_post_url;
+			var url2 = swp_post_recovery_url ? 'https://graph.facebook.com/v6.0/?fields=og_object{engagement}&id=' + swp_post_recovery_url : '';
 
-		// Use this to ensure that we wait until the API requests are done.
-		$.when( $.get( url1 ), $.get( url2 ) )
-		.then(function(response1, response2) {
-			var shares, data;
+			// Record the tested URL's
+			console.log('Facebook Share API: ' + url1 );
+			console.log('Facebook Share API (recovery): ' + url2);
 
-			// Parse the shares and add them up into a running total.
-			shares = socialWarfare.parseFacebookShares(response1[0]);
-			if (swp_post_recovery_url) {
-				shares += socialWarfare.parseFacebookShares(response2[0]);
+			// Use this to ensure that we wait until the API requests are done.
+			$.when( $.get( url1 ), $.get( url2 ) )
+			.then(function(response1, response2) {
+				var shares, shares1, shares2, data;
+
+				// Parse the shares and add them up into a running total.
+				shares1 = socialWarfare.parseFacebookShares(response1[0]);
+				shares2 = 0;
+				if (swp_post_recovery_url) {
+					shares2 = socialWarfare.parseFacebookShares(response2[0]);
+				}
+
+				// This will eliminate adding together duplicate data.
+				shares = shares1;
+				if( shares1 !== shares2 ) {
+					shares = shares1 + shares2;
+				}
+
+				// Compile the data and send out the AJAX request to store the count.
+				var data   = {
+					action: 'swp_facebook_shares_update',
+					post_id: swp_post_id,
+					share_counts: shares
+				};
+				$.post(swp_admin_ajax, data, function(response) {
+					console.log(response);
+				});
+
+			});
+		}
+
+
+		/**
+		 * Sums the share data from a facebook API response. This is a utility
+		 * function used by socialWarfare.fetchFacebookShares to allow easy access
+		 * to parsing out the JSON response that we got from Facebook's API and
+		 * converting it into an integer that reflects the tally of all activity
+		 * on the URl in question including like, comments, and shares.
+		 *
+		 * @param  object response The API response received from Facebook.
+		 * @return number The total shares summed from the request, or 0.
+		 *
+		 */
+		socialWarfare.parseFacebookShares = function(response) {
+
+			if ('undefined' === typeof response.og_object) {
+				console.log('Facebook Shares: 0');
+				return 0;
 			}
+			console.log('Facebook Shares: ' + response.og_object.engagement.count);
+			return parseInt(response.og_object.engagement.count);
 
-			// Compile the data and send out the AJAX request to store the count.
-			var data   = {
-				action: 'swp_facebook_shares_update',
-				post_id: swp_post_id,
-				share_counts: shares
-			};
-			$.post(swp_admin_ajax, data);
-
-		});
-	}
-
-
-	/**
-	 * Sums the share data from a facebook API response. This is a utility
-	 * function used by socialWarfare.fetchFacebookShares to allow easy access
-	 * to parsing out the JSON response that we got from Facebook's API and
-	 * converting it into an integer that reflects the tally of all activity
-	 * on the URl in question including like, comments, and shares.
-	 *
-	 * @param  object response The API response received from Facebook.
-	 * @return number The total shares summed from the request, or 0.
-	 *
-	 */
-	socialWarfare.parseFacebookShares = function(response) {
-		var total = 0;
-
-		if ('undefined' !== typeof response.share) {
-			total += parseInt(response.share.share_count);
-			total += parseInt(response.share.comment_count);
 		}
 
-		if (typeof response.og_object != 'undefined') {
-			total += parseInt(response.og_object.likes.summary.total_count);
-		}
-
-		return total;
-	}
 
 
 	/***************************************************************************
@@ -1192,39 +1734,44 @@ window.socialWarfare = window.socialWarfare || {};
 	 * @return function           The callback function.
 	 *
 	 */
-	socialWarfare.throttle = function(delay, callback) {
-		var timeoutID = 0;
-		var lastExec  = 0;
+	// socialWarfare.throttle = function(delay, callback) {
+	// 	var timeoutID = 0;
+	// 	// The previous time `callback` was called.
+	// 	var lastExec  = 0;
+	//
+	// 	function wrapper() {
+	// 		var wrap    = this;
+	// 		var elapsed = +new Date() - lastExec;
+	// 		var args    = arguments;
+	//
+	// 		function exec() {
+	// 			lastExec = +new Date();
+	// 			callback.apply(wrap, args);
+	// 		}
+	//
+	// 		function clear() {
+	// 			timeoutID = 0;
+	// 			lastExec = 0;
+	// 		}
+	//
+	// 		timeoutID && clearTimeout(timeoutID);
+	//
+	// 		if (elapsed > delay) {
+	// 			exec();
+	// 		} else {
+	// 			timeoutID = setTimeout(exec, delay - elapsed);
+	// 		}
+	// 	}
+	//
+	// 	if (socialWarfare.guid) {
+	// 		wrapper.guid = callback.guid = callback.guid || socialWarfareguid++;
+	// 	}
+	//
+	// 	console.log(wrapper)
+	//
+	// 	return wrapper;
+	// };
 
-		function wrapper() {
-			var that    = this;
-			var elapsed = +new Date() - lastExec;
-			var args    = arguments;
-
-			function exec() {
-				lastExec = +new Date();
-				callback.apply(that, args);
-			}
-
-			function clear() {
-				timeoutID = undefined;
-			}
-
-			timeoutID && clearTimeout(timeoutID);
-
-			if (elapsed > delay) {
-				exec();
-			} else {
-				timeoutID = setTimeout(exec, delay - elapsed);
-			}
-		}
-
-		if (socialWarfare.guid) {
-			wrapper.guid = callback.guid = callback.guid || socialWarfareguid++;
-		}
-
-		return wrapper;
-	};
 
 
 	/**
@@ -1359,5 +1906,44 @@ window.socialWarfare = window.socialWarfare || {};
 	socialWarfare.isMobile = function() {
 		return $(window).width() < socialWarfare.breakpoint;
 	}
+
+	/**
+	 * Load the plugin once the DOM has been loaded.
+	 *
+	 */
+	$(document).ready(function() {
+
+		// This is what fires up the entire plugin's JS functionality.
+		socialWarfare.initPlugin();
+		socialWarfare.panels.floatingSide.hide();
+
+
+		/**
+		 * On resize, we're going to purge and re-init the entirety of the
+		 * socialWarfare functions. This will fully reset all of the floating
+		 * buttons which will allow for a clean transition if the size change
+		 * causes the isMobile() check to flip from true to false or vica versa.
+		 *
+		 */
+		$(window).resize(socialWarfare.onWindowResize);
+
+		if ('undefined' !== typeof swpPinIt && swpPinIt.enabled) {
+			socialWarfare.enablePinterestSaveButtons();
+		}
+	});
+
+	/**
+	* This reactivates and creates new image hover pin buttons when a page has
+	* been loaded via AJAX. The 'load' event is the proper event that theme and
+	* plugin creators are supposed to use when the AJAX load is complete.
+	*
+	*/
+   $(window).on('load', function() {
+
+	   if ('undefined' !== typeof swpPinIt && swpPinIt.enabled) {
+		   socialWarfare.enablePinterestSaveButtons();
+	   }
+	   window.clearCheckID = 0;
+   });
 
 })(this, jQuery);

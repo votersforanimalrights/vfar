@@ -5,7 +5,7 @@ $caret = ob_get_clean();
 
 $post_name = get_post() ? get_post()->post_name : '';
 $is_page = is_page();
-$parent_page = $is_page ? get_post( wp_get_post_parent_id() ) : null;
+$parent_page = $is_page ? get_post( wp_get_post_parent_id( get_post() ) ) : null;
 $parent_name = $parent_page ? $parent_page->post_name : '';
 $is_launch = $is_page && ('launch' === $post_name || 'launch-party-waiting-list' === $post_name);
 $is_circus = $is_page && 'may2circus' === $post_name;

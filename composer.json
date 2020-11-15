@@ -1,33 +1,34 @@
 {
-    "name": "vfar/vfar",
-    "description": "Voters for Animal Rights",
-    "type": "project",
-    "repositories":[
-        {
-            "type":"composer",
-            "url":"https://wpackagist.org"
-        }
-    ],
-    "authors": [
-        {
-            "name": "Scott Taylor",
-            "email": "scott.c.taylor@mac.com"
-        }
-    ],
-    "require": {
-        "wpackagist-plugin/social-warfare": "^3.4",
-        "wpackagist-plugin/wordpress-seo": "^9.4"
-    },
-    "config": {
-        "optimize-autoloader": true,
-        "sort-packages": true
-    },
-    "autoload": {
-        "psr-4": {
-            "VFAR\\": "wp-content/themes/eshv/php/"
-        },
-        "files": [
-            "wp-content/themes/eshv/php/functions.php"
-        ]
+  "name": "vfar/vfar",
+  "description": "Voters for Animal Rights",
+  "type": "project",
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
     }
+  ],
+  "authors": [
+    {
+      "name": "Scott Taylor",
+      "email": "scott.c.taylor@mac.com"
+    }
+  ],
+  "require": {
+    "wpackagist-plugin/classic-editor": "*",
+    "wpackagist-plugin/social-warfare": "*",
+    "wpackagist-plugin/wordpress-seo": "*"
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "sort-packages": true
+  },
+  "autoload": {
+    "psr-4": {
+      "VFAR\\": "wp-content/themes/eshv/php/"
+    },
+    "files": [
+      "wp-content/themes/eshv/php/functions.php"
+    ]
+  }
 }

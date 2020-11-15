@@ -11,12 +11,9 @@
 class WPSEO_License_Page_Manager implements WPSEO_WordPress_Integration {
 
 	/**
-	 * @var string Version number for License Page Manager.
-	 */
-	const VERSION_LEGACY = '1';
-
-	/**
-	 * @var string Version number for License Page Manager.
+	 * Version number for License Page Manager.
+	 *
+	 * @var string
 	 */
 	const VERSION_BACKWARDS_COMPATIBILITY = '2';
 
@@ -24,15 +21,15 @@ class WPSEO_License_Page_Manager implements WPSEO_WordPress_Integration {
 	 * Registers all hooks to WordPress.
 	 */
 	public function register_hooks() {
-		add_filter( 'http_response', array( $this, 'handle_response' ), 10, 3 );
+		add_filter( 'http_response', [ $this, 'handle_response' ], 10, 3 );
 
 		if ( $this->get_version() === self::VERSION_BACKWARDS_COMPATIBILITY ) {
 			add_filter( 'yoast-license-valid', '__return_true' );
 			add_filter( 'yoast-show-license-notice', '__return_false' );
-			add_action( 'admin_init', array( $this, 'validate_extensions' ), 15 );
+			add_action( 'admin_init', [ $this, 'validate_extensions' ], 15 );
 		}
 		else {
-			add_action( 'admin_init', array( $this, 'remove_faulty_notifications' ), 15 );
+			add_action( 'admin_init', [ $this, 'remove_faulty_notifications' ], 15 );
 		}
 	}
 
@@ -48,7 +45,7 @@ class WPSEO_License_Page_Manager implements WPSEO_WordPress_Integration {
 			 *
 			 * @api array $extensions The array with extensions.
 			 */
-			apply_filters( 'yoast-active-extensions', array() );
+			apply_filters( 'yoast-active-extensions', [] );
 		}
 
 		$extension_list = new WPSEO_Extensions();
@@ -120,7 +117,7 @@ class WPSEO_License_Page_Manager implements WPSEO_WordPress_Integration {
 	 * @return int The version number
 	 */
 	protected function get_version() {
-		return get_option( $this->get_option_name(), self::VERSION_BACKWARDS_COMPATIBILITY );
+		return WPSEO_Options::get( $this->get_option_name(), self::VERSION_BACKWARDS_COMPATIBILITY );
 	}
 
 	/**
@@ -129,7 +126,7 @@ class WPSEO_License_Page_Manager implements WPSEO_WordPress_Integration {
 	 * @return string The option name.
 	 */
 	protected function get_option_name() {
-		return 'wpseo_license_server_version';
+		return 'license_server_version';
 	}
 
 	/**
@@ -149,7 +146,7 @@ class WPSEO_License_Page_Manager implements WPSEO_WordPress_Integration {
 	 * @param string $server_version The version number to save.
 	 */
 	protected function set_version( $server_version ) {
-		update_option( $this->get_option_name(), $server_version );
+		WPSEO_Options::set( $this->get_option_name(), $server_version );
 	}
 
 	/**
@@ -176,27 +173,27 @@ class WPSEO_License_Page_Manager implements WPSEO_WordPress_Integration {
 	protected function is_expected_endpoint( $url ) {
 		$url_parts = wp_parse_url( $url );
 
-		$is_yoast_com = ( in_array( $url_parts['host'], array( 'yoast.com', 'my.yoast.com' ), true ) );
+		$is_yoast_com = ( in_array( $url_parts['host'], [ 'yoast.com', 'my.yoast.com' ], true ) );
 		$is_edd_api   = ( isset( $url_parts['path'] ) && $url_parts['path'] === '/edd-sl-api' );
 
 		return $is_yoast_com && $is_edd_api;
 	}
 
 	/**
-	 * Creates an instance of Yoast_Notification
+	 * Creates an instance of Yoast_Notification.
 	 *
 	 * @param string $product_name The product to create the notification for.
 	 *
 	 * @return Yoast_Notification The created notification.
 	 */
 	protected function create_notification( $product_name ) {
-		$notification_options = array(
+		$notification_options = [
 			'type'         => Yoast_Notification::ERROR,
 			'id'           => 'wpseo-dismiss-' . sanitize_title_with_dashes( $product_name, null, 'save' ),
 			'capabilities' => 'wpseo_manage_options',
-		);
+		];
 
-		$notification = new Yoast_Notification(
+		return new Yoast_Notification(
 			sprintf(
 				/* translators: %1$s expands to the product name. %2$s expands to a link to My Yoast  */
 				__( 'You are not receiving updates or support! Fix this problem by adding this site and enabling %1$s for it in %2$s.', 'wordpress-seo' ),
@@ -205,7 +202,5 @@ class WPSEO_License_Page_Manager implements WPSEO_WordPress_Integration {
 			),
 			$notification_options
 		);
-
-		return $notification;
 	}
 }

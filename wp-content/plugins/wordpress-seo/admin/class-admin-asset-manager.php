@@ -6,22 +6,31 @@
  */
 
 /**
- * This class registers all the necessary styles and scripts. Also has methods for the enqueing of scripts and styles. It automatically adds a prefix to the handle.
+ * This class registers all the necessary styles and scripts.
+ *
+ * Also has methods for the enqueing of scripts and styles.
+ * It automatically adds a prefix to the handle.
  */
 class WPSEO_Admin_Asset_Manager {
 
 	/**
+	 * Prefix for naming the assets.
+	 *
+	 * @var string
+	 */
+	const PREFIX = 'yoast-seo-';
+
+	/**
+	 * Class that manages the assets' location.
+	 *
 	 * @var WPSEO_Admin_Asset_Location
 	 */
 	protected $asset_location;
 
 	/**
-	 *  Prefix for naming the assets.
-	 */
-	const PREFIX = 'yoast-seo-';
-
-	/**
-	 * @var string prefix for naming the assets.
+	 * Prefix for naming the assets.
+	 *
+	 * @var string
 	 */
 	private $prefix;
 
@@ -64,9 +73,11 @@ class WPSEO_Admin_Asset_Manager {
 	 * @param WPSEO_Admin_Asset $script The script to register.
 	 */
 	public function register_script( WPSEO_Admin_Asset $script ) {
+		$url = $script->get_src() ? $this->get_url( $script, WPSEO_Admin_Asset::TYPE_JS ) : false;
+
 		wp_register_script(
 			$this->prefix . $script->get_name(),
-			$this->get_url( $script, WPSEO_Admin_Asset::TYPE_JS ),
+			$url,
 			$script->get_deps(),
 			$script->get_version(),
 			$script->is_in_footer()
@@ -109,9 +120,9 @@ class WPSEO_Admin_Asset_Manager {
 	}
 
 	/**
-	 * Registers all the styles it recieves.
+	 * Registers all the styles it receives.
 	 *
-	 * @param array $styles Styles that need to be registerd.
+	 * @param array $styles Styles that need to be registered.
 	 */
 	public function register_styles( $styles ) {
 		foreach ( $styles as $style ) {
@@ -127,16 +138,16 @@ class WPSEO_Admin_Asset_Manager {
 	 */
 	public function special_styles() {
 		$flat_version = $this->flatten_version( WPSEO_VERSION );
-		$asset_args   = array(
+		$asset_args   = [
 			'name' => 'inside-editor',
 			'src'  => 'inside-editor-' . $flat_version,
-		);
+		];
 
-		return array( 'inside-editor' => new WPSEO_Admin_Asset( $asset_args ) );
+		return [ 'inside-editor' => new WPSEO_Admin_Asset( $asset_args ) ];
 	}
 
 	/**
-	 * Flattens a version number for use in a filename
+	 * Flattens a version number for use in a filename.
 	 *
 	 * @param string $version The original version number.
 	 *
@@ -168,100 +179,6 @@ class WPSEO_Admin_Asset_Manager {
 	}
 
 	/**
-	 * Registers the WordPress dependencies that exist in 5.0 in case they are not present.
-	 *
-	 * This function can be removed when WordPress 5.1 has been released, because from 5.0 wp-elements will be
-	 * registered earlier, which means we don't have to reregister things.
-	 *
-	 * @return void
-	 */
-	public function register_wp_assets() {
-
-		global $wp_scripts;
-
-		$script = $wp_scripts->query( 'react' );
-
-		// IE11 needs wp-polyfill to be registered before react.
-		if ( $script && ! in_array( 'wp-polyfill', $script->deps, true ) ) {
-			$script->deps[] = 'wp-polyfill';
-		}
-
-		$flat_version = $this->flatten_version( WPSEO_VERSION );
-
-		wp_register_script( 'react', plugins_url( 'js/vendor/react.min.js', WPSEO_FILE ), array(), false, true );
-		wp_register_script( 'react-dom', plugins_url( 'js/vendor/react-dom.min.js', WPSEO_FILE ), array( 'react' ), false, true );
-		wp_register_script( 'lodash-base', plugins_url( 'js/vendor/lodash.min.js', WPSEO_FILE ), array(), false, true );
-		wp_register_script( 'lodash', plugins_url( 'js/vendor/lodash-noconflict.js', WPSEO_FILE ), array( 'lodash-base' ), false, true );
-		wp_register_script( 'wp-polyfill', plugins_url( 'js/dist/babel-polyfill-' . $flat_version . '.min.js', WPSEO_FILE ), array(), false, true );
-
-		wp_register_script(
-			'wp-element',
-			plugins_url( 'js/dist/wp-element-' . $flat_version . '.min.js', WPSEO_FILE ),
-			array( 'lodash', 'wp-polyfill', 'react', 'react-dom' ),
-			false,
-			true
-		);
-
-		wp_register_script(
-			'wp-api-fetch',
-			plugins_url( 'js/dist/wp-apiFetch-' . $flat_version . '.min.js', WPSEO_FILE ),
-			array( 'wp-i18n', 'wp-polyfill' ),
-			false,
-			true
-		);
-
-		wp_register_script(
-			'wp-components',
-			plugins_url( 'js/dist/wp-components-' . $flat_version . '.min.js', WPSEO_FILE ),
-			array( 'lodash', 'wp-api-fetch', 'wp-i18n', 'wp-polyfill', 'wp-compose' ),
-			false,
-			true
-		);
-
-		wp_register_script(
-			'wp-data',
-			plugins_url( 'js/dist/wp-data-' . $flat_version . '.min.js', WPSEO_FILE ),
-			array( 'lodash', 'wp-element', 'wp-polyfill', 'wp-compose' ),
-			false,
-			true
-		);
-
-		wp_register_script(
-			'wp-i18n',
-			plugins_url( 'js/dist/wp-i18n-' . $flat_version . '.min.js', WPSEO_FILE ),
-			array( 'wp-polyfill' ),
-			false,
-			true
-		);
-
-		wp_register_script(
-			'wp-rich-text',
-			plugins_url( 'js/dist/wp-rich-text-' . $flat_version . '.min.js', WPSEO_FILE ),
-			array( 'lodash', 'wp-polyfill', 'wp-data' ),
-			false,
-			true
-		);
-
-		wp_register_script(
-			'wp-compose',
-			plugins_url( 'js/dist/wp-compose-' . $flat_version . '.min.js', WPSEO_FILE ),
-			array( 'lodash', 'wp-polyfill' ),
-			false,
-			true
-		);
-
-		/*
-		 * wp-annotations only exists from Gutenberg 4.3 and onwards, so we register a no-op in earlier versions.
-		 * The no-op achieves that our scripts that depend on this are actually loaded. Because WordPress doesn't
-		 * load a script if any of the dependencies are missing.
-		 */
-		wp_register_script(
-			'wp-annotations',
-			null
-		);
-	}
-
-	/**
 	 * Returns the scripts that need to be registered.
 	 *
 	 * @todo Data format is not self-documenting. Needs explanation inline. R.
@@ -270,8 +187,8 @@ class WPSEO_Admin_Asset_Manager {
 	 */
 	protected function scripts_to_be_registered() {
 		$select2_language = 'en';
-		$user_locale      = WPSEO_Utils::get_user_locale();
-		$language         = WPSEO_Utils::get_language( $user_locale );
+		$user_locale      = WPSEO_Language_Utils::get_user_locale();
+		$language         = WPSEO_Language_Utils::get_language( $user_locale );
 
 		if ( file_exists( WPSEO_PATH . "js/dist/select2/i18n/{$user_locale}.js" ) ) {
 			$select2_language = $user_locale; // Chinese and some others use full locale.
@@ -282,318 +199,529 @@ class WPSEO_Admin_Asset_Manager {
 
 		$flat_version = $this->flatten_version( WPSEO_VERSION );
 
-		return array(
-			array(
-				'name' => 'commons',
+		return [
+			[
+				'name'      => 'commons',
 				// Load webpack-commons for bundle support.
-				'src'  => 'commons-' . $flat_version,
-				'deps' => array(
-					'wp-polyfill'
-				),
-			),
-			array(
+				'src'       => 'commons-' . $flat_version,
+				'in_footer' => false,
+				'deps'      => [
+					'lodash',
+					'wp-polyfill',
+				],
+			],
+			[
 				'name' => 'search-appearance',
 				'src'  => 'search-appearance-' . $flat_version,
-				'deps' => array(
-					self::PREFIX . 'components',
-					self::PREFIX . 'commons',
-				),
-			),
-			array(
-				'name' => 'yoast-modal',
-				'src'  => 'wp-seo-modal-' . $flat_version,
-				'deps' => array(
-					'jquery',
-					'wp-element',
-					'wp-i18n',
-					self::PREFIX . 'components',
-					self::PREFIX . 'commons',
-				),
-			),
-			array(
-				'name' => 'help-center',
-				'src'  => 'wp-seo-help-center-' . $flat_version,
-				'deps' => array(
-					'jquery',
-					'wp-element',
-					'wp-i18n',
-					self::PREFIX . 'components',
-					self::PREFIX . 'commons',
-				),
-			),
-			array(
-				'name' => 'admin-script',
-				'src'  => 'wp-seo-admin-' . $flat_version,
-				'deps' => array(
-					'jquery',
-					'jquery-ui-core',
-					'jquery-ui-progressbar',
-					self::PREFIX . 'select2',
-					self::PREFIX . 'select2-translations',
-					self::PREFIX . 'commons',
-				),
-			),
-			array(
-				'name' => 'admin-media',
-				'src'  => 'wp-seo-admin-media-' . $flat_version,
-				'deps' => array(
-					'jquery',
-					'jquery-ui-core',
-					self::PREFIX . 'commons',
-				),
-			),
-			array(
-				'name' => 'network-admin-script',
-				'src'  => 'wp-seo-network-admin-' . $flat_version,
-				'deps' => array(
-					'jquery',
-					self::PREFIX . 'commons',
-				),
-			),
-			array(
-				'name' => 'bulk-editor',
-				'src'  => 'wp-seo-bulk-editor-' . $flat_version,
-				'deps' => array(
-					'jquery',
-					self::PREFIX . 'commons',
-				),
-			),
-			array(
-				'name' => 'admin-global-script',
-				'src'  => 'wp-seo-admin-global-' . $flat_version,
-				'deps' => array(
-					'jquery',
-					self::PREFIX . 'commons',
-				),
-			),
-			array(
-				'name'      => 'metabox',
-				'src'       => 'wp-seo-metabox-' . $flat_version,
-				'deps'      => array(
-					'jquery',
-					'wp-element',
-					'wp-i18n',
-					'wp-data',
-					'wp-components',
-					self::PREFIX . 'select2',
-					self::PREFIX . 'select2-translations',
-					self::PREFIX . 'commons',
-				),
-				'in_footer' => false,
-			),
-			array(
-				'name' => 'featured-image',
-				'src'  => 'wp-seo-featured-image-' . $flat_version,
-				'deps' => array(
-					'jquery',
-					self::PREFIX . 'commons',
-				),
-			),
-			array(
-				'name'      => 'admin-gsc',
-				'src'       => 'wp-seo-admin-gsc-' . $flat_version,
-				'deps'      => array(
-					self::PREFIX . 'commons',
-				),
-				'in_footer' => false,
-			),
-			array(
-				'name' => 'post-scraper',
-				'src'  => 'wp-seo-post-scraper-' . $flat_version,
-				'deps' => array(
-					'wp-util',
+				'deps' => [
+					'lodash',
 					'wp-api',
 					'wp-element',
 					'wp-i18n',
-					'wp-data',
-					'wp-api-fetch',
-					'wp-annotations',
-					'wp-compose',
-					self::PREFIX . 'replacevar-plugin',
-					self::PREFIX . 'shortcode-plugin',
-					self::PREFIX . 'analysis',
-					self::PREFIX . 'components',
+					self::PREFIX . 'styled-components',
+					self::PREFIX . 'yoast-components',
+					self::PREFIX . 'replacement-variable-editor',
 					self::PREFIX . 'commons',
-				),
-			),
-			array(
-				'name' => 'term-scraper',
-				'src'  => 'wp-seo-term-scraper-' . $flat_version,
-				'deps' => array(
+				],
+			],
+			[
+				'name' => 'yoast-modal',
+				'src'  => 'modal-' . $flat_version,
+				'deps' => [
+					'jquery',
 					'wp-element',
 					'wp-i18n',
-					'wp-data',
-					'wp-api-fetch',
-					'wp-compose',
-					self::PREFIX . 'replacevar-plugin',
-					self::PREFIX . 'analysis',
-					self::PREFIX . 'components',
+					self::PREFIX . 'yoast-components',
 					self::PREFIX . 'commons',
-				),
-			),
-			array(
-				'name' => 'replacevar-plugin',
-				'src'  => 'wp-seo-replacevar-plugin-' . $flat_version,
-				'deps' => array(
-					self::PREFIX . 'analysis',
-					self::PREFIX . 'components',
-					self::PREFIX . 'commons',
-				),
-			),
-			array(
-				'name' => 'shortcode-plugin',
-				'src'  => 'wp-seo-shortcode-plugin-' . $flat_version,
-				'deps' => array(
-					self::PREFIX . 'analysis',
-					self::PREFIX . 'commons',
-				),
-			),
-			array(
-				'name' => 'recalculate',
-				'src'  => 'wp-seo-recalculate-' . $flat_version,
-				'deps' => array(
+				],
+			],
+			[
+				'name' => 'settings',
+				'src'  => 'settings-' . $flat_version,
+				'deps' => [
+					'lodash',
 					'jquery',
 					'jquery-ui-core',
 					'jquery-ui-progressbar',
-					self::PREFIX . 'analysis',
+					'wp-api',
+					self::PREFIX . 'yoast-components',
+					self::PREFIX . 'helpers',
+					self::PREFIX . 'replacement-variable-editor',
+					self::PREFIX . 'redux',
+					self::PREFIX . 'select2',
+					self::PREFIX . 'select2-translations',
 					self::PREFIX . 'commons',
-				),
-			),
-			array(
-				'name' => 'primary-category',
-				'src'  => 'wp-seo-metabox-category-' . $flat_version,
-				'deps' => array(
+				],
+			],
+			[
+				'name' => 'network-admin-script',
+				'src'  => 'network-admin-' . $flat_version,
+				'deps' => [
 					'jquery',
-					'wp-util',
 					'wp-element',
 					'wp-i18n',
-					'wp-components',
-					'wp-data',
 					self::PREFIX . 'commons',
-				),
-			),
-			array(
+				],
+			],
+			[
+				'name' => 'bulk-editor',
+				'src'  => 'bulk-editor-' . $flat_version,
+				'deps' => [
+					'jquery',
+					self::PREFIX . 'commons',
+				],
+			],
+			[
+				'name'      => 'admin-global-script',
+				'src'       => 'admin-global-' . $flat_version,
+				'deps'      => [
+					'jquery',
+					self::PREFIX . 'commons',
+				],
+				'in_footer' => false,
+			],
+			[
+				'name'      => 'block-editor',
+				'src'       => 'block-editor-' . $flat_version,
+				'deps'      => [
+					'lodash',
+					'wp-annotations',
+					'wp-blocks',
+					'wp-components',
+					'wp-compose',
+					'wp-data',
+					'wp-edit-post',
+					'wp-element',
+					'wp-i18n',
+					'wp-plugins',
+					'wp-rich-text',
+					self::PREFIX . 'yoast-components',
+					self::PREFIX . 'legacy-components',
+					self::PREFIX . 'search-metadata-previews',
+					self::PREFIX . 'social-metadata-forms',
+					self::PREFIX . 'analysis',
+				],
+				'in_footer' => false,
+			],
+			[
+				'name'      => 'classic-editor',
+				'src'       => 'classic-editor-' . $flat_version,
+				'deps'      => [
+					'lodash',
+					'wp-api-fetch',
+					'wp-components',
+					'wp-compose',
+					'wp-element',
+					self::PREFIX . 'redux',
+					self::PREFIX . 'yoast-components',
+					self::PREFIX . 'legacy-components',
+					self::PREFIX . 'search-metadata-previews',
+					self::PREFIX . 'social-metadata-forms',
+					self::PREFIX . 'analysis',
+					self::PREFIX . 'helpers',
+				],
+				'in_footer' => false,
+			],
+			[
+				'name'      => 'post-edit',
+				'src'       => 'post-edit-' . $flat_version,
+				'deps'      => [
+					'jquery',
+					'lodash',
+					'wp-api',
+					'wp-api-fetch',
+					'wp-data',
+					'wp-i18n',
+					'wp-is-shallow-equal',
+					'wp-sanitize',
+					'wp-url',
+					'wp-util',
+					self::PREFIX . 'analysis',
+					self::PREFIX . 'block-editor',
+					self::PREFIX . 'commons',
+					self::PREFIX . 'redux',
+					self::PREFIX . 'draft-js',
+					self::PREFIX . 'jed',
+					self::PREFIX . 'style-guide',
+					self::PREFIX . 'feature-flag',
+					self::PREFIX . 'replacement-variable-editor',
+					self::PREFIX . 'search-metadata-previews',
+					self::PREFIX . 'select2',
+					self::PREFIX . 'select2-translations',
+				],
+				'in_footer' => false,
+			],
+			[
+				'name'      => 'post-edit-classic',
+				'src'       => 'post-edit-' . $flat_version,
+				'deps'      => [
+					'jquery',
+					'lodash',
+					'wp-api',
+					'wp-api-fetch',
+					'wp-data',
+					'wp-i18n',
+					'wp-is-shallow-equal',
+					'wp-sanitize',
+					'wp-url',
+					'wp-util',
+					self::PREFIX . 'analysis',
+					self::PREFIX . 'classic-editor',
+					self::PREFIX . 'commons',
+					self::PREFIX . 'draft-js',
+					self::PREFIX . 'jed',
+					self::PREFIX . 'style-guide',
+					self::PREFIX . 'replacement-variable-editor',
+					self::PREFIX . 'search-metadata-previews',
+					self::PREFIX . 'redux',
+					self::PREFIX . 'select2',
+					self::PREFIX . 'select2-translations',
+				],
+				'in_footer' => false,
+			],
+			[
+				'name' => 'term-edit',
+				'src'  => 'term-edit-' . $flat_version,
+				'deps' => [
+					'jquery',
+					'lodash',
+					'wp-sanitize',
+					'wp-element',
+					'wp-i18n',
+					'wp-data',
+					'wp-api-fetch',
+					'wp-components',
+					'wp-compose',
+					'wp-is-shallow-equal',
+					self::PREFIX . 'redux',
+					self::PREFIX . 'draft-js',
+					self::PREFIX . 'jed',
+					self::PREFIX . 'style-guide',
+					self::PREFIX . 'feature-flag',
+					self::PREFIX . 'analysis',
+					self::PREFIX . 'classic-editor',
+					self::PREFIX . 'commons',
+					self::PREFIX . 'yoast-components',
+					self::PREFIX . 'legacy-components',
+					self::PREFIX . 'replacement-variable-editor',
+					self::PREFIX . 'search-metadata-previews',
+					self::PREFIX . 'social-metadata-forms',
+					self::PREFIX . 'select2',
+					self::PREFIX . 'select2-translations',
+				],
+			],
+			[
 				'name'    => 'select2',
 				'src'     => 'select2/select2.full',
 				'suffix'  => '.min',
-				'deps'    => array(
+				'deps'    => [
 					'jquery',
-				),
+				],
 				'version' => '4.0.3',
-			),
-			array(
+			],
+			[
 				'name'    => 'select2-translations',
 				'src'     => 'select2/i18n/' . $select2_language,
-				'deps'    => array(
+				'deps'    => [
 					'jquery',
 					self::PREFIX . 'select2',
-				),
+				],
 				'version' => '4.0.3',
-				'suffix'  => '',
-			),
-			array(
+			],
+			[
 				'name' => 'configuration-wizard',
 				'src'  => 'configuration-wizard-' . $flat_version,
-				'deps' => array(
+				'deps' => [
 					'jquery',
 					'wp-element',
 					'wp-i18n',
-					self::PREFIX . 'components',
+					'wp-api',
+					self::PREFIX . 'helpers',
+					self::PREFIX . 'legacy-components',
 					self::PREFIX . 'commons',
-				),
-			),
-			array(
+				],
+			],
+			[
+				'name' => 'configuration-wizard-package',
+				'src'  => 'yoast/configuration-wizard-' . $flat_version,
+				'deps' => [
+					'jquery',
+					'lodash',
+					'wp-element',
+					'wp-i18n',
+					'wp-api',
+					self::PREFIX . 'helpers',
+					self::PREFIX . 'style-guide',
+					self::PREFIX . 'yoast-components',
+					self::PREFIX . 'commons',
+				],
+			],
+			[
 				'name' => 'reindex-links',
-				'src'  => 'wp-seo-reindex-links-' . $flat_version,
-				'deps' => array(
+				'src'  => 'reindex-links-' . $flat_version,
+				'deps' => [
 					'jquery',
 					'jquery-ui-core',
 					'jquery-ui-progressbar',
 					self::PREFIX . 'commons',
-				),
-			),
-			array(
+				],
+			],
+			[
+				'name' => 'indexation',
+				'src'  => 'indexation-' . $flat_version,
+				'deps' => [
+					'jquery',
+					'jquery-ui-core',
+					'jquery-ui-progressbar',
+					self::PREFIX . 'admin-global-script',
+					self::PREFIX . 'commons',
+					self::PREFIX . 'style-guide',
+					self::PREFIX . 'yoast-components',
+				],
+			],
+			[
 				'name' => 'edit-page-script',
-				'src'  => 'wp-seo-edit-page-' . $flat_version,
-				'deps' => array(
+				'src'  => 'edit-page-' . $flat_version,
+				'deps' => [
 					'jquery',
 					self::PREFIX . 'commons',
-				),
-			),
-			array(
+				],
+			],
+			[
 				'name'      => 'quick-edit-handler',
-				'src'       => 'wp-seo-quick-edit-handler-' . $flat_version,
-				'deps'      => array(
+				'src'       => 'quick-edit-handler-' . $flat_version,
+				'deps'      => [
 					'jquery',
 					self::PREFIX . 'commons',
-				),
+				],
 				'in_footer' => true,
-			),
-			array(
+			],
+			[
 				'name' => 'api',
-				'src'  => 'wp-seo-api-' . $flat_version,
-				'deps' => array(
+				'src'  => 'api-client-' . $flat_version,
+				'deps' => [
 					'wp-api',
 					'jquery',
 					self::PREFIX . 'commons',
-				),
-			),
-			array(
+				],
+			],
+			[
 				'name' => 'dashboard-widget',
-				'src'  => 'wp-seo-dashboard-widget-' . $flat_version,
-				'deps' => array(
+				'src'  => 'dashboard-widget-' . $flat_version,
+				'deps' => [
 					self::PREFIX . 'api',
 					'jquery',
 					'wp-element',
 					'wp-i18n',
-					self::PREFIX . 'components',
+					self::PREFIX . 'helpers',
+					self::PREFIX . 'yoast-components',
+					self::PREFIX . 'style-guide',
+					self::PREFIX . 'analysis-report',
 					self::PREFIX . 'commons',
-				),
-			),
-			array(
+				],
+			],
+			[
 				'name' => 'filter-explanation',
-				'src'  => 'wp-seo-filter-explanation-' . $flat_version,
-				'deps' => array(
+				'src'  => 'filter-explanation-' . $flat_version,
+				'deps' => [
 					'jquery',
 					self::PREFIX . 'commons',
-				),
-			),
-			array(
+				],
+			],
+			[
 				'name' => 'analysis',
 				'src'  => 'analysis-' . $flat_version,
-				'deps' => array(
+				'deps' => [
 					'lodash',
+					'wp-autop',
+					self::PREFIX . 'feature-flag',
+					self::PREFIX . 'jed',
 					self::PREFIX . 'commons',
-				),
-			),
-			array(
+				],
+			],
+			[
+				/**
+				 * Asset for backwards-compatibility, to make sure
+				 * the addons don't break when we change dependencies.
+				 */
 				'name' => 'components',
-				'src'  => 'components-' . $flat_version,
-				'deps' => array(
-					self::PREFIX . 'analysis',
+				'src'  => false,
+				'deps' => [
+					self::PREFIX . 'feature-flag',
+					self::PREFIX . 'helpers',
+					self::PREFIX . 'style-guide',
+					self::PREFIX . 'configuration-wizard-package',
+					self::PREFIX . 'analysis-report',
+					self::PREFIX . 'yoast-components',
+					self::PREFIX . 'replacement-variable-editor',
+					self::PREFIX . 'search-metadata-previews',
+					self::PREFIX . 'social-metadata-forms',
+					self::PREFIX . 'legacy-components',
+				],
+			],
+			[
+				// The `@yoast/components` package.
+				'name' => 'yoast-components',
+				'src'  => 'yoast/components-' . $flat_version,
+				'deps' => [
+					'lodash',
+					'wp-a11y',
+					'wp-i18n',
+					self::PREFIX . 'helpers',
+					self::PREFIX . 'style-guide',
 					self::PREFIX . 'styled-components',
 					self::PREFIX . 'commons',
-				),
-			),
-			array(
+				],
+			],
+			[
+				// The `yoast-components` package.
+				'name' => 'legacy-components',
+				'src'  => 'yoast/yoast-components-' . $flat_version,
+				'deps' => [
+					'lodash',
+					'wp-a11y',
+					'wp-i18n',
+					'wp-dom-ready',
+					self::PREFIX . 'style-guide',
+					self::PREFIX . 'helpers',
+					self::PREFIX . 'yoast-components',
+					self::PREFIX . 'analysis-report',
+					self::PREFIX . 'configuration-wizard-package',
+					self::PREFIX . 'search-metadata-previews',
+					self::PREFIX . 'replacement-variable-editor',
+					self::PREFIX . 'jed',
+					self::PREFIX . 'redux',
+					self::PREFIX . 'styled-components',
+					self::PREFIX . 'draft-js',
+					self::PREFIX . 'commons',
+				],
+			],
+			[
 				'name' => 'structured-data-blocks',
-				'src'  => 'wp-seo-structured-data-blocks-' . $flat_version,
-				'deps' => array(
+				'src'  => 'structured-data-blocks-' . $flat_version,
+				'deps' => [
 					'wp-blocks',
 					'wp-i18n',
 					'wp-element',
+					'wp-is-shallow-equal',
 					self::PREFIX . 'styled-components',
 					self::PREFIX . 'commons',
-				),
-			),
-			array(
+				],
+			],
+			[
+				'name' => 'helpers',
+				'src'  => 'yoast/helpers-' . $flat_version,
+				'deps' => [
+					self::PREFIX . 'styled-components',
+					self::PREFIX . 'commons',
+				],
+			],
+			[
+				'name' => 'feature-flag',
+				'src'  => 'yoast/feature-flag-' . $flat_version,
+				'deps' => [
+					self::PREFIX . 'commons',
+				],
+			],
+			[
+				'name' => 'analysis-report',
+				'src'  => 'yoast/analysis-report-' . $flat_version,
+				'deps' => [
+					'wp-i18n',
+					'react',
+					'react-dom',
+					'lodash',
+					self::PREFIX . 'styled-components',
+					self::PREFIX . 'helpers',
+					self::PREFIX . 'style-guide',
+					self::PREFIX . 'yoast-components',
+					self::PREFIX . 'commons',
+				],
+			],
+			[
+				'name' => 'style-guide',
+				'src'  => 'yoast/style-guide-' . $flat_version,
+				'deps' => [
+					self::PREFIX . 'helpers',
+					self::PREFIX . 'styled-components',
+					self::PREFIX . 'commons',
+				],
+			],
+			[
+				'name' => 'replacement-variable-editor',
+				'src'  => 'yoast/replacement-variable-editor-' . $flat_version,
+				'deps' => [
+					'lodash',
+					'wp-a11y',
+					'wp-i18n',
+					self::PREFIX . 'helpers',
+					self::PREFIX . 'yoast-components',
+					self::PREFIX . 'style-guide',
+					self::PREFIX . 'styled-components',
+					self::PREFIX . 'draft-js',
+					self::PREFIX . 'commons',
+				],
+			],
+			[
+				'name' => 'search-metadata-previews',
+				'src'  => 'yoast/search-metadata-previews-' . $flat_version,
+				'deps' => [
+					'lodash',
+					'wp-a11y',
+					'wp-i18n',
+					self::PREFIX . 'helpers',
+					self::PREFIX . 'style-guide',
+					self::PREFIX . 'yoast-components',
+					self::PREFIX . 'analysis',
+					self::PREFIX . 'replacement-variable-editor',
+					self::PREFIX . 'draft-js',
+					self::PREFIX . 'commons',
+				],
+			],
+			[
+				'name' => 'social-metadata-forms',
+				'src'  => 'yoast/social-metadata-forms-' . $flat_version,
+				'deps' => [
+					'lodash',
+					'wp-i18n',
+					self::PREFIX . 'redux',
+					self::PREFIX . 'yoast-components',
+					self::PREFIX . 'replacement-variable-editor',
+					self::PREFIX . 'style-guide',
+					self::PREFIX . 'styled-components',
+					self::PREFIX . 'commons',
+				],
+			],
+			[
 				'name' => 'styled-components',
 				'src'  => 'styled-components-' . $flat_version,
-				'deps' => array(
+				'deps' => [
 					'wp-element',
-				),
-			),
-		);
+				],
+			],
+			[
+				'name' => 'redux',
+				'src'  => 'redux-' . $flat_version,
+			],
+			[
+				'name' => 'jed',
+				'src'  => 'jed-' . $flat_version,
+			],
+			[
+				'name'      => 'help-scout-beacon',
+				'src'       => 'help-scout-beacon-' . $flat_version,
+				'in_footer' => false,
+				'deps'      => [
+					self::PREFIX . 'styled-components',
+					'wp-element',
+					'wp-i18n',
+				],
+			],
+			[
+				'name' => 'draft-js',
+				'src'  => 'draft-js-' . $flat_version,
+			],
+		];
 	}
 
 	/**
@@ -601,93 +729,109 @@ class WPSEO_Admin_Asset_Manager {
 	 *
 	 * @todo Data format is not self-documenting. Needs explanation inline. R.
 	 *
-	 * @return array styles that need to be registered.
+	 * @return array Styles that need to be registered.
 	 */
 	protected function styles_to_be_registered() {
 		$flat_version = $this->flatten_version( WPSEO_VERSION );
 
-		return array(
-			array(
+		return [
+			[
 				'name' => 'admin-css',
 				'src'  => 'yst_plugin_tools-' . $flat_version,
-				'deps' => array( self::PREFIX . 'toggle-switch' ),
-			),
-			array(
+				'deps' => [ self::PREFIX . 'toggle-switch' ],
+			],
+			[
 				'name' => 'toggle-switch',
 				'src'  => 'toggle-switch-' . $flat_version,
-			),
-			array(
+			],
+			[
 				'name' => 'dismissible',
 				'src'  => 'wpseo-dismissible-' . $flat_version,
-			),
-			array(
-				'name' => 'alerts',
+			],
+			[
+				'name' => 'notifications',
+				'src'  => 'notifications-' . $flat_version,
+			],
+			[
+				'name' => 'alert',
 				'src'  => 'alerts-' . $flat_version,
-			),
-			array(
+			],
+			[
 				'name' => 'edit-page',
 				'src'  => 'edit-page-' . $flat_version,
-			),
-			array(
+			],
+			[
 				'name' => 'featured-image',
 				'src'  => 'featured-image-' . $flat_version,
-			),
-			array(
+			],
+			[
 				'name' => 'metabox-css',
 				'src'  => 'metabox-' . $flat_version,
-				'deps' => array(
+				'deps' => [
 					self::PREFIX . 'select2',
-				),
-			),
-			array(
+					self::PREFIX . 'admin-css',
+					'wp-components',
+				],
+			],
+			[
 				'name' => 'wp-dashboard',
 				'src'  => 'dashboard-' . $flat_version,
-			),
-			array(
+			],
+			[
 				'name' => 'scoring',
 				'src'  => 'yst_seo_score-' . $flat_version,
-			),
-			array(
+			],
+			[
 				'name' => 'adminbar',
 				'src'  => 'adminbar-' . $flat_version,
-			),
-			array(
+				'deps' => [
+					'admin-bar',
+				],
+			],
+			[
 				'name' => 'primary-category',
 				'src'  => 'metabox-primary-category-' . $flat_version,
-			),
-			array(
+			],
+			[
 				'name'    => 'select2',
 				'src'     => 'select2/select2',
 				'suffix'  => '.min',
 				'version' => '4.0.1',
 				'rtl'     => false,
-			),
-			array(
+			],
+			[
 				'name' => 'admin-global',
 				'src'  => 'admin-global-' . $flat_version,
-			),
-			array(
+			],
+			[
 				'name' => 'yoast-components',
 				'src'  => 'yoast-components-' . $flat_version,
-			),
-			array(
+			],
+			[
 				'name' => 'extensions',
 				'src'  => 'yoast-extensions-' . $flat_version,
-			),
-			array(
+			],
+			[
 				'name' => 'filter-explanation',
 				'src'  => 'filter-explanation-' . $flat_version,
-			),
-			array(
+			],
+			[
 				'name' => 'search-appearance',
 				'src'  => 'search-appearance-' . $flat_version,
-			),
-			array(
+				'deps' => [
+					self::PREFIX . 'monorepo',
+				],
+			],
+			[
+				'name' => 'monorepo',
+				'src'  => 'monorepo-' . $flat_version,
+			],
+			[
 				'name' => 'structured-data-blocks',
 				'src'  => 'structured-data-blocks-' . $flat_version,
-				'deps' => array( 'wp-edit-blocks' ),
-			),
-		);
+				'deps' => [ 'wp-edit-blocks' ],
+			],
+		];
 	}
 
 	/**
@@ -700,10 +844,23 @@ class WPSEO_Admin_Asset_Manager {
 	 */
 	protected function get_url( WPSEO_Admin_Asset $asset, $type ) {
 		$scheme = wp_parse_url( $asset->get_src(), PHP_URL_SCHEME );
-		if ( in_array( $scheme, array( 'http', 'https' ), true ) ) {
+		if ( in_array( $scheme, [ 'http', 'https' ], true ) ) {
 			return $asset->get_src();
 		}
 
 		return $this->asset_location->get_url( $asset, $type );
+	}
+
+	/* ********************* DEPRECATED METHODS ********************* */
+
+	/**
+	 * This function is needed for backwards compatibility with Local SEO 12.5.
+	 *
+	 * @deprecated 12.8
+	 * @codeCoverageIgnore
+	 *
+	 * @return void
+	 */
+	public function register_wp_assets() {
 	}
 }

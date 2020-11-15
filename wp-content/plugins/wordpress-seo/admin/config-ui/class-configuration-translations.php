@@ -6,20 +6,28 @@
  */
 
 /**
- * Class WPSEO_Configuration_Structure
+ * Class WPSEO_Configuration_Structure.
  */
 class WPSEO_Configuration_Translations {
 
-	/** @var array Registered steps */
-	protected $translations = array();
+	/**
+	 * Registered steps.
+	 *
+	 * @var array
+	 */
+	protected $translations = [];
 
-	/** @var string The locale */
+	/**
+	 * The locale.
+	 *
+	 * @var string
+	 */
 	protected $locale;
 
 	/**
 	 * Sets the translations based on the file.
 	 *
-	 * @param string $locale The locale to retreive the translations for.
+	 * @param string $locale The locale to retrieve the translations for.
 	 */
 	public function __construct( $locale ) {
 		$this->locale       = $locale;
@@ -27,7 +35,7 @@ class WPSEO_Configuration_Translations {
 	}
 
 	/**
-	 * Retrieve the translations
+	 * Retrieve the translations.
 	 *
 	 * @return array
 	 */
@@ -44,12 +52,13 @@ class WPSEO_Configuration_Translations {
 
 		$file = plugin_dir_path( WPSEO_FILE ) . 'languages/yoast-components-' . $this->locale . '.json';
 		if ( file_exists( $file ) ) {
+			// phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents -- Retrieving a local file.
 			$file = file_get_contents( $file );
 			if ( is_string( $file ) && $file !== '' ) {
 				return json_decode( $file, true );
 			}
 		}
 
-		return array();
+		return [];
 	}
 }

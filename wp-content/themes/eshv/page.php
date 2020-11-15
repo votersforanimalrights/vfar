@@ -1,14 +1,6 @@
 <?php
-$no_title = [
-  '2019animalrights',
-  '2021animalrights',
-  'statenislanddeer',
-  'membership',
-  'birds',
-  'vfar-opposes-dec-proposal-to-remove-protections-from-wildlife-in-new-york',
-  'puppy',
-  'victories'
-];
+$_post = get_post();
+$no_title = get_post_meta( $_post->ID, 'vfar_page_hide_title', true ) === 'yes';
 
 the_post();
 
@@ -46,7 +38,7 @@ get_header() ?>
       <?php }
       } else { ?>
       <?php
-        if ( ! in_array( get_post()->post_name, $no_title ) ) { ?>
+        if ( ! $no_title ) { ?>
           <h2><?php echo $post->post_title ?></h2>
         <?php }
         the_content();

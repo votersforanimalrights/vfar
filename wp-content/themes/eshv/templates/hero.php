@@ -1,5 +1,5 @@
 <?php
-$no_title = ['2019animalrights', '2021animalrights', 'birds'];
+$no_title = ['2019animalrights', '2021animalrights', 'birds', 'victories'];
 
 if ( has_post_thumbnail() ) {
   $thumb = get_the_post_thumbnail();

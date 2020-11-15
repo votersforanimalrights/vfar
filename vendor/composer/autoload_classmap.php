@@ -103,5 +103,6 @@ return array(
     'Composer\\Installers\\YawikInstaller' => $vendorDir . '/composer/installers/src/Composer/Installers/YawikInstaller.php',
     'Composer\\Installers\\ZendInstaller' => $vendorDir . '/composer/installers/src/Composer/Installers/ZendInstaller.php',
     'Composer\\Installers\\ZikulaInstaller' => $vendorDir . '/composer/installers/src/Composer/Installers/ZikulaInstaller.php',
+    'VFAR\\Admin' => $baseDir . '/wp-content/themes/eshv/php/Admin.php',
     'VFAR\\Theme' => $baseDir . '/wp-content/themes/eshv/php/Theme.php',
 );

@@ -1,6 +1,7 @@
 <?php
 $className = '';
 $suppress = array(
+  'furfree',
   'mobile',
   'about-us',
   'may2circus',

@@ -1,33 +1,10 @@
 <?php
+$_post = get_post();
+$no_splash = get_post_meta( $_post->ID, 'vfar_page_hide_splash', true ) === 'yes';
+
 $className = '';
-$suppress = array(
-  'jan28',
-  '2021animalrights',
-  'furfree',
-  'mobile',
-  'about-us',
-  'may2circus',
-  'launch',
-  'donate',
-  'launch-party-waiting-list',
-  'volunteer',
-  'events',
-  'circusvote',
-  'circusparty',
-  'end-the-use-of-exotic-animals-in-the-circus',
-  'action',
-  'endorsements',
-  'election-center',
-  '2019animalrights',
-  'statenislanddeer',
-  'membership',
-  'birds',
-  'vfar-opposes-dec-proposal-to-remove-protections-from-wildlife-in-new-york',
-  'puppy',
-  'banplasticbags',
-  'carriagehorses'
-);
-$show = ! ( is_category() || is_single() || (is_page() && in_array( get_post()->post_name, $suppress )) );
+
+$show = ! ( is_category() || is_single() || (is_page() && $no_splash) );
 if ( $show && ( ! isset( $_COOKIE['splash'] ) || isset( $_GET['splash'] ) ) ) {
   $className = ' auto-modal';
 }

@@ -2,6 +2,7 @@
 namespace VFAR;
 
 class Admin {
+  public $hide_splash_key = 'vfar_page_hide_splash';
   public $hide_title_key = 'vfar_page_hide_title';
   public $hide_title_over_image_key = 'vfar_page_hide_title_over_image';
 
@@ -33,6 +34,7 @@ class Admin {
   }
 
   public function page_meta_box($post) {
+    $this->radio($post, 'Hide splash', $this->hide_splash_key);
     $this->radio($post, 'Hide title', $this->hide_title_key);
     $this->radio($post, 'Hide title over featured image', $this->hide_title_over_image_key);
   }
@@ -59,6 +61,7 @@ class Admin {
       return;
     }
 
+    $this->save_key($post, $this->hide_splash_key);
     $this->save_key($post, $this->hide_title_key);
     $this->save_key($post, $this->hide_title_over_image_key);
   }

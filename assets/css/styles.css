@@ -291,7 +291,6 @@ sup a {
 }
 
 .hamburger {
-  -webkit-background-clip: content-box;
   background-clip: content-box;
   background-color: #3c3d41;
   border: 0;
@@ -1060,7 +1059,15 @@ body {
   color: #f7f7f7;
 }
 
+#can-form-area-get-updates-from-empire-state-humane-voters #can_embed_form_inner #form_col1 input:-moz-placeholder {
+  color: #f7f7f7;
+}
+
 #can-form-area-get-updates-from-empire-state-humane-voters #can_embed_form_inner #form_col1 input::-moz-placeholder {
+  color: #f7f7f7;
+}
+
+#can-form-area-get-updates-from-empire-state-humane-voters #can_embed_form_inner #form_col1 input:-ms-input-placeholder {
   color: #f7f7f7;
 }
 
@@ -1072,7 +1079,13 @@ body {
   #can-form-area-get-updates-from-empire-state-humane-voters #can_embed_form_inner #form_col1 input::-webkit-input-placeholder {
     color: #f7f7f7;
   }
+  #can-form-area-get-updates-from-empire-state-humane-voters #can_embed_form_inner #form_col1 input:-moz-placeholder {
+    color: #f7f7f7;
+  }
   #can-form-area-get-updates-from-empire-state-humane-voters #can_embed_form_inner #form_col1 input::-moz-placeholder {
+    color: #f7f7f7;
+  }
+  #can-form-area-get-updates-from-empire-state-humane-voters #can_embed_form_inner #form_col1 input:-ms-input-placeholder {
     color: #f7f7f7;
   }
   #can-form-area-get-updates-from-empire-state-humane-voters #can_embed_form_inner #form_col1 input::placeholder {
@@ -1623,7 +1636,7 @@ body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters
   }
 }
 
-.content.agenda-content li img {
+.content.agenda-content li .background {
   display: block;
   height: auto;
   position: absolute;
@@ -1638,10 +1651,19 @@ body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters
   z-index: 1;
 }
 
-.content.agenda-content li:hover img {
+.content.agenda-content li:hover .background {
   -webkit-transform: scale(1.1, 1.1);
   -ms-transform: scale(1.1, 1.1);
   transform: scale(1.1, 1.1);
+}
+
+.content.agenda-content li .done {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
 }
 
 .content.agenda-content li span {
@@ -2451,7 +2473,15 @@ html.can_embed-html body {
   color: #878787;
 }
 
+.eshv-email:-moz-placeholder {
+  color: #878787;
+}
+
 .eshv-email::-moz-placeholder {
+  color: #878787;
+}
+
+.eshv-email:-ms-input-placeholder {
   color: #878787;
 }
 
@@ -3335,13 +3365,19 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
   outline: 0;
 }
 
-#modal-form-id input[type='email']::-webkit-input-placeholder,
-#modal-form-id input[type='text']::-webkit-input-placeholder {
+#modal-form-id input[type='email']::-webkit-input-placeholder, #modal-form-id input[type='text']::-webkit-input-placeholder {
   color: #636363;
 }
 
-#modal-form-id input[type='email']::-moz-placeholder,
-#modal-form-id input[type='text']::-moz-placeholder {
+#modal-form-id input[type='email']:-moz-placeholder, #modal-form-id input[type='text']:-moz-placeholder {
+  color: #636363;
+}
+
+#modal-form-id input[type='email']::-moz-placeholder, #modal-form-id input[type='text']::-moz-placeholder {
+  color: #636363;
+}
+
+#modal-form-id input[type='email']:-ms-input-placeholder, #modal-form-id input[type='text']:-ms-input-placeholder {
   color: #636363;
 }
 

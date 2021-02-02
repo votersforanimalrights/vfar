@@ -13,10 +13,14 @@ $issues = get_posts([
     <?php foreach ( $issues as $issue ) {
       $thumb_id = get_post_thumbnail_id( $issue );
       [$src] = wp_get_attachment_image_src( $thumb_id, 'full' );
+      $done = get_post_meta( $issue->ID, 'vfar_agenda_item_done', true ) === 'yes';
     ?>
       <li>
-        <img src="<?php echo $src ?>" />
+        <img src="<?php echo $src ?>" class="background" />
         <div class="agenda-overlay"></div>
+        <?php if ( $done ) { ?>
+          <img src="/wp-content/themes/eshv/images/done.png" class="done" />
+        <?php } ?>
         <span><?php echo nl2br( get_post_meta( $issue->ID, 'vfar_agenda_item_title', true ) ) ?></span>
         <section>
           <div class="agenda-image">

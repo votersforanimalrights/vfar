@@ -18,4 +18,8 @@ gulp.task('fingerprint-assets', () => fingerprint());
 
 gulp.task('build', () => build());
 
-gulp.task('default', () => watchers());
+gulp.task('default', () => {
+  const src = './wp-content/themes/eshv/';
+  gulp.watch([`${src}scss/**/*.scss`], sass);
+  gulp.watch([`${src}js/**/*.js`], js);
+});

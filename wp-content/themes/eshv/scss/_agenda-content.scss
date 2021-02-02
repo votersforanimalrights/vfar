@@ -50,7 +50,7 @@
         width: 290px;
       }
 
-      img {
+      .background {
         display: block;
         height: auto;
         position: absolute;
@@ -61,9 +61,18 @@
       }
 
       &:hover {
-        img {
+        .background {
           transform: scale(1.1, 1.1);
         }
+      }
+
+      .done {
+        position: absolute;
+        height: 50px;
+        width: 50px;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
       }
 
       span {

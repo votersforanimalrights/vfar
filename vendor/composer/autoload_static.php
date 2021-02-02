@@ -131,6 +131,7 @@ class ComposerStaticInitbb39ef6bdf85fe775cba6c3588cb4add
         'Composer\\Installers\\ZendInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/ZendInstaller.php',
         'Composer\\Installers\\ZikulaInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/ZikulaInstaller.php',
         'VFAR\\Admin' => __DIR__ . '/../..' . '/wp-content/themes/eshv/php/Admin.php',
+        'VFAR\\PostTypes' => __DIR__ . '/../..' . '/wp-content/themes/eshv/php/PostTypes.php',
         'VFAR\\Theme' => __DIR__ . '/../..' . '/wp-content/themes/eshv/php/Theme.php',
     );
 

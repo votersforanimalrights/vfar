@@ -104,5 +104,6 @@ return array(
     'Composer\\Installers\\ZendInstaller' => $vendorDir . '/composer/installers/src/Composer/Installers/ZendInstaller.php',
     'Composer\\Installers\\ZikulaInstaller' => $vendorDir . '/composer/installers/src/Composer/Installers/ZikulaInstaller.php',
     'VFAR\\Admin' => $baseDir . '/wp-content/themes/eshv/php/Admin.php',
+    'VFAR\\PostTypes' => $baseDir . '/wp-content/themes/eshv/php/PostTypes.php',
     'VFAR\\Theme' => $baseDir . '/wp-content/themes/eshv/php/Theme.php',
 );

@@ -19,7 +19,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '28180cf22d51b1e0441b6f9e147fa51b28eeabaa',
+    'reference' => 'c2474d69252e6f06c2b2b107520338f900e9aaea',
     'name' => 'vfar/vfar',
   ),
   'versions' => 
@@ -54,7 +54,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '28180cf22d51b1e0441b6f9e147fa51b28eeabaa',
+      'reference' => 'c2474d69252e6f06c2b2b107520338f900e9aaea',
     ),
     'wpackagist-plugin/classic-editor' => 
     array (

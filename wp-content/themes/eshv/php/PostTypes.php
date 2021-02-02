@@ -71,6 +71,7 @@ class PostTypes {
     }
 
     update_post_meta( $post_id, 'vfar_agenda_item_title', stripslashes( $_POST['vfar_agenda_item_title'] ) );
+    update_post_meta( $post_id, 'vfar_agenda_item_done', stripslashes( $_POST['vfar_agenda_item_done'] ) );
   }
 
   public function vfar_agenda_item_meta_box_cb( $post ) {
@@ -82,6 +83,17 @@ class PostTypes {
     );
   }
 
+  private function radio($post, $title, $key) {
+    $stored = empty($post) ? false : get_post_meta($post->ID, $key, true) === 'yes';
+    ?>
+    <p>
+      <strong><?php echo $title ?>:</strong><br />
+      <input type="radio" name="<?php echo $key ?>" value="yes" <?php echo $stored ? 'checked' : '' ?>/> Yes
+      &nbsp;<input type="radio" name="<?php echo $key ?>" value="no" <?php echo $stored ? '' : 'checked' ?>/> No
+    </p>
+    <?php
+  }
+
   public function box( $post ) {
     $title = get_post_meta( $post->ID, 'vfar_agenda_item_title', true );
 ?>
@@ -90,5 +102,6 @@ class PostTypes {
   <textarea class="widefat" rows="8" name="vfar_agenda_item_title"><?php echo esc_textarea( $title ) ?></textarea>
 </p>
 <?php
+    $this->radio( $post, 'Mark as Done', 'vfar_agenda_item_done' );
   }
 }

@@ -1659,11 +1659,20 @@ body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters
 
 .content.agenda-content li .done {
   position: absolute;
-  height: 50px;
-  width: 50px;
-  top: 20px;
-  right: 20px;
+  height: 30px;
+  width: 30px;
+  top: 7px;
+  right: 7px;
   z-index: 1000;
+}
+
+@media only screen and (min-width: 768px) {
+  .content.agenda-content li .done {
+    height: 50px;
+    width: 50px;
+    top: 20px;
+    right: 20px;
+  }
 }
 
 .content.agenda-content li span {

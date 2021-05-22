@@ -2031,12 +2031,22 @@ html.can_embed-html body {
   font-family: "Open Sans", sans-serif;
   font-style: normal;
   font-weight: 700;
-  font-size: 11px;
-  font-size: 0.6875rem;
+  font-size: 10px;
+  font-size: 0.625rem;
   line-height: 20px;
   line-height: 1.25rem;
-  padding: 6px;
+  padding: 3px;
   text-align: left;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .eshv-table th {
+    font-size: 11px;
+    font-size: 0.6875rem;
+    line-height: 20px;
+    line-height: 1.25rem;
+    padding: 6px;
+  }
 }
 
 @media only screen and (min-width: 1050px) {
@@ -2049,13 +2059,6 @@ html.can_embed-html body {
   }
 }
 
-.eshv-table tr > td:first-child {
-  font-size: 16px;
-  font-size: 1rem;
-  line-height: 20px;
-  line-height: 1.25rem;
-}
-
 @media only screen and (min-width: 1050px) {
   .eshv-table tr > td:first-child {
     white-space: nowrap;
@@ -2063,12 +2066,22 @@ html.can_embed-html body {
 }
 
 .eshv-table td {
-  font-size: 14px;
-  font-size: 0.875rem;
+  font-size: 12px;
+  font-size: 0.75rem;
   line-height: 20px;
   line-height: 1.25rem;
   border: 1px solid #eee;
-  padding: 6px;
+  padding: 3px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .eshv-table td {
+    font-size: 14px;
+    font-size: 0.875rem;
+    line-height: 20px;
+    line-height: 1.25rem;
+    padding: 6px;
+  }
 }
 
 @media only screen and (min-width: 1050px) {
@@ -3606,12 +3619,22 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
   font-family: "Open Sans", sans-serif;
   font-style: normal;
   font-weight: 700;
-  font-size: 11px;
-  font-size: 0.6875rem;
+  font-size: 10px;
+  font-size: 0.625rem;
   line-height: 20px;
   line-height: 1.25rem;
-  padding: 6px;
+  padding: 3px;
   text-align: left;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .post-content table th {
+    font-size: 11px;
+    font-size: 0.6875rem;
+    line-height: 20px;
+    line-height: 1.25rem;
+    padding: 6px;
+  }
 }
 
 @media only screen and (min-width: 1050px) {
@@ -3624,13 +3647,6 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
   }
 }
 
-.post-content table tr > td:first-child {
-  font-size: 16px;
-  font-size: 1rem;
-  line-height: 20px;
-  line-height: 1.25rem;
-}
-
 @media only screen and (min-width: 1050px) {
   .post-content table tr > td:first-child {
     white-space: nowrap;
@@ -3638,12 +3654,22 @@ body.action-logged-in #modal-form-id #can_embed_form_inner #action_welcome_messa
 }
 
 .post-content table td {
-  font-size: 14px;
-  font-size: 0.875rem;
+  font-size: 12px;
+  font-size: 0.75rem;
   line-height: 20px;
   line-height: 1.25rem;
   border: 1px solid #eee;
-  padding: 6px;
+  padding: 3px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .post-content table td {
+    font-size: 14px;
+    font-size: 0.875rem;
+    line-height: 20px;
+    line-height: 1.25rem;
+    padding: 6px;
+  }
 }
 
 @media only screen and (min-width: 1050px) {

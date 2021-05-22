@@ -1,9 +1,14 @@
 @mixin table {
   th {
     @include bold;
-    @include size-height(11, 20);
-    padding: 6px;
+    @include size-height(10, 20);
+    padding: 3px;
     text-align: left;
+
+    @include respond-to(tablet) {
+      @include size-height(11, 20);
+      padding: 6px;
+    }
 
     @include respond-to(desktop) {
       @include size-height(14, 20);
@@ -12,18 +17,21 @@
   }
 
   tr > td:first-child {
-    @include size-height(16, 20);
-
     @include respond-to(desktop) {
       white-space: nowrap;
     }
   }
 
   td {
-    @include size-height(14, 20);
+    @include size-height(12, 20);
 
     border: 1px solid $light-grey;
-    padding: 6px;
+    padding: 3px;
+
+    @include respond-to(tablet) {
+      @include size-height(14, 20);
+      padding: 6px;
+    }
 
     @include respond-to(desktop) {
       padding: 8px 15px 8px 8px;

@@ -6,13 +6,19 @@ const TRANSITION_MS = 600;
 function setAgenda(agendaItems) {
   const modal = document.getElementById('agenda-modal');
   const container = modal.querySelector('section');
+  const button = modal.querySelector('.button a');
   const close = modal.querySelector('.modal-close');
   const wrapper = modal.querySelector('.modal-wrapper');
 
   const agendaClick = e => {
     e.preventDefault();
 
-    container.innerHTML = e.currentTarget.querySelector('section').innerHTML;
+    const content = e.currentTarget.querySelector('section');
+
+    container.innerHTML = content.innerHTML;
+    if (content.dataset.buttonUrl) {
+      button.href = content.dataset.buttonUrl;
+    }
 
     modal.style.display = 'block';
     setTimeout(() => {

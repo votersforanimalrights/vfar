@@ -22,7 +22,7 @@ $issues = get_posts([
           <img src="/wp-content/themes/eshv/images/done.png" class="done" />
         <?php } ?>
         <span><?php echo nl2br( get_post_meta( $issue->ID, 'vfar_agenda_item_title', true ) ) ?></span>
-        <section data-button-url="<?php echo get_post_meta( $issue->ID, 'vfar_agenda_item_button_url', true  ?>">
+        <section data-button-url="<?php echo get_post_meta( $issue->ID, 'vfar_agenda_item_button_url', true ) ?>">
           <div class="agenda-image">
             <img src="<?php echo $src ?>" />
           </div>

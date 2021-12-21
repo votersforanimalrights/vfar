@@ -52,7 +52,7 @@ if ( $show && ( ! isset( $_COOKIE['splash'] ) || isset( $_GET['splash'] ) ) ) {
       <p>Be part of the movement.</p>
     </section>
     <div class="button">
-      <a href="/get-involved/">Be Part of the Solution</a>
+      <a href="https://vfar.org/puppy/">Be Part of the Solution</a>
     </div>
   </div>
 </div>

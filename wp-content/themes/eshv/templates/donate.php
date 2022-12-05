@@ -1,4 +1,4 @@
-<div id="paypal-button-container"></div>
+<div id="paypal-button-container" style="margin: 20px 0"></div>
 <script src="https://www.paypal.com/sdk/js?client-id=Ad4J1IxmlNPyPYiAYKfDqqHZQWHtydT6IcKTWSm8zbltxeK3ZnJEEJB9-GfEcfZ0sxqQSl4uIcKnoHNj
 &enable-funding=venmo"></script>
 <script>paypal.Buttons({style: {color: "gold", shape: "pill", layout: "horizontal"},}).render('#paypal-button-container')</script>

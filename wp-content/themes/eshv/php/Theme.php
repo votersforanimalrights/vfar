@@ -10,6 +10,7 @@ class Theme {
     add_action( 'widgets_init', [ $this, 'widgets_init' ] );
     add_filter( 'mce_buttons_2', [ $this, 'mce_buttons' ], 5 );
     add_rewrite_endpoint( 'iframe', EP_PAGES );
+    add_shortcode( 'donate', [ $this, 'donate' ] );
     add_shortcode( 'animals', [ $this, 'animals' ] );
     add_shortcode( 'issues', [ $this, 'issues' ] );
     add_filter( 'wpseo_twitter_creator_account', [ $this, 'wpseo_twitter_creator_account' ] );
@@ -18,6 +19,12 @@ class Theme {
   public function wpseo_twitter_creator_account( $account ) {
     return 'theanimalvoters';
   }
+
+  public function donate() {
+    ob_start();
+    get_template_part('templates/donate');
+    return ob_get_clean();
+  }  
 
   public function animals() {
     ob_start();

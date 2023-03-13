@@ -3,7 +3,7 @@ $issues = get_posts([
   'post_type' => 'vfar_agenda_item',
   'posts_per_page' => -1,
   'order' => 'ASC',
-  'orderby' => 'ID',
+  'orderby' => 'menu_order',
 ]);
 
 ?>

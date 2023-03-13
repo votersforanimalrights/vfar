@@ -38,7 +38,7 @@ class PostTypes {
       'rewrite' => false,
       'show_in_nav_menus' => false,
       'labels' => static::inflection( 'Agenda Item' ),
-      'supports' => [ 'title', 'editor', 'thumbnail' ],
+      'supports' => [ 'title', 'editor', 'thumbnail', 'page-attributes' ],
       'taxonomies' => [ 'post_tag' ],
       'register_meta_box_cb' => [ $this, 'vfar_agenda_item_meta_box_cb' ]
     ] );

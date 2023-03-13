@@ -155,7 +155,8 @@
       &:nth-of-type(10),
       &:nth-of-type(11),
       &:nth-of-type(13),
-      &:nth-of-type(17) {
+      &:nth-of-type(17),
+      &:nth-of-type(18) {
         .agenda-overlay {
           background: rgba(31, 61, 144, 0.6);
         }

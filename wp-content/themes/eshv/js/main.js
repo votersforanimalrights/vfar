@@ -1,6 +1,6 @@
-import modals from './modals';
-import nav from './nav';
-import './splash';
+import modals from './modals.js';
+import nav from './nav.js';
+import './splash.js';
 
 const hero = document.querySelector('.hero');
 

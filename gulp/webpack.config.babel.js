@@ -12,8 +12,7 @@ export default {
       {
         test: /.jsx?$/,
         loader: 'babel-loader',
-        exclude: /node_modules/,
-        query: {
+        options: {
           presets: ['@babel/preset-env'],
         },
       },
@@ -23,9 +22,5 @@ export default {
     path: DEST,
     filename: '[name].js',
   },
-  plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      compress: { warnings: false },
-    }),
-  ],
+  mode: 'production',
 };

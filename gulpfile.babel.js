@@ -1,22 +1,13 @@
 import gulp from 'gulp';
-import watchers from './gulp/watchers';
-// import sprite from './gulp/sprite';
-import sass from './gulp/sass';
-import js from './gulp/webpack';
-import fingerprint from './gulp/fingerprint-assets';
-import build from './gulp/build';
+import sass from './gulp/sass.js';
+import js from './gulp/webpack.js';
+import fingerprint from './gulp/fingerprint-assets.js';
 
 process.env.THEME = 'eshv';
 
-// gulp.task('sprite', () => sprite());
-
-gulp.task('scss-pipeline', () => sass());
-
-gulp.task('js-pipeline', () => js());
-
-gulp.task('fingerprint-assets', () => fingerprint());
-
-gulp.task('build', () => build());
+gulp.task('scss-pipeline', sass);
+gulp.task('js-pipeline', js);
+gulp.task('build', gulp.series(sass, js, fingerprint));
 
 gulp.task('default', () => {
   const src = './wp-content/themes/eshv/';

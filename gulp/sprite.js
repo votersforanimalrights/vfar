@@ -4,9 +4,9 @@ import gulpif from 'gulp-if';
 import sprity from 'sprity';
 import fs from 'fs';
 import replace from 'replace';
-import del from 'del';
-import c from './color-log';
-import fingerprint from './fingerprint-assets';
+import {deleteAsync} from 'del';
+import c from './color-log.js';
+import fingerprint from './fingerprint-assets.js';
 
 const spriteFile = 'sprites/sprite.png';
 const spriteFileRegex = /\.\.\/images\/sprite\.png/g;
@@ -61,7 +61,7 @@ function saveRev() {
 }
 
 export default () =>
-  del(DEST)
+  deleteAsync(DEST)
     .then(mixinSprites)
     .then(cssSprites)
     .then(fingerprint)

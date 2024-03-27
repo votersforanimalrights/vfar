@@ -81,7 +81,7 @@ const handleClick = id => e => {
       }
 
       let to = dest;
-      const delta = difference / duration * 10;
+      const delta = (difference / duration) * 10;
       if (dest > window.scrollY) {
         to = Math.min(window.scrollY + delta, dest);
       } else {

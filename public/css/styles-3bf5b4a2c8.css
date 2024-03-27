@@ -1633,61 +1633,59 @@ body.action-logged-in #can-form-area-get-updates-from-empire-state-humane-voters
   z-index: 2;
 }
 
-.content.agenda-content li:nth-child(1) .agenda-overlay, .content.agenda-content li:nth-child(8) .agenda-overlay, .content.agenda-content li:nth-child(15) .agenda-overlay, .content.agenda-content li:nth-child(22) .agenda-overlay {
+.content.agenda-content li:nth-child(7n + 1) .agenda-overlay {
   background: rgba(6, 131, 205, 0.6);
 }
 
-.content.agenda-content li:nth-child(1):hover .agenda-overlay, .content.agenda-content li:nth-child(8):hover .agenda-overlay, .content.agenda-content li:nth-child(15):hover .agenda-overlay, .content.agenda-content li:nth-child(22):hover .agenda-overlay {
+.content.agenda-content li:nth-child(7n + 1):hover .agenda-overlay {
   background: rgba(6, 131, 205, 0.75);
 }
 
-.content.agenda-content li:nth-child(2) .agenda-overlay, .content.agenda-content li:nth-child(9) .agenda-overlay, .content.agenda-content li:nth-child(16) .agenda-overlay, .content.agenda-content li:nth-child(23) .agenda-overlay {
+.content.agenda-content li:nth-child(7n + 2) .agenda-overlay {
   background: rgba(191, 37, 66, 0.6);
 }
 
-.content.agenda-content li:nth-child(2):hover .agenda-overlay, .content.agenda-content li:nth-child(9):hover .agenda-overlay, .content.agenda-content li:nth-child(16):hover .agenda-overlay, .content.agenda-content li:nth-child(23):hover .agenda-overlay {
+.content.agenda-content li:nth-child(7n + 2):hover .agenda-overlay {
   background: rgba(191, 37, 66, 0.75);
 }
 
-.content.agenda-content li:nth-child(3) .agenda-overlay,
-.content.agenda-content li:nth-child(10) .content.agenda-content li:nth-child(17) .content.agenda-content li:nth-child(24) .agenda-overlay {
+.content.agenda-content li:nth-child(7n + 3) .agenda-overlay {
   background: rgba(112, 66, 112, 0.6);
 }
 
-.content.agenda-content li:nth-child(3):hover .agenda-overlay,
-.content.agenda-content li:nth-child(10) .content.agenda-content li:nth-child(17) .content.agenda-content li:nth-child(24):hover .agenda-overlay {
+.content.agenda-content li:nth-child(7n + 3):hover .agenda-overlay {
   background: rgba(112, 66, 112, 0.75);
 }
 
-.content.agenda-content li:nth-child(4) .agenda-overlay, .content.agenda-content li:nth-child(11) .agenda-overlay, .content.agenda-content li:nth-child(18) .agenda-overlay, .content.agenda-content li:nth-child(25) .agenda-overlay {
+.content.agenda-content li:nth-child(7n + 4) .agenda-overlay {
   background: rgba(31, 61, 144, 0.6);
 }
 
-.content.agenda-content li:nth-child(4):hover .agenda-overlay, .content.agenda-content li:nth-child(11):hover .agenda-overlay, .content.agenda-content li:nth-child(18):hover .agenda-overlay, .content.agenda-content li:nth-child(25):hover .agenda-overlay {
+.content.agenda-content li:nth-child(7n + 4):hover .agenda-overlay {
   background: rgba(31, 61, 144, 0.75);
 }
 
-.content.agenda-content li:nth-child(5) .agenda-overlay, .content.agenda-content li:nth-child(12) .agenda-overlay, .content.agenda-content li:nth-child(19) .agenda-overlay, .content.agenda-content li:nth-child(26) .agenda-overlay {
+.content.agenda-content li:nth-child(7n + 5) .agenda-overlay {
   background: rgba(86, 70, 136, 0.6);
 }
 
-.content.agenda-content li:nth-child(5):hover .agenda-overlay, .content.agenda-content li:nth-child(12):hover .agenda-overlay, .content.agenda-content li:nth-child(19):hover .agenda-overlay, .content.agenda-content li:nth-child(26):hover .agenda-overlay {
+.content.agenda-content li:nth-child(7n + 5):hover .agenda-overlay {
   background: rgba(86, 70, 136, 0.75);
 }
 
-.content.agenda-content li:nth-child(6) .agenda-overlay, .content.agenda-content li:nth-child(13) .agenda-overlay, .content.agenda-content li:nth-child(20) .agenda-overlay, .content.agenda-content li:nth-child(27) .agenda-overlay {
+.content.agenda-content li:nth-child(7n + 6) .agenda-overlay {
   background: rgba(0, 173, 232, 0.6);
 }
 
-.content.agenda-content li:nth-child(6):hover .agenda-overlay, .content.agenda-content li:nth-child(13):hover .agenda-overlay, .content.agenda-content li:nth-child(20):hover .agenda-overlay, .content.agenda-content li:nth-child(27):hover .agenda-overlay {
+.content.agenda-content li:nth-child(7n + 6):hover .agenda-overlay {
   background: rgba(0, 173, 232, 0.75);
 }
 
-.content.agenda-content li:nth-child(7) .agenda-overlay, .content.agenda-content li:nth-child(14) .agenda-overlay, .content.agenda-content li:nth-child(21) .agenda-overlay, .content.agenda-content li:nth-child(28) .agenda-overlay {
+.content.agenda-content li:nth-child(7n + 7) .agenda-overlay {
   background: rgba(175, 41, 41, 0.6);
 }
 
-.content.agenda-content li:nth-child(7):hover .agenda-overlay, .content.agenda-content li:nth-child(14):hover .agenda-overlay, .content.agenda-content li:nth-child(21):hover .agenda-overlay, .content.agenda-content li:nth-child(28):hover .agenda-overlay {
+.content.agenda-content li:nth-child(7n + 7):hover .agenda-overlay {
   background: rgba(175, 41, 41, 0.75);
 }
 

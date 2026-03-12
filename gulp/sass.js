@@ -4,8 +4,10 @@ import rename from 'gulp-rename';
 import path from 'path';
 
 import postcss from 'gulp-postcss';
-import sass from 'gulp-sass';
-import nodeSass from 'node-sass';
+import gulpSassFactory from 'gulp-sass';
+import * as dartSass from 'sass';
+
+const sass = gulpSassFactory(dartSass);
 import autoprefixer from 'autoprefixer';
 import csswring from 'csswring';
 import c from './color-log.js';
@@ -26,10 +28,10 @@ const compileSCSS = (cb) => {
   gulp
     .src(SRC)
     .pipe(
-      sass(nodeSass)({
+      sass({
         outputStyle: 'expanded',
-      }).on('error', error => {
-        sass.logError(error);
+      }).on('error', function(error) {
+        sass.logError.call(this, error);
         cb(error);
       })
     )

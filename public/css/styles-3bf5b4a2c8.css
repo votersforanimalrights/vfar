@@ -384,8 +384,9 @@ sup a {
 @media only screen and (min-width: 1180px) {
   .header-nav {
     display: block;
-    right: 165px;
-    text-align: left;
+    right: 0;
+    left: 0;
+    text-align: center;
   }
   .header-nav a {
     font-size: 16px;

@@ -10,7 +10,7 @@
   z-index: 10000000;
 
   @include bigscreens() {
-    padding: 10px 10px 50px;
+    padding: 10px 10px 90px;
     position: relative;
   }
 
@@ -187,8 +187,9 @@
 
   @include bigscreens() {
     display: block;
-    right: 165px;
-    text-align: left;
+    right: 0;
+    left: 0;
+    text-align: center;
 
     a {
       @include size-height(16, 40);

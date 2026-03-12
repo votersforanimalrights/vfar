@@ -41,11 +41,11 @@
     "gulp-rev": "11.0.0",
     "gulp-sass": "5.1.0",
     "gulp-util": "3.0.8",
-    "node-sass": "9.0.0",
     "postcss": "8.4.38",
     "prettier": "3.2.5",
     "replace": "1.2.2",
     "run-sequence": "2.2.1",
+    "sass": "^1.98.0",
     "webpack": "5.91.0"
   },
   "dependencies": {

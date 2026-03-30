@@ -41,7 +41,7 @@ get_header() ?>
         <?php foreach ($endorsements as $endorsement): ?>
           <div class="past-endorsement">
             <h2><?php echo esc_html($endorsement->post_title); ?></h2>
-            <div style="margin: 20px>
+            <div style="margin: 20px">
             <?php echo apply_filters('the_content', $endorsement->post_content); ?>
             <p><br/></p>
             <hr />

@@ -24,7 +24,9 @@ get_header() ?>
         $endorsement = $endorsements[0];
       ?>
         <h2><?php echo esc_html($endorsement->post_title); ?></h2>
-        <?php echo apply_filters('the_content', $endorsement->post_content); ?>
+        <div style="margin: 20px 0">
+          <?php echo apply_filters('the_content', $endorsement->post_content); ?>
+        </div>
       <?php else: ?>
         <p>No endorsements have been published yet.</p>
       <?php endif; ?>

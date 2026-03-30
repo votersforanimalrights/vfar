@@ -18,7 +18,7 @@
  * @package WordPress
  */
 
- if ($_SERVER['HTTP_HOST'] === 'vfar:8080') {                                                                                                                                                          
+if ($_SERVER['HTTP_HOST'] === 'vfar:8080') {                                                                                                                                                          
 	define('WP_HOME', 'http://vfar:8080');                                                                                                                                                            
 	define('WP_SITEURL', 'http://vfar:8080');                                                                                                                                               
 }

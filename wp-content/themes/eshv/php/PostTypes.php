@@ -31,6 +31,16 @@ class PostTypes {
   }
 
   public function __construct() {
+    register_post_type( 'vfar_endorsement', [
+      'public' => true,
+      'menu_icon' => 'dashicons-thumbs-up',
+      'has_archive' => false,
+      'rewrite' => false,
+      'show_in_nav_menus' => false,
+      'labels' => static::inflection( 'Endorsement' ),
+      'supports' => [ 'title', 'editor', 'thumbnail' ],
+    ] );
+
     register_post_type( 'vfar_agenda_item', [
       'public' => true,
       'menu_icon' => 'dashicons-clipboard',

@@ -18,6 +18,11 @@
  * @package WordPress
  */
 
+ if ($_SERVER['HTTP_HOST'] === 'vfar:8080') {                                                                                                                                                          
+	define('WP_HOME', 'http://vfar:8080');                                                                                                                                                            
+	define('WP_SITEURL', 'http://vfar:8080');                                                                                                                                               
+}
+
 // error_reporting(-1);
 define('WP_CONTENT_DIR', __DIR__ . '/wp-content');
 $protocol = isset($_SERVER['HTTPS']) && filter_var($_SERVER['HTTPS'], FILTER_VALIDATE_BOOLEAN) ? 'https' : 'http';

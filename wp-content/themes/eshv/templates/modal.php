@@ -1,6 +1,6 @@
 <?php
 $_post = get_post();
-$no_splash = get_post_meta( $_post->ID, 'vfar_page_hide_splash', true ) === 'yes';
+$no_splash = $_post ? get_post_meta( $_post->ID, 'vfar_page_hide_splash', true ) === 'yes' : false;
 
 $className = '';
 

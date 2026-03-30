@@ -4,6 +4,7 @@ $_post_parent_id = $_post->post_parent;
 
 $no_title = get_post_meta( $_post->ID, 'vfar_page_hide_title_over_image', true ) === 'yes';
 
+$thumb = '';
 if ( has_post_thumbnail() ) {
   $thumb = get_the_post_thumbnail();
   $thumb_post = get_post();

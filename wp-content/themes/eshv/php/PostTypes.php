@@ -35,8 +35,8 @@ class PostTypes {
       'public' => true,
       'menu_icon' => 'dashicons-thumbs-up',
       'has_archive' => false,
-      'rewrite' => [ 'slug' => 'endorsement', 'with_front' => false ],
-      'show_in_nav_menus' => true,
+      'rewrite' => false,
+      'show_in_nav_menus' => false,
       'labels' => static::inflection( 'Endorsement' ),
       'supports' => [ 'title', 'editor', 'thumbnail' ],
     ] );
